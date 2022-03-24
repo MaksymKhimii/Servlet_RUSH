@@ -9,13 +9,17 @@
 
 <html>
 <head>
-    <title>User</title>
+    <title>Cashier</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-<jsp:include page="/WEB-INF/parts/navbar.jsp"/>
+<jsp:include page="/WEB-INF/parts/cashier_navbar.jsp"/>
 <p>
-<h1>Cashier successfully logged in!</h1>
+<div style="text-align: center;">cashier successfully logged in!</div>
 </p>
+
+
+
+
 </body>
 </html>

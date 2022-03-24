@@ -1,7 +1,8 @@
-package controller.command;
+package controller.pages;
 
 
 
+import controller.command.Command;
 import db.UserDao;
 
 import javax.servlet.http.HttpServletRequest;

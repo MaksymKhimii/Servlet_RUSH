@@ -32,10 +32,10 @@ public class Login implements Command {
             if (UserDao.getUser(name, pass).equals(UserRole.merchandiser.toString())) {
                // CommandUtility.setUserRole(request, UserRole.merchandiser, name);
 
-                answer = "redirect:/adminhello";
+                answer = "redirect:/merchandiser";
             } else if (UserDao.getUser(name, pass).equals(UserRole.cashier.toString())) {
                CommandUtility.setUserRole(request, UserRole.cashier, name);
-                answer = "redirect:/userhello";
+                answer = "redirect:/cashier";
             } else if(UserDao.getUser(name, pass).equals(UserRole.st_cashier.toString())){
                // CommandUtility.setUserRole(request, UserRole.st_cashier, name);
                 answer = "redirect:/st_cashier";
@@ -61,14 +61,14 @@ public class Login implements Command {
         if(UserDao.validate(n, p)){
             if(UserDao.getUser(n, p).equals(UserRole.merchandiser.toString())){
                 //2 строки рабочего форварда
-                RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/admin-basic/adminhello.jsp");
+                RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/admin-basic/merchandiser.jsp");
                 rd.forward(request,response);
 
                 //попытка сделать редирект не привела к успеху
-               // response.sendRedirect(request.getContextPath() + "/WEB-INF/admin-basic/adminhello.jsp");
+               // response.sendRedirect(request.getContextPath() + "/WEB-INF/admin-basic/merchandiser.jsp");
 
             } else if(UserDao.getUser(n, p).equals(UserRole.cashier.toString())){
-                RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/user-basic/userhello.jsp");
+                RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/user-basic/cashier.jsp");
                 rd.forward(request,response);
             } else if(UserDao.getUser(n, p).equals(UserRole.st_cashier.toString())){
                 RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/st_cashier-basic/st_cashier.jsp");

@@ -108,10 +108,10 @@
 <html>
 
 <head>
-    <title>ADMIN</title>
+    <title>Merchandiser</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
-<jsp:include page="/WEB-INF/parts/admin_navbar.jsp"/>
+<jsp:include page="/WEB-INF/parts/merchandiser_navbar.jsp"/>
 
 <p>
 <div style="text-align: center;">merchandiser successfully logged in!</div>

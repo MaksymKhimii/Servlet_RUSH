@@ -16,7 +16,7 @@ public class deleteProduct implements Command {
                 //ToDo сообщение:успешно удалено(страница)
                 answer="/WEB-INF/admin-basic/successfully_deleted.jsp";
             } else{
-                answer ="/WEB-INF/common/error.jsp";
+                answer ="/WEB-INF/common/merchandiser_error.jsp";
             }
             request.setAttribute("products", ProductsDao.getAllProducts());
         } catch (NumberFormatException | SQLException e){

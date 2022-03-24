@@ -19,7 +19,7 @@ public class searchProduct implements Command {
                 request.setAttribute("products", ProductsDao.getOneProduct(name));
                 answer ="/WEB-INF/admin-basic/change_product.jsp";
             } else {
-                answer ="/WEB-INF/common/error.jsp";
+                answer ="/WEB-INF/common/merchandiser_error.jsp";
             }
         } catch (NumberFormatException e){
             e.printStackTrace();

@@ -2,9 +2,8 @@ package servlets;
 
 import controller.command.*;
 import controller.pages.*;
-import db.entity.User;
-import db.entity.adminhello;
-import db.entity.userhello;
+import controller.pages.merchandiser;
+import controller.pages.cashier;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -26,12 +25,12 @@ public class Servlet extends HttpServlet {
         commands.put("logout", new Logout());
         commands.put("login", new Login());
         commands.put("exception" , new ExceptionCommand());
-        commands.put("adminhello", new adminhello());
-        commands.put("userhello", new userhello());
+        commands.put("merchandiser", new merchandiser());
+        commands.put("cashier", new cashier());
         commands.put("st_cashier", new st_cashier());
         //commands.put("signup", new signup());
         //commands.put("index", new index());
-        commands.put("error", new error());
+        commands.put("error", new merchandiser_error());
         commands.put("add_new_product", new add_new_product());
         commands.put("addProduct", new AddProduct());
         commands.put("searchProduct", new searchProduct());

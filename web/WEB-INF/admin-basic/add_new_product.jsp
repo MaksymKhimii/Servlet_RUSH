@@ -129,7 +129,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-<jsp:include page="/WEB-INF/parts/admin_navbar.jsp"/>
+<jsp:include page="/WEB-INF/parts/merchandiser_navbar.jsp"/>
 
 <p>
 <form name="addProduct" method="post" action="addProduct">
@@ -157,7 +157,7 @@
 </table>
 
 </form>
-<form name="returnAdmin" method="post" action="adminhello">
+<form name="returnAdmin" method="post" action="merchandiser">
     <div style="text-align: center;">
         <button class="button-37" role="button">Return</button>
     </div>

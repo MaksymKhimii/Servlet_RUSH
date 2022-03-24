@@ -72,7 +72,7 @@
 </style>
 <body>
 
-<jsp:include page="/WEB-INF/parts/admin_navbar.jsp"/>
+<jsp:include page="/WEB-INF/parts/merchandiser_navbar.jsp"/>
 <div class="alert" style="text-align: center;">
     <span class="closebtn">×</span>
    <p><strong>Danger!</strong>  The new product has not been added.
@@ -90,7 +90,7 @@
         }
     }
 </script>
-<form name="returnAdmin" method="post" action="adminhello">
+<form name="returnAdmin" method="post" action="merchandiser">
     <div style="text-align: center;">
         <button class="button-37" role="button">Return</button>
     </div>
