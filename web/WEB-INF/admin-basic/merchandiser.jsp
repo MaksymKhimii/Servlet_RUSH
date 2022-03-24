@@ -120,7 +120,6 @@
     <input type="text" placeholder="Search product by name.." name="name">
     <button type="submit"><i class="fa fa-search"></i></button>
 </form>
-</br>
 <table class="table_blur">
     <thead>
     <tr>

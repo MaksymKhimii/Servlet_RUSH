@@ -8,6 +8,6 @@ import java.sql.SQLException;
 public class merchandiser_error implements Command {
     @Override
     public String execute(HttpServletRequest request) throws SQLException {
-        return "/WEB-INF/common/merchandiser_error.jsp";
+        return "/WEB-INF/admin-basic/merchandiser_error.jsp";
     }
 }

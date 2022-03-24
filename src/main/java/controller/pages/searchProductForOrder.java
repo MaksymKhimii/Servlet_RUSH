@@ -6,8 +6,7 @@ import db.ProductsDao;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
-public class searchProduct implements Command {
-
+public class searchProductForOrder implements Command {
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         String answer = null;
@@ -17,9 +16,10 @@ public class searchProduct implements Command {
                 //если такой продукт есть, то выводим информацию о нем
                 ProductsDao.getOneProduct(name);
                 request.setAttribute("products", ProductsDao.getOneProduct(name));
-                answer ="/WEB-INF/admin-basic/change_product.jsp";
+                //ToDo сделать страницу с отображением найденого продукта справа под поисковиком
+                answer ="#";
             } else {
-                answer ="/WEB-INF/admin-basic/merchandiser_error.jsp";
+                answer ="/WEB-INF/user-basic/merchandiser_error.jsp";
             }
         } catch (NumberFormatException e){
             e.printStackTrace();

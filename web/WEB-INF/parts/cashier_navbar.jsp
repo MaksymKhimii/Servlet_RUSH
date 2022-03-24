@@ -12,6 +12,7 @@
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
+
         }
         .topnav {
             overflow: hidden;
@@ -44,13 +45,14 @@
     <a href="/SignUp">Sign Up</a>
     <%-- здесь будет отображение всех чеков которые создал этот кассир--%>
     <a href="#">Orders</a>
+
     <div class="topnav-right">
         <a href="#">Info</a>
         <a href="#">Change Language</a>
     </div>
 </div>
 <div style="text-align: center;">
-    <h2>Cash register at your service</h2>
+
 </div>
 </body>
 </html>
