@@ -6,7 +6,7 @@ import db.ProductsDao;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
-public class searchProductForOrder implements Command {
+public class searchProductForReceipt implements Command {
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         String answer = null;

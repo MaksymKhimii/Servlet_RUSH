@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: meizo
-  Date: 08.02.2022
-  Time: 14:09
+  Date: 25.03.2022
+  Time: 19:25
   To change this template use File | Settings | File Templates.
 --%>
 <html>
@@ -183,53 +183,51 @@
     <div class="centered">
         <p>
         <div style="text-align: center;">
-        <h2>Cash register at your service</h2>
-        cashier successfully logged in!</div>
+            <h2>Cash register at your service</h2>
+            cashier successfully logged in!</div>
         </p>
-        <form name="create_Receipt" method="post" action="create_Receipt">
-            <div style="text-align: center;">
-                <button class="button-37" role="button">Create new receipt</button>
-            </div>
-        </form>
-    </div>
+<%-- Здесь нужно сделать поле для создания заказа--%>
+        Здесь нужно сделать поле для создания заказа
+</div>
 </div>
 
 <div class="split right">
-    <div class="centered">
-        <h2>Here must be products</h2>
-        <form class="example" action="searchProductForReceipt" style="margin:auto;max-width:300px">
-            <input type="text" placeholder="Search product by name.." name="name">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-        <p>
-        <table class="table_blur">
-            <thead>
-            <tr>
-                <th>idproducts</th>
-                <th>name</th>
-                <th>quantity</th>
-                <th>weight</th>
-                <th>tonnage</th>
-                <th>price</th>
-            </tr>
-            </thead>
-            <tbody>
-            <jsp:useBean id="products" scope="request" type="java.util.List"/>
-            <c:forEach items="${products}" var="prod">
-                <tr>
-                    <th>${prod.idproducts}</th>
-                    <th>${prod.name}</th>
-                    <th>${prod.quantity}</th>
-                    <th>${prod.weight}</th>
-                    <th>${prod.tonnage}</th>
-                    <th>${prod.price}</th>
-                    <th><input type="submit" value="Add"  formaction="#"></th>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-        </p>
-    </div>
+<div class="centered">
+  <h2>Here must be products</h2>
+  <form class="example" action="searchProductForOrder" style="margin:auto;max-width:300px">
+      <input type="text" placeholder="Search product by name.." name="name">
+      <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+  <p>
+  <table class="table_blur">
+      <thead>
+      <tr>
+          <th>idproducts</th>
+          <th>name</th>
+          <th>quantity</th>
+          <th>weight</th>
+          <th>tonnage</th>
+          <th>price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <jsp:useBean id="products" scope="request" type="java.util.List"/>
+      <c:forEach items="${products}" var="prod">
+          <tr>
+              <th>${prod.idproducts}</th>
+              <th>${prod.name}</th>
+              <th>${prod.quantity}</th>
+              <th>${prod.weight}</th>
+              <th>${prod.tonnage}</th>
+              <th>${prod.price}</th>
+              <th><input type="submit" value="Add"  formaction="#"></th>
+          </tr>
+      </c:forEach>
+      </tbody>
+  </table>
+  </p>
+</div>
 </div>
 </body>
 <html>
+

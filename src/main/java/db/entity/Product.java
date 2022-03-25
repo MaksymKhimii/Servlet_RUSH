@@ -24,6 +24,7 @@ public class Product {
     public void setWeight(double weight) {this.weight = weight;}
     public boolean getTonnage() {return tonnage;}
     public void setTonnage(boolean tonnage) {this.tonnage = tonnage;}
+
     public static int boolToInt(boolean tonnage) {
         return Boolean.compare(tonnage, false);
     }
