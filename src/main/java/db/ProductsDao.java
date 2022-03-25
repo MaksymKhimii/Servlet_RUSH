@@ -4,6 +4,7 @@ import db.entity.Product;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ProductsDao {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
@@ -40,18 +41,20 @@ public class ProductsDao {
         }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
         return status;
     }
-    public static boolean validateProduct(String name, int quantity, double weight, double price) {
+    public static boolean validateProduct(String name, int quantity, double weight, boolean tonnage, double price) {
         boolean answer = false;
         try{
-            String GETUSER="select * from mydbtest.products where name=? AND quantity=? AND weight=? AND price=?;";
-
+            String GETUSER="select * from mydbtest.products where name=? AND quantity=? AND weight=? AND tonnage=? AND price=?;";
+            //приводим boolean к int чтобы запрос работал
+            int tonnageInt=Product.boolToInt(tonnage);
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1,name);
             ps.setString(2, String.valueOf(quantity));
             ps.setString(3, String.valueOf(weight));
-            ps.setString(4, String.valueOf(price));
+            ps.setString(4, String.valueOf(tonnageInt));
+            ps.setString(5, String.valueOf(price));
             try (ResultSet rs=ps.executeQuery()){
                 answer=rs.next();
             }
@@ -60,11 +63,12 @@ public class ProductsDao {
     }
 
     //добавление нового продукта в таблицу products
-    public static Boolean addProduct(String name, int quantity, double weight, double price) throws SQLException, ClassNotFoundException {
+    public static Boolean addProduct(String name, int quantity, double weight, boolean tonnage, double price) throws SQLException, ClassNotFoundException {
         boolean status= false;
-
+        //приводим boolean к int чтобы запрос работал
+        int tonnageInt=Product.boolToInt(tonnage);
         try {
-            String ADD_Product="insert into mydbtest.products(name,quantity,weight,price) values(?,?,?,?);";
+            String ADD_Product="INSERT INTO mydbtest.products(name,quantity,weight,tonnage, price) VALUES(?,?,?,?,?);";
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
 
@@ -72,9 +76,10 @@ public class ProductsDao {
             ps.setString(1,name);
             ps.setString(2, String.valueOf(quantity));
             ps.setString(3, String.valueOf(weight));
-            ps.setString(4, String.valueOf(price));
-            ps.execute();
-            if(ProductsDao.validateProduct(name, quantity, weight, price)){
+            ps.setString(4, String.valueOf(tonnageInt));
+            ps.setString(5, String.valueOf(price));
+            ps.executeUpdate();
+            if(ProductsDao.validateProduct(name, quantity, weight, tonnage, price)){
                 status=true;
             }
         } catch (SQLException e){
@@ -83,17 +88,19 @@ public class ProductsDao {
         return status;
     }
     //изменяет поля продукта с определенным name
-    public static void changeProduct(String name, int quantity, double weight, double price) {
-        String Query = "UPDATE mydbtest.products SET quantity=?, weight=?, price=? WHERE name =?;";
-
+    public static void changeProduct(String name, int quantity, double weight, boolean tonnage, double price) {
+        String Query = "UPDATE mydbtest.products SET quantity=?, weight=?, tonnage=?, price=? WHERE name =?;";
+        //приводим boolean к int чтобы запрос работал
+        int tonnageInt=Product.boolToInt(tonnage);
           try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             PreparedStatement pstmt = con.prepareStatement(Query);
             pstmt.setString(1, String.valueOf(quantity));
             pstmt.setString(2, String.valueOf(weight));
-            pstmt.setString(3, String.valueOf(price));
-            pstmt.setString(4, name);
+            pstmt.setString(3, String.valueOf(tonnageInt));
+            pstmt.setString(4, String.valueOf(price));
+            pstmt.setString(5, name);
             int rs = pstmt.executeUpdate();
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -121,7 +128,7 @@ public class ProductsDao {
     }
     public static ArrayList<Product> getAllProducts(){
         ArrayList<Product> products= new ArrayList<Product>(){};
-        String Query = "SELECT idproducts, name, quantity, weight, price FROM mydbtest.products;";
+        String Query = "SELECT idproducts, name, quantity, weight, tonnage, price FROM mydbtest.products;";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -134,6 +141,7 @@ public class ProductsDao {
                 AllProducts.setName(rs.getString("name"));
                 AllProducts.setQuantity(rs.getInt("quantity"));
                 AllProducts.setWeight(rs.getDouble("weight"));
+                AllProducts.setTonnage(rs.getBoolean("tonnage"));
                 AllProducts.setPrice(rs.getDouble("price"));
                 products.add(AllProducts);
                 found= true;
@@ -147,7 +155,7 @@ public class ProductsDao {
     }
     public static ArrayList<Product> getOneProduct(String name){
         ArrayList<Product> products= new ArrayList<Product>(){};
-        String Query = "SELECT idproducts, name, quantity, weight, price FROM mydbtest.products WHERE name=?;";
+        String Query = "SELECT idproducts, name, quantity, weight, tonnage, price FROM mydbtest.products WHERE name=?;";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -161,6 +169,7 @@ public class ProductsDao {
                 AllProducts.setName(rs.getString("name"));
                 AllProducts.setQuantity(rs.getInt("quantity"));
                 AllProducts.setWeight(rs.getDouble("weight"));
+                AllProducts.setTonnage(rs.getBoolean("tonnage"));
                 AllProducts.setPrice(rs.getDouble("price"));
                 products.add(AllProducts);
                 found= true;

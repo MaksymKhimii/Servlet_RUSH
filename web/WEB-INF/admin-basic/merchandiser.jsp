@@ -127,6 +127,7 @@
         <th>name</th>
         <th>quantity</th>
         <th>weight</th>
+        <th>tonnage</th>
         <th>price</th>
     </tr>
     </thead>
@@ -138,6 +139,7 @@
             <th> ${prod.name}</th>
             <th>${prod.quantity}</th>
             <th>${prod.weight}</th>
+            <th><input type="text" value="${prod.tonnage}" disabled></th>
             <th>${prod.price}</th>
             <%--<th><input type="submit" value="Delete"></th>--%>
         </tr>

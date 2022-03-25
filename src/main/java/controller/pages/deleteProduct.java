@@ -13,7 +13,6 @@ public class deleteProduct implements Command {
         try {
             String name = request.getParameter("name");
             if(ProductsDao.deleteProduct(name)){
-                //ToDo сообщение:успешно удалено(страница)
                 answer="/WEB-INF/admin-basic/successfully_deleted.jsp";
             } else{
                 answer ="/WEB-INF/common/merchandiser_error.jsp";

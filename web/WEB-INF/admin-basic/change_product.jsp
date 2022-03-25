@@ -142,6 +142,7 @@
             <th>name</th>
             <th>quantity</th>
             <th>weight</th>
+            <th>tonnage</th>
             <th>price</th>
         </tr>
         </thead>
@@ -154,6 +155,11 @@
                 <th><input type="text" value="${prod.name}" name="name" required></th>
                 <th><input type="number" value="${prod.quantity}" name="quantity" required></th>
                 <th><input type="number" step="0.01" value="${prod.weight}" name="weight" required></th>
+                <th><input list="tonnage" name="tonnage" value="${prod.tonnage}" id="tonnages" required>
+                    <datalist id="tonnage">
+                        <option value="TRUE">
+                        <option value="FALSE">
+                    </datalist></th>
                 <th><input type="number" step="0.01" value="${prod.price}" name="price" required></th>
                 <th><input type="submit" value="Save"  formaction="changeProduct"></th>
                 <th><input type="submit" value="Delete" formaction="deleteProduct"></th>
