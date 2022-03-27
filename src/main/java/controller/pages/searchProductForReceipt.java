@@ -17,9 +17,10 @@ public class searchProductForReceipt implements Command {
                 ProductsDao.getOneProduct(name);
                 request.setAttribute("products", ProductsDao.getOneProduct(name));
                 //ToDo сделать страницу с отображением найденого продукта справа под поисковиком
-                answer ="#";
+
+                answer ="/WEB-INF/user-basic/addToReceipt.jsp";
             } else {
-                answer ="/WEB-INF/user-basic/merchandiser_error.jsp";
+                answer ="/WEB-INF/user-basic/cashier_error.jsp";
             }
         } catch (NumberFormatException e){
             e.printStackTrace();

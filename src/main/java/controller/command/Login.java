@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 public class Login implements Command {
@@ -23,21 +24,25 @@ public class Login implements Command {
     public String execute(HttpServletRequest request) throws SQLException {
         //username and password:
 
+        HttpSession session = request.getSession();
         String name = request.getParameter("username");
+        session.setAttribute("username", name);
+        String username = (String) session.getAttribute("username");
         String pass = request.getParameter("password");
       //  System.out.println(name+ pass);
         String answer = null;
+
         //System.out.println(UserDao.validate(name, pass));
         if (UserDao.validate(name, pass)) {
             if (UserDao.getUser(name, pass).equals(UserRole.merchandiser.toString())) {
-               // CommandUtility.setUserRole(request, UserRole.merchandiser, name);
+                CommandUtility.setUserRole(request, UserRole.merchandiser, name);
 
                 answer = "redirect:/merchandiser";
             } else if (UserDao.getUser(name, pass).equals(UserRole.cashier.toString())) {
                CommandUtility.setUserRole(request, UserRole.cashier, name);
                 answer = "redirect:/cashier";
             } else if(UserDao.getUser(name, pass).equals(UserRole.st_cashier.toString())){
-               // CommandUtility.setUserRole(request, UserRole.st_cashier, name);
+                CommandUtility.setUserRole(request, UserRole.st_cashier, name);
                 answer = "redirect:/st_cashier";
             }
         } else {
