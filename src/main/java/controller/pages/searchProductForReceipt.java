@@ -16,7 +16,6 @@ public class searchProductForReceipt implements Command {
                 //если такой продукт есть, то выводим информацию о нем
                 ProductsDao.getOneProduct(name);
                 request.setAttribute("products", ProductsDao.getOneProduct(name));
-                //ToDo сделать страницу с отображением найденого продукта справа под поисковиком
 
                 answer ="/WEB-INF/user-basic/addToReceipt.jsp";
             } else {
