@@ -204,9 +204,6 @@
                 <th>idproducts</th>
                 <th>name</th>
                 <th>quantity</th>
-                <th>weight</th>
-                <th>tonnage</th>
-                <th>price</th>
             </tr>
             </thead>
             <tbody>
@@ -216,6 +213,22 @@
                     <th>${prod.idproducts}</th>
                     <th><input type="text" value="${prod.name}" name="name" required></th>
                     <th><input type="number" value="${prod.quantity}" name="quantity" required></th>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+        <%-- вторая часть таблицы--%>
+        <table class="table_blur">
+            <thead>
+            <tr>
+                <th>weight</th>
+                <th>tonnage</th>
+                <th>price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${products}" var="prod">
+                <tr>
                     <th><input type="number" step="0.01" value="${prod.weight}" name="weight" required></th>
                     <th><input list="tonnage" name="tonnage" value="${prod.tonnage}" id="tonnages" required>
                         <datalist id="tonnage">
@@ -223,11 +236,12 @@
                             <option value="FALSE">
                         </datalist></th>
                     <th><input type="number" step="0.01" value="${prod.price}" name="price" required></th>
-                    <th><input type="submit" value="Add to receipt"  formaction="AddToBasket"></th>
+
                 </tr>
             </c:forEach>
             </tbody>
         </table>
+        <input type="submit" value="Add to receipt"  formaction="AddToBasket">
         </p>
     </div>
 </div>
