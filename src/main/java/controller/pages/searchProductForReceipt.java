@@ -25,9 +25,9 @@ public class searchProductForReceipt implements Command {
                 // иначе же перенаправить на addToReceipt как дефолтную страницу добавления, которая будет использоваться далее
                 if(BasketDAO.checkBasket()){
                     answer ="/WEB-INF/user-basic/addToReceipt.jsp";
-                } else{
-                    //TODO тут страница еслив таблице продуктов нет в корзине
-                    answer="#";
+                }else{
+                        //TODO тут страница еслив таблице продуктов нет в корзине
+                        answer="/WEB-INF/user-basic/firstAddProduct.jsp";
                 }
             } else {
                 answer ="/WEB-INF/user-basic/cashier_error.jsp";

@@ -58,13 +58,4 @@ public class AddToBasket implements Command {
         return answer;
 
     }
-   /* private static ArrayList<Basket> replaceNull(ArrayList<Basket> basket){
-        // implement your logic
-        for (basket: ArrayList<Basket>) {
-            if(basket.contains(null)){
-
-            }
-        }
-        return basket;
-    }*/
 }
