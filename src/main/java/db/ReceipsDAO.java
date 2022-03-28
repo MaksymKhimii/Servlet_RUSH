@@ -3,6 +3,7 @@ package db;
 import db.entity.Product;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class ReceipsDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
@@ -41,23 +42,48 @@ public class ReceipsDAO {
         return status;
     }
     /** создание нового чека*/
-    public static boolean  addReceipt(String cashier_name) throws SQLException, ClassNotFoundException {
+    public static boolean addReceipt(String cashier_name) throws SQLException, ClassNotFoundException {
 
-        boolean status = false;
+        boolean status=false;
         try {
             String ADD_Product = "INSERT INTO mydbtest.receipts(cashier_name) VALUES(?);";
+
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 
             PreparedStatement ps = con.prepareStatement(ADD_Product);
             ps.setString(1, cashier_name);
             ps.executeUpdate();
-            status = true;
+            status=true;
+          /*  PreparedStatement ps2=con.prepareStatement(Get_ID);
+            ResultSet rs2=ps2.executeQuery();
+            while(rs2.next()) {
+                receiptId = rs2.getInt("idreceipt");
+            }*/
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return status;
     }
+    /**этот метод достает id последнего созданого чека*/
+    public static int getLastReceiptId() throws ClassNotFoundException, SQLException {
+        int idreceipt=0;
+        try {
+            String Get_ID = "SELECT idreceipt FROM mydbtest.receipts ORDER BY idreceipt DESC LIMIT 1;";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement ps= con.prepareStatement(Get_ID);
+            ResultSet res=ps.executeQuery();
+            while (res.next()){
+               idreceipt=res.getInt("idreceipt");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return idreceipt;
+    }
+
+    /**тут мы закрываем чек, но нужно будет сделать очистку таблицы basket*/
     public static boolean  closeReceipt(double total_sum) throws SQLException, ClassNotFoundException {
 
         boolean status = false;
@@ -75,7 +101,4 @@ public class ReceipsDAO {
         }
         return status;
     }
-
-
-
 }

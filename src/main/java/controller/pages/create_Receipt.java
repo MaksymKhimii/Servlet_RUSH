@@ -1,6 +1,7 @@
 package controller.pages;
 
 import controller.command.Command;
+import db.BasketDAO;
 import db.ProductsDao;
 import db.ReceipsDAO;
 
@@ -14,9 +15,10 @@ public class create_Receipt implements Command {
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         HttpSession session = request.getSession();
         String cashier_id = (String)session.getAttribute("username");
-        System.out.println("username: "+cashier_id);
-
         ReceipsDAO.addReceipt(cashier_id);
+
+        request.setAttribute("rec", ReceipsDAO.getLastReceiptId()); //отображение id чека
+        request.setAttribute("basket", BasketDAO.getAllBasket());
         request.setAttribute("products", ProductsDao.getAllProducts());
         return "/WEB-INF/user-basic/createReceipt.jsp";
     }

@@ -1,10 +1,14 @@
 package controller.pages;
 
 import controller.command.Command;
+import db.BasketDAO;
 import db.ProductsDao;
+import db.ReceipsDAO;
+import db.entity.Basket;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class AddToBasket implements Command {
 
@@ -19,17 +23,34 @@ public class AddToBasket implements Command {
         // 4. Создать страницу отображения добавленого продукта слева на странице
         String answer = null;
         try {
+            int idproduct= Integer.parseInt(request.getParameter("idproducts"));
             String name = request.getParameter("name");
             int quantity = Integer.parseInt(request.getParameter("quantity"));
             double weight = Double.parseDouble(request.getParameter("weight"));
             boolean tonnage=Boolean.parseBoolean(request.getParameter("tonnage"));
             double price = Double.parseDouble(request.getParameter("price"));
+            System.out.println("idproducts:"+idproduct);
             System.out.println("name"+name);
             System.out.println("quantity"+quantity);
             System.out.println("weight"+weight);
             System.out.println("tonnage"+tonnage);
             System.out.println("price"+price);
+            //добавление продукта в корзину нового чека
+            BasketDAO.addProdToBasket(idproduct, name, quantity, weight, tonnage, price);
+
+            request.setAttribute("rec", ReceipsDAO.getLastReceiptId()); //отображение id чека
+            request.setAttribute("basket", BasketDAO.getAllBasket());
             request.setAttribute("products", ProductsDao.getAllProducts());
+            if(BasketDAO.validateBasket(idproduct, name, quantity, weight, tonnage, price)){
+                //TODO сделать сообщение или всплывающее окно
+                // об успешном добавлении продукта
+                // тут будет отображаться 2 таблицы с продолжением поиска продуктов
+                answer ="/WEB-INF/user-basic/duringReceipt.jsp";
+            } else{
+                //TODO сообщение об ошибке/ страница об ошибке
+                answer="#";
+            }
+
 
         } catch (NumberFormatException e){
             e.printStackTrace();
@@ -37,4 +58,13 @@ public class AddToBasket implements Command {
         return answer;
 
     }
+   /* private static ArrayList<Basket> replaceNull(ArrayList<Basket> basket){
+        // implement your logic
+        for (basket: ArrayList<Basket>) {
+            if(basket.contains(null)){
+
+            }
+        }
+        return basket;
+    }*/
 }

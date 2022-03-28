@@ -1,3 +1,4 @@
+
 <%--
   Created by IntelliJ IDEA.
   User: meizo
@@ -173,6 +174,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
 <head>
     <title>Cashier</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -183,49 +185,51 @@
     <div class="centered">
         <p>
         <div style="text-align: center;">
-            <h2>Cash register at your service</h2>
+
             cashier successfully logged in!</div>
         </p>
 <%-- Здесь нужно сделать поле для создания заказа--%>
+       <h2>Receipt id: ${rec}</h2>
+    <%-- тут таблица с продуктами из корзины--%>
+
 </div>
 </div>
 
 <div class="split right">
 <div class="centered">
-  <h2>Here must be products</h2>
-  <form class="example" action="searchProductForReceipt" style="margin:auto;max-width:300px">
-      <input type="text" placeholder="Search product by name.." name="name">
-      <button type="submit"><i class="fa fa-search"></i></button>
-  </form>
-  <p>
-  <table class="table_blur">
-      <thead>
+<h2>Cash register at your service</h2>
+<form class="example" action="searchProductForReceipt" style="margin:auto;max-width:300px">
+  <input type="text" placeholder="Search product by name.." name="name">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+<p>
+<table class="table_blur">
+  <thead>
+  <tr>
+      <th>idproducts</th>
+      <th>name</th>
+      <th>quantity</th>
+      <th>weight</th>
+      <th>tonnage</th>
+      <th>price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <jsp:useBean id="products" scope="request" type="java.util.List"/>
+  <c:forEach items="${products}" var="prod">
       <tr>
-          <th>idproducts</th>
-          <th>name</th>
-          <th>quantity</th>
-          <th>weight</th>
-          <th>tonnage</th>
-          <th>price</th>
+          <th>${prod.idproducts}</th>
+          <th>${prod.name}</th>
+          <th>${prod.quantity}</th>
+          <th>${prod.weight}</th>
+          <th>${prod.tonnage}</th>
+          <th>${prod.price}</th>
       </tr>
-      </thead>
-      <tbody>
-      <jsp:useBean id="products" scope="request" type="java.util.List"/>
-      <c:forEach items="${products}" var="prod">
-          <tr>
-              <th>${prod.idproducts}</th>
-              <th>${prod.name}</th>
-              <th>${prod.quantity}</th>
-              <th>${prod.weight}</th>
-              <th>${prod.tonnage}</th>
-              <th>${prod.price}</th>
-          </tr>
-      </c:forEach>
-      </tbody>
-  </table>
-  </p>
+  </c:forEach>
+  </tbody>
+</table>
+</p>
 </div>
 </div>
 </body>
-<html>
-
+</html>

@@ -183,8 +183,35 @@
     <div class="centered">
         <p>
         <div style="text-align: center;">
-            <h2>Cash register at your service</h2>
-            cashier successfully logged in!</div>
+            cashier successfully logged in!
+        <h2>Receipt id: ${rec}</h2>
+    </div>
+        <p>
+        <table class="table_blur">
+            <thead>
+            <tr>
+                <th>idproduct</th>
+                <th>name</th>
+                <th>quantity</th>
+                <th>weight</th>
+                <th>tonnage</th>
+                <th>price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <jsp:useBean id="basket" scope="request" type="java.util.List"/>
+            <c:forEach items="${basket}" var="bas">
+                <tr>
+                    <th>${bas.idproducts}</th>
+                    <th>${bas.name}</th>
+                    <th>${bas.quantity}</th>
+                    <th>${bas.weight}</th>
+                    <th>${bas.tonnage}</th>
+                    <th>${bas.price}</th>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
         </p>
         <%-- Здесь нужно сделать поле для создания заказа--%>
     </div>
@@ -192,7 +219,7 @@
 
 <div class="split right">
     <div class="centered">
-        <h2>Here must be products</h2>
+        <h2>Cash register at your service</h2>
         <form class="example" action="searchProductForReceipt" style="margin:auto;max-width:300px">
             <input type="text" placeholder="Search product by name.." name="name">
             <button type="submit"><i class="fa fa-search"></i></button>
@@ -236,12 +263,14 @@
                             <option value="FALSE">
                         </datalist></th>
                     <th><input type="number" step="0.01" value="${prod.price}" name="price" required></th>
-
                 </tr>
             </c:forEach>
             </tbody>
         </table>
-        <input type="submit" value="Add to receipt"  formaction="AddToBasket">
+        <form name="ADDTOBASKET"  action="AddToBasket">
+            <input type="submit" value="Add to receipt">
+        </form>
+
         </p>
     </div>
 </div>

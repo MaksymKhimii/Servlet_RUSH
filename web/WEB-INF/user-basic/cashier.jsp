@@ -183,7 +183,6 @@
     <div class="centered">
         <p>
         <div style="text-align: center;">
-        <h2>Cash register at your service</h2>
         cashier successfully logged in!</div>
         </p>
         <form name="create_Receipt" method="post" action="create_Receipt">
@@ -196,7 +195,7 @@
 
 <div class="split right">
     <div class="centered">
-        <h2>Here must be products</h2>
+        <h2>Cash register at your service</h2>
         <form class="example" action="searchProductForReceipt" style="margin:auto;max-width:300px">
             <input type="text" placeholder="Search product by name.." name="name">
             <button type="submit"><i class="fa fa-search"></i></button>
@@ -223,7 +222,6 @@
                     <th>${prod.weight}</th>
                     <th>${prod.tonnage}</th>
                     <th>${prod.price}</th>
-                    <th><input type="submit" value="Add"  formaction="#"></th>
                 </tr>
             </c:forEach>
             </tbody>
