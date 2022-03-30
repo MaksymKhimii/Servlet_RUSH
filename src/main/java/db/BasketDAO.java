@@ -29,7 +29,8 @@ public class BasketDAO {
      * <p>
      * ми
      */
-    public static boolean validateBasket( int idproduct, String name, int quantity, double weight, boolean tonnage, double price) throws SQLException, ClassNotFoundException {
+    public static boolean validateBasket( int idproduct, String name, int quantity, double weight,
+                                          boolean tonnage, double price) throws SQLException, ClassNotFoundException {
         boolean answer = false;
         int idreceipt = ReceipsDAO.getLastReceiptId();
         //приводим boolean к int чтобы запрос работал
@@ -89,7 +90,6 @@ public class BasketDAO {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             PreparedStatement ps = con.prepareStatement(ADD_Product);
-
             ps.setString(1, String.valueOf(idreceipt));
             ps.setString(2, String.valueOf(idproduct));
             ps.setString(3, String.valueOf(name));

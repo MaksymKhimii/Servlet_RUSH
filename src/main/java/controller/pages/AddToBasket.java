@@ -29,29 +29,21 @@ public class AddToBasket implements Command {
             double weight = Double.parseDouble(request.getParameter("weight"));
             boolean tonnage=Boolean.parseBoolean(request.getParameter("tonnage"));
             double price = Double.parseDouble(request.getParameter("price"));
-            System.out.println("idproducts:"+idproduct);
-            System.out.println("name"+name);
-            System.out.println("quantity"+quantity);
-            System.out.println("weight"+weight);
-            System.out.println("tonnage"+tonnage);
-            System.out.println("price"+price);
             //добавление продукта в корзину нового чека
             BasketDAO.addProdToBasket(idproduct, name, quantity, weight, tonnage, price);
 
             request.setAttribute("rec", ReceipsDAO.getLastReceiptId()); //отображение id чека
             request.setAttribute("basket", BasketDAO.getAllBasket());
             request.setAttribute("products", ProductsDao.getAllProducts());
-            if(BasketDAO.validateBasket(idproduct, name, quantity, weight, tonnage, price)){
+            if(!BasketDAO.validateBasket(idproduct, name, quantity, weight, tonnage, price)){
                 //TODO сделать сообщение или всплывающее окно
                 // об успешном добавлении продукта
                 // тут будет отображаться 2 таблицы с продолжением поиска продуктов
                 answer ="/WEB-INF/user-basic/duringReceipt.jsp";
             } else{
                 //TODO сообщение об ошибке/ страница об ошибке
-                answer="#";
+                answer ="/WEB-INF/user-basic/cashier_error.jsp";
             }
-
-
         } catch (NumberFormatException e){
             e.printStackTrace();
         }

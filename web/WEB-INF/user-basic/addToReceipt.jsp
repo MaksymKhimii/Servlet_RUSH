@@ -190,6 +190,7 @@
         <table class="table_blur">
             <thead>
             <tr>
+                <th>idreceipt</th>
                 <th>idproduct</th>
                 <th>name</th>
                 <th>quantity</th>
@@ -202,7 +203,8 @@
             <jsp:useBean id="basket" scope="request" type="java.util.List"/>
             <c:forEach items="${basket}" var="bas">
                 <tr>
-                    <th>${bas.idproducts}</th>
+                    <th>${prod.idreceipt}</th>
+                    <th>${bas.idproduct}</th>
                     <th>${bas.name}</th>
                     <th>${bas.quantity}</th>
                     <th>${bas.weight}</th>
@@ -225,6 +227,7 @@
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
         <p>
+        <form name="AddToBasket"  action="AddToBasket">
         <table class="table_blur">
             <thead>
             <tr>
@@ -267,7 +270,6 @@
             </c:forEach>
             </tbody>
         </table>
-        <form name="ADDTOBASKET"  action="AddToBasket">
             <input type="submit" value="Add to receipt">
         </form>
 

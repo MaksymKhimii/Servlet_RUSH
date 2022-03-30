@@ -203,33 +203,55 @@
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
         <p>
+        <form name="AddToBasket"  action="AddToBasket">
         <table class="table_blur">
             <thead>
             <tr>
                 <th>idproducts</th>
                 <th>name</th>
                 <th>quantity</th>
-                <th>weight</th>
-                <th>tonnage</th>
-                <th>price</th>
             </tr>
             </thead>
             <tbody>
             <jsp:useBean id="products" scope="request" type="java.util.List"/>
             <c:forEach items="${products}" var="prod">
                 <tr>
-                    <th>${prod.idproducts}</th>
-                    <th>${prod.name}</th>
-                    <th>${prod.quantity}</th>
-                    <th>${prod.weight}</th>
-                    <th>${prod.tonnage}</th>
-                    <th>${prod.price}</th>
+                    <th><input type="number" value="${prod.idproducts}" name="idproducts" required></th>
+                    <th><input type="text" value="${prod.name}" name="name" required></th>
+                    <th><input type="number" value="${prod.quantity}" name="quantity" required></th>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
+        <%-- вторая часть таблицы--%>
+        <table class="table_blur">
+            <thead>
+            <tr>
+                <th>weight</th>
+                <th>tonnage</th>
+                <th>price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach items="${products}" var="prod">
+                <tr>
+                    <th><input type="number" step="0.01" value="${prod.weight}" name="weight" required></th>
+                    <th><input list="tonnage" name="tonnage" value="${prod.tonnage}" id="tonnages" required>
+                        <datalist id="tonnage">
+                            <option value="TRUE">
+                            <option value="FALSE">
+                        </datalist></th>
+                    <th><input type="number" step="0.01" value="${prod.price}" name="price" required></th>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+
+            <input type="submit" value="Add to receipt">
+        </form>
+
         </p>
     </div>
 </div>
 </body>
-</html>
+<html>

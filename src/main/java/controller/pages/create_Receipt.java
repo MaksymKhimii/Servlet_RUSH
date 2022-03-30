@@ -18,7 +18,7 @@ public class create_Receipt implements Command {
         ReceipsDAO.addReceipt(cashier_id);
 
         request.setAttribute("rec", ReceipsDAO.getLastReceiptId()); //отображение id чека
-        request.setAttribute("basket", BasketDAO.getAllBasket());
+       // request.setAttribute("basket", BasketDAO.getAllBasket());
         request.setAttribute("products", ProductsDao.getAllProducts());
         return "/WEB-INF/user-basic/createReceipt.jsp";
     }

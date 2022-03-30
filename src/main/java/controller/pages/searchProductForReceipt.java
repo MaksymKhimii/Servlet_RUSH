@@ -20,7 +20,7 @@ public class searchProductForReceipt implements Command {
 
                 request.setAttribute("rec", ReceipsDAO.getLastReceiptId()); //отображение id чека
                 request.setAttribute("basket", BasketDAO.getAllBasket());
-                request.setAttribute("products", ProductsDao.getAllProducts());
+                request.setAttribute("products",  ProductsDao.getOneProduct(name));
                 //TODO если в корзине еще не продуктов то перенаправить на новую страницу без отображения таблицы слева
                 // иначе же перенаправить на addToReceipt как дефолтную страницу добавления, которая будет использоваться далее
                 if(BasketDAO.checkBasket()){

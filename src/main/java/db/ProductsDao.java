@@ -41,6 +41,7 @@ public class ProductsDao {
         }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
         return status;
     }
+
     public static boolean validateProduct(String name, int quantity, double weight, boolean tonnage, double price) {
         boolean answer = false;
         try{
