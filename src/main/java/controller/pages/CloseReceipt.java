@@ -6,22 +6,18 @@ import db.ProductsDao;
 import db.ReceipsDAO;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 
-public class create_Receipt implements Command {
-
+public class CloseReceipt implements Command {
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
-        HttpSession session = request.getSession();
-        String cashier_id = (String)session.getAttribute("username");
-        ReceipsDAO.addReceipt(cashier_id);
-
+        //TODO создать новую страницу успешного закрытия чека
+        // потом редирект назад на главную страницу кассира+ удалить корзину, сохранив ее
+        // в новую таблицу. Поискать и доделать косяки
         request.setAttribute("rec", ReceipsDAO.getLastReceiptId()); //отображение id чека
-        //отображение суммы чека
         request.setAttribute("totalSum", ReceipsDAO.getReceiptSum(ReceipsDAO.getLastReceiptId()));
-       // request.setAttribute("basket", BasketDAO.getAllBasket());
+        request.setAttribute("basket", BasketDAO.getAllBasket());
         request.setAttribute("products", ProductsDao.getAllProducts());
-        return "/WEB-INF/user-basic/createReceipt.jsp";
+        return "/WEB-INF/user-basic/duringReceipt.jsp";
     }
 }

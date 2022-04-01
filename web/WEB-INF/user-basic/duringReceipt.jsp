@@ -215,7 +215,13 @@
             </tbody>
         </table>
         </p>
+        <h2>Total Sum: ${totalSum}</h2>
         <%-- Здесь нужно сделать поле для создания заказа--%>
+        <form name="closeReceipt" method="post" action="closeReceipt">
+            <div style="text-align: center;">
+                <button class="button-37" role="button">Close Receipt</button>
+            </div>
+        </form>
     </div>
 </div>
 

@@ -46,13 +46,14 @@ public class ReceipsDAO {
 
         boolean status=false;
         try {
-            String ADD_Product = "INSERT INTO mydbtest.receipts(cashier_name) VALUES(?);";
+            String ADD_Product = "INSERT INTO mydbtest.receipts(cashier_name, total_sum) VALUES(?, ?);";
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 
             PreparedStatement ps = con.prepareStatement(ADD_Product);
             ps.setString(1, cashier_name);
+            ps.setString(2, Integer.toString(0));
             ps.executeUpdate();
             status=true;
           /*  PreparedStatement ps2=con.prepareStatement(Get_ID);
@@ -81,6 +82,56 @@ public class ReceipsDAO {
             e.printStackTrace();
         }
         return idreceipt;
+    }
+
+    /**этот метод изменяет total_sum чека с указаным idreceipt*/
+    public static void changeReceiptSum(int idreceipt, double addedSum) throws ClassNotFoundException, SQLException {
+        double newSum, totalSum=0;
+        try {
+            String Query1 = "SELECT total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement ps= con.prepareStatement(Query1);
+            ps.setString(1, Integer.toString(idreceipt));
+            ResultSet res=ps.executeQuery();
+            while (res.next()){
+                totalSum=res.getDouble("total_sum");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        newSum=totalSum+addedSum;
+        try {
+            String Query2 = "UPDATE mydbtest.receipts SET total_sum=? WHERE idreceipt=?;";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement ps= con.prepareStatement(Query2);
+            ps.setString(1, Double.toString(newSum));
+            ps.setString(2,Integer.toString(idreceipt) );
+            int res=ps.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+
+    /**этот метод достает total_sum чека с указаным idreceipt*/
+    public static double getReceiptSum(int idreceipt) throws ClassNotFoundException, SQLException {
+        double total_sum=0;
+        try {
+            String Get_ID = "SELECT total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement ps= con.prepareStatement(Get_ID);
+            ps.setString(1, Integer.toString(idreceipt));
+            ResultSet res=ps.executeQuery();
+            while (res.next()){
+                total_sum=res.getDouble("total_sum");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return total_sum;
     }
 
     /**тут мы закрываем чек, но нужно будет сделать очистку таблицы basket*/

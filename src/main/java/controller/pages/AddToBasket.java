@@ -14,12 +14,6 @@ public class AddToBasket implements Command {
 
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
-        //TODO такс, здесь мы принимааем параменты продукта с указанием колличества его в чек
-        // 2. также нужно учесть тот факт что колличество продукта нужно отнять от того что есть
-        // в таблице products
-        // 3. сделать проверку доступного веса весового продукта или же доступного колличества продукта на складе
-        // (если на складе меньше чем нужно - отобразить предупреждение и вернуть на страницу добавления продукта в чек)
-        // 4. Создать страницу отображения добавленого продукта слева на странице
         String answer = null;
         try {
             int idproduct= Integer.parseInt(request.getParameter("idproducts"));
@@ -34,16 +28,19 @@ public class AddToBasket implements Command {
             System.out.println("tonnage: "+tonnage);
             double price = Double.parseDouble(request.getParameter("price"));
             System.out.println("price: "+price);
+
             //добавление продукта в корзину нового чека
 
-
             if(BasketDAO.addProdToBasket(idproduct, name, quantity, weight, tonnage, price)){
+                //TODO изменить общую сумму чека!!!
+                ReceipsDAO.changeReceiptSum(ReceipsDAO.getLastReceiptId(),
+                        BasketDAO.countSumOneProduct(idproduct,name, quantity, weight, tonnage, price));
                 request.setAttribute("rec", ReceipsDAO.getLastReceiptId()); //отображение id чека
+                request.setAttribute("totalSum", ReceipsDAO.getReceiptSum(ReceipsDAO.getLastReceiptId()));
                 request.setAttribute("basket", BasketDAO.getAllBasket());
                 request.setAttribute("products", ProductsDao.getAllProducts());
                 answer ="/WEB-INF/user-basic/successfullyAddedToBasket.jsp";
             } else if(BasketDAO.checkBasket()) {
-                System.out.println("Basket?:"+BasketDAO.addProdToBasket(idproduct, name, quantity, weight, tonnage, price));
                 answer ="/WEB-INF/user-basic/cashier_error.jsp";
             } else{
                 answer ="/WEB-INF/user-basic/cashier_first_error.jsp";

@@ -191,7 +191,12 @@
         <%-- Здесь нужно сделать поле для создания заказа--%>
         <h2>Receipt id: ${rec}</h2>
         <%-- тут таблица с продуктами из корзины--%>
-
+        <h2>Total Sum: ${totalSum}</h2>
+        <form name="closeReceipt" method="post" action="closeReceipt">
+            <div style="text-align: center;">
+                <button class="button-37" role="button">Close Receipt</button>
+            </div>
+        </form>
     </div>
 </div>
 

@@ -61,10 +61,10 @@ public class BasketDAO {
         int idreceipt = ReceipsDAO.getLastReceiptId();
         //приводим boolean к int чтобы запрос работал
         try {
-            String GETUSER = "SELECT * FROM mydbtest.basket;";
+            String QUERY = "SELECT * FROM mydbtest.basket;";
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            PreparedStatement ps = con.prepareStatement(GETUSER);
+            PreparedStatement ps = con.prepareStatement(QUERY);
             try (ResultSet rs = ps.executeQuery()) {
                 answer = rs.next();
             }
@@ -74,9 +74,7 @@ public class BasketDAO {
         return answer;
     }
 
-    /**
-     * метод для добавления в корзину последнего созданного чека
-     */
+    /**метод для добавления в корзину последнего созданного чека */
     public static boolean addProdToBasket(int idproduct, String name, int quantity, double weight,
                                           boolean tonnage, double price) throws SQLException, ClassNotFoundException {
         boolean status = false;
@@ -138,6 +136,20 @@ public class BasketDAO {
             }
         }
         return status;
+    }
+    /**метод получает суму за один продукт
+     * (метод будет использоваться при добавлении продукта в корзину
+     * для следующего изменения отображаеого значения общей суммы )*/
+    public static double countSumOneProduct( int idproduct, String name, int quantity, double weight,
+                                          boolean tonnage, double price) throws SQLException, ClassNotFoundException {
+       double SumOneProd;
+        int idreceipt = ReceipsDAO.getLastReceiptId();
+        if(tonnage){
+            SumOneProd=weight*price;
+        } else {
+            SumOneProd=quantity*price;
+        }
+        return SumOneProd;
     }
 
     /** метод для получения данных всех продуктов чека*/
