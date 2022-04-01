@@ -36,18 +36,17 @@ public class BasketDAO {
         //приводим boolean к int чтобы запрос работал
         int tonnageInt = Product.boolToInt(tonnage);
         try {
-            String GETUSER = "SELECT * FROM mydbtest.basket where idreceipt=? AND idproduct=? AND name=? AND" +
+            String GETUSER = "SELECT * FROM mydbtest.basket where idproduct=? AND name=? AND" +
                     " quantity=? AND weight=? AND tonnage=? AND price=?;";
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             PreparedStatement ps = con.prepareStatement(GETUSER);
-            ps.setString(1, String.valueOf(idreceipt));
-            ps.setString(2, String.valueOf(idproduct));
-            ps.setString(3, String.valueOf(name));
-            ps.setString(4, String.valueOf(quantity));
-            ps.setString(5, String.valueOf(weight));
-            ps.setString(6, String.valueOf(tonnage));
-            ps.setString(7, String.valueOf(price));
+            ps.setString(1, String.valueOf(idproduct));
+            ps.setString(2, String.valueOf(name));
+            ps.setString(3, String.valueOf(quantity));
+            ps.setString(4, String.valueOf(weight));
+            ps.setString(5, String.valueOf(tonnageInt));
+            ps.setString(6, String.valueOf(price));
             try (ResultSet rs = ps.executeQuery()) {
                 answer = rs.next();
             }
@@ -100,6 +99,7 @@ public class BasketDAO {
             ps.executeUpdate();
             if (BasketDAO.validateBasket(idproduct, name, quantity, weight, tonnage, price)) {
                 status = true;
+                return status;
             }
         } catch (SQLException e) {
             e.printStackTrace();

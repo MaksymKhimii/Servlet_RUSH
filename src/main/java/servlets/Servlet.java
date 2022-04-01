@@ -39,6 +39,7 @@ public class Servlet extends HttpServlet {
         commands.put("searchProductForReceipt", new searchProductForReceipt());
         commands.put("create_Receipt", new create_Receipt());
         commands.put("AddToBasket", new AddToBasket());
+        commands.put("duringReceipt", new duringReceipt());
     }
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)

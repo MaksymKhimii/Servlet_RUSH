@@ -203,7 +203,7 @@
             <jsp:useBean id="basket" scope="request" type="java.util.List"/>
             <c:forEach items="${basket}" var="bas">
                 <tr>
-                    <th>${prod.idreceipt}</th>
+                    <th>${bas.idreceipt}</th>
                     <th>${bas.idproduct}</th>
                     <th>${bas.name}</th>
                     <th>${bas.quantity}</th>
