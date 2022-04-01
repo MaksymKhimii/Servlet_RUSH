@@ -83,26 +83,59 @@ public class BasketDAO {
         int idreceipt = ReceipsDAO.getLastReceiptId();
         //приводим boolean к int чтобы запрос работал
         int tonnageInt = Product.boolToInt(tonnage);
-        try {
-            String ADD_Product = "INSERT INTO mydbtest.basket (idreceipt, idproduct, name, quantity,weight,tonnage, price)" +
-                    " VALUES(?,?,?,?,?,?,?);";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            PreparedStatement ps = con.prepareStatement(ADD_Product);
-            ps.setString(1, String.valueOf(idreceipt));
-            ps.setString(2, String.valueOf(idproduct));
-            ps.setString(3, String.valueOf(name));
-            ps.setString(4, String.valueOf(quantity));
-            ps.setString(5, String.valueOf(weight));
-            ps.setString(6, String.valueOf(tonnageInt));
-            ps.setString(7, String.valueOf(price));
-            ps.executeUpdate();
-            if (BasketDAO.validateBasket(idproduct, name, quantity, weight, tonnage, price)) {
-                status = true;
-                return status;
+        ProductsDao.updateCountProduct(name, quantity, weight, tonnage);
+        //если это весовой продукт, проверяем валидный ли его вес
+        // если это не весовой продук, проверяем валидность его колличества
+        if(tonnage){
+            if(ProductsDao.validateWeight(name, weight)){
+                try {
+
+                    String ADD_Product = "INSERT INTO mydbtest.basket (idreceipt, idproduct, name, quantity,weight,tonnage, price)" +
+                            " VALUES(?,?,?,?,?,?,?);";
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+                    PreparedStatement ps = con.prepareStatement(ADD_Product);
+                    ps.setString(1, String.valueOf(idreceipt));
+                    ps.setString(2, String.valueOf(idproduct));
+                    ps.setString(3, String.valueOf(name));
+                    ps.setString(4, String.valueOf(quantity));
+                    ps.setString(5, String.valueOf(weight));
+                    ps.setString(6, String.valueOf(tonnageInt));
+                    ps.setString(7, String.valueOf(price));
+                    ps.executeUpdate();
+                    if (BasketDAO.validateBasket(idproduct, name, quantity, weight, tonnage, price)) {
+                        status = true;
+                        return status;
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } else {
+            if(ProductsDao.validateQuantity(name, quantity)){
+                try {
+
+                    String ADD_Product = "INSERT INTO mydbtest.basket (idreceipt, idproduct, name, quantity,weight,tonnage, price)" +
+                            " VALUES(?,?,?,?,?,?,?);";
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+                    PreparedStatement ps = con.prepareStatement(ADD_Product);
+                    ps.setString(1, String.valueOf(idreceipt));
+                    ps.setString(2, String.valueOf(idproduct));
+                    ps.setString(3, String.valueOf(name));
+                    ps.setString(4, String.valueOf(quantity));
+                    ps.setString(5, String.valueOf(weight));
+                    ps.setString(6, String.valueOf(tonnageInt));
+                    ps.setString(7, String.valueOf(price));
+                    ps.executeUpdate();
+                    if (BasketDAO.validateBasket(idproduct, name, quantity, weight, tonnage, price)) {
+                        status = true;
+                        return status;
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return status;
     }

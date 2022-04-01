@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: meizo
-  Date: 27.03.2022
-  Time: 12:11
+  Date: 01.04.2022
+  Time: 19:27
   To change this template use File | Settings | File Templates.
 --%>
 
@@ -89,11 +89,12 @@
         }
     }
 </script>
-<form name="returnCashier" method="post" action="duringReceipt">
+<form name="returnCashier" method="post" action="create_Receipt">
     <div style="text-align: center;">
         <button class="button-37" role="button">Return</button>
     </div>
 </form>
 </body>
 </html>
+
 

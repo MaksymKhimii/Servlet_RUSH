@@ -36,17 +36,17 @@ public class AddToBasket implements Command {
             System.out.println("price: "+price);
             //добавление продукта в корзину нового чека
 
-           /* request.setAttribute("rec", ReceipsDAO.getLastReceiptId()); //отображение id чека
-            request.setAttribute("basket", BasketDAO.getAllBasket());
-            request.setAttribute("products", ProductsDao.getAllProducts());*/
+
             if(BasketDAO.addProdToBasket(idproduct, name, quantity, weight, tonnage, price)){
                 request.setAttribute("rec", ReceipsDAO.getLastReceiptId()); //отображение id чека
                 request.setAttribute("basket", BasketDAO.getAllBasket());
                 request.setAttribute("products", ProductsDao.getAllProducts());
                 answer ="/WEB-INF/user-basic/successfullyAddedToBasket.jsp";
-            } else{
+            } else if(BasketDAO.checkBasket()) {
                 System.out.println("Basket?:"+BasketDAO.addProdToBasket(idproduct, name, quantity, weight, tonnage, price));
                 answer ="/WEB-INF/user-basic/cashier_error.jsp";
+            } else{
+                answer ="/WEB-INF/user-basic/cashier_first_error.jsp";
             }
         } catch (NumberFormatException e){
             e.printStackTrace();

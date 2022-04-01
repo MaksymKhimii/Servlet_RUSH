@@ -30,7 +30,7 @@ public class searchProductForReceipt implements Command {
                         answer="/WEB-INF/user-basic/firstAddProduct.jsp";
                 }
             } else {
-                answer ="/WEB-INF/user-basic/cashier_error.jsp";
+                answer = "/WEB-INF/user-basic/cashier_error.jsp";
             }
         } catch (NumberFormatException e){
             e.printStackTrace();
