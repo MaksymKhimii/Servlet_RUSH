@@ -269,6 +269,7 @@ public class ProductsDao {
         }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
         return status;
     }
+
     /** метод для изменения поля товара(продукта) с определенным name в таблице products
      * после добавления определенного колличества(штук или кг) в корзину
      * Примечание: параметры, которые принимает метод это колличество

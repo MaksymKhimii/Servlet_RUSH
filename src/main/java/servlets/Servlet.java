@@ -41,6 +41,7 @@ public class Servlet extends HttpServlet {
         commands.put("AddToBasket", new AddToBasket());
         commands.put("duringReceipt", new duringReceipt());
         commands.put("closeReceipt", new CloseReceipt());
+        commands.put("searchReceipt", new searchReceipt());
     }
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)

@@ -1,6 +1,7 @@
 package db;
 
 import db.entity.Product;
+import db.entity.Receipt;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -41,6 +42,24 @@ public class ReceipsDAO {
         }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
         return status;
     }
+
+    /**метод для валидации чека по имени кассира который его создал*/
+    public static boolean validateReceipt(String cashier_name){
+        boolean status=false;
+        try{
+            String GETUSER="SELECT * FROM mydbtest.receipts WHERE cashier_name=?;";
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement ps=con.prepareStatement(GETUSER);
+            ps.setString(1,cashier_name);
+            try (ResultSet rs=ps.executeQuery()){
+                status=rs.next();
+            }
+        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        return status;
+    }
+
     /** создание нового чека*/
     public static boolean addReceipt(String cashier_name) throws SQLException, ClassNotFoundException {
 
@@ -133,9 +152,6 @@ public class ReceipsDAO {
         }
     }
 
-
-
-
     /**тут мы закрываем чек, но нужно будет сделать очистку таблицы basket*/
     public static boolean  closeReceipt(double total_sum) throws SQLException, ClassNotFoundException {
 
@@ -153,5 +169,126 @@ public class ReceipsDAO {
             e.printStackTrace();
         }
         return status;
+    }
+
+    /** метод получает данные всех чеков */
+    public static ArrayList<Receipt> getAllReceipts(){
+        ArrayList<Receipt> receipts= new ArrayList<Receipt>(){};
+        String Query = "SELECT idreceipt, cashier_name, total_sum FROM mydbtest.receipts;";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement pstmt = con.prepareStatement(Query);
+            ResultSet rs=pstmt.executeQuery();
+            boolean found= false;
+            while (rs.next()){
+                Receipt AllReceipt = new Receipt();
+                AllReceipt.setIdreceipt(rs.getInt("idreceipt"));
+                AllReceipt.setCashier_name(rs.getString("cashier_name"));
+                AllReceipt.setTotal_sum(rs.getDouble("total_sum"));
+                receipts.add(AllReceipt);
+                found= true;
+            }
+            rs.close(); pstmt.close();
+            if(found){return receipts;}
+            else {return null;}
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();}
+        return receipts;
+    }
+
+    /** метод получает данные одного чека по указаному id */
+    public static ArrayList<Receipt> getReceiptsByID(int idreceipt){
+        ArrayList<Receipt> receipts= new ArrayList<Receipt>(){};
+        String Query = "SELECT idreceipt, cashier_name, total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement pstmt = con.prepareStatement(Query);
+            pstmt.setString(1, Integer.toString(idreceipt));
+            ResultSet rs=pstmt.executeQuery();
+            boolean found= false;
+            while (rs.next()){
+                Receipt AllReceipt = new Receipt();
+                AllReceipt.setIdreceipt(rs.getInt("idreceipt"));
+                AllReceipt.setCashier_name(rs.getString("cashier_name"));
+                AllReceipt.setTotal_sum(rs.getDouble("total_sum"));
+                receipts.add(AllReceipt);
+                found= true;
+            }
+            rs.close(); pstmt.close();
+            if(found){return receipts;}
+            else {return null;}
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();}
+        return receipts;
+    }
+
+    /** метод получает данные одного чека по указаному имени кассира, что создал его */
+    public static ArrayList<Receipt> getReceiptsByCashierName(String cashier_name){
+        ArrayList<Receipt> receipts= new ArrayList<Receipt>(){};
+        String Query = "SELECT idreceipt, cashier_name, total_sum FROM mydbtest.receipts WHERE cashier_name=?;";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement pstmt = con.prepareStatement(Query);
+            pstmt.setString(1, cashier_name);
+            ResultSet rs=pstmt.executeQuery();
+            boolean found= false;
+            while (rs.next()){
+                Receipt AllReceipt = new Receipt();
+                AllReceipt.setIdreceipt(rs.getInt("idreceipt"));
+                AllReceipt.setCashier_name(rs.getString("cashier_name"));
+                AllReceipt.setTotal_sum(rs.getDouble("total_sum"));
+                receipts.add(AllReceipt);
+                found= true;
+            }
+            rs.close(); pstmt.close();
+            if(found){return receipts;}
+            else {return null;}
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();}
+        return receipts;
+    }
+
+    /** метод получает данные одного чека по указанй сумме чека */
+    public static ArrayList<Receipt> getReceiptsByTotalSum(double total_sum){
+        ArrayList<Receipt> receipts= new ArrayList<Receipt>(){};
+        String Query = "SELECT idreceipt, cashier_name, total_sum FROM mydbtest.receipts WHERE total_sum=?;";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement pstmt = con.prepareStatement(Query);
+            pstmt.setString(1, Double.toString(total_sum));
+            ResultSet rs=pstmt.executeQuery();
+            boolean found= false;
+            while (rs.next()){
+                Receipt AllReceipt = new Receipt();
+                AllReceipt.setIdreceipt(rs.getInt("idreceipt"));
+                AllReceipt.setCashier_name(rs.getString("cashier_name"));
+                AllReceipt.setTotal_sum(rs.getDouble("total_sum"));
+                receipts.add(AllReceipt);
+                found= true;
+            }
+            rs.close(); pstmt.close();
+            if(found){return receipts;}
+            else {return null;}
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();}
+        return receipts;
+    }
+
+    /**метод возращает правду если обьект является числом и ложь - если строкой
+     * так происходит определение поиска: по idreceipt или name_cashier */
+    public static boolean isNumeric(String strNum){
+            if (strNum == null) {
+                return false;
+            }
+            try {
+                double d = Double.parseDouble(strNum);
+            } catch (NumberFormatException nfe) {
+                return false;
+            }
+            return true;
     }
 }

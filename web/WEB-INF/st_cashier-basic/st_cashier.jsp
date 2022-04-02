@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: meizo
-  Date: 11.02.2022
-  Time: 23:07
+  Date: 08.02.2022
+  Time: 17:54
   To change this template use File | Settings | File Templates.
 --%>
 <html>
@@ -60,44 +60,86 @@
     color: #444444;
     text-shadow: none;
 }</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body {
+        font-family: Arial;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    form.example input[type=text] {
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 80%;
+        background: #f1f1f1;
+    }
+
+    form.example button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #2196F3;
+        color: white;
+        font-size: 25px;
+        border: 1px solid grey;
+        border-left: none;
+        cursor: pointer;
+    }
+
+    form.example button:hover {
+        background: #0b7dda;
+    }
+
+    form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+</style>
 </html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:include page="/WEB-INF/parts/merchandiser_navbar.jsp"/>
 <html>
 
 <head>
     <title>St_Cashier</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
-<body>
-<jsp:include page="/WEB-INF/parts/navbar.jsp"/>
+
+
 <p>
-<div style="margin: auto">
-<h1> St_Cashier successfully logged in!</h1>
-</div>
-</p>
-
-
+<div style="text-align: center;">st_cashier successfully logged in!</div>
+<br> <%-- специальный отступ для нормального вида поисковика, не убирать!!!--%>
+<form class="example" action="searchReceipt" style="margin:auto;max-width:300px">
+    <input type="text" placeholder="Search product by name.." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+</form>
 <table class="table_blur">
     <thead>
     <tr>
-    <th>id</th>
-    <th>login</th>
-    <th>password</th>
-    <th>role</th>
+        <th>idreceipt</th>
+        <th>cashier name</th>
+        <th>total sum</th>
     </tr>
     </thead>
     <tbody>
-    <jsp:useBean id="users" scope="request" type="java.util.List"/>
-    <c:forEach items="${users}" var="user">
+    <jsp:useBean id="receipts" scope="request" type="java.util.List"/>
+    <c:forEach items="${receipts}" var="rec">
         <tr>
-            <th>${user.id}</th>
-            <th>${user.login}</th>
-            <th>${user.password}</th>
-            <th>${user.role}</th>
+            <th>${rec.idreceipt}</th>
+            <th> ${rec.cashier_name}</th>
+            <th>${rec.total_sum}</th>
         </tr>
     </c:forEach>
     </tbody>
 </table>
+</p>
 </body>
 </html>

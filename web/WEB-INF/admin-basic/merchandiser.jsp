@@ -115,7 +115,7 @@
 
 <p>
 <div style="text-align: center;">merchandiser successfully logged in!</div>
-<br>
+<br> <%-- специальный отступ для нормального вида поисковика, не убирать!!!--%>
 <form class="example" action="searchProduct" style="margin:auto;max-width:300px">
     <input type="text" placeholder="Search product by name.." name="name">
     <button type="submit"><i class="fa fa-search"></i></button>
