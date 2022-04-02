@@ -84,6 +84,25 @@ public class ReceipsDAO {
         return idreceipt;
     }
 
+    /**этот метод достает total_sum чека с указаным idreceipt*/
+    public static double getReceiptSum(int idreceipt) throws ClassNotFoundException, SQLException {
+        double total_sum=0;
+        try {
+            String Get_ID = "SELECT total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement ps= con.prepareStatement(Get_ID);
+            ps.setString(1, Integer.toString(idreceipt));
+            ResultSet res=ps.executeQuery();
+            while (res.next()){
+                total_sum=res.getDouble("total_sum");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return total_sum;
+    }
+
     /**этот метод изменяет total_sum чека с указаным idreceipt*/
     public static void changeReceiptSum(int idreceipt, double addedSum) throws ClassNotFoundException, SQLException {
         double newSum, totalSum=0;
@@ -115,24 +134,7 @@ public class ReceipsDAO {
     }
 
 
-    /**этот метод достает total_sum чека с указаным idreceipt*/
-    public static double getReceiptSum(int idreceipt) throws ClassNotFoundException, SQLException {
-        double total_sum=0;
-        try {
-            String Get_ID = "SELECT total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            PreparedStatement ps= con.prepareStatement(Get_ID);
-            ps.setString(1, Integer.toString(idreceipt));
-            ResultSet res=ps.executeQuery();
-            while (res.next()){
-                total_sum=res.getDouble("total_sum");
-            }
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-        return total_sum;
-    }
+
 
     /**тут мы закрываем чек, но нужно будет сделать очистку таблицы basket*/
     public static boolean  closeReceipt(double total_sum) throws SQLException, ClassNotFoundException {

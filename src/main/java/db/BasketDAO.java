@@ -137,6 +137,23 @@ public class BasketDAO {
         }
         return status;
     }
+    /**удаляет все продукты из basket которые пренадлежат к открытому чеку*/
+    public static boolean deleteBasket(int idreceipt) throws SQLException, ClassNotFoundException {
+        boolean answer = false;
+        try {
+            String GETUSER = "DELETE FROM mydbtest.basket WHERE idreceipt=?;";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement ps = con.prepareStatement(GETUSER);
+            ps.setString(1, String.valueOf(idreceipt));
+            ps.executeUpdate();
+                answer=true;
+
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return answer;
+    }
     /**метод получает суму за один продукт
      * (метод будет использоваться при добавлении продукта в корзину
      * для следующего изменения отображаеого значения общей суммы )*/
