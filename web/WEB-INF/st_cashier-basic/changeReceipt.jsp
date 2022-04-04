@@ -116,7 +116,7 @@
         position: absolute;
         display: inline-block;
         top: -70px;
-        left: 960px;
+        left: 1125px;
     }
 
     .dropup-content {
@@ -171,30 +171,29 @@
         <jsp:useBean id="receipts" scope="request" type="java.util.List"/>
         <c:forEach items="${receipts}" var="rec">
             <tr>
-                <th>${rec.idreceipt}</th>
-                <th> ${rec.cashier_name}</th>
-                <th>${rec.total_sum}</th>
+                <th><input type="number" value="${rec.idreceipt}" name="idreceipt" ></th>
+                <th> <input type="text" value="${rec.cashier_name}" name="cashier_name"></th>
+                <th><input type="number" step="0.01" value="${rec.total_sum}" name="total_sum"></th>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 
-<div style="">
      <div class="dropup">
-        <button class="dropbtn">Action</button>
+        <button class="dropbtn" type="submit">Action</button>
         <div class="dropup-content">
-            <a href="#">See more</a>
-            <a href="#">Delete</a>
+            <a><input type="submit" class="button-37" value="See more" formaction="SeeMoreReceipt"></a>
+            <a><input type="submit" class="button-37" value="Delete" formaction="deleteReceipt"></a>
+          <%--  <a><button class="button-37" formaction="#">See more</button></a>
+            <a><button class="button-37" formaction="deleteReceipt">Delete</button></a> --%>
         </div>
     </div>
-</div>
+</form>
 <form name="returnStCashier" method="post" action="st_cashier">
     <div style="text-align: center;">
         <button class="button-37" role="button">Return</button>
     </div>
-
 </form>
-
 </form>
 </body>
 </html>

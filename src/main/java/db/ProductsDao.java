@@ -123,9 +123,7 @@ public class ProductsDao {
             PreparedStatement ps=con.prepareStatement(DeleteProduct);
             ps.setString(1,name);
             ps.executeUpdate();
-            if(ProductsDao.validateProduct(name)){
-                answer=false;
-            } else {
+            if(!ProductsDao.validateProduct(name)){
                 answer=true;
             }
         } catch (SQLException e){

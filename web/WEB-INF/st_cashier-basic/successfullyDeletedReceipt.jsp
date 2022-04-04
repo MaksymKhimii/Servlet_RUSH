@@ -2,9 +2,10 @@
   Created by IntelliJ IDEA.
   User: meizo
   Date: 02.04.2022
-  Time: 18:26
+  Time: 22:10
   To change this template use File | Settings | File Templates.
 --%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -72,9 +73,9 @@
 </style>
 <body>
 <jsp:include page="/WEB-INF/parts/merchandiser_navbar.jsp"/>
-<div class="alert" style="text-align: center;">
+<div class="alert success" style="text-align: center;">
     <span class="closebtn">×</span>
-    <p><strong>Error!</strong>  Oops,something went wrong... Check your input</p>
+    <strong>Success!</strong> The receipt has been deleted!
 </div>
 <script>
     var close = document.getElementsByClassName("closebtn");

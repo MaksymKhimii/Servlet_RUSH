@@ -12,9 +12,7 @@ public class searchReceipt implements Command {
         String answer = null;
         String search=request.getParameter("search");
      //  int idreceipt = Integer.parseInt(request.getParameter("idreceipt"));
-        System.out.println("search: "+search);
 
-        System.out.println("ReceipsDAO: "+ReceipsDAO.isNumeric(search));
         if(ReceipsDAO.isNumeric(search)){
             int idreceipt=  Integer.parseInt(search);
             //TODO поиск по id заданого продукта и его вывод с кнопкой изменить или удалить

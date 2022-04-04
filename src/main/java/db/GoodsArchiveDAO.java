@@ -23,7 +23,7 @@ public class GoodsArchiveDAO {
         // con.setAutoCommit(true);
         return con;
     }
-
+    /**переносит данные чека из basket в goodsarchive для сохранения*/
     public static void saveBacket(int idreceipt) throws SQLException, ClassNotFoundException {
 
         //приводим boolean к int чтобы запрос работал
@@ -55,4 +55,42 @@ public class GoodsArchiveDAO {
         }
     }
 
+    /**удаляем продукты чека по его idreceipt*/
+    public static boolean deleteReceiptFromArchive(int idreceipt) throws SQLException, ClassNotFoundException {
+        boolean answer = false;
+        try {
+            String QUERY="DELETE FROM mydbtest.goodsarchive WHERE idreceipt =?;";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+
+            PreparedStatement ps=con.prepareStatement(QUERY);
+            ps.setString(1, String.valueOf(idreceipt));
+            ps.executeUpdate();
+            if(!GoodsArchiveDAO.validateReceipt(idreceipt)){
+                answer=true;
+            }
+
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return answer;
+    }
+
+    /** проверка, есть ли чек с указаным idreceipt в архиве*/
+    public static boolean validateReceipt(int idreceipt) {
+
+        boolean status=false;
+        try{
+            String GETUSER="SELECT * FROM mydbtest.goodsarchive WHERE idreceipt=?";
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement ps=con.prepareStatement(GETUSER);
+            ps.setString(1, String.valueOf(idreceipt));
+            try (ResultSet rs=ps.executeQuery()){
+                status=rs.next();
+            }
+        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        return status;
+    }
 }

@@ -291,4 +291,30 @@ public class ReceipsDAO {
             }
             return true;
     }
+
+    /**удаление чека*/
+    public static boolean deleteReceipt(int idreceipt) throws SQLException, ClassNotFoundException {
+        boolean answer = false;
+        try {
+            //  удаляем из таблицы чеков
+            String QUERY1="DELETE FROM mydbtest.receipts WHERE idreceipt =?;";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+
+            PreparedStatement ps1=con.prepareStatement(QUERY1);
+            ps1.setString(1, String.valueOf(idreceipt));
+            ps1.executeUpdate();
+            //удаляем товар из таблицы goodsarchive
+            GoodsArchiveDAO.deleteReceiptFromArchive(idreceipt);
+
+            if(ReceipsDAO.validateReceipt(idreceipt) || GoodsArchiveDAO.validateReceipt(idreceipt)){
+                answer=false;
+            } else {
+                answer=true;
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return answer;
+    }
 }
