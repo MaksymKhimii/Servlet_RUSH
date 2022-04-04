@@ -1,10 +1,6 @@
 package db;
 
-import db.entity.Basket;
-import db.entity.Product;
-
 import java.sql.*;
-import java.util.ArrayList;
 
 public class GoodsArchiveDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
@@ -76,12 +72,33 @@ public class GoodsArchiveDAO {
         return answer;
     }
 
+    /**удаляем продукты чека по его idreceipt*/
+    public static void deleteProdFromReceipt(int idproduct, int idreceipt) throws SQLException, ClassNotFoundException {
+        boolean answer = false;
+        try {
+
+
+
+
+            String QUERY="DELETE FROM mydbtest.goodsarchive WHERE idproduct=? AND idreceipt=?;";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+
+            PreparedStatement ps=con.prepareStatement(QUERY);
+            ps.setString(1, String.valueOf(idproduct));
+            ps.setString(2, String.valueOf(idreceipt));
+            ps.executeUpdate();
+                answer=true;
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
     /** проверка, есть ли чек с указаным idreceipt в архиве*/
     public static boolean validateReceipt(int idreceipt) {
 
         boolean status=false;
         try{
-            String GETUSER="SELECT * FROM mydbtest.goodsarchive WHERE idreceipt=?";
+            String GETUSER="SELECT * FROM mydbtest.goodsarchive WHERE idreceipt=?;";
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -92,5 +109,84 @@ public class GoodsArchiveDAO {
             }
         }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
         return status;
+    }
+
+    /** проверка, есть ли продукт с указаным idproduct в чеке idreceipt*/
+    public static boolean validateProdInReceipt(int idproduct, int idreceipt) {
+
+        boolean status=false;
+        try{
+            String GETUSER="SELECT * FROM mydbtest.goodsarchive WHERE idproduct=? AND idreceipt=?;";
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement ps=con.prepareStatement(GETUSER);
+            ps.setString(1, String.valueOf(idproduct));
+            ps.setString(2, String.valueOf(idreceipt));
+
+            try (ResultSet rs=ps.executeQuery()){
+                status=rs.next();
+            }
+        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        return status;
+    }
+
+    /**считает сумму продукта который будет удален из чека*/
+    public static double getCostOneProduct(int idreceipt, int idproduct){
+        int quantity=0;
+        boolean tonnage=false;
+        double weight=0;
+        double price =0;
+        try{
+            String GETUSER="SELECT quantity, weight, tonnage, price FROM mydbtest.goodsarchive WHERE idreceipt=? AND idproduct=?;";
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement ps=con.prepareStatement(GETUSER);
+            ps.setString(1, String.valueOf(idreceipt));
+            ps.setString(2, String.valueOf(idproduct));
+            try (ResultSet rs=ps.executeQuery()){
+                while (rs.next()){
+                    quantity=rs.getInt("quantity");
+                    weight=rs.getDouble("weight");
+                    tonnage= rs.getBoolean("tonnage");
+                    price=rs.getDouble("price");
+                }
+            }
+        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+
+        double cost=0;
+        if(tonnage){
+            cost=weight*price;
+        }else {
+            cost=quantity*price;
+        }
+        return cost;
+    }
+
+    /**обновляет сумму в таблице goodsarchive */
+    public static void updateSum(int idreceipt){
+        double totalSum=0;
+        try {
+            String Query1 = "SELECT total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement ps= con.prepareStatement(Query1);
+            ps.setString(1, Integer.toString(idreceipt));
+            ResultSet res=ps.executeQuery();
+            while (res.next()){
+                totalSum=res.getDouble("total_sum");
+            }
+
+            String Query2 = "UPDATE mydbtest.goodsarchive SET total_sum=? WHERE idreceipt=?;";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con2 = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement ps2= con2.prepareStatement(Query2);
+            ps2.setString(1, Double.toString(totalSum));
+            ps2.setString(2, Integer.toString(idreceipt));
+            ps.executeQuery();
+        }catch (SQLException | ClassNotFoundException e){
+            e.printStackTrace();
+        }
     }
 }

@@ -1,6 +1,6 @@
 package db;
 
-import db.entity.Product;
+import db.entity.Goodsarchive;
 import db.entity.Receipt;
 
 import java.sql.*;
@@ -85,6 +85,7 @@ public class ReceipsDAO {
         }
         return status;
     }
+
     /**этот метод достает id последнего созданого чека*/
     public static int getLastReceiptId() throws ClassNotFoundException, SQLException {
         int idreceipt=0;
@@ -122,8 +123,8 @@ public class ReceipsDAO {
         return total_sum;
     }
 
-    /**этот метод изменяет total_sum чека с указаным idreceipt*/
-    public static void changeReceiptSum(int idreceipt, double addedSum) throws ClassNotFoundException, SQLException {
+    /**этот метод прибавляет к total_sum чека с указаным idreceipt*/
+    public static void addReceiptSum(int idreceipt, double addedSum) throws ClassNotFoundException, SQLException {
         double newSum, totalSum=0;
         try {
             String Query1 = "SELECT total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
@@ -151,6 +152,37 @@ public class ReceipsDAO {
             e.printStackTrace();
         }
     }
+
+    /**этот метод прибавляет к total_sum чека с указаным idreceipt*/
+    public static void minusReceiptSum(int idreceipt, double addedSum) throws ClassNotFoundException, SQLException {
+        double newSum, totalSum=0;
+        try {
+            String Query1 = "SELECT total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement ps= con.prepareStatement(Query1);
+            ps.setString(1, Integer.toString(idreceipt));
+            ResultSet res=ps.executeQuery();
+            while (res.next()){
+                totalSum=res.getDouble("total_sum");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        newSum=totalSum-addedSum;
+        try {
+            String Query2 = "UPDATE mydbtest.receipts SET total_sum=? WHERE idreceipt=?;";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement ps= con.prepareStatement(Query2);
+            ps.setString(1, Double.toString(newSum));
+            ps.setString(2,Integer.toString(idreceipt) );
+            int res=ps.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
 
     /**тут мы закрываем чек, но нужно будет сделать очистку таблицы basket*/
     public static boolean  closeReceipt(double total_sum) throws SQLException, ClassNotFoundException {
@@ -224,6 +256,37 @@ public class ReceipsDAO {
         return receipts;
     }
 
+    /**метод получает данные о продуктах одного чека*/
+    public static ArrayList<Goodsarchive> getReceiptsProdByID(int idreceipt){
+        ArrayList<Goodsarchive> goods= new ArrayList<Goodsarchive>(){};
+        String Query = "SELECT idreceipt, idproduct, name, quantity, weight, tonnage, price FROM mydbtest.goodsarchive WHERE idreceipt=?;";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement pstmt = con.prepareStatement(Query);
+            pstmt.setString(1, Integer.toString(idreceipt));
+            ResultSet rs=pstmt.executeQuery();
+            boolean found= false;
+            while (rs.next()){
+               Goodsarchive AllGoods= new Goodsarchive();
+                AllGoods.setIdreceipt(rs.getInt("idreceipt"));
+                AllGoods.setIdproduct(rs.getInt("idproduct"));
+                AllGoods.setName(rs.getString("name"));
+                AllGoods.setQuantity(rs.getInt("quantity"));
+                AllGoods.setWeight(rs.getDouble("weight"));
+                AllGoods.setTonnage(rs.getBoolean("tonnage"));
+                AllGoods.setPrice(rs.getDouble("price"));
+                goods.add(AllGoods);
+                found= true;
+            }
+            rs.close(); pstmt.close();
+            if(found){return goods;}
+            else {return null;}
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();}
+        return goods;
+    }
+
     /** метод получает данные одного чека по указаному имени кассира, что создал его */
     public static ArrayList<Receipt> getReceiptsByCashierName(String cashier_name){
         ArrayList<Receipt> receipts= new ArrayList<Receipt>(){};
@@ -291,6 +354,7 @@ public class ReceipsDAO {
             }
             return true;
     }
+
 
     /**удаление чека*/
     public static boolean deleteReceipt(int idreceipt) throws SQLException, ClassNotFoundException {

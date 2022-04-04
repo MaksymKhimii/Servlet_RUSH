@@ -33,7 +33,7 @@ public class AddToBasket implements Command {
 
             if(BasketDAO.addProdToBasket(idproduct, name, quantity, weight, tonnage, price)){
                 //TODO изменить общую сумму чека!!!
-                ReceipsDAO.changeReceiptSum(ReceipsDAO.getLastReceiptId(),
+                ReceipsDAO.addReceiptSum(ReceipsDAO.getLastReceiptId(),
                         BasketDAO.countSumOneProduct(idproduct,name, quantity, weight, tonnage, price));
                 request.setAttribute("rec", ReceipsDAO.getLastReceiptId()); //отображение id чека
                 request.setAttribute("totalSum", ReceipsDAO.getReceiptSum(ReceipsDAO.getLastReceiptId()));
