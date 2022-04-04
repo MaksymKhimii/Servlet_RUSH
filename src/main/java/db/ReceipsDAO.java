@@ -1,5 +1,6 @@
 package db;
 
+import db.entity.Goodsarchive;
 import db.entity.Product;
 import db.entity.Receipt;
 
@@ -102,6 +103,7 @@ public class ReceipsDAO {
         }
         return idreceipt;
     }
+
 
     /**этот метод достает total_sum чека с указаным idreceipt*/
     public static double getReceiptSum(int idreceipt) throws ClassNotFoundException, SQLException {
@@ -222,6 +224,36 @@ public class ReceipsDAO {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();}
         return receipts;
+    }
+
+    /**метод получает данные о продуктах одного чека*/
+    public static ArrayList<Goodsarchive> getReceiptsProdByID(int idreceipt){
+        ArrayList<Goodsarchive> goods= new ArrayList<Goodsarchive>(){};
+        String Query = "SELECT idproduct, name, quantity, weight, tonnage, price FROM mydbtest.goodsarchive WHERE idreceipt=?;";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement pstmt = con.prepareStatement(Query);
+            pstmt.setString(1, Integer.toString(idreceipt));
+            ResultSet rs=pstmt.executeQuery();
+            boolean found= false;
+            while (rs.next()){
+               Goodsarchive AllGoods= new Goodsarchive();
+                AllGoods.setIdproduct(rs.getInt("idproduct"));
+                AllGoods.setName(rs.getString("name"));
+                AllGoods.setQuantity(rs.getInt("quantity"));
+                AllGoods.setWeight(rs.getDouble("weight"));
+                AllGoods.setTonnage(rs.getBoolean("tonnage"));
+                AllGoods.setPrice(rs.getDouble("price"));
+                goods.add(AllGoods);
+                found= true;
+            }
+            rs.close(); pstmt.close();
+            if(found){return goods;}
+            else {return null;}
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();}
+        return goods;
     }
 
     /** метод получает данные одного чека по указаному имени кассира, что создал его */
