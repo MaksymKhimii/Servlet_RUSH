@@ -1,9 +1,12 @@
 package controller.pages;
 
 import controller.command.Command;
+
 import db.GoodsArchiveDAO;
 import db.ReceipsDAO;
 import controller.pages.SeeMoreReceipt.*;
+
+
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
@@ -11,11 +14,7 @@ public class deleteProductFromReceipt implements Command {
 
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
-        //TODO
-        // Примечание: надо учесть тот факт что если продуктов не осталось в чеке
-        // (написать метод проверки как в basket),
-        // +изменить общую сумму
-        // то возращать на страницу отображения чека(id, name_cashier, total_sum)
+
 
         String answer=null;
         try {
@@ -46,5 +45,6 @@ public class deleteProductFromReceipt implements Command {
             e.printStackTrace();
         }
         return answer;
+
     }
 }

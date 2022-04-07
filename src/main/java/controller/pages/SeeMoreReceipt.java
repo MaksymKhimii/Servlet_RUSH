@@ -10,8 +10,6 @@ public class SeeMoreReceipt implements Command {
     static int idreceipt;
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
-        //TODO сделать страницу с отображением всех
-        // продуктов одного чека и возможностью их удаления, удааления всего чека
         String answer=null;
         try {
              idreceipt= Integer.parseInt(request.getParameter("idreceipt"));

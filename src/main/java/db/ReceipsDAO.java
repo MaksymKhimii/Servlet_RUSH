@@ -355,7 +355,6 @@ public class ReceipsDAO {
             return true;
     }
 
-
     /**удаление чека*/
     public static boolean deleteReceipt(int idreceipt) throws SQLException, ClassNotFoundException {
         boolean answer = false;
