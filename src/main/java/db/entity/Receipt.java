@@ -3,6 +3,7 @@ package db.entity;
 public class Receipt {
     private int idreceipt;
     private String cashier_name;
+    private String closing_time;
     private double total_sum;
 
     public int getIdreceipt() {
@@ -28,4 +29,8 @@ public class Receipt {
     public void setTotal_sum(double total_sum) {
         this.total_sum = total_sum;
     }
+
+    public String getClosing_time() {return closing_time;}
+
+    public void setClosing_time(String closing_time) {this.closing_time = closing_time;}
 }

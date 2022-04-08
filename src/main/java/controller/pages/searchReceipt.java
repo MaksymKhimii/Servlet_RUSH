@@ -15,14 +15,13 @@ public class searchReceipt implements Command {
 
         if(ReceipsDAO.isNumeric(search)){
             int idreceipt=  Integer.parseInt(search);
-            //TODO поиск по id заданого продукта и его вывод с кнопкой изменить или удалить
+
             if(ReceipsDAO.validateReceipt(idreceipt)){
                 request.setAttribute("receipts",  ReceipsDAO.getReceiptsByID(idreceipt));
                 answer ="/WEB-INF/st_cashier-basic/changeReceipt.jsp";
             } else{answer="/WEB-INF/st_cashier-basic/receiptSearchError.jsp";}
         } else{
             String cashier_name=search;
-            //TODO поиск по cashier_name заданого продукта и его вывод с кнопкой изменить или удалить
             if(ReceipsDAO.validateReceipt(cashier_name)){
                 request.setAttribute("receipts",  ReceipsDAO.getReceiptsByCashierName(cashier_name));
                 answer ="/WEB-INF/st_cashier-basic/changeReceipt.jsp";

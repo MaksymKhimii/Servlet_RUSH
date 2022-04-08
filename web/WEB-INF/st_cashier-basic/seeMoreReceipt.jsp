@@ -157,7 +157,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-<jsp:include page="/WEB-INF/parts/merchandiser_navbar.jsp"/>
+<jsp:include page="/WEB-INF/parts/st_cashier_navbar.jsp"/>
 <div style="text-align: center">
     <h2>Receipt id: ${rec}</h2>
 </div>

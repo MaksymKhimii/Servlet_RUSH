@@ -72,7 +72,7 @@
     }
 </style>
 <body>
-<jsp:include page="/WEB-INF/parts/merchandiser_navbar.jsp"/>
+<jsp:include page="/WEB-INF/parts/st_cashier_navbar.jsp"/>
 <div class="alert success" style="text-align: center;">
     <span class="closebtn">×</span>
     <strong>Success!</strong> The receipt has been deleted!
@@ -80,7 +80,6 @@
 <script>
     var close = document.getElementsByClassName("closebtn");
     var i;
-
     for (i = 0; i < close.length; i++) {
         close[i].onclick = function(){
             var div = this.parentElement;

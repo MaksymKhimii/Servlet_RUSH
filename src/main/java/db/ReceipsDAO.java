@@ -4,8 +4,9 @@ import db.entity.Goodsarchive;
 import db.entity.Receipt;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Date;
 public class ReceipsDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "Maks_Khimii";
@@ -60,12 +61,17 @@ public class ReceipsDAO {
         return status;
     }
 
+    //TODO добавить информацию о поле времени создания чека
     /** создание нового чека*/
     public static boolean addReceipt(String cashier_name) throws SQLException, ClassNotFoundException {
+        Date date = new Date();
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
+        System.out.println(formatForDateNow.format(date));
 
         boolean status=false;
         try {
-            String ADD_Product = "INSERT INTO mydbtest.receipts(cashier_name, total_sum) VALUES(?, ?);";
+            String ADD_Product = "INSERT INTO mydbtest.receipts(cashier_name, total_sum, closing_time) VALUES(?, ?, ?);";
 
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -73,13 +79,9 @@ public class ReceipsDAO {
             PreparedStatement ps = con.prepareStatement(ADD_Product);
             ps.setString(1, cashier_name);
             ps.setString(2, Integer.toString(0));
+            ps.setString(3, formatForDateNow.format(date));
             ps.executeUpdate();
             status=true;
-          /*  PreparedStatement ps2=con.prepareStatement(Get_ID);
-            ResultSet rs2=ps2.executeQuery();
-            while(rs2.next()) {
-                receiptId = rs2.getInt("idreceipt");
-            }*/
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -185,7 +187,7 @@ public class ReceipsDAO {
 
 
     /**тут мы закрываем чек, но нужно будет сделать очистку таблицы basket*/
-    public static boolean  closeReceipt(double total_sum) throws SQLException, ClassNotFoundException {
+    public static boolean closeReceipt(double total_sum) throws SQLException, ClassNotFoundException {
 
         boolean status = false;
         try {
@@ -203,10 +205,11 @@ public class ReceipsDAO {
         return status;
     }
 
+    //TODO добавить информацию о поле времени создания чека
     /** метод получает данные всех чеков */
     public static ArrayList<Receipt> getAllReceipts(){
         ArrayList<Receipt> receipts= new ArrayList<Receipt>(){};
-        String Query = "SELECT idreceipt, cashier_name, total_sum FROM mydbtest.receipts;";
+        String Query = "SELECT idreceipt, cashier_name, closing_time, total_sum FROM mydbtest.receipts;";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -217,6 +220,7 @@ public class ReceipsDAO {
                 Receipt AllReceipt = new Receipt();
                 AllReceipt.setIdreceipt(rs.getInt("idreceipt"));
                 AllReceipt.setCashier_name(rs.getString("cashier_name"));
+                AllReceipt.setClosing_time(rs.getString("closing_time"));
                 AllReceipt.setTotal_sum(rs.getDouble("total_sum"));
                 receipts.add(AllReceipt);
                 found= true;
@@ -232,7 +236,7 @@ public class ReceipsDAO {
     /** метод получает данные одного чека по указаному id */
     public static ArrayList<Receipt> getReceiptsByID(int idreceipt){
         ArrayList<Receipt> receipts= new ArrayList<Receipt>(){};
-        String Query = "SELECT idreceipt, cashier_name, total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
+        String Query = "SELECT idreceipt, cashier_name, closing_time, total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -244,6 +248,7 @@ public class ReceipsDAO {
                 Receipt AllReceipt = new Receipt();
                 AllReceipt.setIdreceipt(rs.getInt("idreceipt"));
                 AllReceipt.setCashier_name(rs.getString("cashier_name"));
+                AllReceipt.setClosing_time(rs.getString("closing_time"));
                 AllReceipt.setTotal_sum(rs.getDouble("total_sum"));
                 receipts.add(AllReceipt);
                 found= true;
@@ -290,7 +295,7 @@ public class ReceipsDAO {
     /** метод получает данные одного чека по указаному имени кассира, что создал его */
     public static ArrayList<Receipt> getReceiptsByCashierName(String cashier_name){
         ArrayList<Receipt> receipts= new ArrayList<Receipt>(){};
-        String Query = "SELECT idreceipt, cashier_name, total_sum FROM mydbtest.receipts WHERE cashier_name=?;";
+        String Query = "SELECT idreceipt, cashier_name, closing_time, total_sum FROM mydbtest.receipts WHERE cashier_name=?;";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -302,6 +307,7 @@ public class ReceipsDAO {
                 Receipt AllReceipt = new Receipt();
                 AllReceipt.setIdreceipt(rs.getInt("idreceipt"));
                 AllReceipt.setCashier_name(rs.getString("cashier_name"));
+                AllReceipt.setClosing_time(rs.getString("closing_time"));
                 AllReceipt.setTotal_sum(rs.getDouble("total_sum"));
                 receipts.add(AllReceipt);
                 found= true;

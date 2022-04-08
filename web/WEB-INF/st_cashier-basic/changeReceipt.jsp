@@ -116,7 +116,7 @@
         position: absolute;
         display: inline-block;
         top: -70px;
-        left: 1125px;
+        left: 1225px;
     }
 
     .dropup-content {
@@ -155,7 +155,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
-<jsp:include page="/WEB-INF/parts/merchandiser_navbar.jsp"/>
+<jsp:include page="/WEB-INF/parts/st_cashier_navbar.jsp"/>
 
 <p>
 <form method="post">
@@ -164,6 +164,7 @@
         <tr>
             <th>idreceipt</th>
             <th>cashier name</th>
+            <th>closing_time</th>
             <th>total sum</th>
         </tr>
         </thead>
@@ -172,7 +173,8 @@
         <c:forEach items="${receipts}" var="rec">
             <tr>
                 <th><input type="number" value="${rec.idreceipt}" name="idreceipt" ></th>
-                <th> <input type="text" value="${rec.cashier_name}" name="cashier_name"></th>
+                <th><input type="text" value="${rec.cashier_name}" name="cashier_name"></th>
+                <th><input type="datetime-local" value="${rec.closing_time}" name="closing_time"></th>
                 <th><input type="number" step="0.01" value="${rec.total_sum}" name="total_sum"></th>
             </tr>
         </c:forEach>

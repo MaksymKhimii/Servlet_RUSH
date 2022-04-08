@@ -72,7 +72,7 @@
     }
 </style>
 <body>
-<jsp:include page="/WEB-INF/parts/merchandiser_navbar.jsp"/>
+<jsp:include page="/WEB-INF/parts/st_cashier_navbar.jsp"/>
 <div class="alert success" style="text-align: center;">
     <span class="closebtn">×</span>
     <strong>Success!</strong> The product has been deleted from receipt!

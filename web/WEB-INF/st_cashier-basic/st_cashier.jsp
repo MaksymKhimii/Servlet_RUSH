@@ -105,7 +105,7 @@
 </html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:include page="/WEB-INF/parts/merchandiser_navbar.jsp"/>
+<jsp:include page="/WEB-INF/parts/st_cashier_navbar.jsp"/>
 <html>
 
 <head>
@@ -126,6 +126,7 @@
     <tr>
         <th>idreceipt</th>
         <th>cashier name</th>
+        <th>closing_time</th>
         <th>total sum</th>
     </tr>
     </thead>
@@ -135,6 +136,7 @@
         <tr>
             <th>${rec.idreceipt}</th>
             <th> ${rec.cashier_name}</th>
+            <th>${rec.closing_time}</th>
             <th>${rec.total_sum}</th>
         </tr>
     </c:forEach>
