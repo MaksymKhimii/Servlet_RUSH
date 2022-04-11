@@ -4,13 +4,21 @@ import db.entity.Goodsarchive;
 import db.entity.Receipt;
 
 import java.sql.*;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+
 public class ReceipsDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "Maks_Khimii";
     private static final String PASSWORD = "makskhimiy24112003";
+    static int Date, DateNow, Month, MonthNow, Year, YearNow, Hour, HourNow, Minute, MinuteNow, Second, SecondNow;
+
     public Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -63,9 +71,9 @@ public class ReceipsDAO {
 
     //TODO добавить информацию о поле времени создания чека
     /** создание нового чека*/
-    public static boolean addReceipt(String cashier_name) throws SQLException, ClassNotFoundException {
+    public static void addReceipt(String cashier_name) throws SQLException, ClassNotFoundException {
         Date date = new Date();
-        SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
         System.out.println(formatForDateNow.format(date));
 
@@ -85,7 +93,6 @@ public class ReceipsDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return status;
     }
 
     /**этот метод достает id последнего созданого чека*/
@@ -205,7 +212,7 @@ public class ReceipsDAO {
         return status;
     }
 
-    //TODO добавить информацию о поле времени создания чека
+
     /** метод получает данные всех чеков */
     public static ArrayList<Receipt> getAllReceipts(){
         ArrayList<Receipt> receipts= new ArrayList<Receipt>(){};
@@ -386,4 +393,78 @@ public class ReceipsDAO {
         }
         return answer;
     }
+    //TODO СДЕЛАТЬ МЕТОД ДЛЯ ПОЛУЧЕНИЯ СУММЫ ДЛЯ Х-ОТЧЕТА
+    public static ArrayList getXSum() throws ParseException, ClassNotFoundException, SQLException {
+        SimpleDateFormat formattedDate = new SimpleDateFormat("yyyy-MM-dd");
+        //  SimpleDateFormat formattedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        double XSum = 0;
+        int receipts = 0; //колличество чеков в отчете
+        int lastIdReceipt = 0;// id последнего чека
+        //TODO тут будет запрос для получения дат в цыкле и если чеки созданы
+        // в этот же день - добавляем их сумму в общую сумму
+        ArrayList X = new ArrayList();
+        String Query1 = "SELECT idreceipt, closing_time, total_sum FROM mydbtest.receipts;";
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        PreparedStatement ps = con.prepareStatement(Query1);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            int idreceipt = rs.getInt("idreceipt");
+            Date baseDate0 = rs.getDate("closing_time");
+            double total_sum = rs.getDouble("total_sum");
+
+            String basedate =formattedDate.format(baseDate0);
+            System.out.println("basedate: "+basedate);
+            //текущая дата
+            Date datenow0 = new Date();
+            String datenow= formattedDate.format(datenow0);
+            System.out.println("datenow0: "+datenow);
+
+            if(basedate.equals(datenow)){
+                receipts++;
+                XSum=XSum+total_sum;
+                lastIdReceipt=idreceipt;
+            }
+
+        }
+        X.add(receipts);
+        X.add(lastIdReceipt);
+        X.add(XSum);
+        return X;
+    }
+
+    public static ArrayList GetCurrentDate(){
+        ArrayList date = new ArrayList();
+        //получаем текущую дату
+
+        Calendar calendar = new GregorianCalendar();
+        Date Datenow= calendar.getTime();
+        date.add(0,Year = Datenow.getYear()+1900);
+        date.add(1, Month = Datenow.getMonth());
+        date.add(2, Date = Datenow.getDate());
+        date.add(3, Hour = Datenow.getHours());
+        date.add(4, Minute = Datenow.getMinutes());
+        date.add(5, Second=Datenow.getSeconds());
+      //  date=Year+"-"+Month+"-"+Date+" "+Hour+":"+Minute+":"+Second;
+        return date;
+    }
+
+    public static ArrayList GetDate(String time){
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
+        Date localTime =new Date(time);
+        //localTime= formatForDateNow.format(localTime);
+        ArrayList date = new ArrayList();
+        //получаем текущую дату
+        Calendar calendar = Calendar.getInstance();
+        date.add(0,Year = calendar.get(Calendar.YEAR));
+        date.add(1, Month = calendar.get(Calendar.MONTH));
+        date.add(2, Date = calendar.get(Calendar.DAY_OF_MONTH));
+        date.add(3, Hour = calendar.get(Calendar.HOUR));
+        date.add(4, Minute = calendar.get(Calendar.MINUTE));
+        date.add(5, Second=calendar.get(Calendar.SECOND));
+        //  date=Year+"-"+Month+"-"+Date+" "+Hour+":"+Minute+":"+Second;
+        return date;
+    }
+
 }

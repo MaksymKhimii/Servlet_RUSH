@@ -50,7 +50,7 @@
     <a class="active" href="/logout">Log out</a>
     <a href="/SignUp">Sign Up</a>
     <a href="/Xreport">X report</a>
-    <a href="/Zreport">Z report</a>
+    <a href="/report">Report</a>
     <div class="topnav-right">
         <a href="#">Info</a>
         <a href="#">Change Language</a>

@@ -43,8 +43,6 @@
 <div class="topnav">
     <a class="active" href="/logout">Log out</a>
     <a href="/SignUp">Sign Up</a>
-    <%-- здесь будет отображение всех чеков которые создал этот кассир--%>
-    <a href="#">Orders</a>
 
     <div class="topnav-right">
         <a href="#">Info</a>
