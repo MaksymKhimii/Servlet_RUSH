@@ -158,16 +158,21 @@
 <jsp:include page="/WEB-INF/parts/st_cashier_navbar.jsp"/>
 <div style="text-align: center">
     <%--тут будет название отчета и далее его части--%>
-    <h2>Receipt id:</h2>
+    <h2>Report</h2>
 </div>
 
 <p>
-
-    <%--детали отчета--%>
 <div style="text-align: center">
-    <%-- тут сумма за отчет--%>
-    <h2>Total Sum: </h2>
+    <%--детали отчета--%>
+    Current time:${currentDate}
+    <br>
+    Quantity of receipts: ${countOfReceipts}
+    <br>
+    Last receipt id: ${lastIdReceipt}
+    <br>
+    <h2>Total Sum: ${XSum}</h2>
 </div>
+
 
 <form name="returnStCashier" method="post" action="st_cashier">
     <div style="text-align: center;">

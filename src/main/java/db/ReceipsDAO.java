@@ -393,15 +393,12 @@ public class ReceipsDAO {
         }
         return answer;
     }
-    //TODO СДЕЛАТЬ МЕТОД ДЛЯ ПОЛУЧЕНИЯ СУММЫ ДЛЯ Х-ОТЧЕТА
+
     public static ArrayList getXSum() throws ParseException, ClassNotFoundException, SQLException {
         SimpleDateFormat formattedDate = new SimpleDateFormat("yyyy-MM-dd");
-        //  SimpleDateFormat formattedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         double XSum = 0;
         int receipts = 0; //колличество чеков в отчете
         int lastIdReceipt = 0;// id последнего чека
-        //TODO тут будет запрос для получения дат в цыкле и если чеки созданы
-        // в этот же день - добавляем их сумму в общую сумму
         ArrayList X = new ArrayList();
         String Query1 = "SELECT idreceipt, closing_time, total_sum FROM mydbtest.receipts;";
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -412,13 +409,10 @@ public class ReceipsDAO {
             int idreceipt = rs.getInt("idreceipt");
             Date baseDate0 = rs.getDate("closing_time");
             double total_sum = rs.getDouble("total_sum");
-
             String basedate =formattedDate.format(baseDate0);
-            System.out.println("basedate: "+basedate);
             //текущая дата
             Date datenow0 = new Date();
             String datenow= formattedDate.format(datenow0);
-            System.out.println("datenow0: "+datenow);
 
             if(basedate.equals(datenow)){
                 receipts++;

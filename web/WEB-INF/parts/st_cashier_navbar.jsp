@@ -50,7 +50,7 @@
     <a class="active" href="/logout">Log out</a>
     <a href="/SignUp">Sign Up</a>
     <a href="/Xreport">X report</a>
-    <a href="/report">Report</a>
+    <a href="/report">Report</a> <%-- вот эту ссылку надо сделать активной ток 1 раз на сутки --%>
     <div class="topnav-right">
         <a href="#">Info</a>
         <a href="#">Change Language</a>
@@ -59,5 +59,17 @@
 <div style="text-align: center;">
     <h2>Cash register at your service</h2>
 </div>
+<script>
+    const button = document.querySelector('input');
+    button.addEventListener('click', disableButton);
+
+    function disableButton() {
+        button.disabled = true;
+        button.value = 'Disabled';
+        window.setTimeout(function() {
+            button.disabled = false;
+            button.value = 'Enabled';
+        }, 2000);
+    }</script>
 </body>
 </html>
