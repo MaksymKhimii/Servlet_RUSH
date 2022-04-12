@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/src/main/java/db/GoodsArchiveDAO.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/db/ProductsDao.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/db/ReceipsDAO.java" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/db/ReportDAO.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/db/UserDao.java" dialect="MySQL" />
   </component>
 </project>

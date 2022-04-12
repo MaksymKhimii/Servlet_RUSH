@@ -2,53 +2,52 @@ package controller.pages;
 
 import controller.command.Command;
 import db.ReceipsDAO;
+import db.ReportDAO;
+import db.entity.Report;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class report implements Command {
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
-        //TODO сделать обработку и отображение Z-отчета
         String answer = null;
-        //TODO сделать методы которые получают суммы за чеки
-        // которые были созданны в тот же день. Следовательно
-        // нужно получить дату за текущий день и
-        // если они совпадают -> прибавить к сумме
-        // в отчете+ выставить текущее время
-
-
         try {
             //получаем текущую дату
-            String Current_Date=
-                            ReceipsDAO.GetCurrentDate().get(0)+"-"+
-                            ReceipsDAO.GetCurrentDate().get(1)+"-"+
-                            ReceipsDAO.GetCurrentDate().get(2)+" "+
-                            ReceipsDAO.GetCurrentDate().get(3)+":"+
-                            ReceipsDAO.GetCurrentDate().get(4)+":"+
-                            ReceipsDAO.GetCurrentDate().get(5);
+            SimpleDateFormat formattedDate = new SimpleDateFormat("yyyy-MM-dd");
+            Date datenow0 = new Date();
+            String Current_Date= formattedDate.format(datenow0);
 
-            ArrayList result = ReceipsDAO.getXSum();
-            int countOfReceipts = (int) result.get(0); // колличество чеков в отчете
-            int lastIdReceipt = (int) result.get(1);
-            double XSum = (double) result.get(2);
+            System.out.println("разрешение: "+ReportDAO.AllowToReport());
+            if(ReportDAO.AllowToReport()){
+                try {
+                ArrayList result = ReceipsDAO.getXSum();
+                int countOfReceipts = (int) result.get(0); // колличество чеков в отчете
+                int lastIdReceipt = (int) result.get(1);
+                double XSum = (double) result.get(2);
 
-            request.setAttribute("currentDate", Current_Date);
-            request.setAttribute("countOfReceipts", countOfReceipts);
-            request.setAttribute("lastIdReceipt" ,lastIdReceipt);
-            request.setAttribute("XSum", XSum);
-            //  request.setAttribute("currentDate", currentDate);
+                ReportDAO.addReport(countOfReceipts, lastIdReceipt, XSum);
+                request.setAttribute("currentDate", Current_Date);
+                request.setAttribute("countOfReceipts", countOfReceipts);
+                request.setAttribute("lastIdReceipt" ,lastIdReceipt);
+                request.setAttribute("XSum", XSum);
 
-            System.out.println("Method: "+result);
-            System.out.println("countOfReceipts: "+countOfReceipts);
-            System.out.println("lastIdReceipt: "+lastIdReceipt);
-            System.out.println("XSum: "+XSum);
-        }catch (ParseException e){
-            e.printStackTrace();
+                    answer="/WEB-INF/st_cashier-basic/report.jsp";
+            }catch (ParseException e){
+                e.printStackTrace();
+            }
+
+            } else{
+                answer="/WEB-INF/st_cashier-basic/report_error.jsp";
+            }
+
+    } catch (ParseException e){
+        e.printStackTrace();
         }
-        answer="/WEB-INF/st_cashier-basic/report.jsp";
         return answer;
     }
 }

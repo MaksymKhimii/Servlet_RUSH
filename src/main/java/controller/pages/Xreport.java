@@ -44,12 +44,6 @@ public class Xreport implements Command {
             request.setAttribute("countOfReceipts", countOfReceipts);
             request.setAttribute("lastIdReceipt" ,lastIdReceipt);
             request.setAttribute("XSum", XSum);
-          //  request.setAttribute("currentDate", currentDate);
-
-            System.out.println("Method: "+result);
-            System.out.println("countOfReceipts: "+countOfReceipts);
-            System.out.println("lastIdReceipt: "+lastIdReceipt);
-            System.out.println("XSum: "+XSum);
         }catch (ParseException e){
             e.printStackTrace();
         }

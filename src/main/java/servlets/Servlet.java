@@ -47,6 +47,7 @@ public class Servlet extends HttpServlet {
         commands.put("deleteProductFromReceipt", new deleteProductFromReceipt());
         commands.put("Xreport", new Xreport());
         commands.put("report", new report());
+        commands.put("AllReports", new AllReports());
     }
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response)

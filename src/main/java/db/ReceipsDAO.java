@@ -443,22 +443,6 @@ public class ReceipsDAO {
         return date;
     }
 
-    public static ArrayList GetDate(String time){
-        SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
-        Date localTime =new Date(time);
-        //localTime= formatForDateNow.format(localTime);
-        ArrayList date = new ArrayList();
-        //получаем текущую дату
-        Calendar calendar = Calendar.getInstance();
-        date.add(0,Year = calendar.get(Calendar.YEAR));
-        date.add(1, Month = calendar.get(Calendar.MONTH));
-        date.add(2, Date = calendar.get(Calendar.DAY_OF_MONTH));
-        date.add(3, Hour = calendar.get(Calendar.HOUR));
-        date.add(4, Minute = calendar.get(Calendar.MINUTE));
-        date.add(5, Second=calendar.get(Calendar.SECOND));
-        //  date=Year+"-"+Month+"-"+Date+" "+Hour+":"+Minute+":"+Second;
-        return date;
-    }
 
 }
