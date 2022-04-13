@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class NoCacheFilter  implements Filter {
-    //TODO разобрать фильтр и переделать его
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
     }

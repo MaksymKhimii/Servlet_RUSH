@@ -13,7 +13,7 @@ public class AllReports implements Command {
         String answer=null;
 
         if(ReportDAO.checkReport()) {
-            request.setAttribute("REPORTS", ReportDAO.getAllReports());
+            request.setAttribute("reports", ReportDAO.getAllReports());
             answer="/WEB-INF/st_cashier-basic/AllReports.jsp";
         } else {
             answer="/WEB-INF/st_cashier-basic/receiptSearchError.jsp";

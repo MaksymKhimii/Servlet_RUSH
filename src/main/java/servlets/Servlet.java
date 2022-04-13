@@ -57,7 +57,6 @@ public class Servlet extends HttpServlet {
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        //response.getWriter().print("Hello from servlet");
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
@@ -69,11 +68,6 @@ public class Servlet extends HttpServlet {
     }
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
-       /* String path = request.getRequestURI();
-        Command command = commands.getOrDefault(path ,
-                (r)->"/index.jsp");
-        System.out.println(command.getClass().getName());
-        String page = command.execute(request);*/
         String path=request.getRequestURI();
         path=path.replaceAll(".*/", "");
         Command command = commands.getOrDefault(path,

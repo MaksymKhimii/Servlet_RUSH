@@ -191,11 +191,11 @@
     </tr>
     </thead>
     <tbody>
-    <jsp:useBean id="REPORTS" scope="request" type="java.util.List"/>
-    <c:forEach items="${REPORTS}" var="rep">
+    <jsp:useBean id="reports" scope="request" type="java.util.List"/>
+    <c:forEach items="${reports}" var="rep">
         <tr>
-            <th>${rep.idReport}</th>
-            <th> ${rep.quntityOfReceipts}</th>
+            <th>${rep.idreport}</th>
+            <th> ${rep.quantityOfReceipts}</th>
             <th>${rep.lastReceiptId}</th>
             <th>${rep.time}</th>
             <th>${rep.totalSum}</th>
