@@ -2,7 +2,7 @@ package controller.pages;
 
 import controller.command.Command;
 import db.BasketDAO;
-import db.ProductsDao;
+import db.ProductsDAO;
 import db.ReceipsDAO;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,14 +14,14 @@ public class searchProductForReceipt implements Command {
         String answer = null;
         try {
             String name = request.getParameter("name");
-            if(ProductsDao.validateProduct(name)){
+            if(ProductsDAO.validateProduct(name)){
                 //если такой продукт есть, то выводим информацию о нем
-                ProductsDao.getOneProduct(name);
+                ProductsDAO.getOneProduct(name);
 
                 request.setAttribute("rec", ReceipsDAO.getLastReceiptId()); //отображение id чека
                 request.setAttribute("totalSum", ReceipsDAO.getReceiptSum(ReceipsDAO.getLastReceiptId()));
                 request.setAttribute("basket", BasketDAO.getAllBasket());
-                request.setAttribute("products",  ProductsDao.getOneProduct(name));
+                request.setAttribute("products",  ProductsDAO.getOneProduct(name));
                 //TODO если в корзине еще не продуктов то перенаправить на новую страницу без отображения таблицы слева
                 // иначе же перенаправить на addToReceipt как дефолтную страницу добавления, которая будет использоваться далее
                 if(BasketDAO.checkBasket()){

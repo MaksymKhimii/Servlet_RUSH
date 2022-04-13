@@ -6,11 +6,18 @@ import db.entity.Product;
 import java.sql.*;
 import java.util.ArrayList;
 
+/** RU: слой ДАО для взаимодействия программы с таблицей basket в базе дынных,
+ *      которая хранит продукты во время создания ного чека
+ * ENG: DAO layer for program interaction with the basket table in the database,
+ *      which stores products during the creation of a receipt*/
+
 public class BasketDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "Maks_Khimii";
     private static final String PASSWORD = "makskhimiy24112003";
 
+    /** RU: метод для создания соединения между базой данных и программой
+     * ENG: method to create connection between database and program */
     public Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -24,11 +31,8 @@ public class BasketDAO {
         return con;
     }
 
-    /**
-     * мотод проверяет добавлен ли продукт с определенными параметра
-     * <p>
-     * ми
-     */
+    /** RU: метод проверяет добавлен ли продукт с определенными параметрами
+     * ENG: the method checks if a product has been added with certain parameters  */
     public static boolean validateBasket( int idproduct, String name, int quantity, double weight,
                                           boolean tonnage, double price) throws SQLException, ClassNotFoundException {
         boolean answer = false;
@@ -55,7 +59,9 @@ public class BasketDAO {
         }
         return answer;
     }
-    /**проверка корзины на налачие хотя бы одного продукта*/
+
+    /** RU: проверка корзины на налачие хотя бы одного продукта
+     * ENG: checking the basket for at least one product */
     public static boolean checkBasket() throws SQLException, ClassNotFoundException {
         boolean answer = false;
         int idreceipt = ReceipsDAO.getLastReceiptId();
@@ -74,18 +80,19 @@ public class BasketDAO {
         return answer;
     }
 
-    /**метод для добавления в корзину последнего созданного чека */
+    /** RU: метод для добавления в корзину последнего созданного чека
+     * ENG: method for adding the last created receipt to the basket */
     public static boolean addProdToBasket(int idproduct, String name, int quantity, double weight,
                                           boolean tonnage, double price) throws SQLException, ClassNotFoundException {
         boolean status = false;
         int idreceipt = ReceipsDAO.getLastReceiptId();
         //приводим boolean к int чтобы запрос работал
         int tonnageInt = Product.boolToInt(tonnage);
-        ProductsDao.updateCountProduct(name, quantity, weight, tonnage);
+        ProductsDAO.updateCountProduct(name, quantity, weight, tonnage);
         //если это весовой продукт, проверяем валидный ли его вес
         // если это не весовой продук, проверяем валидность его колличества
         if(tonnage){
-            if(ProductsDao.validateWeight(name, weight)){
+            if(ProductsDAO.validateWeight(name, weight)){
                 try {
 
                     String ADD_Product = "INSERT INTO mydbtest.basket (idreceipt, idproduct, name, quantity,weight,tonnage, price)" +
@@ -110,7 +117,7 @@ public class BasketDAO {
                 }
             }
         } else {
-            if(ProductsDao.validateQuantity(name, quantity)){
+            if(ProductsDAO.validateQuantity(name, quantity)){
                 try {
 
                     String ADD_Product = "INSERT INTO mydbtest.basket (idreceipt, idproduct, name, quantity,weight,tonnage, price)" +
@@ -137,7 +144,9 @@ public class BasketDAO {
         }
         return status;
     }
-    /**удаляет все продукты из basket которые пренадлежат к открытому чеку*/
+
+    /** RU: удаляет все продукты из basket которые пренадлежат к открытому чеку
+     * ENG: removes all products from the basket that belong to the open receipt*/
     public static boolean deleteBasket(int idreceipt) throws SQLException, ClassNotFoundException {
         boolean answer = false;
         try {
@@ -154,9 +163,13 @@ public class BasketDAO {
         }
         return answer;
     }
-    /**метод получает суму за один продукт
-     * (метод будет использоваться при добавлении продукта в корзину
-     * для следующего изменения отображаеого значения общей суммы )*/
+
+    /** RU: метод получает суму за один продукт
+     *       (метод будет использоваться при добавлении продукта в корзину
+     *       для следующего изменения отображаеого значения общей суммы )
+     * ENG: the method receives the amount for one product
+     *       (the method will be used when adding the product to the cart
+     *       for the next change in the displayed value of the total amount)     */
     public static double countSumOneProduct( int idproduct, String name, int quantity, double weight,
                                           boolean tonnage, double price) throws SQLException, ClassNotFoundException {
        double SumOneProd;
@@ -169,7 +182,8 @@ public class BasketDAO {
         return SumOneProd;
     }
 
-    /** метод для получения данных всех продуктов чека*/
+    /** RU: метод для получения данных всех продуктов чека
+     * ENG: method for obtaining data of all receipt products */
     public static ArrayList<Basket> getAllBasket(){
         ArrayList<Basket> basket= new ArrayList<Basket>(){};
         String Query = "SELECT idreceipt, idproduct, name, quantity, weight, tonnage, price FROM mydbtest.basket;";

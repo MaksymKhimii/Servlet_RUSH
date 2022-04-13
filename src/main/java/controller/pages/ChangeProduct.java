@@ -1,7 +1,7 @@
 package controller.pages;
 
 import controller.command.Command;
-import db.ProductsDao;
+import db.ProductsDAO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
@@ -22,14 +22,14 @@ public class ChangeProduct implements Command {
             System.out.println("weight="+weight);
             System.out.println("tonnage "+tonnage);
             System.out.println("price = "+price);
-            ProductsDao.changeProduct(name, quantity, weight, tonnage, price);
-            if(ProductsDao.validateProduct(name, quantity, weight, tonnage, price)){
+            ProductsDAO.changeProduct(name, quantity, weight, tonnage, price);
+            if(ProductsDAO.validateProduct(name, quantity, weight, tonnage, price)){
                 answer="/WEB-INF/admin-basic/successfully_changed.jsp";
             } else{
                 answer="/WEB-INF/admin-basic/danger_not_changed.jsp";
             }
 
-            request.setAttribute("products", ProductsDao.getAllProducts());
+            request.setAttribute("products", ProductsDAO.getAllProducts());
         } catch (NumberFormatException e){
             e.printStackTrace();
         }

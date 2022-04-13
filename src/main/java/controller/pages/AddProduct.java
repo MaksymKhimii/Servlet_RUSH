@@ -1,10 +1,9 @@
 package controller.pages;
 
 import controller.command.Command;
-import db.ProductsDao;
+import db.ProductsDAO;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 
 public class AddProduct implements Command {
@@ -25,11 +24,11 @@ public class AddProduct implements Command {
             System.out.println("weight"+weight);
             System.out.println("tonnage"+tonnage);
             System.out.println("price"+price);
-            request.setAttribute("products", ProductsDao.getAllProducts());
-            if(ProductsDao.validateProduct(name)){
+            request.setAttribute("products", ProductsDAO.getAllProducts());
+            if(ProductsDAO.validateProduct(name)){
                 //сообщение о том что такой продукт уже есть
                 answer ="/WEB-INF/admin-basic/danger_not_added.jsp";
-            } else if(ProductsDao.addProduct(name, quantity, weight, tonnage, price)){
+            } else if(ProductsDAO.addProduct(name, quantity, weight, tonnage, price)){
                 //сообщение о том что продукт успешно добавлен
                 answer ="/WEB-INF/admin-basic/successfully_added.jsp";
             } else {

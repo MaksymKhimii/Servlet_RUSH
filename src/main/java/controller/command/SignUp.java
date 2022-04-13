@@ -1,6 +1,6 @@
 package controller.command;
 
-import db.UserDao;
+import db.UserDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,10 +25,10 @@ public class SignUp extends HttpServlet {
         System.out.println(password);
         System.out.println(role);
         try {
-            if (UserDao.validate(username, password)) {
+            if (UserDAO.validate(username, password)) {
                 request.getRequestDispatcher("/WEB-INF/common/sign-up.jsp").forward(request, response);
             } else {
-                if (UserDao.addUser(username, password, role)){
+                if (UserDAO.addUser(username, password, role)){
                     request.getRequestDispatcher("/Login").forward(request, response);
                 }
             }

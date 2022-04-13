@@ -13,8 +13,9 @@ public class ReportDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "Maks_Khimii";
     private static final String PASSWORD = "makskhimiy24112003";
-    static int Date, DateNow, Month, MonthNow, Year, YearNow, Hour, HourNow, Minute, MinuteNow, Second, SecondNow;
 
+    /** RU: метод для создания соединения между базой данных и программой
+     * ENG: method to create connection between database and program */
     public Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");

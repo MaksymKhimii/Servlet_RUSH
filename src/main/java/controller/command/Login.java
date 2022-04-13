@@ -1,21 +1,11 @@
 package controller.command;
 
-import db.ProductsDao;
-import db.UserDao;
-import db.entity.User;
+import db.UserDAO;
 import db.enums.UserRole;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 
@@ -33,15 +23,15 @@ public class Login implements Command {
         String answer = null;
 
         //System.out.println(UserDao.validate(name, pass));
-        if (UserDao.validate(name, pass)) {
-            if (UserDao.getUser(name, pass).equals(UserRole.merchandiser.toString())) {
+        if (UserDAO.validate(name, pass)) {
+            if (UserDAO.getUser(name, pass).equals(UserRole.merchandiser.toString())) {
                 CommandUtility.setUserRole(request, UserRole.merchandiser, name);
 
                 answer = "redirect:/merchandiser";
-            } else if (UserDao.getUser(name, pass).equals(UserRole.cashier.toString())) {
+            } else if (UserDAO.getUser(name, pass).equals(UserRole.cashier.toString())) {
                CommandUtility.setUserRole(request, UserRole.cashier, name);
                 answer = "redirect:/cashier";
-            } else if(UserDao.getUser(name, pass).equals(UserRole.st_cashier.toString())){
+            } else if(UserDAO.getUser(name, pass).equals(UserRole.st_cashier.toString())){
                 CommandUtility.setUserRole(request, UserRole.st_cashier, name);
                 answer = "redirect:/st_cashier";
             }

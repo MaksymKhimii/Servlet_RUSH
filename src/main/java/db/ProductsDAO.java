@@ -4,12 +4,14 @@ import db.entity.Product;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Locale;
 
-public class ProductsDao {
+public class ProductsDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "Maks_Khimii";
     private static final String PASSWORD = "makskhimiy24112003";
+
+    /** RU: метод для создания соединения между базой данных и программой
+     * ENG: method to create connection between database and program */
     public Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -83,7 +85,7 @@ public class ProductsDao {
             ps.setString(4, String.valueOf(tonnageInt));
             ps.setString(5, String.valueOf(price));
             ps.executeUpdate();
-            if(ProductsDao.validateProduct(name, quantity, weight, tonnage, price)){
+            if(ProductsDAO.validateProduct(name, quantity, weight, tonnage, price)){
                 status=true;
             }
         } catch (SQLException e){
@@ -123,7 +125,7 @@ public class ProductsDao {
             PreparedStatement ps=con.prepareStatement(DeleteProduct);
             ps.setString(1,name);
             ps.executeUpdate();
-            if(!ProductsDao.validateProduct(name)){
+            if(!ProductsDAO.validateProduct(name)){
                 answer=true;
             }
         } catch (SQLException e){

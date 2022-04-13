@@ -4,7 +4,6 @@ package controller.pages;
 
 import controller.command.Command;
 import db.ReceipsDAO;
-import db.UserDao;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;

@@ -6,12 +6,13 @@ import db.enums.UserRole;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class UserDao {
+public class UserDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-  //  private static  final String URL = "jdbc:mysql://localhost:3306/mydbtest";
-   //private static final String URL ="jdbc:mysql://localhost:3306";
     private static final String USERNAME = "Maks_Khimii";
     private static final String PASSWORD = "makskhimiy24112003";
+
+    /** RU: метод для создания соединения между базой данных и программой
+     * ENG: method to create connection between database and program */
     public Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -26,6 +27,7 @@ public class UserDao {
 
         return con;
     }
+
     public static boolean validate(String name,String pass) {
 
         boolean status=false;
@@ -78,7 +80,7 @@ public class UserDao {
         ps.setString(2,password);
         ps.setString(3, role);
         ps.execute();
-       if(UserDao.validate(username, password)){
+       if(UserDAO.validate(username, password)){
            status=true;
        }
        return status;
