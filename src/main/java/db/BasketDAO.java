@@ -12,12 +12,20 @@ import java.util.ArrayList;
  *      which stores products during the creation of a receipt*/
 
 public class BasketDAO {
+    /**
+     *  RU: переменные для подключения к базе данных
+     * ENG: database connection variables
+     */
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "Maks_Khimii";
     private static final String PASSWORD = "makskhimiy24112003";
 
-    /** RU: метод для создания соединения между базой данных и программой
-     * ENG: method to create connection between database and program */
+
+    /**
+     * RU: метод для создания соединения между базой данных и программой
+     * ENG: method to create connection between database and program
+     * @return Connection
+     */
     public Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -27,17 +35,23 @@ public class BasketDAO {
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/epam?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true", "root", "1234567h");
         con.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
-        // con.setAutoCommit(true);
         return con;
     }
 
-    /** RU: метод проверяет добавлен ли продукт с определенными параметрами
-     * ENG: the method checks if a product has been added with certain parameters  */
+    /**
+     * RU: метод проверяет добавлен ли продукт с определенными параметрами
+     * ENG: the method checks if a product has been added with certain parameters
+     * @param idproduct product id
+     * @param name product name
+     * @param quantity quantity of product type
+     * @param weight product weight
+     * @param tonnage whether the item is by weight
+     * @param price price
+     * @return boolean
+     */
     public static boolean validateBasket( int idproduct, String name, int quantity, double weight,
-                                          boolean tonnage, double price) throws SQLException, ClassNotFoundException {
+                                          boolean tonnage, double price) throws SQLException {
         boolean answer = false;
-        int idreceipt = ReceipsDAO.getLastReceiptId();
-        //приводим boolean к int чтобы запрос работал
         int tonnageInt = Product.boolToInt(tonnage);
         try {
             String GETUSER = "SELECT * FROM mydbtest.basket where idproduct=? AND name=? AND" +
@@ -61,11 +75,11 @@ public class BasketDAO {
     }
 
     /** RU: проверка корзины на налачие хотя бы одного продукта
-     * ENG: checking the basket for at least one product */
-    public static boolean checkBasket() throws SQLException, ClassNotFoundException {
+     * ENG: checking the basket for at least one product
+     * @return boolean
+     */
+    public static boolean checkBasket() {
         boolean answer = false;
-        int idreceipt = ReceipsDAO.getLastReceiptId();
-        //приводим boolean к int чтобы запрос работал
         try {
             String QUERY = "SELECT * FROM mydbtest.basket;";
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -81,16 +95,21 @@ public class BasketDAO {
     }
 
     /** RU: метод для добавления в корзину последнего созданного чека
-     * ENG: method for adding the last created receipt to the basket */
+     * ENG: method for adding the last created receipt to the basket
+     * @param idproduct product id
+     * @param name product name
+     * @param quantity quantity of product type
+     * @param weight product weight
+     * @param tonnage whether the item is by weight
+     * @param price price
+     * @return boolean
+     */
     public static boolean addProdToBasket(int idproduct, String name, int quantity, double weight,
                                           boolean tonnage, double price) throws SQLException, ClassNotFoundException {
         boolean status = false;
         int idreceipt = ReceipsDAO.getLastReceiptId();
-        //приводим boolean к int чтобы запрос работал
         int tonnageInt = Product.boolToInt(tonnage);
         ProductsDAO.updateCountProduct(name, quantity, weight, tonnage);
-        //если это весовой продукт, проверяем валидный ли его вес
-        // если это не весовой продук, проверяем валидность его колличества
         if(tonnage){
             if(ProductsDAO.validateWeight(name, weight)){
                 try {
@@ -146,9 +165,10 @@ public class BasketDAO {
     }
 
     /** RU: удаляет все продукты из basket которые пренадлежат к открытому чеку
-     * ENG: removes all products from the basket that belong to the open receipt*/
-    public static boolean deleteBasket(int idreceipt) throws SQLException, ClassNotFoundException {
-        boolean answer = false;
+     * ENG: removes all products from the basket that belong to the open receipt
+     * @param idreceipt product id
+     */
+    public static void deleteBasket(int idreceipt) throws SQLException {
         try {
             String GETUSER = "DELETE FROM mydbtest.basket WHERE idreceipt=?;";
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -156,12 +176,9 @@ public class BasketDAO {
             PreparedStatement ps = con.prepareStatement(GETUSER);
             ps.setString(1, String.valueOf(idreceipt));
             ps.executeUpdate();
-                answer=true;
-
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return answer;
     }
 
     /** RU: метод получает суму за один продукт
@@ -169,11 +186,18 @@ public class BasketDAO {
      *       для следующего изменения отображаеого значения общей суммы )
      * ENG: the method receives the amount for one product
      *       (the method will be used when adding the product to the cart
-     *       for the next change in the displayed value of the total amount)     */
+     *       for the next change in the displayed value of the total amount)
+     * @param idproduct product id
+     * @param name product name
+     * @param quantity quantity of product type
+     * @param weight product weight
+     * @param tonnage whether the item is by weight
+     * @param price price
+     * @return double
+     */
     public static double countSumOneProduct( int idproduct, String name, int quantity, double weight,
-                                          boolean tonnage, double price) throws SQLException, ClassNotFoundException {
+                                          boolean tonnage, double price) {
        double SumOneProd;
-        int idreceipt = ReceipsDAO.getLastReceiptId();
         if(tonnage){
             SumOneProd=weight*price;
         } else {
@@ -183,9 +207,12 @@ public class BasketDAO {
     }
 
     /** RU: метод для получения данных всех продуктов чека
-     * ENG: method for obtaining data of all receipt products */
+     * ENG: method for obtaining data of all receipt products
+     * @return ArrayList<Basket>
+     */
     public static ArrayList<Basket> getAllBasket(){
-        ArrayList<Basket> basket= new ArrayList<Basket>(){};
+        ArrayList<Basket> basket= new ArrayList<>() {
+        };
         String Query = "SELECT idreceipt, idproduct, name, quantity, weight, tonnage, price FROM mydbtest.basket;";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

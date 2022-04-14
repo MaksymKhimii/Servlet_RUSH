@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class NoCacheFilter  implements Filter {
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
     }
@@ -15,6 +16,7 @@ public class NoCacheFilter  implements Filter {
         response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
         filterChain.doFilter(servletRequest,servletResponse);
     }
+
     @Override
     public void destroy() {
     }

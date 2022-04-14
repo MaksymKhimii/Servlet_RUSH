@@ -1,6 +1,7 @@
 package db.entity;
 
 public class Report {
+
     private int idreport;
     private int quantityOfReceipts;
     private int lastReceiptId;

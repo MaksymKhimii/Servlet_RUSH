@@ -12,21 +12,17 @@ import javax.servlet.http.HttpSession;
 public class Login implements Command {
     @Override
     public String execute(HttpServletRequest request) throws SQLException {
-        //username and password:
 
         HttpSession session = request.getSession();
         String name = request.getParameter("username");
         session.setAttribute("username", name);
         String username = (String) session.getAttribute("username");
         String pass = request.getParameter("password");
-      //  System.out.println(name+ pass);
         String answer = null;
 
-        //System.out.println(UserDao.validate(name, pass));
         if (UserDAO.validate(name, pass)) {
             if (UserDAO.getUser(name, pass).equals(UserRole.merchandiser.toString())) {
                 CommandUtility.setUserRole(request, UserRole.merchandiser, name);
-
                 answer = "redirect:/merchandiser";
             } else if (UserDAO.getUser(name, pass).equals(UserRole.cashier.toString())) {
                CommandUtility.setUserRole(request, UserRole.cashier, name);
@@ -36,56 +32,9 @@ public class Login implements Command {
                 answer = "redirect:/st_cashier";
             }
         } else {
-           // CommandUtility.setUserRole(request, UserRole.unknown, name);
             answer = "/index.jsp";
         }
         return answer;
     }
 }
 
-   /* public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        //response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-
-        String n = request.getParameter("username");
-        String p = request.getParameter("password");
-        System.out.println(n);
-        System.out.println(p);
-        if(UserDao.validate(n, p)){
-            if(UserDao.getUser(n, p).equals(UserRole.merchandiser.toString())){
-                //2 строки рабочего форварда
-                RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/admin-basic/merchandiser.jsp");
-                rd.forward(request,response);
-
-                //попытка сделать редирект не привела к успеху
-               // response.sendRedirect(request.getContextPath() + "/WEB-INF/admin-basic/merchandiser.jsp");
-
-            } else if(UserDao.getUser(n, p).equals(UserRole.cashier.toString())){
-                RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/user-basic/cashier.jsp");
-                rd.forward(request,response);
-            } else if(UserDao.getUser(n, p).equals(UserRole.st_cashier.toString())){
-                RequestDispatcher rd=request.getRequestDispatcher("/WEB-INF/st_cashier-basic/st_cashier.jsp");
-                rd.forward(request,response);
-            }
-        }
-        else{
-            out.print("Sorry username or password error");
-            RequestDispatcher rd=request.getRequestDispatcher("index.html");
-            rd.include(request,response);
-        }
-        out.close();
-
-
-
-    }
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        Way way = new Way();
-        String n = request.getParameter("username");
-        String p = request.getParameter("password");
-        response.sendRedirect(way.wayLogin(n, p).replace("redirect:", ""));
-
-    }*/

@@ -1,6 +1,7 @@
 package db.entity;
 
 public class Receipt {
+
     private int idreceipt;
     private String cashier_name;
     private String closing_time;

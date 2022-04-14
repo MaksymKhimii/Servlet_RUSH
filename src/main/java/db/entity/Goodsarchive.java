@@ -1,6 +1,7 @@
 package db.entity;
 
 public class Goodsarchive {
+
     private int idreceipt;
     private int idproduct;
     private String name;

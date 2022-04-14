@@ -7,8 +7,11 @@ public class GoodsArchiveDAO {
     private static final String USERNAME = "Maks_Khimii";
     private static final String PASSWORD = "makskhimiy24112003";
 
+
     /** RU: метод для создания соединения между базой данных и программой
-     * ENG: method to create connection between database and program */
+     * ENG: method to create connection between database and program
+     * @return Connection
+     */
     public Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -21,15 +24,13 @@ public class GoodsArchiveDAO {
         // con.setAutoCommit(true);
         return con;
     }
-    /**переносит данные чека из basket в goodsarchive для сохранения*/
+
+    /** RU: переносит данные чека из basket в goodsarchive для сохранения
+     * ENG: transfers receipt data from basket to goodsarchive for saving
+     * @param idreceipt receipt id
+     */
     public static void saveBacket(int idreceipt) throws SQLException, ClassNotFoundException {
-
-        //приводим boolean к int чтобы запрос работал
-
-        //если это весовой продукт, проверяем валидный ли его вес
-        // если это не весовой продук, проверяем валидность его колличества
         double total_sum=ReceipsDAO.getReceiptSum(idreceipt);
-
         try {
 
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -45,17 +46,19 @@ public class GoodsArchiveDAO {
             PreparedStatement ps2 = con.prepareStatement(QUERY2);
             ps2.setString(1, String.valueOf(total_sum));
             ps2.setString(2, String.valueOf(idreceipt));
+
             ps2.executeUpdate();
-            //после переноса данных удаляем все из basket
             BasketDAO.deleteBasket(idreceipt);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    /**удаляем продукты чека по его idreceipt*/
-    public static boolean deleteReceiptFromArchive(int idreceipt) throws SQLException, ClassNotFoundException {
-        boolean answer = false;
+    /** RU: удаляем продукты чека по его idreceipt
+     * ENG: delete check products by its idreceipt
+     * @param idreceipt receipt id
+     */
+    public static void deleteReceiptFromArchive(int idreceipt) throws SQLException, ClassNotFoundException {
         try {
             String QUERY="DELETE FROM mydbtest.goodsarchive WHERE idreceipt =?;";
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -64,24 +67,19 @@ public class GoodsArchiveDAO {
             PreparedStatement ps=con.prepareStatement(QUERY);
             ps.setString(1, String.valueOf(idreceipt));
             ps.executeUpdate();
-            if(!GoodsArchiveDAO.validateReceipt(idreceipt)){
-                answer=true;
-            }
-
+            GoodsArchiveDAO.validateReceipt(idreceipt);
         } catch (SQLException e){
             e.printStackTrace();
         }
-        return answer;
     }
 
-    /**удаляем продукты чека по его idreceipt*/
-    public static void deleteProdFromReceipt(int idproduct, int idreceipt) throws SQLException, ClassNotFoundException {
-        boolean answer = false;
+    /** RU: удаляем продукты чека по его idreceipt
+     * ENG: delete check products by its idreceipt
+     * @param idproduct product id
+     * @param idreceipt receipt id
+     */
+    public static void deleteProdFromReceipt(int idproduct, int idreceipt) throws ClassNotFoundException {
         try {
-
-
-
-
             String QUERY="DELETE FROM mydbtest.goodsarchive WHERE idproduct=? AND idreceipt=?;";
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -90,12 +88,16 @@ public class GoodsArchiveDAO {
             ps.setString(1, String.valueOf(idproduct));
             ps.setString(2, String.valueOf(idreceipt));
             ps.executeUpdate();
-                answer=true;
         } catch (SQLException e){
             e.printStackTrace();
         }
     }
-    /** проверка, есть ли чек с указаным idreceipt в архиве*/
+
+    /** RU: проверка, есть ли чек с указаным idreceipt в архиве
+     * ENG: checking if there is a receipt with the specified receipt id in the archive
+     * @param idreceipt receipt id
+     * @return boolean
+     */
     public static boolean validateReceipt(int idreceipt) {
 
         boolean status=false;
@@ -113,7 +115,12 @@ public class GoodsArchiveDAO {
         return status;
     }
 
-    /** проверка, есть ли продукт с указаным idproduct в чеке idreceipt*/
+    /** RU: проверка, есть ли продукт с указаным idproduct в чеке idreceipt
+     * ENG: checking if there is a product with the specified idproduct in the idreceipt
+     * @param idproduct product id
+     * @param idreceipt receipt id
+     * @return boolean
+     */
     public static boolean validateProdInReceipt(int idproduct, int idreceipt) {
 
         boolean status=false;
@@ -133,7 +140,12 @@ public class GoodsArchiveDAO {
         return status;
     }
 
-    /**считает сумму продукта который будет удален из чека*/
+    /** RU: считает сумму продукта который будет удален из чека
+     * ENG: calculates the amount of the product that will be removed from the receipt
+     * @param idreceipt  receipt id
+     * @param idproduct  product id
+     * @return double
+     */
     public static double getCostOneProduct(int idreceipt, int idproduct){
         int quantity=0;
         boolean tonnage=false;
@@ -157,7 +169,7 @@ public class GoodsArchiveDAO {
             }
         }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
 
-        double cost=0;
+        double cost;
         if(tonnage){
             cost=weight*price;
         }else {
@@ -166,7 +178,10 @@ public class GoodsArchiveDAO {
         return cost;
     }
 
-    /**обновляет сумму в таблице goodsarchive */
+    /** RU: обновляет сумму в таблице goodsarchive
+     * ENG: updates the total_sum in the goodsarchive table
+     * @param idreceipt receipt id
+     */
     public static void updateSum(int idreceipt){
         double totalSum=0;
         try {

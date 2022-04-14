@@ -13,7 +13,6 @@ public class Logout implements Command {
     public String execute(HttpServletRequest request) {
         // ToDo delete current user (context & session)
         CommandUtility.setUserRole(request, UserRole.unknown, "Guest");
-
         return "/index.jsp";
     }
 }

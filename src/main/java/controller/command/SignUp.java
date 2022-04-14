@@ -16,6 +16,7 @@ public class SignUp extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/common/sign-up.jsp").forward(request,response);
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         String username = request.getParameter("username");
@@ -37,7 +38,4 @@ public class SignUp extends HttpServlet {
         }
         out.close();
     }
-
-
-
 }
