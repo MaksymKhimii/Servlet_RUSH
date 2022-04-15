@@ -103,8 +103,12 @@
     }
 </style>
 </html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<fmt:setBundle basename="resources_en"/>
+
 <jsp:include page="/WEB-INF/parts/st_cashier_navbar.jsp"/>
 <html>
 
@@ -115,19 +119,19 @@
 
 
 <p>
-<div style="text-align: center;">st_cashier successfully logged in!</div>
+<div style="text-align: center;"><fmt:message key="st_cashier_jsp.label.st_cashier_successfully_logged_in!"/> </div>
 <br> <%-- специальный отступ для нормального вида поисковика, не убирать!!!--%>
 <form class="example" action="searchReceipt" style="margin:auto;max-width:300px">
-    <input type="text" placeholder="Search product by name.." name="search">
+    <input type="text" placeholder=<fmt:message key="st_cashier_jsp.placeholder.Search_product_by_name.."/> name="search">
     <button type="submit"><i class="fa fa-search"></i></button>
 </form>
 <table class="table_blur">
     <thead>
     <tr>
-        <th>idreceipt</th>
-        <th>cashier name</th>
-        <th>closing_time</th>
-        <th>total sum</th>
+        <th><fmt:message key="st_cashier_jsp.label.idreceipt"/></th>
+        <th><fmt:message key="st_cashier_jsp.label.cashier_name"/></th>
+        <th><fmt:message key="st_cashier_jsp.label.closing_time"/></th>
+        <th><fmt:message key="st_cashier_jsp.label.total_sum"/></th>
     </tr>
     </thead>
     <tbody>

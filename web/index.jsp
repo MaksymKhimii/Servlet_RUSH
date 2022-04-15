@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setBundle basename="resources_ru"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -136,7 +138,7 @@
 <body>
 <jsp:include page="/WEB-INF/parts/navbar.jsp"/>
 <div  style="text-align: center;">
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><fmt:message key="index_jsp.button.Login1"/> </button>
 </div>
 <div id="id01" class="modal">
 
@@ -146,21 +148,21 @@
     </div>
 
     <div class="container">
-      <%--@declare id="psw"--%><%--@declare id="uname"--%><label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required>
+      <%--@declare id="psw"--%><%--@declare id="uname"--%><label for="uname"><b><fmt:message key="index_jsp.label.Username"/></b></label>
+      <input type="text" placeholder=<fmt:message key="index_jsp.placeholder.Username" /> name="username" required>
 
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required>
+      <label for="psw"><b><fmt:message key="index_jsp.label.Password"/> </b></label>
+      <input type="password" placeholder=<fmt:message key="index_jsp.placeholder.Password"/> name="password" required>
 
-      <button type="submit">Login</button>
+      <button type="submit"><fmt:message key="index_jsp.button.Login2"/> </button>
       <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
+        <input type="checkbox" checked="checked" name="remember"> <fmt:message key="index_jsp.checkbox.Remember_me"/>
       </label>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw"> <a href="/SignUp">Sign up</a></span>
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"><fmt:message key="index_jsp.button.Cancel"/></button>
+      <span class="psw"> <a href="/SignUp"><fmt:message key="index_jsp.href.sign_up"/> </a></span>
     </div>
   </form>
 </div>

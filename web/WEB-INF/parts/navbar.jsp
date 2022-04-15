@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setBundle basename="resources_ru"/>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,15 +36,15 @@
 </head>
 <body>
 <div class="topnav">
-    <a class="active" href="/logout">Log out</a>
-    <a href="/SignUp">Sign Up</a>
+    <a class="active" href="/logout"><fmt:message key="navbar_jsp.href.Log_out"/></a>
+    <a href="/SignUp"><fmt:message key="navbar_jsp.href.Sign_Up"/></a>
     <div class="topnav-right">
-        <a href="#">Info</a>
-        <a href="#">Change Language</a>
+        <a href="#"><fmt:message key="navbar_jsp.href.Info"/> </a>
+        <a href="#"><fmt:message key="navbar_jsp.href.Change_Language"/> </a>
     </div>
 </div>
 <div style="text-align: center; ">
-    <h2>Cash register at your service</h2>
+    <h2><fmt:message key="navbar_jsp.label.Cash_register_at_your_service"/></h2>
 </div>
 
 

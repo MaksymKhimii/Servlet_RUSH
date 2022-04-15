@@ -20,6 +20,7 @@ public class Servlet extends HttpServlet {
 
     private final Map<String, Command> commands = new HashMap<>();
 
+    /** Holder for all commands */
     public void init(ServletConfig servletConfig){
 
         servletConfig.getServletContext()
@@ -67,6 +68,9 @@ public class Servlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+    /**
+     * Main method of this servlet, which process request and return page
+     */
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
 
@@ -75,6 +79,16 @@ public class Servlet extends HttpServlet {
         Command command = commands.getOrDefault(path,
                 (r)->"/index.jsp");
         String page = command.execute(request);
+
+      /*  if (command.equals("selectLocale")) {
+            String localeToSet = request.getParameter("localeToSet");
+
+            if (localeToSet != null && !localeToSet.isEmpty()) {
+                HttpSession session = request.getSession();
+                Config.set(session, "javax.servlet.jsp.jstl.fmt.locale", localeToSet);
+                session.setAttribute("defaultLocale", localeToSet);
+            }
+        }*/
 
         if(page.contains("redirect:") || page.contains("logout")){
             response.sendRedirect(page.replace("redirect:", ""));

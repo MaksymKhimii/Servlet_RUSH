@@ -22,18 +22,21 @@ public class ProductsDAO {
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/epam?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true", "root", "1234567h");
         con.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
-        // con.setAutoCommit(true);
-
         return con;
     }
-    /** метод для проверки, есть ли в базе товар с таким названием
-     * (используется при добавлении нового продукта для избежания дубликатов)*/
-    public static boolean validateProduct(String name) {
 
+
+    /** RU: метод для проверки, есть ли в базе товар с таким названием
+     * (используется при добавлении нового продукта для избежания дубликатов)
+     * ENG: method for checking if there is a product with the same name in the database
+     * (used when adding a new product to avoid duplicates)
+     * @param name name of product
+     * @return boolean
+     */
+    public static boolean validateProduct(String name) {
         boolean status=false;
         try{
             String GETUSER="SELECT * FROM mydbtest.products WHERE name=?;";
-
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
             PreparedStatement ps=con.prepareStatement(GETUSER);
@@ -45,13 +48,22 @@ public class ProductsDAO {
         return status;
     }
 
-    /** метод проверки, существует ли товар с указаными параметрами
-     * (используется как проверка при добавлении/изменении данных о товаре)*/
+
+    /** RU: метод проверки, существует ли товар с указаными параметрами
+     * (используется как проверка при добавлении/изменении данных о товаре)
+     * ENG: method to check if a product exists with the specified parameters
+     * (used as a check when adding/changing product data)
+     * @param name name of product
+     * @param quantity quantity of product
+     * @param weight weight of this product
+     * @param tonnage  whether the item is by weight
+     * @param price price of this product
+     * @return boolean
+     */
     public static boolean validateProduct(String name, int quantity, double weight, boolean tonnage, double price) {
         boolean answer = false;
         try{
             String GETUSER="SELECT * FROM mydbtest.products WHERE name=? AND quantity=? AND weight=? AND tonnage=? AND price=?;";
-            //приводим boolean к int чтобы запрос работал
             int tonnageInt=Product.boolToInt(tonnage);
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -69,9 +81,8 @@ public class ProductsDAO {
     }
 
     /** метод добавление нового товара(продукта) в таблицу products*/
-    public static Boolean addProduct(String name, int quantity, double weight, boolean tonnage, double price) throws SQLException, ClassNotFoundException {
+    public static Boolean addProduct(String name, int quantity, double weight, boolean tonnage, double price) throws ClassNotFoundException {
         boolean status= false;
-        //приводим boolean к int чтобы запрос работал
         int tonnageInt=Product.boolToInt(tonnage);
         try {
             String ADD_Product="INSERT INTO mydbtest.products(name,quantity,weight,tonnage, price) VALUES(?,?,?,?,?);";
@@ -97,7 +108,6 @@ public class ProductsDAO {
     /** метод для изменения поля товара(продукта) с определенным name*/
     public static void changeProduct(String name, int quantity, double weight, boolean tonnage, double price) {
         String Query = "UPDATE mydbtest.products SET quantity=?, weight=?, tonnage=?, price=? WHERE name =?;";
-        //приводим boolean к int чтобы запрос работал
         int tonnageInt=Product.boolToInt(tonnage);
           try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -108,7 +118,7 @@ public class ProductsDAO {
             pstmt.setString(3, String.valueOf(tonnageInt));
             pstmt.setString(4, String.valueOf(price));
             pstmt.setString(5, name);
-            int rs = pstmt.executeUpdate();
+            pstmt.executeUpdate();
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
