@@ -5,6 +5,10 @@
   Time: 12:53
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setBundle basename="resources_ru"/>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,12 +45,13 @@
 </head>
 <body>
 <div class="topnav">
-    <a class="active" href="/logout">Log out</a>
-    <a href="/SignUp">Sign Up</a>
+
+    <a class="active" href="/logout"><fmt:message key="navbar_jsp.href.Log_out"/> </a>
+    <a href="/SignUp"><fmt:message key="navbar_jsp.href.Sign_Up"/> </a>
 
     <div class="topnav-right">
-        <a href="#">Info</a>
-        <a href="#">Change Language</a>
+        <a href="#"><fmt:message key="navbar_jsp.href.Info"/> </a>
+        <a href="#"><fmt:message key="navbar_jsp.href.Change_Language"/> </a>
     </div>
 </div>
 <div style="text-align: center;">

@@ -7,7 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setBundle basename="resources_ru"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -173,8 +174,8 @@
 <body>
 <jsp:include page="/WEB-INF/parts/navbar.jsp"/>
 <div  style="text-align: center;">
-    <h2>Please fill in the registration form</h2>
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+    <h2><fmt:message key="sign_up_jsp.label.fill_inform"/> </h2>
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><fmt:message key="sign_up_jsp.button.sign_up"/> </button>
 </div>
 <div id="id01" class="modal">
 
@@ -184,28 +185,28 @@
         </div>
 
         <div class="container">
-            <%--@declare id="psw"--%><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="username" required>
+            <%--@declare id="psw"--%><b><fmt:message key="index_jsp.label.Username"/> </b></label>
+            <input type="text" placeholder=<fmt:message key="index_jsp.placeholder.Username"/> name="username" required>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" required>
+            <label for="psw"><b><fmt:message key="index_jsp.label.Password"/> </b></label>
+            <input type="password" placeholder=<fmt:message key="index_jsp.placeholder.Password"/>  name="password" required>
 
                 <select class="select-css" name="role" required>
-                    <option>Choose a role</option>
-                    <option>merchandiser</option>
-                    <option>st_cashier</option>
-                    <option>cashier</option>
+                    <option><fmt:message key="sign_up_jsp.choose_a_role" /> </option>
+                    <option><fmt:message key="sign_up_jsp.merchandiser"/> </option>
+                    <option><fmt:message key="sign_up_jsp.st_cashier"/></option>
+                    <option><fmt:message key="sign_up_jsp.cashier"/> </option>
                 </select>
 
-            <button type="submit">Sign Up</button>
+            <button type="submit"><fmt:message key="sign_up_jsp.button.sign_up"/> </button>
             <label>
-                <input type="checkbox" checked="checked" name="remember"> Remember me
+                <input type="checkbox" checked="checked" name="remember"><fmt:message key="index_jsp.checkbox.Remember_me"/>
             </label>
         </div>
 
         <div class="container" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-            <span class="psw"> <a href="${pageContext.request.contextPath}/SignUp">Sign up</a></span>
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"><fmt:message key="index_jsp.button.Cancel"/> </button>
+            <span class="psw"> <a href="${pageContext.request.contextPath}/SignUp"><fmt:message key="index_jsp.href.sign_up"/> </a></span>
         </div>
     </form>
 </div>
