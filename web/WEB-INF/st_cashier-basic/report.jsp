@@ -146,37 +146,40 @@
     }
 </style>
 </html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setBundle basename="resources_ru"/>
 <html>
 
 <head>
-    <title>ADMIN</title>
+
+    <title> <fmt:message key="st_cashier_jsp.title_St_Cashier"/></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/parts/st_cashier_navbar.jsp"/>
 <div style="text-align: center">
     <%--тут будет название отчета и далее его части--%>
-    <h2>Report</h2>
+    <h2><fmt:message key="report.label.Report"/> </h2>
 </div>
 
 <p>
 <div style="text-align: center">
     <%--детали отчета--%>
-    Current time:${currentDate}
+    <fmt:message key="report.label.Current_time"/> ${currentDate}
     <br>
-    Quantity of receipts: ${countOfReceipts}
+    <fmt:message key="report.label.Quantity_of_receipts"/> ${countOfReceipts}
     <br>
-    Last receipt id: ${lastIdReceipt}
+    <fmt:message key="report.label.Last_receipt_id"/> ${lastIdReceipt}
     <br>
-    <h2>Total Sum: ${XSum}</h2>
+    <h2><fmt:message key="report.label.Total_Sum"/> ${XSum}</h2>
 </div>
 
 
 <form name="returnStCashier" method="post" action="st_cashier">
     <div style="text-align: center;">
-        <button class="button-37" role="button">Return</button>
+        <button class="button-37" role="button"><fmt:message key="button_Return"/></button>
     </div>
 </form>
 </body>

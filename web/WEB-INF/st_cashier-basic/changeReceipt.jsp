@@ -146,12 +146,14 @@
     }
 </style>
 </html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setBundle basename="resources_ru"/>
 <html>
 
 <head>
-    <title>ADMIN</title>
+    <title><fmt:message key="merchandiser_jsp.title_Merchandiser"/></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
@@ -162,10 +164,10 @@
     <table class="table_blur">
         <thead>
         <tr>
-            <th>idreceipt</th>
-            <th>cashier name</th>
-            <th>closing_time</th>
-            <th>total sum</th>
+            <th><fmt:message key="st_cashier_jsp.label.idreceipt"/> </th>
+            <th><fmt:message key="st_cashier_jsp.label.cashier_name"/></th>
+            <th><fmt:message key="st_cashier_jsp.label.closing_time"/></th>
+            <th><fmt:message key="st_cashier_jsp.label.total_sum"/></th>
         </tr>
         </thead>
         <tbody>
@@ -182,10 +184,10 @@
     </table>
 
      <div class="dropup">
-        <button class="dropbtn" type="submit">Action</button>
+        <button class="dropbtn" type="submit"><fmt:message key="button_Actions"/></button>
         <div class="dropup-content">
-            <a><input type="submit" class="button-37" value="See more" formaction="SeeMoreReceipt"></a>
-            <a><input type="submit" class="button-37" value="Delete" formaction="deleteReceipt"></a>
+            <a><input type="submit" class="button-37" value=<fmt:message key="button_See_more"/> formaction="SeeMoreReceipt"></a>
+            <a><input type="submit" class="button-37" value=<fmt:message key="button_Delete"/> formaction="deleteReceipt"></a>
           <%--  <a><button class="button-37" formaction="#">See more</button></a>
             <a><button class="button-37" formaction="deleteReceipt">Delete</button></a> --%>
         </div>
@@ -193,7 +195,7 @@
 </form>
 <form name="returnStCashier" method="post" action="st_cashier">
     <div style="text-align: center;">
-        <button class="button-37" role="button">Return</button>
+        <button class="button-37" role="button"><fmt:message key="button_Return"/></button>
     </div>
 </form>
 </form>

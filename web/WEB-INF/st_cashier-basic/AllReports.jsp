@@ -165,8 +165,10 @@
     }
 </style>
 </html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setBundle basename="resources_ru"/>
 <html>
 
 <head>
@@ -177,17 +179,17 @@
 
 <p>
 <div style="text-align: center;">
-    <h2>All Reports:</h2>
+    <h2><fmt:message key="AllReports_jsp.label_All_Reports"/> </h2>
 </div>
 <br> <%-- специальный отступ для нормального вида поисковика, не убирать!!!--%>
 <table class="table_blur">
     <thead>
     <tr>
-        <th>Id Report</th>
-        <th>Quantity of receipts</th>
-        <th>Last receipt id</th>
-        <th>Time</th>
-        <th>Total sum</th>
+        <th><fmt:message key="AllReports_jsp.table.Id_Report"/> </th>
+        <th><fmt:message key="AllReports_jsp.table.Quantity_of_receipts"/> </th>
+        <th><fmt:message key="AllReports_jsp.table.Last_receipt_id"/> </th>
+        <th><fmt:message key="AllReports_jsp.table.Time"/> </th>
+        <th><fmt:message key="AllReports_jsp.table.Total_sum"/> </th>
     </tr>
     </thead>
     <tbody>
@@ -206,7 +208,7 @@
 <br>
 <form name="returnSt_Cashier" method="post" action="st_cashier">
     <div style="text-align: center;">
-        <button class="button-37" role="button">Return</button>
+        <button class="button-37" role="button"><fmt:message key="button_Return"/> </button>
     </div>
 </form>
 

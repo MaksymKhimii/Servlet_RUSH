@@ -148,18 +148,20 @@
     }
 </style>
 </html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setBundle basename="resources_ru"/>
 <html>
 
 <head>
-    <title>ADMIN</title>
+    <title><fmt:message key="merchandiser_jsp.title_Merchandiser"/></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
 <jsp:include page="/WEB-INF/parts/st_cashier_navbar.jsp"/>
 <div style="text-align: center">
-    <h2>Receipt id: ${rec}</h2>
+    <h2><fmt:message key="st_cashier_jsp.label.Receipt_Id"/>: ${rec}</h2>
 </div>
 
 <p>
@@ -167,12 +169,12 @@
     <table class="table_blur">
         <thead>
         <tr>
-            <th>idproduct</th>
-            <th>name</th>
-            <th>quantity</th>
-            <th>weight</th>
-            <th>tonnage</th>
-            <th>price</th>
+            <th><fmt:message key="merchandiser_jsp.table.idproducts"/> </th>
+            <th><fmt:message key="merchandiser_jsp.table.name"/> </th>
+            <th><fmt:message key="merchandiser_jsp.table.quantity"/> </th>
+            <th><fmt:message key="merchandiser_jsp.table.weight"/> </th>
+            <th><fmt:message key="merchandiser_jsp.table.tonnage"/> </th>
+            <th><fmt:message key="merchandiser_jsp.table.price"/> </th>
         </tr>
         </thead>
         <tbody>
@@ -193,7 +195,7 @@
                     </datalist></th>
                 <th><input type="number" step="0.01" value="${recc.price}" name="price" required></th>
                     <%--решить как привязать кнопку к строке таблицы!!!--%>
-                <th><input type="submit" name="Delete" value="Delete" ></th>
+                <th><input type="submit" name="Delete" value=<fmt:message key="button_Delete"/>></th>
         </form>
             </tr>
         </c:forEach>
@@ -202,12 +204,12 @@
 
 <div style="text-align: center">
     <%-- цена чека с удалением продуктов должна изменяться--%>
-    <h2>Total Sum: ${SUM}</h2>
+    <h2><fmt:message key="AllReports_jsp.table.Total_sum"/>: ${SUM}</h2>
 </div>
 
 <form name="returnStCashier" method="post" action="st_cashier">
     <div style="text-align: center;">
-        <button class="button-37" role="button">Return</button>
+        <button class="button-37" role="button"><fmt:message key="button_Return"/></button>
     </div>
 </form>
 </form>

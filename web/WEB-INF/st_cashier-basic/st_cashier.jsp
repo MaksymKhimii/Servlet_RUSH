@@ -104,16 +104,16 @@
 </style>
 </html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<fmt:setBundle basename="resources_en"/>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setBundle basename="resources_ru"/>
 
 <jsp:include page="/WEB-INF/parts/st_cashier_navbar.jsp"/>
 <html>
 
 <head>
-    <title>St_Cashier</title>
+
+    <title><fmt:message key="st_cashier_jsp.title_St_Cashier"/></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 

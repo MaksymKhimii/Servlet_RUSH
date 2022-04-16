@@ -6,8 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setBundle basename="resources_ru"/>
 <html>
 <style>
     .alert {
@@ -75,7 +77,7 @@
 <jsp:include page="/WEB-INF/parts/st_cashier_navbar.jsp"/>
 <div class="alert success" style="text-align: center;">
     <span class="closebtn">×</span>
-    <strong>Success!</strong> The receipt has been deleted!
+    <strong><fmt:message key="Success!"/> </strong> <fmt:message key="Message.receipt_deleted"/>
 </div>
 <script>
     var close = document.getElementsByClassName("closebtn");
@@ -90,7 +92,7 @@
 </script>
 <form name="returnSt_Cashier" method="post" action="st_cashier">
     <div style="text-align: center;">
-        <button class="button-37" role="button">Return</button>
+        <button class="button-37" role="button"><fmt:message key="button_Return"/></button>
     </div>
 </form>
 </body>

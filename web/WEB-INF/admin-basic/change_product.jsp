@@ -149,7 +149,6 @@
         </tr>
         </thead>
         <tbody>
-        <%-- тут что то не так с атрибутом products, надо изменить чтобы можно было добавить новый продукт--%>
         <jsp:useBean id="products" scope="request" type="java.util.List"/>
         <c:forEach items="${products}" var="prod">
             <tr>
