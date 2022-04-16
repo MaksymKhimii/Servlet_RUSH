@@ -122,12 +122,14 @@
 
 }</style>
 </html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setBundle basename="resources_ru"/>
 <html>
 
 <head>
-    <title>ADMIN</title>
+    <title><fmt:message key="merchandiser_jsp.title_Merchandiser"/></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
@@ -138,12 +140,12 @@
     <table class="table_blur">
         <thead>
         <tr>
-            <th>idproduct</th>
-            <th>name</th>
-            <th>quantity</th>
-            <th>weight</th>
-            <th>tonnage</th>
-            <th>price</th>
+            <th><fmt:message key="merchandiser_jsp.table.idproducts"/> </th>
+            <th><fmt:message key="merchandiser_jsp.table.name"/> </th>
+            <th><fmt:message key="merchandiser_jsp.table.quantity"/> </th>
+            <th><fmt:message key="merchandiser_jsp.table.weight"/> </th>
+            <th><fmt:message key="merchandiser_jsp.table.tonnage"/> </th>
+            <th><fmt:message key="merchandiser_jsp.table.price"/> </th>
         </tr>
         </thead>
         <tbody>
@@ -161,8 +163,8 @@
                         <option value="FALSE">
                     </datalist></th>
                 <th><input type="number" step="0.01" value="${prod.price}" name="price" required></th>
-                <th><input type="submit" value="Save"  formaction="changeProduct"></th>
-                <th><input type="submit" value="Delete" formaction="deleteProduct"></th>
+                <th><input type="submit" value=<fmt:message key="button_Save"/> formaction="changeProduct"></th>
+                <th><input type="submit" value=<fmt:message key="button_Delete"/> formaction="deleteProduct"></th>
             </tr>
         </c:forEach>
         </tbody>
@@ -170,7 +172,7 @@
 </form>
 <form name="returnAdmin" method="post" action="merchandiser">
     <div style="text-align: center;">
-        <button class="button-37" role="button">Return</button>
+        <button class="button-37" role="button"><fmt:message key="button_Return"/></button>
     </div>
 </form>
 </p>

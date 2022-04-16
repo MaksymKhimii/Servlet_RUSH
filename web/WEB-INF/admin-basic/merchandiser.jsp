@@ -5,6 +5,10 @@
   Time: 17:54
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setBundle basename="resources_ru"/>
 <html>
 <style>.table_blur{
     margin: auto;
@@ -103,32 +107,31 @@
     }
 </style>
 </html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 
 <head>
-    <title>Merchandiser</title>
+    <title><fmt:message key="merchandiser_jsp.title_Merchandiser"/></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <jsp:include page="/WEB-INF/parts/merchandiser_navbar.jsp"/>
 
 <p>
-<div style="text-align: center;">merchandiser successfully logged in!</div>
+<div style="text-align: center;"><fmt:message key="merchandiser_jsp.label_merchandiser_successfully_logged_in"/> </div>
 <br> <%-- специальный отступ для нормального вида поисковика, не убирать!!!--%>
 <form class="example" action="searchProduct" style="margin:auto;max-width:300px">
-    <input type="text" placeholder="Search product by name.." name="name">
+    <input type="text" placeholder=<fmt:message key="st_cashier_jsp.placeholder.Search_product_by_name.." /> name="name">
     <button type="submit"><i class="fa fa-search"></i></button>
 </form>
 <table class="table_blur">
     <thead>
     <tr>
-        <th>idproducts</th>
-        <th>name</th>
-        <th>quantity</th>
-        <th>weight</th>
-        <th>tonnage</th>
-        <th>price</th>
+        <th><fmt:message key="merchandiser_jsp.table.idproducts"/> </th>
+        <th><fmt:message key="merchandiser_jsp.table.name"/> </th>
+        <th><fmt:message key="merchandiser_jsp.table.quantity"/> </th>
+        <th><fmt:message key="merchandiser_jsp.table.weight"/> </th>
+        <th><fmt:message key="merchandiser_jsp.table.tonnage"/> </th>
+        <th><fmt:message key="merchandiser_jsp.table.price"/> </th>
     </tr>
     </thead>
     <tbody>
