@@ -5,9 +5,10 @@
   Time: 12:47
   To change this template use File | Settings | File Templates.
 --%>
-
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setBundle basename="resources_ru"/>
 <html>
 <style>
     .alert {
@@ -75,7 +76,7 @@
 <jsp:include page="/WEB-INF/parts/merchandiser_navbar.jsp"/>
 <div class="alert" style="text-align: center;">
     <span class="closebtn">×</span>
-    <p><strong>Error!</strong>  Oops,something went wrong... Check your input</p>
+    <p><strong><fmt:message key="Error!"/> </strong>  <fmt:message key="Message.Oops1"/> </p>
 </div>
 <script>
     var close = document.getElementsByClassName("closebtn");
@@ -91,7 +92,7 @@
 </script>
 <form name="returnCashier" method="post" action="duringReceipt">
     <div style="text-align: center;">
-        <button class="button-37" role="button">Return</button>
+        <button class="button-37" role="button"><fmt:message key="button_Return"/></button>
     </div>
 </form>
 </body>

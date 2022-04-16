@@ -6,6 +6,10 @@
   Time: 19:25
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setBundle basename="resources_ru"/>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -171,12 +175,10 @@
         }
     </style>
 </html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 
 <head>
-    <title>Cashier</title>
+    <title><fmt:message key="cashier.header.Cashier"/></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
@@ -185,16 +187,15 @@
     <div class="centered">
         <p>
         <div style="text-align: center;">
-
-            cashier successfully logged in!</div>
+        <fmt:message key="cashier.label.cashier_successfully_logged_in"/></div>
         </p>
 <%-- Здесь нужно сделать поле для создания заказа--%>
-       <h2>Receipt id: ${rec}</h2>
+       <h2><fmt:message key="st_cashier_jsp.label.Receipt_Id"/>: ${rec}</h2>
     <%-- тут таблица с продуктами из корзины--%>
-        <h2>Total Sum: ${totalSum}</h2>
+        <h2><fmt:message key="report.label.Total_Sum"/>${totalSum}</h2>
         <form name="closeReceipt" method="post" action="closeReceipt">
             <div style="text-align: center;">
-                <button class="button-37" role="button">Close Receipt</button>
+                <button class="button-37" role="button"><fmt:message key="button_Close_receipt"/></button>
             </div>
         </form>
 </div>
@@ -202,21 +203,21 @@
 
 <div class="split right">
 <div class="centered">
-<h2>Cash register at your service</h2>
+<h2><fmt:message key="navbar_jsp.label.Cash_register_at_your_service"/></h2>
 <form class="example" action="searchProductForReceipt" style="margin:auto;max-width:300px">
-  <input type="text" placeholder="Search product by name.." name="name">
+  <input type="text" placeholder=<fmt:message key="st_cashier_jsp.placeholder.Search_product_by_name.."/> name="name">
   <button type="submit"><i class="fa fa-search"></i></button>
 </form>
 <p>
 <table class="table_blur">
   <thead>
   <tr>
-      <th>idproducts</th>
-      <th>name</th>
-      <th>quantity</th>
-      <th>weight</th>
-      <th>tonnage</th>
-      <th>price</th>
+      <th><fmt:message key="merchandiser_jsp.table.idproducts"/> </th>
+      <th><fmt:message key="merchandiser_jsp.table.name"/> </th>
+      <th><fmt:message key="merchandiser_jsp.table.quantity"/> </th>
+      <th><fmt:message key="merchandiser_jsp.table.weight"/> </th>
+      <th><fmt:message key="merchandiser_jsp.table.tonnage"/> </th>
+      <th><fmt:message key="merchandiser_jsp.table.price"/> </th>
   </tr>
   </thead>
   <tbody>
