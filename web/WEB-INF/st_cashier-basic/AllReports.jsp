@@ -168,15 +168,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<fmt:setBundle basename="resources_ru"/>
+<fmt:setLocale value="${sessionScope.lang}"/>
+<fmt:setBundle basename="messages"/>
 <html>
-
 <head>
-    <title>St_Cashier</title>
+    <title><fmt:message key="st_cashier_jsp.title_St_Cashier"/></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <jsp:include page="/WEB-INF/parts/st_cashier_navbar.jsp"/>
-
 <p>
 <div style="text-align: center;">
     <h2><fmt:message key="AllReports_jsp.label_All_Reports"/> </h2>

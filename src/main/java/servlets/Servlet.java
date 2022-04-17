@@ -10,6 +10,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.jsp.jstl.core.Config;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -76,11 +78,12 @@ public class Servlet extends HttpServlet {
 
         String path=request.getRequestURI();
         path=path.replaceAll(".*/", "");
+
+        // change local if commandName is selectLocale or obtain command object by its name
         Command command = commands.getOrDefault(path,
                 (r)->"/index.jsp");
         String page = command.execute(request);
-
-      /*  if (command.equals("selectLocale")) {
+          /* if (command.equals("selectLocale")) {
             String localeToSet = request.getParameter("localeToSet");
 
             if (localeToSet != null && !localeToSet.isEmpty()) {
@@ -88,7 +91,7 @@ public class Servlet extends HttpServlet {
                 Config.set(session, "javax.servlet.jsp.jstl.fmt.locale", localeToSet);
                 session.setAttribute("defaultLocale", localeToSet);
             }
-        }*/
+        } else{*/
 
         if(page.contains("redirect:") || page.contains("logout")){
             response.sendRedirect(page.replace("redirect:", ""));

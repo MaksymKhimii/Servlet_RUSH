@@ -7,8 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<fmt:setBundle basename="resources_ru"/>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<fmt:setLocale value="${sessionScope.lang}"/>
+<fmt:setBundle basename="messages"/>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,23 +52,8 @@
     <a href="/AllReports"><fmt:message key="st_cashier_navbar_jsp.href.All_Reports"/> </a>
     <div class="topnav-right">
         <a href="#"><fmt:message key="st_cashier_navbar_jsp.href.Info"/> </a>
-       <%-- <form id="locale" action="controller"
-              method="post">
-            <input hidden name="command" value="selectLocale"/>
-
-            <select name="localeToSet" onchange="this.form.submit()">
-
-                <option value="${defaultLocale}">${defaultLocale}[Set]
-                </option>
-                <c:forEach var="localeName" items="${locales}">
-                    <c:if test="${localeName!=defaultLocale}">
-                        <option value="${localeName}">${localeName}
-                        </option>
-                    </c:if>
-                </c:forEach>
-            </select>
-        </form> --%>
-        <a href="#"><fmt:message key="st_cashier_navbar_jsp.href.Change_Language"/> </a>
+        <a href="?lang=en">Eng</a>
+        <a href="?lang=ru">Ru</a>
     </div>
 </div>
 <div style="text-align: center;">

@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<fmt:setBundle basename="resources_ru"/>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<fmt:setLocale value="${sessionScope.lang}"/>
+<fmt:setBundle basename="messages"/>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,13 +42,12 @@
     <a href="/SignUp"><fmt:message key="navbar_jsp.href.Sign_Up"/></a>
     <div class="topnav-right">
         <a href="#"><fmt:message key="navbar_jsp.href.Info"/> </a>
-        <a href="#"><fmt:message key="navbar_jsp.href.Change_Language"/> </a>
+        <a href="?lang=en">Eng</a>
+        <a href="?lang=ru">Ru</a>
     </div>
 </div>
 <div style="text-align: center; ">
     <h2><fmt:message key="navbar_jsp.label.Cash_register_at_your_service"/></h2>
 </div>
-
-
 </body>
 </html>
