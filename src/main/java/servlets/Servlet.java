@@ -75,24 +75,11 @@ public class Servlet extends HttpServlet {
      */
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
-
         String path=request.getRequestURI();
         path=path.replaceAll(".*/", "");
-
-        // change local if commandName is selectLocale or obtain command object by its name
         Command command = commands.getOrDefault(path,
                 (r)->"/index.jsp");
         String page = command.execute(request);
-          /* if (command.equals("selectLocale")) {
-            String localeToSet = request.getParameter("localeToSet");
-
-            if (localeToSet != null && !localeToSet.isEmpty()) {
-                HttpSession session = request.getSession();
-                Config.set(session, "javax.servlet.jsp.jstl.fmt.locale", localeToSet);
-                session.setAttribute("defaultLocale", localeToSet);
-            }
-        } else{*/
-
         if(page.contains("redirect:") || page.contains("logout")){
             response.sendRedirect(page.replace("redirect:", ""));
         }else {
