@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-/**
-Locale Filter used for internationalisation of project (English and Russian languages)
+/** RU: Фильтр, используемый для интернационализации проекта (английский и русский языки)
+   ENG: Locale Filter used for internationalisation of project (English and Russian languages)
 */
 @WebFilter(filterName = "LocaleFilter", urlPatterns = {"/*"})
 public class LocaleFilter implements Filter {

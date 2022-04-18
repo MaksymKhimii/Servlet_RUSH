@@ -8,7 +8,9 @@ import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-
+/** RU: обработка входа юзера
+ * ENG: user login processing
+ */
 public class Login implements Command {
     @Override
     public String execute(HttpServletRequest request) throws SQLException {
