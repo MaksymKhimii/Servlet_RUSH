@@ -107,7 +107,7 @@ public class BasketDAO {
     public static boolean addProdToBasket(int idproduct, String name, int quantity, double weight,
                                           boolean tonnage, double price) throws SQLException, ClassNotFoundException {
         boolean status = false;
-        int idreceipt = ReceipsDAO.getLastReceiptId();
+        int idreceipt = ReceiptsDAO.getLastReceiptId();
         int tonnageInt = Product.boolToInt(tonnage);
         ProductsDAO.updateCountProduct(name, quantity, weight, tonnage);
         if(tonnage){

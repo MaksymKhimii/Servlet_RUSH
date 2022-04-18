@@ -1,16 +1,14 @@
 package controller.pages;
 
 import controller.command.Command;
-import db.ReceipsDAO;
+import db.ReceiptsDAO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class Xreport implements Command {
     Date myDay;
@@ -28,14 +26,14 @@ public class Xreport implements Command {
             //получаем текущую дату
           String Current_Date=
 
-                  ReceipsDAO.GetCurrentDate().get(0)+"-"+
-                  ReceipsDAO.GetCurrentDate().get(1)+"-"+
-                  ReceipsDAO.GetCurrentDate().get(2)+" "+
-                  ReceipsDAO.GetCurrentDate().get(3)+":"+
-                  ReceipsDAO.GetCurrentDate().get(4)+":"+
-                  ReceipsDAO.GetCurrentDate().get(5);
+                  ReceiptsDAO.GetCurrentDate().get(0)+"-"+
+                  ReceiptsDAO.GetCurrentDate().get(1)+"-"+
+                  ReceiptsDAO.GetCurrentDate().get(2)+" "+
+                  ReceiptsDAO.GetCurrentDate().get(3)+":"+
+                  ReceiptsDAO.GetCurrentDate().get(4)+":"+
+                  ReceiptsDAO.GetCurrentDate().get(5);
 
-            ArrayList result = ReceipsDAO.getXSum();
+            ArrayList result = ReceiptsDAO.getXSum();
             int countOfReceipts = (int) result.get(0); // колличество чеков в отчете
             int lastIdReceipt = (int) result.get(1);
             double XSum = (double) result.get(2);

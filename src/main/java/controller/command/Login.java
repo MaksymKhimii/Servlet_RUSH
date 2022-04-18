@@ -21,13 +21,13 @@ public class Login implements Command {
         String answer = null;
 
         if (UserDAO.validate(name, pass)) {
-            if (UserDAO.getUser(name, pass).equals(UserRole.merchandiser.toString())) {
+            if (UserDAO.getRole(name, pass).equals(UserRole.merchandiser.toString())) {
                 CommandUtility.setUserRole(request, UserRole.merchandiser, name);
                 answer = "redirect:/merchandiser";
-            } else if (UserDAO.getUser(name, pass).equals(UserRole.cashier.toString())) {
+            } else if (UserDAO.getRole(name, pass).equals(UserRole.cashier.toString())) {
                CommandUtility.setUserRole(request, UserRole.cashier, name);
                 answer = "redirect:/cashier";
-            } else if(UserDAO.getUser(name, pass).equals(UserRole.st_cashier.toString())){
+            } else if(UserDAO.getRole(name, pass).equals(UserRole.st_cashier.toString())){
                 CommandUtility.setUserRole(request, UserRole.st_cashier, name);
                 answer = "redirect:/st_cashier";
             }

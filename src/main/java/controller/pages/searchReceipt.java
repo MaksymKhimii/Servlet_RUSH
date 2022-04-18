@@ -1,7 +1,7 @@
 package controller.pages;
 
 import controller.command.Command;
-import db.ReceipsDAO;
+import db.ReceiptsDAO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
@@ -13,17 +13,17 @@ public class searchReceipt implements Command {
         String search=request.getParameter("search");
      //  int idreceipt = Integer.parseInt(request.getParameter("idreceipt"));
 
-        if(ReceipsDAO.isNumeric(search)){
+        if(ReceiptsDAO.isNumeric(search)){
             int idreceipt=  Integer.parseInt(search);
 
-            if(ReceipsDAO.validateReceipt(idreceipt)){
-                request.setAttribute("receipts",  ReceipsDAO.getReceiptsByID(idreceipt));
+            if(ReceiptsDAO.validateReceipt(idreceipt)){
+                request.setAttribute("receipts",  ReceiptsDAO.getReceiptsByID(idreceipt));
                 answer ="/WEB-INF/st_cashier-basic/changeReceipt.jsp";
             } else{answer="/WEB-INF/st_cashier-basic/receiptSearchError.jsp";}
         } else{
             String cashier_name=search;
-            if(ReceipsDAO.validateReceipt(cashier_name)){
-                request.setAttribute("receipts",  ReceipsDAO.getReceiptsByCashierName(cashier_name));
+            if(ReceiptsDAO.validateReceipt(cashier_name)){
+                request.setAttribute("receipts",  ReceiptsDAO.getReceiptsByCashierName(cashier_name));
                 answer ="/WEB-INF/st_cashier-basic/changeReceipt.jsp";
             } else{answer="/WEB-INF/st_cashier-basic/receiptSearchError.jsp";}
         }

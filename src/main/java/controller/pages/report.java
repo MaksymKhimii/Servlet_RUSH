@@ -1,9 +1,8 @@
 package controller.pages;
 
 import controller.command.Command;
-import db.ReceipsDAO;
+import db.ReceiptsDAO;
 import db.ReportDAO;
-import db.entity.Report;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
@@ -25,7 +24,7 @@ public class report implements Command {
             System.out.println("разрешение: "+ReportDAO.AllowToReport());
             if(ReportDAO.AllowToReport()){
                 try {
-                ArrayList result = ReceipsDAO.getXSum();
+                ArrayList result = ReceiptsDAO.getXSum();
                 int countOfReceipts = (int) result.get(0); // колличество чеков в отчете
                 int lastIdReceipt = (int) result.get(1);
                 double XSum = (double) result.get(2);

@@ -1,7 +1,7 @@
 package controller.pages;
 
 import controller.command.Command;
-import db.ReceipsDAO;
+import db.ReceiptsDAO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
@@ -13,11 +13,11 @@ public class SeeMoreReceipt implements Command {
         String answer=null;
         try {
              idreceipt= Integer.parseInt(request.getParameter("idreceipt"));
-            ReceipsDAO.getReceiptsProdByID(idreceipt);
+            ReceiptsDAO.getReceiptsProdByID(idreceipt);
             request.setAttribute("rec", idreceipt);//выводим idreceipt продукты которого будем изменять
 
-            request.setAttribute("receipt",  ReceipsDAO.getReceiptsProdByID(idreceipt));//выводим данные о одном продукте
-            request.setAttribute("SUM", ReceipsDAO.getReceiptSum(idreceipt)); //выводим сумму за этот чек
+            request.setAttribute("receipt",  ReceiptsDAO.getReceiptsProdByID(idreceipt));//выводим данные о одном продукте
+            request.setAttribute("SUM", ReceiptsDAO.getReceiptSum(idreceipt)); //выводим сумму за этот чек
             answer="/WEB-INF/st_cashier-basic/seeMoreReceipt.jsp";
 
         } catch (NumberFormatException e){

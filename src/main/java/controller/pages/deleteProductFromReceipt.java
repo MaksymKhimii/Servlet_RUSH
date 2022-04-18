@@ -3,8 +3,7 @@ package controller.pages;
 import controller.command.Command;
 
 import db.GoodsArchiveDAO;
-import db.ReceipsDAO;
-import controller.pages.SeeMoreReceipt.*;
+import db.ReceiptsDAO;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +23,7 @@ public class deleteProductFromReceipt implements Command {
             System.out.println("idproduct: "+idproduct);
 
             //отнимаем сумму за продукт которій будем удалять
-            ReceipsDAO.minusReceiptSum(idreceipt, GoodsArchiveDAO.getCostOneProduct(idreceipt, idproduct));
+            ReceiptsDAO.minusReceiptSum(idreceipt, GoodsArchiveDAO.getCostOneProduct(idreceipt, idproduct));
             GoodsArchiveDAO.updateSum(idreceipt); //сохраняем новую сумму во второй таблице
             GoodsArchiveDAO.deleteProdFromReceipt(idproduct, idreceipt);//удаляем продукт
             if(!GoodsArchiveDAO.validateProdInReceipt(idproduct, idreceipt)){
@@ -32,8 +31,8 @@ public class deleteProductFromReceipt implements Command {
                    answer="/WEB-INF/st_cashier-basic/successfullyDeletedProduct2.jsp";
                } else{
                    //если продуктов из этого чека не осталось
-                   if(ReceipsDAO.getReceiptSum(idreceipt)<=0){
-                       ReceipsDAO.deleteReceipt(idreceipt);
+                   if(ReceiptsDAO.getReceiptSum(idreceipt)<=0){
+                       ReceiptsDAO.deleteReceipt(idreceipt);
                    }
                    answer="/WEB-INF/st_cashier-basic/successfullyDeletedProduct2.jsp";
 

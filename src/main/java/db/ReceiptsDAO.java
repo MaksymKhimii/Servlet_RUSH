@@ -6,19 +6,17 @@ import db.entity.Receipt;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-/** RU: слой ДАО для взаимодействия программы с таблицей basket в базе дынных,
+/** RU: слой ДАО для взаимодействия программы с таблицей receipts в базе дынных,
  *      которая хранит чеки и информацию о них
- * ENG: DAO layer for program interaction with the basket table in the melon database,
+ * ENG: DAO layer for program interaction with the receipts table in the melon database,
  *      which stores checks and information about them
  */
-public class ReceipsDAO {
+public class ReceiptsDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "Maks_Khimii";
     private static final String PASSWORD = "makskhimiy24112003";
@@ -457,7 +455,7 @@ public class ReceipsDAO {
             ps1.setString(1, String.valueOf(idreceipt));
             ps1.executeUpdate();
             GoodsArchiveDAO.deleteReceiptFromArchive(idreceipt);
-            answer= !ReceipsDAO.validateReceipt(idreceipt) && !GoodsArchiveDAO.validateReceipt(idreceipt);
+            answer= !ReceiptsDAO.validateReceipt(idreceipt) && !GoodsArchiveDAO.validateReceipt(idreceipt);
         } catch (SQLException e){
             e.printStackTrace();
         }

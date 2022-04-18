@@ -1,6 +1,5 @@
 package db;
 
-import db.entity.Receipt;
 import db.entity.Report;
 
 import java.sql.*;
@@ -9,6 +8,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/** RU: слой ДАО для взаимодействия программы с таблицей report в базе дынных,
+ *      которая хранит отчеты и информацию о них
+ * ENG: DAO layer for program interaction with the report table in the melon database,
+ *      which stores reports and information about them
+ */
 public class ReportDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "Maks_Khimii";

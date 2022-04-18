@@ -3,7 +3,7 @@ package controller.pages;
 import controller.command.Command;
 import db.BasketDAO;
 import db.ProductsDAO;
-import db.ReceipsDAO;
+import db.ReceiptsDAO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
@@ -18,8 +18,8 @@ public class searchProductForReceipt implements Command {
                 //если такой продукт есть, то выводим информацию о нем
                 ProductsDAO.getOneProduct(name);
 
-                request.setAttribute("rec", ReceipsDAO.getLastReceiptId()); //отображение id чека
-                request.setAttribute("totalSum", ReceipsDAO.getReceiptSum(ReceipsDAO.getLastReceiptId()));
+                request.setAttribute("rec", ReceiptsDAO.getLastReceiptId()); //отображение id чека
+                request.setAttribute("totalSum", ReceiptsDAO.getReceiptSum(ReceiptsDAO.getLastReceiptId()));
                 request.setAttribute("basket", BasketDAO.getAllBasket());
                 request.setAttribute("products",  ProductsDAO.getOneProduct(name));
                 //TODO если в корзине еще не продуктов то перенаправить на новую страницу без отображения таблицы слева

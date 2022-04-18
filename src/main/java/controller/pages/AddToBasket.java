@@ -3,7 +3,7 @@ package controller.pages;
 import controller.command.Command;
 import db.BasketDAO;
 import db.ProductsDAO;
-import db.ReceipsDAO;
+import db.ReceiptsDAO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
@@ -30,11 +30,10 @@ public class AddToBasket implements Command {
             //добавление продукта в корзину нового чека
 
             if(BasketDAO.addProdToBasket(idproduct, name, quantity, weight, tonnage, price)){
-                //TODO изменить общую сумму чека!!!
-                ReceipsDAO.addReceiptSum(ReceipsDAO.getLastReceiptId(),
+                ReceiptsDAO.addReceiptSum(ReceiptsDAO.getLastReceiptId(),
                         BasketDAO.countSumOneProduct(idproduct,name, quantity, weight, tonnage, price));
-                request.setAttribute("rec", ReceipsDAO.getLastReceiptId()); //отображение id чека
-                request.setAttribute("totalSum", ReceipsDAO.getReceiptSum(ReceipsDAO.getLastReceiptId()));
+                request.setAttribute("rec", ReceiptsDAO.getLastReceiptId()); //отображение id чека
+                request.setAttribute("totalSum", ReceiptsDAO.getReceiptSum(ReceiptsDAO.getLastReceiptId()));
                 request.setAttribute("basket", BasketDAO.getAllBasket());
                 request.setAttribute("products", ProductsDAO.getAllProducts());
                 answer ="/WEB-INF/user-basic/successfullyAddedToBasket.jsp";

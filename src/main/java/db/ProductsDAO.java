@@ -5,6 +5,10 @@ import db.entity.Product;
 import java.sql.*;
 import java.util.ArrayList;
 
+/** RU: слой ДАО для взаимодействия программы с таблицей products в базе дынных,
+ *      которая хранит данные продуктов
+ * ENG: DAO layer for program interaction with the basket table in the database,
+ *      which stores products during the creation of a receipt*/
 public class ProductsDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "Maks_Khimii";

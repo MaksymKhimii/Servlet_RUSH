@@ -2,6 +2,10 @@ package db;
 
 import java.sql.*;
 
+/** RU: слой ДАО для взаимодействия программы с таблицей GoodsArchive в базе дынных,
+ *      которая хранит данные продуктов со всех чеков
+ * ENG: a DAO layer for the interaction of the program with the GoodsArchive table in the melon database,
+ *  * which stores product data from all checks*/
 public class GoodsArchiveDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "Maks_Khimii";
@@ -30,7 +34,7 @@ public class GoodsArchiveDAO {
      * @param idreceipt receipt id
      */
     public static void saveBacket(int idreceipt) throws SQLException, ClassNotFoundException {
-        double total_sum=ReceipsDAO.getReceiptSum(idreceipt);
+        double total_sum= ReceiptsDAO.getReceiptSum(idreceipt);
         try {
 
             Class.forName("com.mysql.cj.jdbc.Driver");

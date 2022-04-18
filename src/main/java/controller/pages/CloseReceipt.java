@@ -4,7 +4,7 @@ import controller.command.Command;
 import db.BasketDAO;
 import db.GoodsArchiveDAO;
 import db.ProductsDAO;
-import db.ReceipsDAO;
+import db.ReceiptsDAO;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
@@ -12,9 +12,9 @@ import java.sql.SQLException;
 public class CloseReceipt implements Command {
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
-        GoodsArchiveDAO.saveBacket(ReceipsDAO.getLastReceiptId());
-        request.setAttribute("rec", ReceipsDAO.getLastReceiptId()); //отображение id чека
-        request.setAttribute("totalSum", ReceipsDAO.getReceiptSum(ReceipsDAO.getLastReceiptId()));
+        GoodsArchiveDAO.saveBacket(ReceiptsDAO.getLastReceiptId());
+        request.setAttribute("rec", ReceiptsDAO.getLastReceiptId()); //отображение id чека
+        request.setAttribute("totalSum", ReceiptsDAO.getReceiptSum(ReceiptsDAO.getLastReceiptId()));
         request.setAttribute("basket", BasketDAO.getAllBasket());
         request.setAttribute("products", ProductsDAO.getAllProducts());
 
