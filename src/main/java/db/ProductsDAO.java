@@ -13,8 +13,7 @@ public class ProductsDAO {
 
     /**RU: метод для создания соединения между базой данных и программой
      * ENG: method to create connection between database and program
-     * @return
-     * @throws SQLException
+     * @return Connection
      */
     public Connection getConnection() throws SQLException {
         try {
@@ -176,7 +175,7 @@ public class ProductsDAO {
      * @return All information about Products
      */
     public static ArrayList<Product> getAllProducts(){
-        ArrayList<Product> products= new ArrayList<Product>(){};
+        ArrayList<Product> products= new ArrayList<>(){};
         String Query = "SELECT idproducts, name, quantity, weight, tonnage, price FROM mydbtest.products;";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -358,7 +357,7 @@ public class ProductsDAO {
                 PreparedStatement pstmt = con.prepareStatement(Query2);
                 pstmt.setString(1, String.valueOf(newWeight));
                 pstmt.setString(2, name);
-                int rs = pstmt.executeUpdate();
+                pstmt.executeUpdate();
             } catch (SQLException | ClassNotFoundException throwables) {
                 throwables.printStackTrace();
             }
@@ -385,7 +384,7 @@ public class ProductsDAO {
                 PreparedStatement pstmt = con.prepareStatement(Query4);
                 pstmt.setString(1, String.valueOf(newQuantity));
                 pstmt.setString(2, name);
-                int rs = pstmt.executeUpdate();
+                pstmt.executeUpdate();
             } catch (SQLException | ClassNotFoundException throwables) {
                 throwables.printStackTrace();
             }

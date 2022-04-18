@@ -13,14 +13,22 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+/** RU: слой ДАО для взаимодействия программы с таблицей basket в базе дынных,
+ *      которая хранит чеки и информацию о них
+ * ENG: DAO layer for program interaction with the basket table in the melon database,
+ *      which stores checks and information about them
+ */
 public class ReceipsDAO {
     private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "Maks_Khimii";
     private static final String PASSWORD = "makskhimiy24112003";
-    static int Date, DateNow, Month, MonthNow, Year, YearNow, Hour, HourNow, Minute, MinuteNow, Second, SecondNow;
+    static int Date, Month, Year, Hour, Minute, Second;
+
 
     /** RU: метод для создания соединения между базой данных и программой
-     * ENG: method to create connection between database and program */
+     *  ENG: method to create connection between database and program
+     * @return Connection
+     */
     public Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -31,12 +39,15 @@ public class ReceipsDAO {
         Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/epam?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true", "root", "1234567h");
         con.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
-        // con.setAutoCommit(true);
-
         return con;
     }
 
-    /** проверка, есть ли чек с указаным idreceipt в бд*/
+
+    /** RU: проверка, есть ли чек с указаным idreceipt в базе данных
+     * ENG: checking if there is a check with the specified idreceipt in the database
+     * @param idreceipt receipt id
+     * @return status(validation)
+     */
     public static boolean validateReceipt(int idreceipt) {
 
         boolean status=false;
@@ -54,7 +65,12 @@ public class ReceipsDAO {
         return status;
     }
 
-    /**метод для валидации чека по имени кассира который его создал*/
+
+    /** RU: метод для валидации чека по имени кассира который его создал
+     * ENG: method for validating a check by the name of the cashier who created it
+     * @param cashier_name cashier's name
+     * @return status(validation)
+     */
     public static boolean validateReceipt(String cashier_name){
         boolean status=false;
         try{
@@ -71,15 +87,16 @@ public class ReceipsDAO {
         return status;
     }
 
-    //TODO добавить информацию о поле времени создания чека
-    /** создание нового чека*/
+
+
+    /** RU: создание нового чека
+     * ENG: creating a new check
+     * @param cashier_name cashier's name
+     */
     public static void addReceipt(String cashier_name) throws SQLException, ClassNotFoundException {
         Date date = new Date();
         SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-        System.out.println(formatForDateNow.format(date));
-
-        boolean status=false;
         try {
             String ADD_Product = "INSERT INTO mydbtest.receipts(cashier_name, total_sum, closing_time) VALUES(?, ?, ?);";
 
@@ -91,14 +108,17 @@ public class ReceipsDAO {
             ps.setString(2, Integer.toString(0));
             ps.setString(3, formatForDateNow.format(date));
             ps.executeUpdate();
-            status=true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    /**этот метод достает id последнего созданого чека*/
-    public static int getLastReceiptId() throws ClassNotFoundException, SQLException {
+
+    /** RU: этот метод достает id последнего созданого чека
+     * ENG: this method retrieves the id of the last created receipt
+     * @return last receipt id
+     */
+    public static int getLastReceiptId() throws ClassNotFoundException {
         int idreceipt=0;
         try {
             String Get_ID = "SELECT idreceipt FROM mydbtest.receipts ORDER BY idreceipt DESC LIMIT 1;";
@@ -115,8 +135,13 @@ public class ReceipsDAO {
         return idreceipt;
     }
 
-    /**этот метод достает total_sum чека с указаным idreceipt*/
-    public static double getReceiptSum(int idreceipt) throws ClassNotFoundException, SQLException {
+
+    /** RU: этот метод достает total_sum чека с указаным idreceipt
+     * ENG: this method retrieves the total_sum of the check with the specified idreceipt
+     * @param idreceipt receipt id
+     * @return total amount per check
+     */
+    public static double getReceiptSum(int idreceipt) throws ClassNotFoundException {
         double total_sum=0;
         try {
             String Get_ID = "SELECT total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
@@ -134,8 +159,13 @@ public class ReceipsDAO {
         return total_sum;
     }
 
-    /**этот метод прибавляет к total_sum чека с указаным idreceipt*/
-    public static void addReceiptSum(int idreceipt, double addedSum) throws ClassNotFoundException, SQLException {
+
+    /** RU: этот метод прибавляет к total_sum чека с указаным idreceipt
+     * ENG: this method adds the check with the specified idreceipt to total_sum
+     * @param idreceipt receipt id
+     * @param addedSum the amount to be added to the principal
+     */
+    public static void addReceiptSum(int idreceipt, double addedSum) throws ClassNotFoundException {
         double newSum, totalSum=0;
         try {
             String Query1 = "SELECT total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
@@ -158,14 +188,19 @@ public class ReceipsDAO {
             PreparedStatement ps= con.prepareStatement(Query2);
             ps.setString(1, Double.toString(newSum));
             ps.setString(2,Integer.toString(idreceipt) );
-            int res=ps.executeUpdate();
+            ps.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
         }
     }
 
-    /**этот метод прибавляет к total_sum чека с указаным idreceipt*/
-    public static void minusReceiptSum(int idreceipt, double addedSum) throws ClassNotFoundException, SQLException {
+
+    /** RU: этот метод прибавляет к total_sum чека с указаным idreceipt
+     * ENG: this method adds the check with the specified idreceipt to total_sum
+     * @param idreceipt receipt id
+     * @param addedSum amount to be withdrawn
+     */
+    public static void minusReceiptSum(int idreceipt, double addedSum) throws ClassNotFoundException {
         double newSum, totalSum=0;
         try {
             String Query1 = "SELECT total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
@@ -188,15 +223,20 @@ public class ReceipsDAO {
             PreparedStatement ps= con.prepareStatement(Query2);
             ps.setString(1, Double.toString(newSum));
             ps.setString(2,Integer.toString(idreceipt) );
-            int res=ps.executeUpdate();
+            ps.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
         }
     }
 
 
-    /**тут мы закрываем чек, но нужно будет сделать очистку таблицы basket*/
-    public static boolean closeReceipt(double total_sum) throws SQLException, ClassNotFoundException {
+
+    /** RU: метод закрывает чек, заполняя последнее пустое поле тотальной суммы
+     * ENG: the method closes the check by filling in the last empty field of the total amount
+     * @param total_sum total sum of receipt
+     * @return status of closing
+     */
+    public static boolean closeReceipt(double total_sum) throws ClassNotFoundException {
 
         boolean status = false;
         try {
@@ -215,9 +255,13 @@ public class ReceipsDAO {
     }
 
 
-    /** метод получает данные всех чеков */
+
+    /** RU:  метод получает данные всех чеков
+     * ENG: the method receives the data of all checks
+     * @return ALL Receipts information
+     */
     public static ArrayList<Receipt> getAllReceipts(){
-        ArrayList<Receipt> receipts= new ArrayList<Receipt>(){};
+        ArrayList<Receipt> receipts= new ArrayList<>(){};
         String Query = "SELECT idreceipt, cashier_name, closing_time, total_sum FROM mydbtest.receipts;";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -242,9 +286,14 @@ public class ReceipsDAO {
         return receipts;
     }
 
-    /** метод получает данные одного чека по указаному id */
+
+    /** RU: метод получает данные одного чека по указаному id
+     * ENG: the method receives the data of one check by the specified id
+     * @param idreceipt receipt id
+     * @return All information about one Receipts
+     */
     public static ArrayList<Receipt> getReceiptsByID(int idreceipt){
-        ArrayList<Receipt> receipts= new ArrayList<Receipt>(){};
+        ArrayList<Receipt> receipts= new ArrayList<>(){};
         String Query = "SELECT idreceipt, cashier_name, closing_time, total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -270,9 +319,14 @@ public class ReceipsDAO {
         return receipts;
     }
 
-    /**метод получает данные о продуктах одного чека*/
+
+    /** RU: метод получает данные о продуктах одного чека, которая хранится в Goodsarchive
+     * ENG: the method receives data about the products of one check, which is stored in Goodsarchive
+     * @param idreceipt receipt id
+     * @return All information about the products of this check
+     */
     public static ArrayList<Goodsarchive> getReceiptsProdByID(int idreceipt){
-        ArrayList<Goodsarchive> goods= new ArrayList<Goodsarchive>(){};
+        ArrayList<Goodsarchive> goods= new ArrayList<>(){};
         String Query = "SELECT idreceipt, idproduct, name, quantity, weight, tonnage, price FROM mydbtest.goodsarchive WHERE idreceipt=?;";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -301,9 +355,14 @@ public class ReceipsDAO {
         return goods;
     }
 
-    /** метод получает данные одного чека по указаному имени кассира, что создал его */
+
+    /** RU: метод получает данные одного чека по указаному имени кассира, что создал его
+     * ENG: the method receives the data of one check by the specified name of the cashier who created it
+     * @param cashier_name casier name
+     * @return All information about the products of this check
+     */
     public static ArrayList<Receipt> getReceiptsByCashierName(String cashier_name){
-        ArrayList<Receipt> receipts= new ArrayList<Receipt>(){};
+        ArrayList<Receipt> receipts= new ArrayList<>(){};
         String Query = "SELECT idreceipt, cashier_name, closing_time, total_sum FROM mydbtest.receipts WHERE cashier_name=?;";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -329,9 +388,14 @@ public class ReceipsDAO {
         return receipts;
     }
 
-    /** метод получает данные одного чека по указанй сумме чека */
+
+    /** RU: метод получает данные одного чека по указанй сумме чека
+     * ENG:     the method receives the data of one check by the specified check amount
+     * @param total_sum total sum
+     * @return All information about the products of this check
+     */
     public static ArrayList<Receipt> getReceiptsByTotalSum(double total_sum){
-        ArrayList<Receipt> receipts= new ArrayList<Receipt>(){};
+        ArrayList<Receipt> receipts= new ArrayList<>(){};
         String Query = "SELECT idreceipt, cashier_name, total_sum FROM mydbtest.receipts WHERE total_sum=?;";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -356,8 +420,15 @@ public class ReceipsDAO {
         return receipts;
     }
 
-    /**метод возращает правду если обьект является числом и ложь - если строкой
-     * так происходит определение поиска: по idreceipt или name_cashier */
+
+
+    /** RU: метод возращает правду если обьект является числом и ложь - если строкой
+     так происходит определение поиска: по id чека или имени кассира
+     * ENG: the method returns true if the object is a number and false if it is a string
+     *       this is how the search is defined: by receipt id или name cashier
+     * @param strNum string or number to check
+     * @return status
+     */
     public static boolean isNumeric(String strNum){
             if (strNum == null) {
                 return false;
@@ -370,37 +441,38 @@ public class ReceipsDAO {
             return true;
     }
 
-    /**удаление чека*/
+
+    /** RU: удаление чека
+     * ENG: deleting a Receipt
+     * @param idreceipt receipt id
+     * @return deleting status
+     */
     public static boolean deleteReceipt(int idreceipt) throws SQLException, ClassNotFoundException {
         boolean answer = false;
         try {
-            //  удаляем из таблицы чеков
             String QUERY1="DELETE FROM mydbtest.receipts WHERE idreceipt =?;";
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
-
             PreparedStatement ps1=con.prepareStatement(QUERY1);
             ps1.setString(1, String.valueOf(idreceipt));
             ps1.executeUpdate();
-            //удаляем товар из таблицы goodsarchive
             GoodsArchiveDAO.deleteReceiptFromArchive(idreceipt);
-
-            if(ReceipsDAO.validateReceipt(idreceipt) || GoodsArchiveDAO.validateReceipt(idreceipt)){
-                answer=false;
-            } else {
-                answer=true;
-            }
+            answer= !ReceipsDAO.validateReceipt(idreceipt) && !GoodsArchiveDAO.validateReceipt(idreceipt);
         } catch (SQLException e){
             e.printStackTrace();
         }
         return answer;
     }
 
+    /** RU: метод получает данные для отчета
+     * ENG: method receives data for the report
+     * @return info for report
+     */
     public static ArrayList getXSum() throws ParseException, ClassNotFoundException, SQLException {
         SimpleDateFormat formattedDate = new SimpleDateFormat("yyyy-MM-dd");
         double XSum = 0;
-        int receipts = 0; //колличество чеков в отчете
-        int lastIdReceipt = 0;// id последнего чека
+        int receipts = 0;
+        int lastIdReceipt = 0;
         ArrayList X = new ArrayList();
         String Query1 = "SELECT idreceipt, closing_time, total_sum FROM mydbtest.receipts;";
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -412,10 +484,8 @@ public class ReceipsDAO {
             Date baseDate0 = rs.getDate("closing_time");
             double total_sum = rs.getDouble("total_sum");
             String basedate =formattedDate.format(baseDate0);
-            //текущая дата
             Date datenow0 = new Date();
             String datenow= formattedDate.format(datenow0);
-
             if(basedate.equals(datenow)){
                 receipts++;
                 XSum=XSum+total_sum;
@@ -429,6 +499,10 @@ public class ReceipsDAO {
         return X;
     }
 
+    /** RU: метод получает текущую дату
+     * ENG: method gets current date
+     * @return ArrayList Date
+     */
     public static ArrayList GetCurrentDate(){
         ArrayList date = new ArrayList();
         //получаем текущую дату
@@ -441,7 +515,6 @@ public class ReceipsDAO {
         date.add(3, Hour = Datenow.getHours());
         date.add(4, Minute = Datenow.getMinutes());
         date.add(5, Second=Datenow.getSeconds());
-      //  date=Year+"-"+Month+"-"+Date+" "+Hour+":"+Minute+":"+Second;
         return date;
     }
 
