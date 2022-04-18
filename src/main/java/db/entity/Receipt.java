@@ -1,5 +1,8 @@
 package db.entity;
 
+/** RU: сущность представляет информацию о чеках
+ * ENG: entity represents information about checks
+ */
 public class Receipt {
 
     private int idreceipt;

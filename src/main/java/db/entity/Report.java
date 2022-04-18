@@ -1,5 +1,8 @@
 package db.entity;
 
+/** RU: сущность представляет информацию об отчетах
+ * ENG: entity represents information about reports
+ */
 public class Report {
 
     private int idreport;

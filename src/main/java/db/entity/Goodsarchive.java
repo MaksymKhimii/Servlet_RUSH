@@ -1,5 +1,8 @@
 package db.entity;
 
+/** RU: сущность представляет информацию о продукта уже созданных чеков
+ * ENG: entity represents information about the product of already created checks
+ */
 public class Goodsarchive {
 
     private int idreceipt;

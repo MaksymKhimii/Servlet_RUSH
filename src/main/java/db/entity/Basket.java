@@ -1,5 +1,10 @@
 package db.entity;
 
+/** RU: сущность предствляет буфер для продуктов,
+ *      которые добавляют в новый чек и хранятся там до момента закрытия чека
+ * ENG: entity represents a buffer for products,
+ *      which are added to a new check and stored there until the check is closed
+ */
 public class Basket {
 
     private int idreceipt;

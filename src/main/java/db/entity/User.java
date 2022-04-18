@@ -1,11 +1,11 @@
 package db.entity;
 
-import controller.command.Command;
+
 import db.enums.UserRole;
 
-import javax.servlet.http.HttpServletRequest;
-import java.sql.SQLException;
-
+/** RU: сущность представляет информацию о пользователе
+ * ENG: entity represents information about the user
+ */
 public class User {
 
     private int id;

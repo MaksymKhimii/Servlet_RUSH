@@ -1,5 +1,8 @@
 package db.entity;
 
+/** RU: сущность представляет информацию о продуктах
+ * ENG: entity represents information about products
+ */
 public class Product {
 
     private int idproducts;
