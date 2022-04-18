@@ -10,20 +10,16 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/** RU: обработка создания Х-отчета
+ * ENG: X-report generation processing
+ */
 public class Xreport implements Command {
-    Date myDay;
-    int Date;
-    int Month;
-    int Year;
- //   Calendar calendar = new GregorianCalendar();
-    SimpleDateFormat formattedDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         String answer = null;
-        //TODO  сделать обработку и отражение отчета
         try {
-            //получаем текущую дату
+            //get current date
           String Current_Date=
 
                   ReceiptsDAO.GetCurrentDate().get(0)+"-"+
@@ -34,7 +30,7 @@ public class Xreport implements Command {
                   ReceiptsDAO.GetCurrentDate().get(5);
 
             ArrayList result = ReceiptsDAO.getXSum();
-            int countOfReceipts = (int) result.get(0); // колличество чеков в отчете
+            int countOfReceipts = (int) result.get(0);
             int lastIdReceipt = (int) result.get(1);
             double XSum = (double) result.get(2);
 

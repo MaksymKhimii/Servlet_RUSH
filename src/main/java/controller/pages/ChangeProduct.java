@@ -6,11 +6,13 @@ import db.ProductsDAO;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
+/** RU: обработка изменения продукта в базе данных
+ * ENG: processing product change in database
+ */
 public class ChangeProduct implements Command {
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         String answer = null;
-
         try {
             String name = request.getParameter("name");
             int quantity = Integer.parseInt(request.getParameter("quantity"));
@@ -28,7 +30,6 @@ public class ChangeProduct implements Command {
             } else{
                 answer="/WEB-INF/admin-basic/danger_not_changed.jsp";
             }
-
             request.setAttribute("products", ProductsDAO.getAllProducts());
         } catch (NumberFormatException e){
             e.printStackTrace();

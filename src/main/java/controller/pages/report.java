@@ -11,6 +11,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/** RU: обработка создания отчета
+ * ENG: report generation processing
+ */
 public class report implements Command {
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
@@ -25,7 +28,7 @@ public class report implements Command {
             if(ReportDAO.AllowToReport()){
                 try {
                 ArrayList result = ReceiptsDAO.getXSum();
-                int countOfReceipts = (int) result.get(0); // колличество чеков в отчете
+                int countOfReceipts = (int) result.get(0);
                 int lastIdReceipt = (int) result.get(1);
                 double XSum = (double) result.get(2);
 

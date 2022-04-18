@@ -8,6 +8,9 @@ import db.ReceiptsDAO;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
+/** RU: обработка добавления нового продукта в корзину текущего чека
+ * ENG: processing of adding a new product to the cart of the current check
+ */
 public class AddToBasket implements Command {
 
     @Override
@@ -15,24 +18,16 @@ public class AddToBasket implements Command {
         String answer = null;
         try {
             int idproduct= Integer.parseInt(request.getParameter("idproducts"));
-            System.out.println("idproduct: "+idproduct);
             String name = request.getParameter("name");
-            System.out.println("name: "+name);
             int quantity = Integer.parseInt(request.getParameter("quantity"));
-            System.out.println("quantity: "+quantity);
             double weight = Double.parseDouble(request.getParameter("weight"));
-            System.out.println("weight: "+weight);
             boolean tonnage=Boolean.parseBoolean(request.getParameter("tonnage"));
-            System.out.println("tonnage: "+tonnage);
             double price = Double.parseDouble(request.getParameter("price"));
-            System.out.println("price: "+price);
-
-            //добавление продукта в корзину нового чека
 
             if(BasketDAO.addProdToBasket(idproduct, name, quantity, weight, tonnage, price)){
                 ReceiptsDAO.addReceiptSum(ReceiptsDAO.getLastReceiptId(),
                         BasketDAO.countSumOneProduct(idproduct,name, quantity, weight, tonnage, price));
-                request.setAttribute("rec", ReceiptsDAO.getLastReceiptId()); //отображение id чека
+                request.setAttribute("rec", ReceiptsDAO.getLastReceiptId());
                 request.setAttribute("totalSum", ReceiptsDAO.getReceiptSum(ReceiptsDAO.getLastReceiptId()));
                 request.setAttribute("basket", BasketDAO.getAllBasket());
                 request.setAttribute("products", ProductsDAO.getAllProducts());

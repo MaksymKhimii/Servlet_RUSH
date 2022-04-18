@@ -8,6 +8,9 @@ import db.ReceiptsDAO;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
+/** RU: обработка поиска продукта для дальнейшего добавления его в корзину
+ * ENG: processing the search for a product to further add it to the cart
+ */
 public class searchProductForReceipt implements Command {
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
@@ -15,19 +18,14 @@ public class searchProductForReceipt implements Command {
         try {
             String name = request.getParameter("name");
             if(ProductsDAO.validateProduct(name)){
-                //если такой продукт есть, то выводим информацию о нем
                 ProductsDAO.getOneProduct(name);
-
-                request.setAttribute("rec", ReceiptsDAO.getLastReceiptId()); //отображение id чека
+                request.setAttribute("rec", ReceiptsDAO.getLastReceiptId());
                 request.setAttribute("totalSum", ReceiptsDAO.getReceiptSum(ReceiptsDAO.getLastReceiptId()));
                 request.setAttribute("basket", BasketDAO.getAllBasket());
                 request.setAttribute("products",  ProductsDAO.getOneProduct(name));
-                //TODO если в корзине еще не продуктов то перенаправить на новую страницу без отображения таблицы слева
-                // иначе же перенаправить на addToReceipt как дефолтную страницу добавления, которая будет использоваться далее
                 if(BasketDAO.checkBasket()){
                     answer ="/WEB-INF/user-basic/addToReceipt.jsp";
                 }else{
-                        //TODO тут страница еслив таблице продуктов нет в корзине
                         answer="/WEB-INF/user-basic/firstAddProduct.jsp";
                 }
             } else {

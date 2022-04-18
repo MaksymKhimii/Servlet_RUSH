@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 
+/** RU: создание нового чека
+ * ENG: creating a new receipt
+ */
 public class create_Receipt implements Command {
 
     @Override
@@ -16,10 +19,8 @@ public class create_Receipt implements Command {
         String cashier_id = (String)session.getAttribute("username");
         ReceiptsDAO.addReceipt(cashier_id);
 
-        request.setAttribute("rec", ReceiptsDAO.getLastReceiptId()); //отображение id чека
-        //отображение суммы чека
+        request.setAttribute("rec", ReceiptsDAO.getLastReceiptId());
         request.setAttribute("totalSum", ReceiptsDAO.getReceiptSum(ReceiptsDAO.getLastReceiptId()));
-       // request.setAttribute("basket", BasketDAO.getAllBasket());
         request.setAttribute("products", ProductsDAO.getAllProducts());
         return "/WEB-INF/user-basic/createReceipt.jsp";
     }

@@ -6,6 +6,9 @@ import db.ReceiptsDAO;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
+/** RU: обработка удаления чека из базы данных
+ * ENG:  processing the removal of a receipt from the database
+ */
 public class deleteReceipt implements Command {
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {

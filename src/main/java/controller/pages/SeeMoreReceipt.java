@@ -6,6 +6,11 @@ import db.ReceiptsDAO;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
+/** RU: обработка отображения и взаимодействия
+ *      с полной информацие о чеке и его продуктах
+ * ENG: processing of display and interaction
+ *      with full information about the check and its products
+ */
 public class SeeMoreReceipt implements Command {
     static int idreceipt;
     @Override
@@ -14,12 +19,10 @@ public class SeeMoreReceipt implements Command {
         try {
              idreceipt= Integer.parseInt(request.getParameter("idreceipt"));
             ReceiptsDAO.getReceiptsProdByID(idreceipt);
-            request.setAttribute("rec", idreceipt);//выводим idreceipt продукты которого будем изменять
-
-            request.setAttribute("receipt",  ReceiptsDAO.getReceiptsProdByID(idreceipt));//выводим данные о одном продукте
-            request.setAttribute("SUM", ReceiptsDAO.getReceiptSum(idreceipt)); //выводим сумму за этот чек
+            request.setAttribute("rec", idreceipt);
+            request.setAttribute("receipt",  ReceiptsDAO.getReceiptsProdByID(idreceipt));
+            request.setAttribute("SUM", ReceiptsDAO.getReceiptSum(idreceipt));
             answer="/WEB-INF/st_cashier-basic/seeMoreReceipt.jsp";
-
         } catch (NumberFormatException e){
             e.printStackTrace();
         }

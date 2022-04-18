@@ -6,6 +6,9 @@ import db.ProductsDAO;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
+/** RU: обработка поиска продукта по наименованию в базе данных
+ * ENG: processing the search for a product by name in the database
+ */
 public class searchProduct implements Command {
 
     @Override
@@ -14,7 +17,6 @@ public class searchProduct implements Command {
         try {
             String name = request.getParameter("name");
             if(ProductsDAO.validateProduct(name)){
-                //если такой продукт есть, то выводим информацию о нем
                 ProductsDAO.getOneProduct(name);
                 request.setAttribute("products", ProductsDAO.getOneProduct(name));
                 answer ="/WEB-INF/admin-basic/change_product.jsp";

@@ -6,6 +6,9 @@ import db.ProductsDAO;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
+/** RU: обработка удаления продукта из базы данных
+ * ENG: processing the removal of a product from the database
+ */
 public class deleteProduct implements Command {
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {

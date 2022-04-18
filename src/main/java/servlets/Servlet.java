@@ -10,14 +10,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.servlet.jsp.jstl.core.Config;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
+/** RU: Главный сервлет для обработки запросов, действий и отображении страниц
+ * ENG: The main servlet for processing requests, actions and displaying pages
+ */
 public class Servlet extends HttpServlet {
 
     private final Map<String, Command> commands = new HashMap<>();
