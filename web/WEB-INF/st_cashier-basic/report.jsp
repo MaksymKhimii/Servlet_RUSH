@@ -12,15 +12,8 @@
 </head>
 </html>
 <html>
-<style>.table_blur{
-    margin: auto;
-}
-.table_blur {
-    background: #f5ffff;
-    border-collapse: collapse;
-    text-align: left;
-}
-.table_blur th {
+<style>
+    .table_blur th {
     border-top: 1px solid #777777;
     border-bottom: 1px solid #777777;
     box-shadow: inset 0 1px 0 #999999, inset 0 -1px 0 #999999;
@@ -66,7 +59,7 @@
     color: #444444;
     text-shadow: none;
 }
-/* CSS */
+
 .button-37 {
     background-color: #13aa52;
     border: 1px solid #13aa52;
@@ -103,30 +96,6 @@
 
 </style>
 <style>
-    .dropbtn {
-
-        background-color: #13aa52;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-    }
-
-    .dropup {
-        position: absolute;
-        display: inline-block;
-        top: -70px;
-        left: 1125px;
-    }
-
-    .dropup-content {
-        display: none;
-        position: relative;
-        background-color: #f1f1f1;
-        min-width: 160px;
-        bottom: 50px;
-        z-index: 1;
-    }
 
     .dropup-content a {
         color: black;
@@ -137,13 +106,6 @@
 
     .dropup-content a:hover {background-color: #ccc}
 
-    .dropup:hover .dropup-content {
-        display: block;
-    }
-
-    .dropup:hover .dropbtn {
-        background-color: #13aa52;
-    }
 </style>
 </html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -161,13 +123,11 @@
 <body>
 <jsp:include page="/WEB-INF/parts/st_cashier_navbar.jsp"/>
 <div style="text-align: center">
-    <%--тут будет название отчета и далее его части--%>
     <h2><fmt:message key="report.label.Report"/> </h2>
 </div>
 
 <p>
 <div style="text-align: center">
-    <%--детали отчета--%>
     <fmt:message key="report.label.Current_time"/> ${currentDate}
     <br>
     <fmt:message key="report.label.Quantity_of_receipts"/> ${countOfReceipts}

@@ -219,7 +219,6 @@
         </table>
         </p>
         <h2><fmt:message key="report.label.Total_Sum"/>${totalSum}</h2>
-        <%-- Здесь нужно сделать поле для создания заказа--%>
         <form name="closeReceipt" method="post" action="closeReceipt">
             <div style="text-align: center;">
                 <button class="button-37" role="button"><fmt:message key="button_Close_receipt"/></button>

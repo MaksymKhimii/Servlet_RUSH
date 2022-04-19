@@ -22,8 +22,6 @@
     }
 
     .alert.success {background-color: #4CAF50;}
-    .alert.info {background-color: #2196F3;}
-    .alert.warning {background-color: #ff9800;}
 
     .closebtn {
         margin-left: 15px;
@@ -39,7 +37,6 @@
     .closebtn:hover {
         color: black;
     }
-    /* CSS */
     .button-37 {
         background-color: #13aa52;
         border: 1px solid #13aa52;

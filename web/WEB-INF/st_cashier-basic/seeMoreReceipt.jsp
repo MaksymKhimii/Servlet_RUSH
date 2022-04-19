@@ -1,5 +1,3 @@
-
-
 <%--
   Created by IntelliJ IDEA.
   User: meizo
@@ -68,7 +66,7 @@
     color: #444444;
     text-shadow: none;
 }
-/* CSS */
+
 .button-37 {
     background-color: #13aa52;
     border: 1px solid #13aa52;
@@ -105,30 +103,6 @@
 
 </style>
 <style>
-    .dropbtn {
-
-        background-color: #13aa52;
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-    }
-
-    .dropup {
-        position: absolute;
-        display: inline-block;
-        top: -70px;
-        left: 1125px;
-    }
-
-    .dropup-content {
-        display: none;
-        position: relative;
-        background-color: #f1f1f1;
-        min-width: 160px;
-        bottom: 50px;
-        z-index: 1;
-    }
 
     .dropup-content a {
         color: black;
@@ -139,13 +113,6 @@
 
     .dropup-content a:hover {background-color: #ccc}
 
-    .dropup:hover .dropup-content {
-        display: block;
-    }
-
-    .dropup:hover .dropbtn {
-        background-color: #13aa52;
-    }
 </style>
 </html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -184,7 +151,6 @@
 
             <tr>
                 <form method="get" action="deleteProductFromReceipt">
-                   <%-- <th><input type="number" value="${recc.idreceipt}" name="idreceipt"></th> --%>
                     <th><input type="number" value="${recc.idproduct}" name="idproduct"></th>
                     <th><input type="text" value="${recc.name}" name="name"></th>
                     <th><input type="number" value="${recc.quantity}" name="quantity"> </th>
@@ -195,7 +161,6 @@
                         <option value="FALSE">
                     </datalist></th>
                 <th><input type="number" step="0.01" value="${recc.price}" name="price" required></th>
-                    <%--решить как привязать кнопку к строке таблицы!!!--%>
                 <th><input type="submit" name="Delete" value=<fmt:message key="button_Delete"/>></th>
         </form>
             </tr>
@@ -204,7 +169,7 @@
     </table>
 
 <div style="text-align: center">
-    <%-- цена чека с удалением продуктов должна изменяться--%>
+
     <h2><fmt:message key="AllReports_jsp.table.Total_sum"/>: ${SUM}</h2>
 </div>
 

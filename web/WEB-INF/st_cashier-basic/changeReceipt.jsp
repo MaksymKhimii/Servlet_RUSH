@@ -66,7 +66,7 @@
     color: #444444;
     text-shadow: none;
 }
-/* CSS */
+
 .button-37 {
     background-color: #13aa52;
     border: 1px solid #13aa52;
@@ -189,8 +189,6 @@
         <div class="dropup-content">
             <a><input type="submit" class="button-37" value=<fmt:message key="button_See_more"/> formaction="SeeMoreReceipt"></a>
             <a><input type="submit" class="button-37" value=<fmt:message key="button_Delete"/> formaction="deleteReceipt"></a>
-          <%--  <a><button class="button-37" formaction="#">See more</button></a>
-            <a><button class="button-37" formaction="deleteReceipt">Delete</button></a> --%>
         </div>
     </div>
 </form>
@@ -198,7 +196,6 @@
     <div style="text-align: center;">
         <button class="button-37" role="button"><fmt:message key="button_Return"/></button>
     </div>
-</form>
 </form>
 </body>
 </html>

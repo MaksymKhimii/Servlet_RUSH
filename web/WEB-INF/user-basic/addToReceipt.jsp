@@ -69,7 +69,7 @@
     }</style>
     <style>
         body {
-            font-family: Arial;
+            font-family: Arial, serif;
             color: white;
         }
 
@@ -104,7 +104,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
-            font-family: Arial;
+            font-family: Arial, serif;
         }
 
         * {
@@ -219,7 +219,6 @@
         </table>
         </p>
         <h2><fmt:message key="report.label.Total_Sum"/>${totalSum}</h2>
-        <%-- Здесь нужно сделать поле для создания заказа--%>
         <form name="closeReceipt" method="post" action="closeReceipt">
             <div style="text-align: center;">
                 <button class="button-37" role="button"><fmt:message key="button_Close_receipt"/></button>
@@ -256,7 +255,6 @@
             </c:forEach>
             </tbody>
         </table>
-        <%-- вторая часть таблицы--%>
         <table class="table_blur">
             <thead>
             <tr>
@@ -281,8 +279,6 @@
         </table>
             <input type="submit" value=<fmt:message key="button_Add_To_Receipt"/>>
         </form>
-
-        </p>
     </div>
 </div>
 </body>

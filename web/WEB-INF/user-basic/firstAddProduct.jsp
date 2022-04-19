@@ -190,9 +190,7 @@
         <fmt:message key="cashier.label.cashier_successfully_logged_in"/>
     </div>
         </p>
-        <%-- Здесь нужно сделать поле для создания заказа--%>
         <h2><fmt:message key="st_cashier_jsp.label.Receipt_Id"/> : ${rec}</h2>
-        <%-- тут таблица с продуктами из корзины--%>
         <h2><fmt:message key="report.label.Total_Sum"/> ${totalSum}</h2>
         <form name="closeReceipt" method="post" action="closeReceipt">
             <div style="text-align: center;">
@@ -230,7 +228,6 @@
             </c:forEach>
             </tbody>
         </table>
-        <%-- вторая часть таблицы--%>
         <table class="table_blur">
             <thead>
             <tr>
@@ -256,8 +253,6 @@
 
         <input type="submit" value=<fmt:message key="button_Add_To_Receipt"/>>
         </form>
-
-        </p>
     </div>
 </div>
 </body>

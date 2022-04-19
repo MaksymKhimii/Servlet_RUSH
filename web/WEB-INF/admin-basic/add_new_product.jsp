@@ -86,7 +86,7 @@
     color: #444444;
     text-shadow: none;
 }
-/* CSS */
+
 .button-37 {
     background-color: #13aa52;
     border: 1px solid #13aa52;

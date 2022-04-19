@@ -121,7 +121,7 @@
 
 <p>
 <div style="text-align: center;"><fmt:message key="st_cashier_jsp.label.st_cashier_successfully_logged_in!"/> </div>
-<br> <%-- специальный отступ для нормального вида поисковика, не убирать!!!--%>
+<br>
 <form class="example" action="searchReceipt" style="margin:auto;max-width:300px">
     <input type="text" placeholder=<fmt:message key="st_cashier_jsp.placeholder.Search_product_by_name.."/> name="search">
     <button type="submit"><i class="fa fa-search"></i></button>

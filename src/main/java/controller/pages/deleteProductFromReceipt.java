@@ -34,7 +34,7 @@ public class deleteProductFromReceipt implements Command {
                    answer="/WEB-INF/st_cashier-basic/successfullyDeletedProduct2.jsp";
                }
             } else{
-                answer="/WEB-INF/st_cashier-basic/ReceiptSearchError.jsp";
+                answer="/WEB-INF/st_cashier-basic/receiptSearchError.jsp";
             }
         } catch (NumberFormatException e){
             e.printStackTrace();

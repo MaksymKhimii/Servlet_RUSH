@@ -63,6 +63,28 @@ public class ReceiptsDAO {
         return status;
     }
 
+    /** RU: проверка, есть ли продукты с указаным idreceipt в базе данных
+     * ENG: checking if there is a products with the specified idreceipt in the database
+     * @param idreceipt receipt id
+     * @return status(validation)
+     */
+    public static boolean validateProductsOfReceipt(int idreceipt) {
+
+        boolean status=false;
+        try{
+            String GETUSER="select * from mydbtest.goodsarchive where idreceipt=?";
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            PreparedStatement ps=con.prepareStatement(GETUSER);
+            ps.setString(1, String.valueOf(idreceipt));
+            try (ResultSet rs=ps.executeQuery()){
+                status=rs.next();
+            }
+        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        return status;
+    }
+
 
     /** RU: метод для валидации чека по имени кассира который его создал
      * ENG: method for validating a check by the name of the cashier who created it
