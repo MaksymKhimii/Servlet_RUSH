@@ -52,6 +52,7 @@ public class Servlet extends HttpServlet {
         commands.put("Xreport", new Xreport());
         commands.put("report", new report());
         commands.put("AllReports", new AllReports());
+        commands.put("info", new Info());
     }
 
     public void doGet(HttpServletRequest request,

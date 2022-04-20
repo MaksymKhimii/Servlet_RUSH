@@ -41,7 +41,7 @@
     <a class="active" href="/logout"><fmt:message key="navbar_jsp.href.Log_out"/></a>
     <a href="/SignUp"><fmt:message key="navbar_jsp.href.Sign_Up"/></a>
     <div class="topnav-right">
-        <a href="#"><fmt:message key="navbar_jsp.href.Info"/> </a>
+        <a href="/info"><fmt:message key="navbar_jsp.href.Info"/> </a>
         <a href="?lang=en">Eng</a>
         <a href="?lang=ru">Ru</a>
     </div>

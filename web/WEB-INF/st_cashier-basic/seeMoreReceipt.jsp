@@ -155,12 +155,12 @@
                     <th><input type="text" value="${recc.name}" name="name"></th>
                     <th><input type="number" value="${recc.quantity}" name="quantity"> </th>
                     <th><input type="number" value="${recc.weight}" name="weight"></th>
-                    <th><input list="tonnage" name="tonnage" value="${recc.tonnage}" id="tonnages" required>
+                    <th><input list="tonnage" name="tonnage" value="${recc.tonnage}" id="tonnages">
                     <datalist id="tonnage">
                         <option value="TRUE">
                         <option value="FALSE">
                     </datalist></th>
-                <th><input type="number" step="0.01" value="${recc.price}" name="price" required></th>
+                <th><input type="number" step="0.01" value="${recc.price}" name="price"></th>
                 <th><input type="submit" name="Delete" value=<fmt:message key="button_Delete"/>></th>
         </form>
             </tr>
