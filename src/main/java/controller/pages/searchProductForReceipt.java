@@ -4,6 +4,7 @@ import controller.command.Command;
 import db.BasketDAO;
 import db.ProductsDAO;
 import db.ReceiptsDAO;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
@@ -12,6 +13,8 @@ import java.sql.SQLException;
  * ENG: processing the search for a product to further add it to the cart
  */
 public class searchProductForReceipt implements Command {
+    private static final Logger log = Logger.getLogger(searchProductForReceipt.class.getName());
+
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         String answer = null;
@@ -26,9 +29,10 @@ public class searchProductForReceipt implements Command {
                 if(BasketDAO.checkBasket()){
                     answer ="/WEB-INF/user-basic/addToReceipt.jsp";
                 }else{
-                        answer="/WEB-INF/user-basic/firstAddProduct.jsp";
+                    answer="/WEB-INF/user-basic/firstAddProduct.jsp";
                 }
             } else {
+                log.error("Product "+name+" hasn't been found");
                 answer = "/WEB-INF/user-basic/cashier_error.jsp";
             }
         } catch (NumberFormatException e){

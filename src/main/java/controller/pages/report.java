@@ -3,6 +3,7 @@ package controller.pages;
 import controller.command.Command;
 import db.ReceiptsDAO;
 import db.ReportDAO;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
@@ -15,6 +16,7 @@ import java.util.Date;
  * ENG: report generation processing
  */
 public class report implements Command {
+    private static final Logger log = Logger.getLogger(report.class.getName());
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         String answer = null;
@@ -24,7 +26,6 @@ public class report implements Command {
             Date datenow0 = new Date();
             String Current_Date= formattedDate.format(datenow0);
 
-            System.out.println("разрешение: "+ReportDAO.AllowToReport());
             if(ReportDAO.AllowToReport()){
                 try {
                 ArrayList result = ReceiptsDAO.getXSum();
@@ -33,6 +34,7 @@ public class report implements Command {
                 double XSum = (double) result.get(2);
 
                 ReportDAO.addReport(countOfReceipts, lastIdReceipt, XSum);
+                log.info("The new report has been created");
                 request.setAttribute("currentDate", Current_Date);
                 request.setAttribute("countOfReceipts", countOfReceipts);
                 request.setAttribute("lastIdReceipt" ,lastIdReceipt);
@@ -44,6 +46,7 @@ public class report implements Command {
             }
 
             } else{
+                log.error("The new report hasn't been created(most likely, on this day the report was already created)");
                 answer="/WEB-INF/st_cashier-basic/report_error.jsp";
             }
 

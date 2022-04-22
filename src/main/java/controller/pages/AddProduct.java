@@ -1,7 +1,9 @@
 package controller.pages;
 
 import controller.command.Command;
+import controller.command.Login;
 import db.ProductsDAO;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
@@ -14,6 +16,7 @@ import java.sql.SQLException;
  *      completed successfully or adding error
  */
 public class AddProduct implements Command {
+    private static final Logger log = Logger.getLogger(AddProduct.class.getName());
 
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
@@ -24,20 +27,19 @@ public class AddProduct implements Command {
             double weight = Double.parseDouble(request.getParameter("weight"));
             boolean tonnage=Boolean.parseBoolean(request.getParameter("tonnage"));
             double price = Double.parseDouble(request.getParameter("price"));
-            System.out.println("name"+name);
-            System.out.println("quantity"+quantity);
-            System.out.println("weight"+weight);
-            System.out.println("tonnage"+tonnage);
-            System.out.println("price"+price);
+
             request.setAttribute("products", ProductsDAO.getAllProducts());
             if(ProductsDAO.validateProduct(name)){
                 //message that such a product already exists
+                log.error("This product already exists");
                 answer ="/WEB-INF/admin-basic/danger_not_added.jsp";
             } else if(ProductsDAO.addProduct(name, quantity, weight, tonnage, price)){
                 //message that the product was added successfully
+                log.info("New product "+name+" has been added");
                 answer ="/WEB-INF/admin-basic/successfully_added.jsp";
             } else {
                 // error message
+                log.error("Product hasn't been added. Its: "+name+ ", "+quantity+", "+weight+", "+tonnage+", "+price);
                 answer ="/WEB-INF/admin-basic/danger_not_added.jsp";
             }
         } catch (NumberFormatException e){

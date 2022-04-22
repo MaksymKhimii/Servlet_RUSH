@@ -5,6 +5,7 @@ import controller.pages.*;
 import controller.pages.merchandiser;
 import controller.pages.cashier;
 
+import org.apache.log4j.Logger;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +21,8 @@ import java.util.Map;
  * ENG: The main servlet for processing requests, actions and displaying pages
  */
 public class Servlet extends HttpServlet {
+
+    private static final Logger log = Logger.getLogger(Servlet.class);
 
     private final Map<String, Command> commands = new HashMap<>();
 
@@ -72,15 +75,17 @@ public class Servlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-    /**
-     * Main method of this servlet, which process request and return page
+    /** RU: Основной метод этого сервлета, который обрабатывает запрос и возвращает страницу
+     * ENG:Main method of this servlet, which process request and return page
      */
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
+    //    log.info("Controller starts");
         String path=request.getRequestURI();
         path=path.replaceAll(".*/", "");
         Command command = commands.getOrDefault(path,
                 (r)->"/index.jsp");
+        log.debug("Command: "+command.toString());
         String page = command.execute(request);
         if(page.contains("redirect:") || page.contains("logout")){
             response.sendRedirect(page.replace("redirect:", ""));

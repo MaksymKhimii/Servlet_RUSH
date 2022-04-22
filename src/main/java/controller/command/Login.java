@@ -2,6 +2,7 @@ package controller.command;
 
 import db.UserDAO;
 import db.enums.UserRole;
+import org.apache.log4j.Logger;
 
 import java.sql.SQLException;
 
@@ -12,9 +13,10 @@ import javax.servlet.http.HttpSession;
  * ENG: user login processing
  */
 public class Login implements Command {
+    private static final Logger log = Logger.getLogger(Login.class.getName());
     @Override
     public String execute(HttpServletRequest request) throws SQLException {
-
+        String errorMessage = null;
         HttpSession session = request.getSession();
         String name = request.getParameter("username");
         session.setAttribute("username", name);
@@ -23,6 +25,7 @@ public class Login implements Command {
         String answer = null;
 
         if (UserDAO.validate(name, pass)) {
+            log.info("User was found");
             if (UserDAO.getRole(name, pass).equals(UserRole.merchandiser.toString())) {
                 CommandUtility.setUserRole(request, UserRole.merchandiser, name);
                 answer = "redirect:/merchandiser";
@@ -34,6 +37,8 @@ public class Login implements Command {
                 answer = "redirect:/st_cashier";
             }
         } else {
+            errorMessage = "Login/password cannot be empty";
+            log.error("errorMessage --> " + errorMessage);
             answer = "/index.jsp";
         }
         return answer;

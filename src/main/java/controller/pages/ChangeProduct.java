@@ -2,6 +2,7 @@ package controller.pages;
 
 import controller.command.Command;
 import db.ProductsDAO;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
@@ -10,6 +11,8 @@ import java.sql.SQLException;
  * ENG: processing product change in database
  */
 public class ChangeProduct implements Command {
+    private static final Logger log = Logger.getLogger(ChangeProduct.class.getName());
+
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         String answer = null;
@@ -19,15 +22,13 @@ public class ChangeProduct implements Command {
             double weight = Double.parseDouble(request.getParameter("weight"));
             boolean tonnage=Boolean.parseBoolean(request.getParameter("tonnage"));
             double price = Double.parseDouble(request.getParameter("price"));
-            System.out.println("name="+name);
-            System.out.println("quantity="+quantity);
-            System.out.println("weight="+weight);
-            System.out.println("tonnage "+tonnage);
-            System.out.println("price = "+price);
+
             ProductsDAO.changeProduct(name, quantity, weight, tonnage, price);
             if(ProductsDAO.validateProduct(name, quantity, weight, tonnage, price)){
+                log.debug("Product "+name+" has been changed successfully");
                 answer="/WEB-INF/admin-basic/successfully_changed.jsp";
             } else{
+                log.error("Product hasn't been changed");
                 answer="/WEB-INF/admin-basic/danger_not_changed.jsp";
             }
             request.setAttribute("products", ProductsDAO.getAllProducts());

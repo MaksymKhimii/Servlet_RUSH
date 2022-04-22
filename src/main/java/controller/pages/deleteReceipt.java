@@ -2,6 +2,7 @@ package controller.pages;
 
 import controller.command.Command;
 import db.ReceiptsDAO;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
@@ -10,15 +11,18 @@ import java.sql.SQLException;
  * ENG:  processing the removal of a receipt from the database
  */
 public class deleteReceipt implements Command {
+    private static final Logger log = Logger.getLogger(deleteReceipt.class.getName());
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         String answer=null;
         try {
         int idreceipt= Integer.parseInt(request.getParameter("idreceipt"));
-            System.out.println("idreceipt: "+idreceipt);
+
         if(ReceiptsDAO.deleteReceipt(idreceipt)){
+            log.info("Receipt: "+idreceipt+" has been deleted successfully");
             answer="/WEB-INF/st_cashier-basic/successfullyDeletedReceipt.jsp"; // успешно удалено
         } else {
+            log.error("Receipt: "+idreceipt+" hasn't been deleted");
             answer="/WEB-INF/st_cashier-basic/receiptSearchError.jsp";
         }
         request.setAttribute("receipts", ReceiptsDAO.getAllReceipts());
