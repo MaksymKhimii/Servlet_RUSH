@@ -1,0 +1,143 @@
+2022-04-22 15:19:38 INFO  Servlet:83 - Controller starts
+2022-04-22 15:19:38 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd980@83a2ae5
+2022-04-22 15:19:38 DEBUG LocaleFilter:46 - Filter finished
+2022-04-22 15:19:48 DEBUG LocaleFilter:27 - Filter starts
+2022-04-22 15:19:48 INFO  Servlet:83 - Controller starts
+2022-04-22 15:19:48 INFO  Servlet:88 - Command: controller.command.Login@587f693b
+2022-04-22 15:19:48 INFO  Login:28 - User was found
+2022-04-22 15:19:48 DEBUG LocaleFilter:46 - Filter finished
+2022-04-22 15:19:48 DEBUG LocaleFilter:27 - Filter starts
+2022-04-22 15:19:48 INFO  Servlet:83 - Controller starts
+2022-04-22 15:19:48 INFO  Servlet:88 - Command: controller.pages.cashier@80fba0b
+2022-04-22 15:19:48 INFO  cashier:17 - Cashier starts his work...
+2022-04-22 15:19:48 DEBUG LocaleFilter:46 - Filter finished
+2022-04-22 15:19:48 DEBUG LocaleFilter:27 - Filter starts
+2022-04-22 15:19:48 INFO  Servlet:83 - Controller starts
+2022-04-22 15:19:48 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd980@83a2ae5
+2022-04-22 15:19:48 DEBUG LocaleFilter:46 - Filter finished
+2022-04-22 15:21:18 DEBUG LocaleFilter:27 - Filter starts
+2022-04-22 15:21:18 INFO  Servlet:83 - Controller starts
+2022-04-22 15:21:18 INFO  Servlet:88 - Command: controller.command.Logout@119651ca
+2022-04-22 15:21:18 DEBUG LocaleFilter:46 - Filter finished
+2022-04-22 15:21:18 DEBUG LocaleFilter:27 - Filter starts
+2022-04-22 15:21:18 INFO  Servlet:83 - Controller starts
+2022-04-22 15:21:18 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd980@83a2ae5
+2022-04-22 15:21:18 DEBUG LocaleFilter:46 - Filter finished
+2022-04-22 15:21:29 DEBUG LocaleFilter:27 - Filter starts
+2022-04-22 15:21:29 INFO  Servlet:83 - Controller starts
+2022-04-22 15:21:29 INFO  Servlet:88 - Command: controller.command.Login@587f693b
+2022-04-22 15:21:29 INFO  Login:28 - User was found
+2022-04-22 15:21:29 DEBUG LocaleFilter:46 - Filter finished
+2022-04-22 15:21:29 DEBUG LocaleFilter:27 - Filter starts
+2022-04-22 15:21:29 INFO  Servlet:83 - Controller starts
+2022-04-22 15:21:29 INFO  Servlet:88 - Command: controller.pages.merchandiser@1a05e1d0
+2022-04-22 15:21:29 INFO  merchandiser:18 - Merchandiser starts his work...
+2022-04-22 15:21:29 DEBUG LocaleFilter:46 - Filter finished
+2022-04-22 15:21:29 DEBUG LocaleFilter:27 - Filter starts
+2022-04-22 15:21:29 INFO  Servlet:83 - Controller starts
+2022-04-22 15:21:29 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd980@83a2ae5
+2022-04-22 15:21:29 DEBUG LocaleFilter:46 - Filter finished
+2022-04-22 15:22:33 DEBUG LocaleFilter:27 - Filter starts
+2022-04-22 15:22:33 INFO  Servlet:83 - Controller starts
+2022-04-22 15:22:33 INFO  Servlet:88 - Command: controller.pages.add_new_product@49a9ab8b
+2022-04-22 15:22:33 DEBUG LocaleFilter:46 - Filter finished
+2022-04-22 15:22:33 DEBUG LocaleFilter:27 - Filter starts
+2022-04-22 15:22:33 INFO  Servlet:83 - Controller starts
+2022-04-22 15:22:33 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd980@83a2ae5
+2022-04-22 15:22:33 DEBUG LocaleFilter:46 - Filter finished
+2022-04-22 15:23:16 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
+2022-04-22 15:23:32 INFO  Servlet:88 - Command: controller.command.Login@80fba0b
+2022-04-22 15:23:33 INFO  Login:28 - User was found
+2022-04-22 15:23:33 INFO  Servlet:88 - Command: controller.pages.merchandiser@69deb20a
+2022-04-22 15:23:33 INFO  merchandiser:18 - Merchandiser starts his work...
+2022-04-22 15:23:33 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
+2022-04-22 15:23:41 INFO  Servlet:88 - Command: controller.pages.add_new_product@119651ca
+2022-04-22 15:23:42 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
+2022-04-22 15:24:34 INFO  Servlet:88 - Command: controller.pages.AddProduct@5d8a452b
+2022-04-22 15:24:34 INFO  AddProduct:38 - New product chocolate1 has been added
+2022-04-22 15:24:35 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
+2022-04-22 15:24:54 INFO  Servlet:88 - Command: controller.pages.merchandiser@69deb20a
+2022-04-22 15:24:54 INFO  merchandiser:18 - Merchandiser starts his work...
+2022-04-22 15:24:54 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
+2022-04-22 15:25:43 INFO  Servlet:88 - Command: controller.pages.searchProduct@5a75b01f
+2022-04-22 15:25:43 INFO  searchProduct:26 - Product chocolate wasn't found
+2022-04-22 15:25:43 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
+2022-04-22 15:25:56 INFO  Servlet:88 - Command: controller.pages.merchandiser@69deb20a
+2022-04-22 15:25:56 INFO  merchandiser:18 - Merchandiser starts his work...
+2022-04-22 15:25:56 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
+2022-04-22 15:27:53 INFO  Servlet:88 - Command: controller.command.Logout@520a4071
+2022-04-22 15:27:53 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
+2022-04-22 15:27:58 INFO  Servlet:88 - Command: controller.command.Login@80fba0b
+2022-04-22 15:27:58 INFO  Login:28 - User was found
+2022-04-22 15:27:58 INFO  Servlet:88 - Command: controller.pages.cashier@abc944c
+2022-04-22 15:27:58 INFO  cashier:17 - Cashier starts his work...
+2022-04-22 15:27:58 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
+2022-04-22 15:28:05 INFO  Servlet:88 - Command: controller.pages.cashier@abc944c
+2022-04-22 15:28:05 INFO  cashier:17 - Cashier starts his work...
+2022-04-22 15:28:05 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
+2022-04-22 15:28:06 INFO  Servlet:88 - Command: controller.pages.cashier@abc944c
+2022-04-22 15:28:06 INFO  cashier:17 - Cashier starts his work...
+2022-04-22 15:28:06 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
+2022-04-22 15:28:08 INFO  Servlet:88 - Command: controller.pages.cashier@abc944c
+2022-04-22 15:28:08 INFO  cashier:17 - Cashier starts his work...
+2022-04-22 15:28:08 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
+2022-04-22 15:58:01 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
+2022-04-22 15:58:03 DEBUG Servlet:88 - Command: controller.command.Login@35d0fc6e
+2022-04-22 15:58:03 INFO  Login:28 - User was found
+2022-04-22 15:58:03 DEBUG Servlet:88 - Command: controller.pages.cashier@725f5064
+2022-04-22 15:58:03 DEBUG cashier:17 - Cashier is working...
+2022-04-22 15:58:04 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
+2022-04-22 15:58:36 DEBUG Servlet:88 - Command: controller.pages.create_Receipt@5295966
+2022-04-22 15:58:36 INFO  create_Receipt:26 - Receipt: 23 has been created
+2022-04-22 15:58:37 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
+2022-04-22 15:58:47 DEBUG Servlet:88 - Command: controller.pages.searchProductForReceipt@6c1bdcbc
+2022-04-22 15:58:47 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
+2022-04-22 15:58:54 DEBUG Servlet:88 - Command: controller.pages.AddToBasket@1313c784
+2022-04-22 15:58:54 INFO  AddToBasket:31 - Product chocolate1 has been added to basket
+2022-04-22 15:58:55 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
+2022-04-22 15:59:00 DEBUG Servlet:88 - Command: controller.pages.duringReceipt@587f693b
+2022-04-22 15:59:00 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
+2022-04-22 15:59:02 DEBUG Servlet:88 - Command: controller.pages.CloseReceipt@69deb20a
+2022-04-22 15:59:02 INFO  CloseReceipt:32 - Last Receipt has been closed successfully
+2022-04-22 15:59:02 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
+2022-04-22 15:59:05 DEBUG Servlet:88 - Command: controller.pages.cashier@725f5064
+2022-04-22 15:59:05 DEBUG cashier:17 - Cashier is working...
+2022-04-22 15:59:05 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
+2022-04-26 13:32:06 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
+2022-04-26 13:32:07 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
+2022-04-26 13:32:11 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
+2022-04-26 13:32:13 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
+2022-04-26 13:32:18 DEBUG Servlet:88 - Command: controller.command.Login@dfbed48
+2022-04-26 13:32:18 INFO  Login:28 - User was found
+2022-04-26 13:32:18 DEBUG Servlet:88 - Command: controller.pages.st_cashier@665317e0
+2022-04-26 13:32:18 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-04-26 13:32:19 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
+2022-04-26 13:32:21 DEBUG Servlet:88 - Command: controller.pages.AllReports@37f54143
+2022-04-26 13:32:21 DEBUG AllReports:19 - All reports has been got
+2022-04-26 13:32:22 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
+2022-04-26 13:32:24 DEBUG Servlet:88 - Command: controller.pages.st_cashier@665317e0
+2022-04-26 13:32:24 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-04-26 13:32:24 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
+2022-04-26 13:32:25 DEBUG Servlet:88 - Command: controller.pages.AllReports@37f54143
+2022-04-26 13:32:25 DEBUG AllReports:19 - All reports has been got
+2022-04-26 13:32:25 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
+2022-04-26 13:32:29 DEBUG Servlet:88 - Command: controller.pages.st_cashier@665317e0
+2022-04-26 13:32:29 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-04-26 13:32:29 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
+2022-04-26 13:32:46 DEBUG Servlet:88 - Command: controller.pages.Xreport@76bb6ca6
+2022-04-26 13:32:46 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
+2022-04-26 13:32:48 DEBUG Servlet:88 - Command: controller.pages.st_cashier@665317e0
+2022-04-26 13:32:48 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-04-26 13:32:48 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
+2022-04-26 13:32:53 DEBUG Servlet:88 - Command: controller.pages.st_cashier@665317e0
+2022-04-26 13:32:53 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-04-26 13:32:53 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
+2022-04-26 13:32:53 DEBUG Servlet:88 - Command: controller.pages.st_cashier@665317e0
+2022-04-26 13:32:54 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-04-26 13:32:54 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
+2022-04-26 13:32:55 DEBUG Servlet:88 - Command: controller.pages.st_cashier@665317e0
+2022-04-26 13:32:55 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-04-26 13:32:55 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
+2022-04-26 13:33:02 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
+2022-04-26 13:33:04 DEBUG Servlet:88 - Command: controller.command.Logout@433d57f6
+2022-04-26 13:33:04 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd

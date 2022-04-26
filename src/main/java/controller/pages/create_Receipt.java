@@ -16,9 +16,9 @@ public class create_Receipt implements Command {
     private static final Logger log = Logger.getLogger(create_Receipt.class.getName());
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
-        HttpSession session = request.getSession();
-        String cashier_id = (String)session.getAttribute("username");
-        ReceiptsDAO.addReceipt(cashier_id);
+        HttpSession session = request.getSession(); // тут вытягиваем сессию
+        String cashier_id = (String)session.getAttribute("username"); // тут получаем текущего кассира
+        ReceiptsDAO.addReceipt(cashier_id); // создаем новый чек
 
         request.setAttribute("rec", ReceiptsDAO.getLastReceiptId());
         request.setAttribute("totalSum", ReceiptsDAO.getReceiptSum(ReceiptsDAO.getLastReceiptId()));
