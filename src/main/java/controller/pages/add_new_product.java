@@ -11,4 +11,9 @@ public class add_new_product implements Command {
     public String execute(HttpServletRequest request) throws SQLException {
         return "/WEB-INF/admin-basic/add_new_product.jsp";
     }
+
+    @Override
+    public String toString() {
+        return "add_new_product";
+    }
 }

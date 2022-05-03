@@ -44,4 +44,9 @@ public class Xreport implements Command {
         answer="/WEB-INF/st_cashier-basic/Xreport.jsp";
         return answer;
     }
+
+    @Override
+    public String toString() {
+        return "Xreport";
+    }
 }

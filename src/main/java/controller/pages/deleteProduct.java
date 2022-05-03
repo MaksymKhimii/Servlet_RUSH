@@ -30,4 +30,9 @@ public class deleteProduct implements Command {
         }
         return answer;
     }
+
+    @Override
+    public String toString() {
+        return "deleteProduct";
+    }
 }

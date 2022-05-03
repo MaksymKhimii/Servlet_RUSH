@@ -19,4 +19,9 @@ public class cashier implements Command {
 
         return "/WEB-INF/user-basic/cashier.jsp";
     }
+
+    @Override
+    public String toString() {
+        return "cashier";
+    }
 }

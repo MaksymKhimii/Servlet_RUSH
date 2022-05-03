@@ -25,4 +25,9 @@ public class AllReports implements Command {
         }
         return answer;
     }
+
+    @Override
+    public String toString() {
+        return "AllReports";
+    }
 }

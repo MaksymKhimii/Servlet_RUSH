@@ -45,6 +45,10 @@ public class AddToBasket implements Command {
             e.printStackTrace();
         }
         return answer;
+    }
 
+    @Override
+    public String toString() {
+        return "AddToBasket";
     }
 }

@@ -31,4 +31,9 @@ public class deleteReceipt implements Command {
         }
         return answer;
     }
+
+    @Override
+    public String toString() {
+        return "deleteReceipt";
+    }
 }

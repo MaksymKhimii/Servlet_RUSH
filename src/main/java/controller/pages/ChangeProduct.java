@@ -37,4 +37,9 @@ public class ChangeProduct implements Command {
         }
         return answer;
     }
+
+    @Override
+    public String toString() {
+        return "ChangeProduct";
+    }
 }

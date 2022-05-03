@@ -19,4 +19,8 @@ public class merchandiser implements Command {
         return "/WEB-INF/admin-basic/merchandiser.jsp";
     }
 
+    @Override
+    public String toString() {
+        return "merchandiser";
+    }
 }

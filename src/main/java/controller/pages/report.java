@@ -55,4 +55,9 @@ public class report implements Command {
         }
         return answer;
     }
+
+    @Override
+    public String toString() {
+        return "report";
+    }
 }

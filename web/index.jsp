@@ -152,9 +152,9 @@
       <input type="password" placeholder=<fmt:message key="index_jsp.placeholder.Password"/> name="password" required>
 
       <button type="submit"><fmt:message key="index_jsp.button.Login2"/> </button>
-      <label>
+     <%-- <label>
         <input type="checkbox" checked="checked" name="remember"> <fmt:message key="index_jsp.checkbox.Remember_me"/>
-      </label>
+      </label> --%>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">

@@ -10,4 +10,10 @@ public class Info implements Command {
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         return "/WEB-INF/common/info.jsp";
     }
+
+
+    @Override
+    public String toString() {
+        return "Info";
+    }
 }

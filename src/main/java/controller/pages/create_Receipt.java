@@ -26,4 +26,9 @@ public class create_Receipt implements Command {
         log.info("Receipt: "+ReceiptsDAO.getLastReceiptId()+" has been created");
         return "/WEB-INF/user-basic/createReceipt.jsp";
     }
+
+    @Override
+    public String toString() {
+        return "create_Receipt";
+    }
 }

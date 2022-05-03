@@ -34,4 +34,9 @@ public class CloseReceipt implements Command {
         }
 
     }
+
+    @Override
+    public String toString() {
+        return "CloseReceipt";
+    }
 }

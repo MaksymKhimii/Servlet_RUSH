@@ -20,4 +20,9 @@ public class st_cashier implements Command {
         log.debug("Elder Cashier is working...");
         return "/WEB-INF/st_cashier-basic/st_cashier.jsp";
     }
+
+    @Override
+    public String toString() {
+        return "st_cashier";
+    }
 }

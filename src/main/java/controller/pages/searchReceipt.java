@@ -30,4 +30,9 @@ public class searchReceipt implements Command {
         }
         return answer;
     }
+
+    @Override
+    public String toString() {
+        return "searchReceipt";
+    }
 }

@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 */
 @WebFilter(filterName = "LocaleFilter", urlPatterns = {"/*"})
 public class LocaleFilter implements Filter {
-    private static final Logger log = Logger.getLogger(LocaleFilter.class.getName());
+    //private static final Logger log = Logger.getLogger(LocaleFilter.class.getName());
     @Override
     public void init(FilterConfig filterConfig) {
         //log.debug("Filter initialization starts");

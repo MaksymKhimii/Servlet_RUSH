@@ -13,4 +13,9 @@ public class merchandiser_error implements Command {
     public String execute(HttpServletRequest request) throws SQLException {
         return "/WEB-INF/admin-basic/merchandiser_error.jsp";
     }
+
+    @Override
+    public String toString() {
+        return "merchandiser_error";
+    }
 }

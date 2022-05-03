@@ -47,4 +47,9 @@ public class AddProduct implements Command {
         }
         return answer;
     }
+
+    @Override
+    public String toString() {
+        return "AddProduct";
+    }
 }

@@ -31,4 +31,9 @@ public class searchProduct implements Command {
         }
         return answer;
     }
+
+    @Override
+    public String toString() {
+        return "searchProduct";
+    }
 }

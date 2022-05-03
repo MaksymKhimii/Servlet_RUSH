@@ -43,5 +43,11 @@ public class Login implements Command {
         }
         return answer;
     }
+
+
+    @Override
+    public String toString() {
+        return "Login";
+    }
 }
 

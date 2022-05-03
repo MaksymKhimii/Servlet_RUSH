@@ -22,4 +22,9 @@ public class duringReceipt implements Command {
         request.setAttribute("products", ProductsDAO.getAllProducts());
         return "/WEB-INF/user-basic/duringReceipt.jsp";
     }
+
+    @Override
+    public String toString() {
+        return "duringReceipt";
+    }
 }

@@ -40,4 +40,9 @@ public class searchProductForReceipt implements Command {
         }
         return answer;
     }
+
+    @Override
+    public String toString() {
+        return "searchProductForReceipt";
+    }
 }

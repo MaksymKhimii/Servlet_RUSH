@@ -38,6 +38,11 @@ public class SeeMoreReceipt implements Command {
     public static int GetIdReceipt(){
         return idreceipt;
     }
+
+    @Override
+    public String toString() {
+        return "SeeMoreReceipt";
+    }
 }
 
 
