@@ -3,6 +3,7 @@ package controller.command;
 import db.UserDAO;
 import org.apache.log4j.Logger;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 
 /** RU: в этом сервлете обработка процесса регистрации нового пользователя
  * ENG: processing the new user registration process in this servlet
@@ -18,6 +22,8 @@ import java.sql.SQLException;
 @WebServlet("/SignUp")
 public class SignUp extends HttpServlet {
     private static final Logger log = Logger.getLogger(SignUp.class.getName());
+
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/common/sign-up.jsp").forward(request,response);
     }
@@ -30,14 +36,16 @@ public class SignUp extends HttpServlet {
         try {
             if (UserDAO.validate(username, password)) {
                 log.error("Such user already exists");
-                request.getRequestDispatcher("/WEB-INF/common/sign-up.jsp").forward(request, response);
+            //    request.getRequestDispatcher("/WEB-INF/common/sign-up.jsp").forward(request, response);
+                response.sendRedirect("/SignUp");
             } else {
                 if (UserDAO.addUser(username, password, role)){
                     log.info("New user has been registered");
-                    request.getRequestDispatcher("/Login").forward(request, response);
+                  //  request.getRequestDispatcher("/Login").forward(request, response);
+                    response.sendRedirect("/Login");
                 }
             }
-        } catch (SQLException | ClassNotFoundException | ServletException e){
+        } catch (SQLException | ClassNotFoundException e){
             e.printStackTrace();
         }
         out.close();

@@ -207,3 +207,239 @@
 2022-05-03 17:03:42 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead360@2b1bf68b
 2022-05-03 17:03:45 DEBUG Servlet:88 - Command: Xreport
 2022-05-03 17:03:45 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead360@2b1bf68b
+2022-05-07 12:14:24 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:14:30 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:14:33 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:14:58 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:15:04 ERROR SignUp:32 - Such user already exists
+2022-05-07 12:15:04 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:15:08 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:15:17 ERROR SignUp:32 - Such user already exists
+2022-05-07 12:15:17 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:15:32 ERROR SignUp:32 - Such user already exists
+2022-05-07 12:15:32 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:16:10 INFO  SignUp:36 - New user has been registered
+2022-05-07 12:16:10 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:16:10 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:16:20 DEBUG Servlet:88 - Command: Login
+2022-05-07 12:16:20 INFO  Login:28 - User was found
+2022-05-07 12:16:20 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:16:28 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:16:29 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:16:30 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:16:30 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:16:43 DEBUG Servlet:88 - Command: Login
+2022-05-07 12:16:43 INFO  Login:28 - User was found
+2022-05-07 12:16:43 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:17:11 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:17:26 DEBUG Servlet:88 - Command: Login
+2022-05-07 12:17:26 INFO  Login:28 - User was found
+2022-05-07 12:17:26 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:17:29 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:17:35 DEBUG Servlet:88 - Command: Login
+2022-05-07 12:17:35 ERROR Login:41 - errorMessage --> Login/password cannot be empty
+2022-05-07 12:17:35 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:17:57 DEBUG Servlet:88 - Command: Login
+2022-05-07 12:17:57 INFO  Login:28 - User was found
+2022-05-07 12:17:57 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:18:08 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:18:10 DEBUG Servlet:88 - Command: Logout
+2022-05-07 12:18:10 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@421f2ed1
+2022-05-07 12:18:30 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead360@d3dfb0
+2022-05-07 12:18:38 DEBUG Servlet:88 - Command: Login
+2022-05-07 12:18:39 INFO  Login:28 - User was found
+2022-05-07 12:18:39 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead360@d3dfb0
+2022-05-07 12:19:00 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead360@d3dfb0
+2022-05-07 12:19:08 DEBUG Servlet:88 - Command: Login
+2022-05-07 12:19:08 INFO  Login:28 - User was found
+2022-05-07 12:19:08 DEBUG Servlet:88 - Command: st_cashier
+2022-05-07 12:19:08 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-07 12:19:09 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead360@d3dfb0
+2022-05-07 12:19:11 DEBUG Servlet:88 - Command: Logout
+2022-05-07 12:19:11 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead360@d3dfb0
+2022-05-07 12:19:19 DEBUG Servlet:88 - Command: Login
+2022-05-07 12:19:19 INFO  Login:28 - User was found
+2022-05-07 12:19:19 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead360@d3dfb0
+2022-05-07 12:21:13 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:24:34 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ed9dc0@310221ba
+2022-05-07 12:24:41 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ed9dc0@310221ba
+2022-05-07 12:24:52 INFO  SignUp:36 - New user has been registered
+2022-05-07 12:24:52 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ed9dc0@310221ba
+2022-05-07 12:24:52 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ed9dc0@310221ba
+2022-05-07 12:24:57 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ed9dc0@310221ba
+2022-05-07 12:27:41 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@e5d0f1f
+2022-05-07 12:28:03 DEBUG Servlet:88 - Command: Login
+2022-05-07 12:28:03 ERROR Login:41 - errorMessage --> Login/password cannot be empty
+2022-05-07 12:28:03 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@e5d0f1f
+2022-05-07 12:28:06 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@e5d0f1f
+2022-05-07 12:28:18 INFO  SignUp:36 - New user has been registered
+2022-05-07 12:28:18 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@e5d0f1f
+2022-05-07 12:28:18 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@e5d0f1f
+2022-05-07 12:29:20 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@e5d0f1f
+2022-05-07 12:30:01 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@e5d0f1f
+2022-05-07 12:30:11 INFO  SignUp:36 - New user has been registered
+2022-05-07 12:30:11 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@e5d0f1f
+2022-05-07 12:30:11 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@e5d0f1f
+2022-05-07 12:30:22 DEBUG Servlet:88 - Command: Login
+2022-05-07 12:30:22 INFO  Login:28 - User was found
+2022-05-07 12:30:22 DEBUG Servlet:88 - Command: st_cashier
+2022-05-07 12:30:22 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-07 12:30:23 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@e5d0f1f
+2022-05-07 12:30:29 DEBUG Servlet:88 - Command: Logout
+2022-05-07 12:30:29 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@e5d0f1f
+2022-05-07 12:30:32 DEBUG Servlet:88 - Command: Logout
+2022-05-07 12:30:32 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@e5d0f1f
+2022-05-07 12:30:34 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@e5d0f1f
+2022-05-07 12:30:46 INFO  SignUp:36 - New user has been registered
+2022-05-07 12:30:46 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@e5d0f1f
+2022-05-07 12:30:46 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@e5d0f1f
+2022-05-07 12:40:28 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea75e8@4453512a
+2022-05-07 12:40:32 DEBUG Servlet:89 - Command: Login
+2022-05-07 12:40:33 INFO  Login:28 - User was found
+2022-05-07 12:40:33 DEBUG Servlet:89 - Command: st_cashier
+2022-05-07 12:40:33 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-07 12:40:33 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea75e8@4453512a
+2022-05-07 12:40:35 DEBUG Servlet:89 - Command: Logout
+2022-05-07 12:40:35 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea75e8@4453512a
+2022-05-07 12:40:36 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea75e8@4453512a
+2022-05-07 12:40:36 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea75e8@4453512a
+2022-05-07 12:40:38 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea75e8@4453512a
+2022-05-07 12:40:38 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea75e8@4453512a
+2022-05-07 12:43:05 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaed20@32bf1c12
+2022-05-07 12:43:09 DEBUG Servlet:89 - Command: controller.command.SignUp@665317e0
+2022-05-07 12:43:10 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaed20@32bf1c12
+2022-05-07 12:44:55 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaba88@255630ae
+2022-05-07 12:44:56 DEBUG Servlet:89 - Command: controller.command.SignUp@70dd1bd1
+2022-05-07 12:44:57 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaba88@255630ae
+2022-05-07 12:44:59 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaba88@255630ae
+2022-05-07 12:45:00 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaba88@255630ae
+2022-05-07 12:45:02 DEBUG Servlet:89 - Command: controller.command.SignUp@70dd1bd1
+2022-05-07 12:45:02 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaba88@255630ae
+2022-05-07 12:45:11 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaba88@255630ae
+2022-05-07 12:48:42 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaba88@7a226990
+2022-05-07 12:48:43 DEBUG Servlet:89 - Command: controller.command.SignUp@5de3b963
+2022-05-07 12:48:44 DEBUG Servlet:89 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaba88@7a226990
+2022-05-07 12:49:59 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:50:02 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:50:05 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:50:11 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:50:12 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:50:23 ERROR SignUp:32 - Such user already exists
+2022-05-07 12:50:23 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:50:34 INFO  SignUp:36 - New user has been registered
+2022-05-07 12:50:34 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:50:34 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:50:46 DEBUG Servlet:88 - Command: Login
+2022-05-07 12:50:46 INFO  Login:28 - User was found
+2022-05-07 12:50:46 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:52:47 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:52:50 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:52:53 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:53:03 INFO  SignUp:36 - New user has been registered
+2022-05-07 12:53:03 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:53:03 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:53:10 DEBUG Servlet:88 - Command: Login
+2022-05-07 12:53:10 INFO  Login:28 - User was found
+2022-05-07 12:53:10 DEBUG Servlet:88 - Command: st_cashier
+2022-05-07 12:53:10 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-07 12:53:11 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:53:13 DEBUG Servlet:88 - Command: Logout
+2022-05-07 12:53:13 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:53:16 DEBUG Servlet:88 - Command: Logout
+2022-05-07 12:53:16 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:53:17 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:53:31 INFO  SignUp:36 - New user has been registered
+2022-05-07 12:53:31 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:53:31 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:53:44 DEBUG Servlet:88 - Command: Login
+2022-05-07 12:53:44 INFO  Login:28 - User was found
+2022-05-07 12:53:44 DEBUG Servlet:88 - Command: st_cashier
+2022-05-07 12:53:44 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-07 12:53:44 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:53:47 DEBUG Servlet:88 - Command: Logout
+2022-05-07 12:53:47 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:54:32 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:54:45 ERROR SignUp:32 - Such user already exists
+2022-05-07 12:54:45 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 12:56:22 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-07 12:56:26 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-07 12:56:33 ERROR SignUp:32 - Such user already exists
+2022-05-07 12:56:33 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-07 12:56:39 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-07 12:56:58 INFO  SignUp:37 - New user has been registered
+2022-05-07 12:56:58 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-07 12:56:58 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-07 12:57:06 DEBUG Servlet:88 - Command: Login
+2022-05-07 12:57:06 INFO  Login:28 - User was found
+2022-05-07 12:57:06 DEBUG Servlet:88 - Command: st_cashier
+2022-05-07 12:57:06 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-07 12:57:06 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-07 12:57:08 DEBUG Servlet:88 - Command: Logout
+2022-05-07 12:57:08 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-07 12:57:33 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:57:35 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:57:42 ERROR SignUp:32 - Such user already exists
+2022-05-07 12:57:42 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:57:42 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:58:08 DEBUG Servlet:88 - Command: Logout
+2022-05-07 12:58:08 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:58:09 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:58:16 ERROR SignUp:32 - Such user already exists
+2022-05-07 12:58:16 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 12:58:16 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:03:39 DEBUG Servlet:88 - Command: Login
+2022-05-07 13:03:39 INFO  Login:28 - User was found
+2022-05-07 13:03:39 DEBUG Servlet:88 - Command: st_cashier
+2022-05-07 13:03:39 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-07 13:03:40 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:03:42 DEBUG Servlet:88 - Command: Logout
+2022-05-07 13:03:42 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:03:48 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:03:55 ERROR SignUp:32 - Such user already exists
+2022-05-07 13:03:55 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:03:55 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:04:06 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:04:11 ERROR SignUp:32 - Such user already exists
+2022-05-07 13:04:11 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:04:11 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:04:42 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@1f2f7d8
+2022-05-07 13:04:44 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@1f2f7d8
+2022-05-07 13:05:38 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:05:43 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:05:47 ERROR SignUp:38 - Such user already exists
+2022-05-07 13:05:47 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:05:56 INFO  SignUp:43 - New user has been registered
+2022-05-07 13:05:56 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:05:56 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:06:42 DEBUG Servlet:88 - Command: Login
+2022-05-07 13:06:42 INFO  Login:28 - User was found
+2022-05-07 13:06:42 DEBUG Servlet:88 - Command: st_cashier
+2022-05-07 13:06:42 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-07 13:06:43 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:06:44 DEBUG Servlet:88 - Command: Logout
+2022-05-07 13:06:44 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:06:48 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:07:01 INFO  SignUp:43 - New user has been registered
+2022-05-07 13:07:01 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:07:01 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:07:24 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-07 13:10:39 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-07 13:10:41 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-07 13:11:02 INFO  SignUp:43 - New user has been registered
+2022-05-07 13:11:02 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-07 13:11:02 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-07 13:12:34 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 13:12:37 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 13:12:39 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 13:12:40 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 13:12:49 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 13:12:54 ERROR SignUp:38 - Such user already exists
+2022-05-07 13:12:54 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 13:13:08 INFO  SignUp:43 - New user has been registered
+2022-05-07 13:13:08 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 13:13:08 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-07 13:13:24 DEBUG Servlet:88 - Command: Login
+2022-05-07 13:13:24 INFO  Login:28 - User was found
+2022-05-07 13:13:24 DEBUG Servlet:88 - Command: cashier
+2022-05-07 13:13:24 DEBUG cashier:17 - Cashier is working...
+2022-05-07 13:13:24 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f

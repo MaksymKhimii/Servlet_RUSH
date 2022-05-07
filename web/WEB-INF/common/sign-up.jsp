@@ -185,11 +185,10 @@
             <label for="psw"><b><fmt:message key="index_jsp.label.Password"/> </b></label>
             <input type="password" placeholder=<fmt:message key="index_jsp.placeholder.Password"/>  name="password" required>
 
-                <select class="select-css" name="role" required>
-                    <option><fmt:message key="sign_up_jsp.choose_a_role" /> </option>
+                <select class="select-css" name="role" /> required>
+                    <option><fmt:message key="sign_up_jsp.cashier"/> </option>
                     <option><fmt:message key="sign_up_jsp.merchandiser"/> </option>
                     <option><fmt:message key="sign_up_jsp.st_cashier"/></option>
-                    <option><fmt:message key="sign_up_jsp.cashier"/> </option>
                 </select>
 
             <button type="submit"><fmt:message key="sign_up_jsp.button.sign_up"/> </button>
