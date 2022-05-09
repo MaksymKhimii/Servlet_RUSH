@@ -279,6 +279,12 @@
         </table>
             <input type="submit" value=<fmt:message key="button_Add_To_Receipt"/>>
         </form>
+
+        <form name="returnCashier" method="post" action="duringReceipt">
+            <div style="text-align: center;">
+                <button class="button-37" role="button"><fmt:message key="button_Return"/></button>
+            </div>
+        </form>
     </div>
 </div>
 </body>
