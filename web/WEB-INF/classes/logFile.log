@@ -582,3 +582,211 @@
 2022-05-08 13:28:10 DEBUG Servlet:88 - Command: merchandiser
 2022-05-08 13:28:10 DEBUG merchandiser:18 - Merchandiser is working...
 2022-05-08 13:28:10 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800eaf388@2fe43d2e
+2022-05-08 13:39:53 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead360@5a823289
+2022-05-08 13:39:56 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead360@5a823289
+2022-05-08 13:39:57 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead360@5a823289
+2022-05-08 13:40:00 DEBUG Servlet:88 - Command: Login
+2022-05-08 13:40:00 INFO  Login:28 - User was found
+2022-05-08 13:40:00 DEBUG Servlet:88 - Command: merchandiser
+2022-05-08 13:40:00 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-08 13:40:01 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead360@5a823289
+2022-05-08 13:40:03 DEBUG Servlet:88 - Command: searchProduct
+2022-05-08 13:40:03 DEBUG searchProduct:22 - Product banana3 was found
+2022-05-08 13:40:03 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead360@5a823289
+2022-05-08 13:40:05 DEBUG Servlet:88 - Command: searchProduct
+2022-05-08 13:40:05 DEBUG searchProduct:26 - Product null wasn't found
+2022-05-08 13:40:05 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead360@5a823289
+2022-05-08 13:40:33 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-08 13:40:36 DEBUG Servlet:88 - Command: Login
+2022-05-08 13:40:37 INFO  Login:28 - User was found
+2022-05-08 13:40:37 DEBUG Servlet:88 - Command: merchandiser
+2022-05-08 13:40:37 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-08 13:40:37 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-08 13:40:40 DEBUG Servlet:88 - Command: merchandiser
+2022-05-08 13:40:40 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-08 13:40:40 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-08 13:40:43 DEBUG Servlet:88 - Command: searchProduct
+2022-05-08 13:40:43 DEBUG searchProduct:22 - Product banana3 was found
+2022-05-08 13:40:44 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-08 13:40:45 DEBUG Servlet:88 - Command: searchProduct
+2022-05-08 13:40:45 DEBUG searchProduct:26 - Product null wasn't found
+2022-05-08 13:40:45 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-08 13:40:47 DEBUG Servlet:88 - Command: searchProduct
+2022-05-08 13:40:47 DEBUG searchProduct:26 - Product null wasn't found
+2022-05-08 13:40:47 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-08 13:45:21 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-08 13:45:23 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-08 13:45:26 DEBUG Servlet:88 - Command: Login
+2022-05-08 13:45:26 INFO  Login:28 - User was found
+2022-05-08 13:45:26 DEBUG Servlet:88 - Command: merchandiser
+2022-05-08 13:45:27 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-08 13:45:27 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-08 13:45:31 DEBUG Servlet:88 - Command: searchProduct
+2022-05-08 13:45:31 DEBUG searchProduct:22 - Product banana3 was found
+2022-05-08 13:45:31 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-08 13:45:40 DEBUG Servlet:88 - Command: searchProduct
+2022-05-08 13:45:40 DEBUG searchProduct:26 - Product null wasn't found
+2022-05-08 13:45:40 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-08 13:45:43 DEBUG Servlet:88 - Command: merchandiser
+2022-05-08 13:45:43 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-08 13:45:44 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-08 13:47:25 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-08 13:47:27 DEBUG Servlet:88 - Command: Login
+2022-05-08 13:47:27 INFO  Login:28 - User was found
+2022-05-08 13:47:27 DEBUG Servlet:88 - Command: merchandiser
+2022-05-08 13:47:27 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-08 13:47:28 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-08 13:47:30 DEBUG Servlet:88 - Command: merchandiser
+2022-05-08 13:47:30 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-08 13:47:30 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-08 13:47:33 DEBUG Servlet:88 - Command: searchProduct
+2022-05-08 13:47:33 DEBUG searchProduct:25 - Product banana3 was found
+2022-05-08 13:47:34 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-08 13:47:35 DEBUG Servlet:88 - Command: searchProduct
+2022-05-08 13:47:35 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-09 10:12:31 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800edf388@1cd11e0a
+2022-05-09 10:12:48 DEBUG Servlet:88 - Command: Login
+2022-05-09 10:12:48 INFO  Login:28 - User was found
+2022-05-09 10:12:48 DEBUG Servlet:88 - Command: merchandiser
+2022-05-09 10:12:48 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-09 10:12:49 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800edf388@1cd11e0a
+2022-05-09 10:12:57 DEBUG Servlet:88 - Command: add_new_product
+2022-05-09 10:12:57 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800edf388@1cd11e0a
+2022-05-09 10:15:41 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:15:44 DEBUG Servlet:88 - Command: Login
+2022-05-09 10:15:44 INFO  Login:28 - User was found
+2022-05-09 10:15:44 DEBUG Servlet:88 - Command: merchandiser
+2022-05-09 10:15:45 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-09 10:15:45 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:15:46 DEBUG Servlet:88 - Command: add_new_product
+2022-05-09 10:15:47 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:17:39 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:17:42 DEBUG Servlet:88 - Command: Login
+2022-05-09 10:17:42 INFO  Login:28 - User was found
+2022-05-09 10:17:42 DEBUG Servlet:88 - Command: merchandiser
+2022-05-09 10:17:42 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-09 10:17:43 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:17:45 DEBUG Servlet:88 - Command: add_new_product
+2022-05-09 10:17:46 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:18:29 DEBUG Servlet:88 - Command: merchandiser
+2022-05-09 10:18:29 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-09 10:18:29 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:18:32 DEBUG Servlet:88 - Command: add_new_product
+2022-05-09 10:18:32 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:19:01 DEBUG Servlet:88 - Command: AddProduct
+2022-05-09 10:19:01 ERROR AddProduct:42 - Product hasn't been added. Its: Cola, 800, 0.4, false, 14.95
+2022-05-09 10:19:01 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:19:15 DEBUG Servlet:88 - Command: merchandiser
+2022-05-09 10:19:15 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-09 10:19:15 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:19:29 DEBUG Servlet:88 - Command: merchandiser
+2022-05-09 10:19:29 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-09 10:19:29 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:19:31 DEBUG Servlet:88 - Command: add_new_product
+2022-05-09 10:19:31 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:19:58 DEBUG Servlet:88 - Command: AddProduct
+2022-05-09 10:19:58 INFO  AddProduct:38 - New product Cola1 has been added
+2022-05-09 10:19:58 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:20:00 DEBUG Servlet:88 - Command: merchandiser
+2022-05-09 10:20:00 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-09 10:20:00 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:20:05 DEBUG Servlet:88 - Command: merchandiser
+2022-05-09 10:20:05 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-09 10:20:05 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:20:06 DEBUG Servlet:88 - Command: add_new_product
+2022-05-09 10:20:06 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:20:35 DEBUG Servlet:88 - Command: AddProduct
+2022-05-09 10:20:35 INFO  AddProduct:38 - New product Cola2 has been added
+2022-05-09 10:20:35 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:20:37 DEBUG Servlet:88 - Command: merchandiser
+2022-05-09 10:20:37 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-09 10:20:37 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:20:48 DEBUG Servlet:88 - Command: searchProduct
+2022-05-09 10:20:48 DEBUG searchProduct:26 - Product Cola3 wasn't found
+2022-05-09 10:20:48 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:20:51 DEBUG Servlet:88 - Command: merchandiser
+2022-05-09 10:20:51 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-09 10:20:51 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:20:59 DEBUG Servlet:88 - Command: searchProduct
+2022-05-09 10:20:59 DEBUG searchProduct:22 - Product Cola2 was found
+2022-05-09 10:20:59 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:21:29 DEBUG Servlet:88 - Command: ChangeProduct
+2022-05-09 10:21:29 DEBUG ChangeProduct:28 - Product Cola2 has been changed successfully
+2022-05-09 10:21:29 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:21:31 DEBUG Servlet:88 - Command: merchandiser
+2022-05-09 10:21:31 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-09 10:21:31 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:21:32 DEBUG Servlet:88 - Command: merchandiser
+2022-05-09 10:21:32 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-09 10:21:32 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:21:38 DEBUG Servlet:88 - Command: searchProduct
+2022-05-09 10:21:38 DEBUG searchProduct:22 - Product Cola2 was found
+2022-05-09 10:21:38 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:21:50 DEBUG Servlet:88 - Command: ChangeProduct
+2022-05-09 10:21:50 DEBUG ChangeProduct:28 - Product Cola2 has been changed successfully
+2022-05-09 10:21:50 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:21:51 DEBUG Servlet:88 - Command: merchandiser
+2022-05-09 10:21:52 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-09 10:21:52 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:22:36 DEBUG Servlet:88 - Command: searchProduct
+2022-05-09 10:22:36 DEBUG searchProduct:22 - Product Cola2 was found
+2022-05-09 10:22:36 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:22:38 DEBUG Servlet:88 - Command: deleteProduct
+2022-05-09 10:22:38 INFO  deleteProduct:21 - Product Cola2 has been deleted
+2022-05-09 10:22:39 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:22:40 DEBUG Servlet:88 - Command: merchandiser
+2022-05-09 10:22:40 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-09 10:22:40 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:22:49 DEBUG Servlet:88 - Command: Info
+2022-05-09 10:22:49 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:22:56 DEBUG Servlet:88 - Command: Logout
+2022-05-09 10:22:56 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:22:59 DEBUG Servlet:88 - Command: Login
+2022-05-09 10:22:59 INFO  Login:28 - User was found
+2022-05-09 10:22:59 DEBUG Servlet:88 - Command: merchandiser
+2022-05-09 10:22:59 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-09 10:22:59 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:24:57 DEBUG Servlet:88 - Command: Logout
+2022-05-09 10:24:57 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
+2022-05-09 10:25:16 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@1f2f7d8
+2022-05-09 10:25:43 DEBUG Servlet:88 - Command: Login
+2022-05-09 10:25:43 INFO  Login:28 - User was found
+2022-05-09 10:25:43 DEBUG Servlet:88 - Command: st_cashier
+2022-05-09 10:25:43 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-09 10:25:44 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@1f2f7d8
+2022-05-09 10:26:33 DEBUG Servlet:88 - Command: st_cashier
+2022-05-09 10:26:33 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-09 10:26:33 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@1f2f7d8
+2022-05-09 10:26:35 DEBUG Servlet:88 - Command: st_cashier
+2022-05-09 10:26:35 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-09 10:26:35 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@1f2f7d8
+2022-05-09 10:26:39 DEBUG Servlet:88 - Command: report
+2022-05-09 10:26:39 INFO  report:37 - The new report has been created
+2022-05-09 10:26:39 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@1f2f7d8
+2022-05-09 10:26:42 DEBUG Servlet:88 - Command: st_cashier
+2022-05-09 10:26:42 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-09 10:26:42 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@1f2f7d8
+2022-05-09 10:26:44 DEBUG Servlet:88 - Command: AllReports
+2022-05-09 10:26:44 DEBUG AllReports:19 - All reports has been got
+2022-05-09 10:26:44 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@1f2f7d8
+2022-05-09 10:26:48 DEBUG Servlet:88 - Command: st_cashier
+2022-05-09 10:26:48 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-09 10:26:48 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@1f2f7d8
+2022-05-09 10:27:03 DEBUG Servlet:88 - Command: searchReceipt
+2022-05-09 10:27:03 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@1f2f7d8
+2022-05-09 10:29:14 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800eadc90@3373e90a
+2022-05-09 10:29:17 DEBUG Servlet:88 - Command: Login
+2022-05-09 10:29:17 INFO  Login:28 - User was found
+2022-05-09 10:29:18 DEBUG Servlet:88 - Command: st_cashier
+2022-05-09 10:29:18 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-09 10:29:18 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800eadc90@3373e90a
+2022-05-09 10:29:21 DEBUG Servlet:88 - Command: searchReceipt
+2022-05-09 10:29:21 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800eadc90@3373e90a
+2022-05-09 10:31:33 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-09 10:31:36 DEBUG Servlet:88 - Command: Login
+2022-05-09 10:31:36 INFO  Login:28 - User was found
+2022-05-09 10:31:36 DEBUG Servlet:88 - Command: st_cashier
+2022-05-09 10:31:36 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-09 10:31:37 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f
+2022-05-09 10:31:39 DEBUG Servlet:88 - Command: searchReceipt
+2022-05-09 10:31:39 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@e5d0f1f

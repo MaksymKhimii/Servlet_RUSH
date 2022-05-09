@@ -116,7 +116,7 @@
         position: absolute;
         display: inline-block;
         top: -70px;
-        left: 1225px;
+        left: 1260px;
     }
 
     .dropup-content {
@@ -177,7 +177,7 @@
             <tr>
                 <th><input type="number" value="${rec.idreceipt}" name="idreceipt" ></th>
                 <th><input type="text" value="${rec.cashier_name}" name="cashier_name"></th>
-                <th><input type="datetime-local" value="${rec.closing_time}" name="closing_time"></th>
+                <th><input type="text" value="${rec.closing_time}" name="closing_time"></th>
                 <th><input type="number" step="0.01" value="${rec.total_sum}" name="total_sum"></th>
             </tr>
         </c:forEach>

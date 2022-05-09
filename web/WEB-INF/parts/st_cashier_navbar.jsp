@@ -51,7 +51,7 @@
     <a href="/report"><fmt:message key="st_cashier_navbar_jsp.href.report"/> </a>
     <a href="/AllReports"><fmt:message key="st_cashier_navbar_jsp.href.All_Reports"/> </a>
     <div class="topnav-right">
-        <a href="/info"><fmt:message key="st_cashier_navbar_jsp.href.Info"/> </a>
+        <%--<a href="/info"><fmt:message key="st_cashier_navbar_jsp.href.Info"/> </a>--%>
         <a href="?lang=en">Eng</a>
         <a href="?lang=ru">Ru</a>
     </div>

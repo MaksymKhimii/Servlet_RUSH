@@ -152,7 +152,7 @@
         <tr>
             <th><input type="text" value="" name="name" required></th>
             <th><input type="number" value="" name="quantity" required></th>
-            <th><input type="number" step="0.01 "value="" name="weight" required></th>
+            <th><input type="number" step="0.1"value="" name="weight" required></th>
             <th><input type="text" list="tonnage" name="tonnage" id="tonnages" required>
             <datalist id="tonnage">
                 <option value="TRUE">
