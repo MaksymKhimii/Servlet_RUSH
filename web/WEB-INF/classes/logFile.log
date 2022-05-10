@@ -886,3 +886,19 @@
 2022-05-09 10:45:15 DEBUG Servlet:88 - Command: cashier
 2022-05-09 10:45:15 DEBUG cashier:17 - Cashier is working...
 2022-05-09 10:45:15 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-10 15:56:04 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@10b8c66
+2022-05-10 15:56:06 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@10b8c66
+2022-05-10 15:56:08 DEBUG Servlet:88 - Command: Info
+2022-05-10 15:56:08 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@10b8c66
+2022-05-10 15:56:12 DEBUG Servlet:88 - Command: Login
+2022-05-10 15:56:12 ERROR Login:41 - errorMessage --> Login/password cannot be empty
+2022-05-10 15:56:12 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@10b8c66
+2022-05-10 15:57:25 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-10 15:57:27 DEBUG Servlet:88 - Command: Info
+2022-05-10 15:57:27 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-10 15:57:30 DEBUG Servlet:88 - Command: Info
+2022-05-10 15:57:30 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-10 15:57:32 DEBUG Servlet:88 - Command: Info
+2022-05-10 15:57:32 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-10 15:57:47 DEBUG Servlet:88 - Command: Info
+2022-05-10 15:57:47 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
