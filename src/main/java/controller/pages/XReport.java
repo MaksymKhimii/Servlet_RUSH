@@ -6,14 +6,12 @@ import db.ReceiptsDAO;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 /** RU: обработка создания Х-отчета
  * ENG: X-report generation processing
  */
-public class Xreport implements Command {
+public class XReport implements Command {
 
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {

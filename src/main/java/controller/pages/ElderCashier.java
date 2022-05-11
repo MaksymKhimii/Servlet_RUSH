@@ -12,8 +12,8 @@ import java.sql.SQLException;
 /** RU: главная страница старшего кассира
  * ENG: elder cashier home page
  */
-public class st_cashier implements Command {
-    private static final Logger log = Logger.getLogger(st_cashier.class.getName());
+public class ElderCashier implements Command {
+    private static final Logger log = Logger.getLogger(ElderCashier.class.getName());
     @Override
     public String execute(HttpServletRequest request) throws SQLException {
         request.setAttribute("receipts", ReceiptsDAO.getAllReceipts());

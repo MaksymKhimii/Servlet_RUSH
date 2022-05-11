@@ -8,7 +8,7 @@
 2022-04-22 15:19:48 DEBUG LocaleFilter:46 - Filter finished
 2022-04-22 15:19:48 DEBUG LocaleFilter:27 - Filter starts
 2022-04-22 15:19:48 INFO  Servlet:83 - Controller starts
-2022-04-22 15:19:48 INFO  Servlet:88 - Command: controller.pages.cashier@80fba0b
+2022-04-22 15:19:48 INFO  Servlet:88 - Command: controller.pages.Cashier@80fba0b
 2022-04-22 15:19:48 INFO  cashier:17 - Cashier starts his work...
 2022-04-22 15:19:48 DEBUG LocaleFilter:46 - Filter finished
 2022-04-22 15:19:48 DEBUG LocaleFilter:27 - Filter starts
@@ -30,7 +30,7 @@
 2022-04-22 15:21:29 DEBUG LocaleFilter:46 - Filter finished
 2022-04-22 15:21:29 DEBUG LocaleFilter:27 - Filter starts
 2022-04-22 15:21:29 INFO  Servlet:83 - Controller starts
-2022-04-22 15:21:29 INFO  Servlet:88 - Command: controller.pages.merchandiser@1a05e1d0
+2022-04-22 15:21:29 INFO  Servlet:88 - Command: controller.pages.Merchandiser@1a05e1d0
 2022-04-22 15:21:29 INFO  merchandiser:18 - Merchandiser starts his work...
 2022-04-22 15:21:29 DEBUG LocaleFilter:46 - Filter finished
 2022-04-22 15:21:29 DEBUG LocaleFilter:27 - Filter starts
@@ -39,7 +39,7 @@
 2022-04-22 15:21:29 DEBUG LocaleFilter:46 - Filter finished
 2022-04-22 15:22:33 DEBUG LocaleFilter:27 - Filter starts
 2022-04-22 15:22:33 INFO  Servlet:83 - Controller starts
-2022-04-22 15:22:33 INFO  Servlet:88 - Command: controller.pages.add_new_product@49a9ab8b
+2022-04-22 15:22:33 INFO  Servlet:88 - Command: controller.pages.AddNewProduct@49a9ab8b
 2022-04-22 15:22:33 DEBUG LocaleFilter:46 - Filter finished
 2022-04-22 15:22:33 DEBUG LocaleFilter:27 - Filter starts
 2022-04-22 15:22:33 INFO  Servlet:83 - Controller starts
@@ -48,59 +48,59 @@
 2022-04-22 15:23:16 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
 2022-04-22 15:23:32 INFO  Servlet:88 - Command: controller.command.Login@80fba0b
 2022-04-22 15:23:33 INFO  Login:28 - User was found
-2022-04-22 15:23:33 INFO  Servlet:88 - Command: controller.pages.merchandiser@69deb20a
+2022-04-22 15:23:33 INFO  Servlet:88 - Command: controller.pages.Merchandiser@69deb20a
 2022-04-22 15:23:33 INFO  merchandiser:18 - Merchandiser starts his work...
 2022-04-22 15:23:33 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
-2022-04-22 15:23:41 INFO  Servlet:88 - Command: controller.pages.add_new_product@119651ca
+2022-04-22 15:23:41 INFO  Servlet:88 - Command: controller.pages.AddNewProduct@119651ca
 2022-04-22 15:23:42 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
 2022-04-22 15:24:34 INFO  Servlet:88 - Command: controller.pages.AddProduct@5d8a452b
 2022-04-22 15:24:34 INFO  AddProduct:38 - New product chocolate1 has been added
 2022-04-22 15:24:35 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
-2022-04-22 15:24:54 INFO  Servlet:88 - Command: controller.pages.merchandiser@69deb20a
+2022-04-22 15:24:54 INFO  Servlet:88 - Command: controller.pages.Merchandiser@69deb20a
 2022-04-22 15:24:54 INFO  merchandiser:18 - Merchandiser starts his work...
 2022-04-22 15:24:54 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
-2022-04-22 15:25:43 INFO  Servlet:88 - Command: controller.pages.searchProduct@5a75b01f
+2022-04-22 15:25:43 INFO  Servlet:88 - Command: controller.pages.SearchProduct@5a75b01f
 2022-04-22 15:25:43 INFO  searchProduct:26 - Product chocolate wasn't found
 2022-04-22 15:25:43 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
-2022-04-22 15:25:56 INFO  Servlet:88 - Command: controller.pages.merchandiser@69deb20a
+2022-04-22 15:25:56 INFO  Servlet:88 - Command: controller.pages.Merchandiser@69deb20a
 2022-04-22 15:25:56 INFO  merchandiser:18 - Merchandiser starts his work...
 2022-04-22 15:25:56 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
 2022-04-22 15:27:53 INFO  Servlet:88 - Command: controller.command.Logout@520a4071
 2022-04-22 15:27:53 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
 2022-04-22 15:27:58 INFO  Servlet:88 - Command: controller.command.Login@80fba0b
 2022-04-22 15:27:58 INFO  Login:28 - User was found
-2022-04-22 15:27:58 INFO  Servlet:88 - Command: controller.pages.cashier@abc944c
+2022-04-22 15:27:58 INFO  Servlet:88 - Command: controller.pages.Cashier@abc944c
 2022-04-22 15:27:58 INFO  cashier:17 - Cashier starts his work...
 2022-04-22 15:27:58 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
-2022-04-22 15:28:05 INFO  Servlet:88 - Command: controller.pages.cashier@abc944c
+2022-04-22 15:28:05 INFO  Servlet:88 - Command: controller.pages.Cashier@abc944c
 2022-04-22 15:28:05 INFO  cashier:17 - Cashier starts his work...
 2022-04-22 15:28:05 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
-2022-04-22 15:28:06 INFO  Servlet:88 - Command: controller.pages.cashier@abc944c
+2022-04-22 15:28:06 INFO  Servlet:88 - Command: controller.pages.Cashier@abc944c
 2022-04-22 15:28:06 INFO  cashier:17 - Cashier starts his work...
 2022-04-22 15:28:06 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
-2022-04-22 15:28:08 INFO  Servlet:88 - Command: controller.pages.cashier@abc944c
+2022-04-22 15:28:08 INFO  Servlet:88 - Command: controller.pages.Cashier@abc944c
 2022-04-22 15:28:08 INFO  cashier:17 - Cashier starts his work...
 2022-04-22 15:28:08 INFO  Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ebd540@7f56ff7c
 2022-04-22 15:58:01 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
 2022-04-22 15:58:03 DEBUG Servlet:88 - Command: controller.command.Login@35d0fc6e
 2022-04-22 15:58:03 INFO  Login:28 - User was found
-2022-04-22 15:58:03 DEBUG Servlet:88 - Command: controller.pages.cashier@725f5064
+2022-04-22 15:58:03 DEBUG Servlet:88 - Command: controller.pages.Cashier@725f5064
 2022-04-22 15:58:03 DEBUG cashier:17 - Cashier is working...
 2022-04-22 15:58:04 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
-2022-04-22 15:58:36 DEBUG Servlet:88 - Command: controller.pages.create_Receipt@5295966
+2022-04-22 15:58:36 DEBUG Servlet:88 - Command: controller.pages.CreateReceipt@5295966
 2022-04-22 15:58:36 INFO  create_Receipt:26 - Receipt: 23 has been created
 2022-04-22 15:58:37 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
-2022-04-22 15:58:47 DEBUG Servlet:88 - Command: controller.pages.searchProductForReceipt@6c1bdcbc
+2022-04-22 15:58:47 DEBUG Servlet:88 - Command: controller.pages.SearchProdForReceipt@6c1bdcbc
 2022-04-22 15:58:47 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
 2022-04-22 15:58:54 DEBUG Servlet:88 - Command: controller.pages.AddToBasket@1313c784
 2022-04-22 15:58:54 INFO  AddToBasket:31 - Product chocolate1 has been added to basket
 2022-04-22 15:58:55 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
-2022-04-22 15:59:00 DEBUG Servlet:88 - Command: controller.pages.duringReceipt@587f693b
+2022-04-22 15:59:00 DEBUG Servlet:88 - Command: controller.pages.DuringReceipt@587f693b
 2022-04-22 15:59:00 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
 2022-04-22 15:59:02 DEBUG Servlet:88 - Command: controller.pages.CloseReceipt@69deb20a
 2022-04-22 15:59:02 INFO  CloseReceipt:32 - Last Receipt has been closed successfully
 2022-04-22 15:59:02 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
-2022-04-22 15:59:05 DEBUG Servlet:88 - Command: controller.pages.cashier@725f5064
+2022-04-22 15:59:05 DEBUG Servlet:88 - Command: controller.pages.Cashier@725f5064
 2022-04-22 15:59:05 DEBUG cashier:17 - Cashier is working...
 2022-04-22 15:59:05 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800ebd540@5f01617c
 2022-04-26 13:32:06 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
@@ -109,33 +109,33 @@
 2022-04-26 13:32:13 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
 2022-04-26 13:32:18 DEBUG Servlet:88 - Command: controller.command.Login@dfbed48
 2022-04-26 13:32:18 INFO  Login:28 - User was found
-2022-04-26 13:32:18 DEBUG Servlet:88 - Command: controller.pages.st_cashier@665317e0
+2022-04-26 13:32:18 DEBUG Servlet:88 - Command: controller.pages.ElderCashier@665317e0
 2022-04-26 13:32:18 DEBUG st_cashier:20 - Elder Cashier is working...
 2022-04-26 13:32:19 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
 2022-04-26 13:32:21 DEBUG Servlet:88 - Command: controller.pages.AllReports@37f54143
 2022-04-26 13:32:21 DEBUG AllReports:19 - All reports has been got
 2022-04-26 13:32:22 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
-2022-04-26 13:32:24 DEBUG Servlet:88 - Command: controller.pages.st_cashier@665317e0
+2022-04-26 13:32:24 DEBUG Servlet:88 - Command: controller.pages.ElderCashier@665317e0
 2022-04-26 13:32:24 DEBUG st_cashier:20 - Elder Cashier is working...
 2022-04-26 13:32:24 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
 2022-04-26 13:32:25 DEBUG Servlet:88 - Command: controller.pages.AllReports@37f54143
 2022-04-26 13:32:25 DEBUG AllReports:19 - All reports has been got
 2022-04-26 13:32:25 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
-2022-04-26 13:32:29 DEBUG Servlet:88 - Command: controller.pages.st_cashier@665317e0
+2022-04-26 13:32:29 DEBUG Servlet:88 - Command: controller.pages.ElderCashier@665317e0
 2022-04-26 13:32:29 DEBUG st_cashier:20 - Elder Cashier is working...
 2022-04-26 13:32:29 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
-2022-04-26 13:32:46 DEBUG Servlet:88 - Command: controller.pages.Xreport@76bb6ca6
+2022-04-26 13:32:46 DEBUG Servlet:88 - Command: controller.pages.XReport@76bb6ca6
 2022-04-26 13:32:46 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
-2022-04-26 13:32:48 DEBUG Servlet:88 - Command: controller.pages.st_cashier@665317e0
+2022-04-26 13:32:48 DEBUG Servlet:88 - Command: controller.pages.ElderCashier@665317e0
 2022-04-26 13:32:48 DEBUG st_cashier:20 - Elder Cashier is working...
 2022-04-26 13:32:48 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
-2022-04-26 13:32:53 DEBUG Servlet:88 - Command: controller.pages.st_cashier@665317e0
+2022-04-26 13:32:53 DEBUG Servlet:88 - Command: controller.pages.ElderCashier@665317e0
 2022-04-26 13:32:53 DEBUG st_cashier:20 - Elder Cashier is working...
 2022-04-26 13:32:53 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
-2022-04-26 13:32:53 DEBUG Servlet:88 - Command: controller.pages.st_cashier@665317e0
+2022-04-26 13:32:53 DEBUG Servlet:88 - Command: controller.pages.ElderCashier@665317e0
 2022-04-26 13:32:54 DEBUG st_cashier:20 - Elder Cashier is working...
 2022-04-26 13:32:54 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
-2022-04-26 13:32:55 DEBUG Servlet:88 - Command: controller.pages.st_cashier@665317e0
+2022-04-26 13:32:55 DEBUG Servlet:88 - Command: controller.pages.ElderCashier@665317e0
 2022-04-26 13:32:55 DEBUG st_cashier:20 - Elder Cashier is working...
 2022-04-26 13:32:55 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
 2022-04-26 13:33:02 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ea5540@59754ffd
@@ -144,21 +144,21 @@
 2022-04-29 17:41:23 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800eaf388@7b4f49d6
 2022-04-29 17:41:46 DEBUG Servlet:88 - Command: controller.command.Login@321c46c3
 2022-04-29 17:41:47 INFO  Login:28 - User was found
-2022-04-29 17:41:47 DEBUG Servlet:88 - Command: controller.pages.cashier@3d397efc
+2022-04-29 17:41:47 DEBUG Servlet:88 - Command: controller.pages.Cashier@3d397efc
 2022-04-29 17:41:47 DEBUG cashier:17 - Cashier is working...
 2022-04-29 17:41:47 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800eaf388@7b4f49d6
 2022-04-29 17:41:54 DEBUG Servlet:88 - Command: controller.command.Logout@1c5e7850
 2022-04-29 17:41:55 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800eaf388@7b4f49d6
 2022-04-29 17:42:03 DEBUG Servlet:88 - Command: controller.command.Login@321c46c3
 2022-04-29 17:42:03 INFO  Login:28 - User was found
-2022-04-29 17:42:03 DEBUG Servlet:88 - Command: controller.pages.cashier@3d397efc
+2022-04-29 17:42:03 DEBUG Servlet:88 - Command: controller.pages.Cashier@3d397efc
 2022-04-29 17:42:03 DEBUG cashier:17 - Cashier is working...
 2022-04-29 17:42:03 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800eaf388@7b4f49d6
 2022-04-29 17:42:13 DEBUG Servlet:88 - Command: controller.command.Logout@1c5e7850
 2022-04-29 17:42:13 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800eaf388@7b4f49d6
 2022-04-29 17:42:40 DEBUG Servlet:88 - Command: controller.command.Login@321c46c3
 2022-04-29 17:42:40 INFO  Login:28 - User was found
-2022-04-29 17:42:40 DEBUG Servlet:88 - Command: controller.pages.cashier@3d397efc
+2022-04-29 17:42:40 DEBUG Servlet:88 - Command: controller.pages.Cashier@3d397efc
 2022-04-29 17:42:40 DEBUG cashier:17 - Cashier is working...
 2022-04-29 17:42:40 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$221/0x0000000800eaf388@7b4f49d6
 2022-04-29 17:42:46 DEBUG Servlet:88 - Command: controller.command.Logout@1c5e7850
@@ -171,7 +171,7 @@
 2022-04-29 17:49:53 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
 2022-04-29 17:50:00 DEBUG Servlet:88 - Command: controller.command.Login@70dd1bd1
 2022-04-29 17:50:00 INFO  Login:28 - User was found
-2022-04-29 17:50:00 DEBUG Servlet:88 - Command: controller.pages.cashier@665317e0
+2022-04-29 17:50:00 DEBUG Servlet:88 - Command: controller.pages.Cashier@665317e0
 2022-04-29 17:50:00 DEBUG cashier:17 - Cashier is working...
 2022-04-29 17:50:01 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$223/0x0000000800ead120@1f2f7d8
 2022-04-29 17:50:07 DEBUG Servlet:88 - Command: Logout
@@ -179,7 +179,7 @@
 2022-04-29 17:51:46 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eac9e8@e5d0f1f
 2022-04-29 17:51:49 DEBUG Servlet:88 - Command: controller.command.Login@665317e0
 2022-04-29 17:51:49 INFO  Login:28 - User was found
-2022-04-29 17:51:49 DEBUG Servlet:88 - Command: controller.pages.cashier@9521d09
+2022-04-29 17:51:49 DEBUG Servlet:88 - Command: controller.pages.Cashier@9521d09
 2022-04-29 17:51:49 DEBUG cashier:17 - Cashier is working...
 2022-04-29 17:51:50 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eac9e8@e5d0f1f
 2022-04-29 17:51:51 DEBUG Servlet:88 - Command: Logout
@@ -902,3 +902,360 @@
 2022-05-10 15:57:32 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
 2022-05-10 15:57:47 DEBUG Servlet:88 - Command: Info
 2022-05-10 15:57:47 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@5a823289
+2022-05-10 15:59:18 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$224/0x0000000800eaf388@1f2f7d8
+2022-05-10 15:59:20 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$224/0x0000000800eaf388@1f2f7d8
+2022-05-10 15:59:21 DEBUG Servlet:88 - Command: Info
+2022-05-10 15:59:21 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$224/0x0000000800eaf388@1f2f7d8
+2022-05-10 15:59:25 DEBUG Servlet:88 - Command: Login
+2022-05-10 15:59:25 ERROR Login:41 - errorMessage --> Login/password cannot be empty
+2022-05-10 15:59:25 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$224/0x0000000800eaf388@1f2f7d8
+2022-05-10 15:59:27 DEBUG Servlet:88 - Command: Login
+2022-05-10 15:59:27 ERROR Login:41 - errorMessage --> Login/password cannot be empty
+2022-05-10 15:59:27 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$224/0x0000000800eaf388@1f2f7d8
+2022-05-10 15:59:28 DEBUG Servlet:88 - Command: Login
+2022-05-10 15:59:28 ERROR Login:41 - errorMessage --> Login/password cannot be empty
+2022-05-10 15:59:28 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$224/0x0000000800eaf388@1f2f7d8
+2022-05-10 15:59:30 DEBUG Servlet:88 - Command: Info
+2022-05-10 15:59:30 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$224/0x0000000800eaf388@1f2f7d8
+2022-05-10 15:59:31 DEBUG Servlet:88 - Command: Info
+2022-05-10 15:59:31 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$224/0x0000000800eaf388@1f2f7d8
+2022-05-10 15:59:33 DEBUG Servlet:88 - Command: Info
+2022-05-10 15:59:33 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$224/0x0000000800eaf388@1f2f7d8
+2022-05-10 15:59:37 DEBUG Servlet:88 - Command: Info
+2022-05-10 15:59:37 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$224/0x0000000800eaf388@1f2f7d8
+2022-05-10 15:59:44 DEBUG Servlet:88 - Command: Info
+2022-05-10 15:59:44 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$224/0x0000000800eaf388@1f2f7d8
+2022-05-10 15:59:46 DEBUG Servlet:88 - Command: Login
+2022-05-10 15:59:46 ERROR Login:41 - errorMessage --> Login/password cannot be empty
+2022-05-10 15:59:46 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$224/0x0000000800eaf388@1f2f7d8
+2022-05-11 11:06:52 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:07:03 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:07:04 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:07:07 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:07:16 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:07:37 DEBUG Servlet:88 - Command: Info
+2022-05-11 11:07:38 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:07:43 DEBUG Servlet:88 - Command: Info
+2022-05-11 11:07:43 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:08:39 DEBUG Servlet:88 - Command: Login
+2022-05-11 11:08:40 ERROR Login:41 - errorMessage --> Login/password cannot be empty
+2022-05-11 11:08:40 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:08:51 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:09:01 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:09:36 DEBUG Servlet:88 - Command: Logout
+2022-05-11 11:09:36 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:09:59 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:10:04 DEBUG Servlet:88 - Command: Logout
+2022-05-11 11:10:04 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:10:11 DEBUG Servlet:88 - Command: Login
+2022-05-11 11:10:11 INFO  Login:28 - User was found
+2022-05-11 11:10:11 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 11:10:11 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-11 11:10:11 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:11:36 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 11:11:36 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-11 11:11:37 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:12:55 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 11:12:55 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-11 11:12:55 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:13:08 DEBUG Servlet:88 - Command: Logout
+2022-05-11 11:13:08 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:13:33 DEBUG Servlet:88 - Command: Login
+2022-05-11 11:13:33 INFO  Login:28 - User was found
+2022-05-11 11:13:33 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 11:13:33 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-11 11:13:34 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:13:38 DEBUG Servlet:88 - Command: Logout
+2022-05-11 11:13:38 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:13:48 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 11:13:48 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-11 11:13:48 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:14:00 DEBUG Servlet:88 - Command: add_new_product
+2022-05-11 11:14:00 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:14:08 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 11:14:08 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-11 11:14:08 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:14:10 DEBUG Servlet:88 - Command: add_new_product
+2022-05-11 11:14:10 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:15:16 DEBUG Servlet:88 - Command: AddProduct
+2022-05-11 11:15:16 INFO  AddProduct:38 - New product apple4 has been added
+2022-05-11 11:15:16 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:15:19 DEBUG Servlet:88 - Command: AddProduct
+2022-05-11 11:15:19 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:15:23 DEBUG Servlet:88 - Command: add_new_product
+2022-05-11 11:15:23 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:15:26 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 11:15:26 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-11 11:15:26 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:15:33 DEBUG Servlet:88 - Command: add_new_product
+2022-05-11 11:15:33 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:15:50 DEBUG Servlet:88 - Command: AddProduct
+2022-05-11 11:15:50 ERROR AddProduct:34 - This product already exists
+2022-05-11 11:15:50 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:15:59 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 11:15:59 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-11 11:15:59 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:16:26 DEBUG Servlet:88 - Command: searchProduct
+2022-05-11 11:16:26 DEBUG searchProduct:22 - Product apple4 was found
+2022-05-11 11:16:27 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:16:40 DEBUG Servlet:88 - Command: ChangeProduct
+2022-05-11 11:16:40 DEBUG ChangeProduct:28 - Product apple4 has been changed successfully
+2022-05-11 11:16:40 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:16:42 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 11:16:42 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-11 11:16:42 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:16:50 DEBUG Servlet:88 - Command: searchProduct
+2022-05-11 11:16:50 DEBUG searchProduct:22 - Product apple4 was found
+2022-05-11 11:16:50 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:16:52 DEBUG Servlet:88 - Command: deleteProduct
+2022-05-11 11:16:52 INFO  deleteProduct:21 - Product apple4 has been deleted
+2022-05-11 11:16:53 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:16:53 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 11:16:53 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-11 11:16:53 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:17:03 DEBUG Servlet:88 - Command: searchProduct
+2022-05-11 11:17:03 DEBUG searchProduct:26 - Product akcasans wasn't found
+2022-05-11 11:17:03 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:17:12 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 11:17:12 DEBUG merchandiser:18 - Merchandiser is working...
+2022-05-11 11:17:12 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:17:28 DEBUG Servlet:88 - Command: Logout
+2022-05-11 11:17:28 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:17:30 DEBUG Servlet:88 - Command: Info
+2022-05-11 11:17:30 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:17:32 DEBUG Servlet:88 - Command: Info
+2022-05-11 11:17:32 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:17:40 DEBUG Servlet:88 - Command: Login
+2022-05-11 11:17:40 ERROR Login:41 - errorMessage --> Login/password cannot be empty
+2022-05-11 11:17:40 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:17:49 DEBUG Servlet:88 - Command: Login
+2022-05-11 11:17:49 INFO  Login:28 - User was found
+2022-05-11 11:17:49 DEBUG Servlet:88 - Command: cashier
+2022-05-11 11:17:49 DEBUG cashier:17 - Cashier is working...
+2022-05-11 11:17:49 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:18:09 DEBUG Servlet:88 - Command: create_Receipt
+2022-05-11 11:18:09 INFO  create_Receipt:26 - Receipt: 26 has been created
+2022-05-11 11:18:10 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:18:30 DEBUG Servlet:88 - Command: searchProductForReceipt
+2022-05-11 11:18:30 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:18:40 DEBUG Servlet:88 - Command: AddToBasket
+2022-05-11 11:18:40 INFO  AddToBasket:31 - Product bread has been added to basket
+2022-05-11 11:18:40 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:18:41 DEBUG Servlet:88 - Command: duringReceipt
+2022-05-11 11:18:42 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:18:58 DEBUG Servlet:88 - Command: searchProductForReceipt
+2022-05-11 11:18:58 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:19:08 DEBUG Servlet:88 - Command: AddToBasket
+2022-05-11 11:19:08 INFO  AddToBasket:31 - Product apples has been added to basket
+2022-05-11 11:19:08 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:19:09 DEBUG Servlet:88 - Command: duringReceipt
+2022-05-11 11:19:09 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:19:28 DEBUG Servlet:88 - Command: searchProductForReceipt
+2022-05-11 11:19:28 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:19:45 DEBUG Servlet:88 - Command: searchProductForReceipt
+2022-05-11 11:19:45 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:19:48 DEBUG Servlet:88 - Command: duringReceipt
+2022-05-11 11:19:48 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:20:03 DEBUG Servlet:88 - Command: CloseReceipt
+2022-05-11 11:20:03 INFO  CloseReceipt:32 - Last Receipt has been closed successfully
+2022-05-11 11:20:04 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:20:08 DEBUG Servlet:88 - Command: cashier
+2022-05-11 11:20:08 DEBUG cashier:17 - Cashier is working...
+2022-05-11 11:20:08 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:21:08 DEBUG Servlet:88 - Command: cashier
+2022-05-11 11:21:08 DEBUG cashier:17 - Cashier is working...
+2022-05-11 11:21:08 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:21:10 DEBUG Servlet:88 - Command: cashier
+2022-05-11 11:21:10 DEBUG cashier:17 - Cashier is working...
+2022-05-11 11:21:10 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:21:11 DEBUG Servlet:88 - Command: cashier
+2022-05-11 11:21:11 DEBUG cashier:17 - Cashier is working...
+2022-05-11 11:21:11 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:21:28 DEBUG Servlet:88 - Command: Logout
+2022-05-11 11:21:28 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:21:33 DEBUG Servlet:88 - Command: Logout
+2022-05-11 11:21:33 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:21:35 DEBUG Servlet:88 - Command: Login
+2022-05-11 11:21:35 INFO  Login:28 - User was found
+2022-05-11 11:21:35 DEBUG Servlet:88 - Command: cashier
+2022-05-11 11:21:35 DEBUG cashier:17 - Cashier is working...
+2022-05-11 11:21:35 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:21:47 DEBUG Servlet:88 - Command: Logout
+2022-05-11 11:21:47 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:22:28 DEBUG Servlet:88 - Command: Login
+2022-05-11 11:22:28 INFO  Login:28 - User was found
+2022-05-11 11:22:28 DEBUG Servlet:88 - Command: st_cashier
+2022-05-11 11:22:28 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-11 11:22:29 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:22:44 DEBUG Servlet:88 - Command: st_cashier
+2022-05-11 11:22:44 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-11 11:22:44 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:23:58 DEBUG Servlet:88 - Command: searchReceipt
+2022-05-11 11:23:59 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:24:05 DEBUG Servlet:88 - Command: st_cashier
+2022-05-11 11:24:05 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-11 11:24:05 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:24:09 DEBUG Servlet:88 - Command: searchReceipt
+2022-05-11 11:24:09 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:24:19 DEBUG Servlet:88 - Command: deleteReceipt
+2022-05-11 11:24:19 INFO  deleteReceipt:22 - Receipt: 20 has been deleted successfully
+2022-05-11 11:24:20 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:24:21 DEBUG Servlet:88 - Command: st_cashier
+2022-05-11 11:24:21 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-11 11:24:21 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:24:43 DEBUG Servlet:88 - Command: searchReceipt
+2022-05-11 11:24:43 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:24:49 DEBUG Servlet:88 - Command: SeeMoreReceipt
+2022-05-11 11:24:49 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:25:10 DEBUG Servlet:88 - Command: deleteProductFromReceipt
+2022-05-11 11:25:10 INFO  deleteProductFromReceipt:31 - Product with id:25 has been deleted from 12 receipt
+2022-05-11 11:25:11 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:25:12 DEBUG Servlet:88 - Command: st_cashier
+2022-05-11 11:25:12 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-11 11:25:12 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:25:20 DEBUG Servlet:88 - Command: searchReceipt
+2022-05-11 11:25:20 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:25:21 DEBUG Servlet:88 - Command: SeeMoreReceipt
+2022-05-11 11:25:21 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:25:34 DEBUG Servlet:88 - Command: st_cashier
+2022-05-11 11:25:34 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-11 11:25:34 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:25:37 DEBUG Servlet:88 - Command: searchReceipt
+2022-05-11 11:25:37 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:25:39 DEBUG Servlet:88 - Command: deleteReceipt
+2022-05-11 11:25:39 INFO  deleteReceipt:22 - Receipt: 12 has been deleted successfully
+2022-05-11 11:25:39 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:25:40 DEBUG Servlet:88 - Command: st_cashier
+2022-05-11 11:25:40 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-11 11:25:40 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:26:53 DEBUG Servlet:88 - Command: Xreport
+2022-05-11 11:26:53 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:27:13 DEBUG Servlet:88 - Command: Xreport
+2022-05-11 11:27:13 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:27:18 DEBUG Servlet:88 - Command: st_cashier
+2022-05-11 11:27:18 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-11 11:27:18 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:27:41 DEBUG Servlet:88 - Command: report
+2022-05-11 11:27:41 INFO  report:37 - The new report has been created
+2022-05-11 11:27:42 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:27:49 DEBUG Servlet:88 - Command: st_cashier
+2022-05-11 11:27:49 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-11 11:27:49 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:27:59 DEBUG Servlet:88 - Command: AllReports
+2022-05-11 11:27:59 DEBUG AllReports:19 - All reports has been got
+2022-05-11 11:27:59 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:28:10 DEBUG Servlet:88 - Command: st_cashier
+2022-05-11 11:28:10 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-11 11:28:11 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:28:15 DEBUG Servlet:88 - Command: report
+2022-05-11 11:28:15 ERROR report:49 - The new report hasn't been created(most likely, on this day the report was already created)
+2022-05-11 11:28:15 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:28:23 DEBUG Servlet:88 - Command: st_cashier
+2022-05-11 11:28:23 DEBUG st_cashier:20 - Elder Cashier is working...
+2022-05-11 11:28:23 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:29:00 DEBUG Servlet:88 - Command: Logout
+2022-05-11 11:29:00 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:29:06 DEBUG Servlet:88 - Command: Login
+2022-05-11 11:29:06 INFO  Login:28 - User was found
+2022-05-11 11:29:06 DEBUG Servlet:88 - Command: cashier
+2022-05-11 11:29:06 DEBUG cashier:17 - Cashier is working...
+2022-05-11 11:29:06 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 11:31:51 DEBUG Servlet:88 - Command: create_Receipt
+2022-05-11 11:31:51 INFO  create_Receipt:26 - Receipt: 27 has been created
+2022-05-11 11:31:52 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800ead120@153a18ed
+2022-05-11 12:02:31 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-11 12:02:40 DEBUG Servlet:88 - Command: Login
+2022-05-11 12:02:41 INFO  Login:28 - User was found
+2022-05-11 12:02:41 DEBUG Servlet:88 - Command: cashier
+2022-05-11 12:02:41 DEBUG cashier:17 - Cashier is working...
+2022-05-11 12:02:41 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-11 12:02:42 DEBUG Servlet:88 - Command: create_Receipt
+2022-05-11 12:02:42 INFO  create_Receipt:26 - Receipt: 28 has been created
+2022-05-11 12:02:43 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-11 12:02:50 DEBUG Servlet:88 - Command: searchProductForReceipt
+2022-05-11 12:02:51 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-11 12:02:56 DEBUG Servlet:88 - Command: AddToBasket
+2022-05-11 12:02:56 ERROR AddToBasket:41 - Product bread hasn't been added to basket
+2022-05-11 12:02:56 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-11 12:02:57 DEBUG Servlet:88 - Command: create_Receipt
+2022-05-11 12:02:57 INFO  create_Receipt:26 - Receipt: 29 has been created
+2022-05-11 12:02:57 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-11 12:03:53 DEBUG Servlet:88 - Command: searchProductForReceipt
+2022-05-11 12:03:53 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-11 12:04:00 DEBUG Servlet:88 - Command: AddToBasket
+2022-05-11 12:04:00 ERROR AddToBasket:41 - Product Cola1 hasn't been added to basket
+2022-05-11 12:04:00 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-11 12:04:07 DEBUG Servlet:88 - Command: create_Receipt
+2022-05-11 12:04:07 INFO  create_Receipt:26 - Receipt: 30 has been created
+2022-05-11 12:04:07 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@5a823289
+2022-05-11 12:07:13 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eac9e8@5a823289
+2022-05-11 12:07:22 DEBUG Servlet:88 - Command: Login
+2022-05-11 12:07:22 INFO  Login:28 - User was found
+2022-05-11 12:07:22 DEBUG Servlet:88 - Command: cashier
+2022-05-11 12:07:22 DEBUG cashier:17 - Cashier is working...
+2022-05-11 12:07:23 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eac9e8@5a823289
+2022-05-11 12:07:26 DEBUG Servlet:88 - Command: create_Receipt
+2022-05-11 12:07:26 INFO  create_Receipt:26 - Receipt: 31 has been created
+2022-05-11 12:07:26 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eac9e8@5a823289
+2022-05-11 12:07:29 DEBUG Servlet:88 - Command: searchProductForReceipt
+2022-05-11 12:07:30 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eac9e8@5a823289
+2022-05-11 12:07:33 DEBUG Servlet:88 - Command: AddToBasket
+2022-05-11 12:07:33 INFO  AddToBasket:31 - Product bread has been added to basket
+2022-05-11 12:07:34 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eac9e8@5a823289
+2022-05-11 12:07:35 DEBUG Servlet:88 - Command: duringReceipt
+2022-05-11 12:07:35 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eac9e8@5a823289
+2022-05-11 12:08:08 DEBUG Servlet:88 - Command: searchProductForReceipt
+2022-05-11 12:08:08 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eac9e8@5a823289
+2022-05-11 12:08:14 DEBUG Servlet:88 - Command: AddToBasket
+2022-05-11 12:08:14 INFO  AddToBasket:31 - Product Cola1 has been added to basket
+2022-05-11 12:08:14 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eac9e8@5a823289
+2022-05-11 12:08:15 DEBUG Servlet:88 - Command: duringReceipt
+2022-05-11 12:08:15 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eac9e8@5a823289
+2022-05-11 12:08:16 DEBUG Servlet:88 - Command: CloseReceipt
+2022-05-11 12:08:16 INFO  CloseReceipt:32 - Last Receipt has been closed successfully
+2022-05-11 12:08:16 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eac9e8@5a823289
+2022-05-11 12:08:17 DEBUG Servlet:88 - Command: cashier
+2022-05-11 12:08:17 DEBUG cashier:17 - Cashier is working...
+2022-05-11 12:08:17 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eac9e8@5a823289
+2022-05-11 12:32:50 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@153a18ed
+2022-05-11 12:32:52 DEBUG Servlet:88 - Command: Login
+2022-05-11 12:32:52 INFO  Login:28 - User was found
+2022-05-11 12:32:52 DEBUG Servlet:88 - Command: cashier
+2022-05-11 12:32:52 DEBUG Cashier:17 - Cashier is working...
+2022-05-11 12:32:53 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@153a18ed
+2022-05-11 12:32:54 DEBUG Servlet:88 - Command: Logout
+2022-05-11 12:32:54 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@153a18ed
+2022-05-11 12:32:58 DEBUG Servlet:88 - Command: Login
+2022-05-11 12:32:58 INFO  Login:28 - User was found
+2022-05-11 12:32:58 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 12:32:58 DEBUG Merchandiser:18 - Merchandiser is working...
+2022-05-11 12:32:59 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@153a18ed
+2022-05-11 12:33:02 DEBUG Servlet:88 - Command: searchProduct
+2022-05-11 12:33:02 DEBUG SearchProduct:22 - Product banana3 was found
+2022-05-11 12:33:03 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@153a18ed
+2022-05-11 12:33:04 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 12:33:04 DEBUG Merchandiser:18 - Merchandiser is working...
+2022-05-11 12:33:04 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@153a18ed
+2022-05-11 12:33:10 DEBUG Servlet:88 - Command: searchProduct
+2022-05-11 12:33:10 DEBUG SearchProduct:22 - Product banana3 was found
+2022-05-11 12:33:10 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@153a18ed
+2022-05-11 12:33:15 DEBUG Servlet:88 - Command: ChangeProduct
+2022-05-11 12:33:15 DEBUG ChangeProduct:28 - Product banana3 has been changed successfully
+2022-05-11 12:33:15 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@153a18ed
+2022-05-11 12:33:16 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 12:33:16 DEBUG Merchandiser:18 - Merchandiser is working...
+2022-05-11 12:33:16 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@153a18ed
+2022-05-11 12:33:18 DEBUG Servlet:88 - Command: add_new_product
+2022-05-11 12:33:18 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@153a18ed
+2022-05-11 12:33:32 DEBUG Servlet:88 - Command: AddProduct
+2022-05-11 12:33:32 INFO  AddProduct:38 - New product lalal has been added
+2022-05-11 12:33:32 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@153a18ed
+2022-05-11 12:33:33 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 12:33:33 DEBUG Merchandiser:18 - Merchandiser is working...
+2022-05-11 12:33:33 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@153a18ed
+2022-05-11 12:33:36 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 12:33:36 DEBUG Merchandiser:18 - Merchandiser is working...
+2022-05-11 12:33:36 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@153a18ed
+2022-05-11 12:33:37 DEBUG Servlet:88 - Command: merchandiser
+2022-05-11 12:33:37 DEBUG Merchandiser:18 - Merchandiser is working...
+2022-05-11 12:33:37 DEBUG Servlet:88 - Command: servlets.Servlet$$Lambda$222/0x0000000800eaf388@153a18ed

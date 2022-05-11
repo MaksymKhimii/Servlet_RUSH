@@ -15,8 +15,8 @@ import java.util.Date;
 /** RU: обработка создания отчета
  * ENG: report generation processing
  */
-public class report implements Command {
-    private static final Logger log = Logger.getLogger(report.class.getName());
+public class Report implements Command {
+    private static final Logger log = Logger.getLogger(Report.class.getName());
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         String answer = null;

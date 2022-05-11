@@ -7,20 +7,21 @@ import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
-/** RU: главная страница товароведа
- * ENG: merchandiser home page
+/** RU: главная страница кассира
+ * ENG: cashier home page
  */
-public class merchandiser implements Command {
-    private static final Logger log = Logger.getLogger(merchandiser.class.getName());
+public class Cashier implements Command {
+    private static final Logger log = Logger.getLogger(Cashier.class.getName());
     @Override
     public String execute(HttpServletRequest request) throws SQLException {
+        log.debug("Cashier is working...");
         request.setAttribute("products", ProductsDAO.getAllProducts());
-        log.debug("Merchandiser is working...");
-        return "/WEB-INF/admin-basic/merchandiser.jsp";
+
+        return "/WEB-INF/user-basic/cashier.jsp";
     }
 
     @Override
     public String toString() {
-        return "merchandiser";
+        return "cashier";
     }
 }

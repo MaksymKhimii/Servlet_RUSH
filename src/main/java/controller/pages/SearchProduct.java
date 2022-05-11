@@ -10,8 +10,8 @@ import java.sql.SQLException;
 /** RU: обработка поиска продукта по наименованию в базе данных
  * ENG: processing the search for a product by name in the database
  */
-public class searchProduct implements Command {
-    private static final Logger log = Logger.getLogger(searchProduct.class.getName());
+public class SearchProduct implements Command {
+    private static final Logger log = Logger.getLogger(SearchProduct.class.getName());
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         String answer = null;

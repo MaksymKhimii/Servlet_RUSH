@@ -10,8 +10,8 @@ import java.sql.SQLException;
 /** RU: обработка поиска чека по его id для дальнейшего взаимодействия с ним
  * ENG: processing check search by its id for further interaction with it
  */
-public class searchReceipt implements Command {
-    private static final Logger log = Logger.getLogger(searchReceipt.class.getName());
+public class SearchReceipt implements Command {
+    private static final Logger log = Logger.getLogger(SearchReceipt.class.getName());
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         String answer;

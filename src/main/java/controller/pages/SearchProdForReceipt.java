@@ -12,8 +12,8 @@ import java.sql.SQLException;
 /** RU: обработка поиска продукта для дальнейшего добавления его в корзину
  * ENG: processing the search for a product to further add it to the cart
  */
-public class searchProductForReceipt implements Command {
-    private static final Logger log = Logger.getLogger(searchProductForReceipt.class.getName());
+public class SearchProdForReceipt implements Command {
+    private static final Logger log = Logger.getLogger(SearchProdForReceipt.class.getName());
 
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {

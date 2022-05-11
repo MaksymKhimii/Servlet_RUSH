@@ -10,8 +10,8 @@ import java.sql.SQLException;
 /** RU: обработка удаления чека из базы данных
  * ENG:  processing the removal of a receipt from the database
  */
-public class deleteReceipt implements Command {
-    private static final Logger log = Logger.getLogger(deleteReceipt.class.getName());
+public class DeleteReceipt implements Command {
+    private static final Logger log = Logger.getLogger(DeleteReceipt.class.getName());
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         String answer=null;

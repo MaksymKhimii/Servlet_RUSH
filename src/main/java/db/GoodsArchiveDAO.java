@@ -7,15 +7,15 @@ import java.sql.*;
  * ENG: a DAO layer for the interaction of the program with the GoodsArchive table in the melon database,
  *  * which stores product data from all checks*/
 public class GoodsArchiveDAO {
-    private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+   /* private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "Maks_Khimii";
     private static final String PASSWORD = "makskhimiy24112003";
 
 
-    /** RU: метод для создания соединения между базой данных и программой
+    *//** RU: метод для создания соединения между базой данных и программой
      * ENG: method to create connection between database and program
      * @return Connection
-     */
+     *//*
     public Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -28,7 +28,7 @@ public class GoodsArchiveDAO {
         // con.setAutoCommit(true);
         return con;
     }
-
+*/
     /** RU: переносит данные чека из basket в goodsarchive для сохранения
      * ENG: transfers receipt data from basket to goodsarchive for saving
      * @param idreceipt receipt id
@@ -37,8 +37,9 @@ public class GoodsArchiveDAO {
         double total_sum= ReceiptsDAO.getReceiptSum(idreceipt);
         try {
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+           // Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
 
             String QUERY1 = "INSERT INTO mydbtest.goodsarchive(idreceipt, idproduct, name, quantity, weight, tonnage, price)" +
                     " SELECT idreceipt, idproduct, name, quantity, weight, tonnage, price FROM mydbtest.basket WHERE idreceipt=?;";
@@ -65,8 +66,9 @@ public class GoodsArchiveDAO {
     public static void deleteReceiptFromArchive(int idreceipt) throws SQLException, ClassNotFoundException {
         try {
             String QUERY="DELETE FROM mydbtest.goodsarchive WHERE idreceipt =?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+           // Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
 
             PreparedStatement ps=con.prepareStatement(QUERY);
             ps.setString(1, String.valueOf(idreceipt));
@@ -85,8 +87,9 @@ public class GoodsArchiveDAO {
     public static void deleteProdFromReceipt(int idproduct, int idreceipt) throws ClassNotFoundException {
         try {
             String QUERY="DELETE FROM mydbtest.goodsarchive WHERE idproduct=? AND idreceipt=?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+           //Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
 
             PreparedStatement ps=con.prepareStatement(QUERY);
             ps.setString(1, String.valueOf(idproduct));
@@ -108,14 +111,15 @@ public class GoodsArchiveDAO {
         try{
             String GETUSER="SELECT * FROM mydbtest.goodsarchive WHERE idreceipt=?;";
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+           // Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1, String.valueOf(idreceipt));
             try (ResultSet rs=ps.executeQuery()){
                 status=rs.next();
             }
-        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        }catch(SQLException e){e.printStackTrace();}
         return status;
     }
 
@@ -131,8 +135,9 @@ public class GoodsArchiveDAO {
         try{
             String GETUSER="SELECT * FROM mydbtest.goodsarchive WHERE idproduct=? AND idreceipt=?;";
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+         //   Class.forName("com.mysql.cj.jdbc.Driver");
+           // Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1, String.valueOf(idproduct));
             ps.setString(2, String.valueOf(idreceipt));
@@ -140,7 +145,7 @@ public class GoodsArchiveDAO {
             try (ResultSet rs=ps.executeQuery()){
                 status=rs.next();
             }
-        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        }catch(SQLException e){e.printStackTrace();}
         return status;
     }
 
@@ -158,8 +163,9 @@ public class GoodsArchiveDAO {
         try{
             String GETUSER="SELECT quantity, weight, tonnage, price FROM mydbtest.goodsarchive WHERE idreceipt=? AND idproduct=?;";
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+          //  Class.forName("com.mysql.cj.jdbc.Driver");
+           // Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1, String.valueOf(idreceipt));
             ps.setString(2, String.valueOf(idproduct));
@@ -171,7 +177,7 @@ public class GoodsArchiveDAO {
                     price=rs.getDouble("price");
                 }
             }
-        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        }catch(SQLException e){e.printStackTrace();}
 
         double cost;
         if(tonnage){
@@ -190,8 +196,9 @@ public class GoodsArchiveDAO {
         double totalSum=0;
         try {
             String Query1 = "SELECT total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        //    Class.forName("com.mysql.cj.jdbc.Driver");
+          //  Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps= con.prepareStatement(Query1);
             ps.setString(1, Integer.toString(idreceipt));
             ResultSet res=ps.executeQuery();
@@ -200,13 +207,14 @@ public class GoodsArchiveDAO {
             }
 
             String Query2 = "UPDATE mydbtest.goodsarchive SET total_sum=? WHERE idreceipt=?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con2 = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+           // Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con2 = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con2 = ManagerDB.getInstance().getConnection();
             PreparedStatement ps2= con2.prepareStatement(Query2);
             ps2.setString(1, Double.toString(totalSum));
             ps2.setString(2, Integer.toString(idreceipt));
             ps.executeQuery();
-        }catch (SQLException | ClassNotFoundException e){
+        }catch (SQLException e){
             e.printStackTrace();
         }
     }

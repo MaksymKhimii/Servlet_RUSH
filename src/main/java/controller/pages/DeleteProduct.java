@@ -10,8 +10,8 @@ import java.sql.SQLException;
 /** RU: обработка удаления продукта из базы данных
  * ENG: processing the removal of a product from the database
  */
-public class deleteProduct implements Command {
-    private static final Logger log = Logger.getLogger(deleteProduct.class.getName());
+public class DeleteProduct implements Command {
+    private static final Logger log = Logger.getLogger(DeleteProduct.class.getName());
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         String answer = null;

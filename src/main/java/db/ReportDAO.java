@@ -14,14 +14,14 @@ import java.util.Date;
  *      which stores reports and information about them
  */
 public class ReportDAO {
-    private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+   /* private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "Maks_Khimii";
     private static final String PASSWORD = "makskhimiy24112003";
 
-    /** RU: метод для создания соединения между базой данных и программой
+    *//** RU: метод для создания соединения между базой данных и программой
      *  ENG: method to create connection between database and program
      * @return Connection
-     */
+     *//*
     public Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -32,7 +32,7 @@ public class ReportDAO {
                 "jdbc:mysql://localhost:3306/epam?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true", "root", "1234567h");
         con.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
         return con;
-    }
+    }*/
 
 
     /** RU: метод для проверки прошли ли сутки с предыдущего запроса отчета
@@ -45,8 +45,9 @@ public class ReportDAO {
         Date datenow0 = new Date();
         String datenow= formattedDate.format(datenow0);
         String Query="Select time FROM mydbtest.report ORDER BY idreport DESC LIMIT 1;";
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+      //  Class.forName("com.mysql.cj.jdbc.Driver");
+        //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        Connection con = ManagerDB.getInstance().getConnection();
         PreparedStatement ps = con.prepareStatement(Query);
         ResultSet rs = ps.executeQuery();
         while (rs.next()){
@@ -74,13 +75,14 @@ public class ReportDAO {
         boolean answer = false;
         try {
             String QUERY = "SELECT * FROM mydbtest.report;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+           // Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps = con.prepareStatement(QUERY);
             try (ResultSet rs = ps.executeQuery()) {
                 answer = rs.next();
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return answer;
@@ -99,8 +101,9 @@ public class ReportDAO {
         String Time= formatForDateNow.format(datenow0);
         try {
             String ADD_Product = "INSERT INTO mydbtest.report (quantityOfReceipts, lastReceiptId, time , totalSum) VALUES(?, ?, ?, ?);";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+          //  Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps = con.prepareStatement(ADD_Product);
             ps.setString(1, String.valueOf(QuantityOfReceipts));
             ps.setString(2, String.valueOf(LastReceiptId));
@@ -120,8 +123,9 @@ public class ReportDAO {
         ArrayList<Report> reports= new ArrayList<>(){};
         String Query = "SELECT idreport, quantityOfReceipts, lastReceiptId, time, totalSum FROM mydbtest.report;";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+           // Class.forName("com.mysql.cj.jdbc.Driver");
+          //  Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(Query);
             ResultSet rs=pstmt.executeQuery();
             boolean found= false;
@@ -138,7 +142,7 @@ public class ReportDAO {
             rs.close(); pstmt.close();
             if(found){return reports;}
             else {return null;}
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();}
         return reports;
     }

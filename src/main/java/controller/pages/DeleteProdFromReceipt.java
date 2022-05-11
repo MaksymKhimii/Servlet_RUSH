@@ -13,8 +13,8 @@ import java.sql.SQLException;
 /** RU: обработка удаления конкретного продукта из закрытого чека
  * ENG: processing the removal of a specific product from a closed receipt
  */
-public class deleteProductFromReceipt implements Command {
-    private static final Logger log = Logger.getLogger(deleteProductFromReceipt.class.getName());
+public class DeleteProdFromReceipt implements Command {
+    private static final Logger log = Logger.getLogger(DeleteProdFromReceipt.class.getName());
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
 

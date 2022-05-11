@@ -12,8 +12,8 @@ import java.sql.SQLException;
 /** RU: создание нового чека
  * ENG: creating a new receipt
  */
-public class create_Receipt implements Command {
-    private static final Logger log = Logger.getLogger(create_Receipt.class.getName());
+public class CreateReceipt implements Command {
+    private static final Logger log = Logger.getLogger(CreateReceipt.class.getName());
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         HttpSession session = request.getSession(); // тут вытягиваем сессию

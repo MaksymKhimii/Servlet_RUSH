@@ -10,15 +10,15 @@ import java.util.ArrayList;
  * ENG: DAO layer for program interaction with the basket table in the database,
  *      which stores products during the creation of a receipt*/
 public class ProductsDAO {
-    private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+   /* private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "Maks_Khimii";
     private static final String PASSWORD = "makskhimiy24112003";
 
 
-    /**RU: метод для создания соединения между базой данных и программой
+    *//**RU: метод для создания соединения между базой данных и программой
      * ENG: method to create connection between database and program
      * @return Connection
-     */
+     *//*
     public Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -31,7 +31,7 @@ public class ProductsDAO {
         con.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
         return con;
     }
-
+*/
 
     /** RU: метод для проверки, есть ли в базе товар с таким названием
      * (используется при добавлении нового продукта для избежания дубликатов)
@@ -44,14 +44,15 @@ public class ProductsDAO {
         boolean status=false;
         try{
             String GETUSER="SELECT * FROM mydbtest.products WHERE name=?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+           // Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1,name);
             try (ResultSet rs=ps.executeQuery()){
                 status=rs.next();
             }
-        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        }catch(SQLException e){e.printStackTrace();}
         return status;
     }
 
@@ -72,8 +73,9 @@ public class ProductsDAO {
         try{
             String GETUSER="SELECT * FROM mydbtest.products WHERE name=? AND quantity=? AND weight=? AND tonnage=? AND price=?;";
             int tonnageInt=Product.boolToInt(tonnage);
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+           // Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1,name);
             ps.setString(2, String.valueOf(quantity));
@@ -83,7 +85,7 @@ public class ProductsDAO {
             try (ResultSet rs=ps.executeQuery()){
                 answer=rs.next();
             }
-        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        }catch(SQLException e){e.printStackTrace();}
         return answer;
     }
 
@@ -102,9 +104,9 @@ public class ProductsDAO {
         int tonnageInt=Product.boolToInt(tonnage);
         try {
             String ADD_Product="INSERT INTO mydbtest.products(name,quantity,weight,tonnage, price) VALUES(?,?,?,?,?);";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
-
+           // Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(ADD_Product);
             ps.setString(1,name);
             ps.setString(2, String.valueOf(quantity));
@@ -134,8 +136,9 @@ public class ProductsDAO {
         String Query = "UPDATE mydbtest.products SET quantity=?, weight=?, tonnage=?, price=? WHERE name =?;";
         int tonnageInt=Product.boolToInt(tonnage);
           try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+              Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(Query);
             pstmt.setString(1, String.valueOf(quantity));
             pstmt.setString(2, String.valueOf(weight));
@@ -143,7 +146,7 @@ public class ProductsDAO {
             pstmt.setString(4, String.valueOf(price));
             pstmt.setString(5, name);
             pstmt.executeUpdate();
-        } catch (SQLException | ClassNotFoundException throwables) {
+        } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
       }
@@ -158,9 +161,9 @@ public class ProductsDAO {
         boolean answer = false;
         try {
             String DeleteProduct="DELETE FROM mydbtest.products WHERE name =?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
-
+          //  Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(DeleteProduct);
             ps.setString(1,name);
             ps.executeUpdate();
@@ -182,8 +185,9 @@ public class ProductsDAO {
         ArrayList<Product> products= new ArrayList<>(){};
         String Query = "SELECT idproducts, name, quantity, weight, tonnage, price FROM mydbtest.products;";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+         //   Class.forName("com.mysql.cj.jdbc.Driver");
+           // Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(Query);
             ResultSet rs=pstmt.executeQuery();
             boolean found= false;
@@ -201,7 +205,7 @@ public class ProductsDAO {
             rs.close(); pstmt.close();
             if(found){return products;}
             else {return null;}
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();}
         return products;
     }
@@ -216,8 +220,9 @@ public class ProductsDAO {
         ArrayList<Product> products= new ArrayList<Product>(){};
         String Query = "SELECT idproducts, name, quantity, weight, tonnage, price FROM mydbtest.products WHERE name=?;";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+          //  Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(Query);
             pstmt.setString(1, name);
             ResultSet rs=pstmt.executeQuery();
@@ -236,7 +241,7 @@ public class ProductsDAO {
             rs.close(); pstmt.close();
             if(found){return products;}
             else {return null;}
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();}
         return products;
     }
@@ -254,8 +259,9 @@ public class ProductsDAO {
         boolean status=false;
         try{
             String GETUSER="SELECT quantity FROM mydbtest.products WHERE name=?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+           // Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1,name);
             try (ResultSet rs=ps.executeQuery()) {
@@ -265,7 +271,7 @@ public class ProductsDAO {
                 }
                 status= requiredQuantity <= actualQuantity;
             }
-        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        }catch(SQLException e){e.printStackTrace();}
         return status;
     }
 
@@ -282,8 +288,9 @@ public class ProductsDAO {
         boolean status=false;
         try{
             String GETUSER="SELECT weight FROM mydbtest.products WHERE name=?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+           // Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1,name);
             try (ResultSet rs=ps.executeQuery()) {
@@ -293,7 +300,7 @@ public class ProductsDAO {
                 }
                 status= requiredWeight <= actualWeight;
             }
-        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        }catch(SQLException e){e.printStackTrace();}
         return status;
     }
 
@@ -307,8 +314,9 @@ public class ProductsDAO {
         boolean status=false;
         try{
             String GETUSER="SELECT tonnage FROM mydbtest.products WHERE name=?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+           // Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1,name);
             try (ResultSet rs=ps.executeQuery()) {
@@ -318,7 +326,7 @@ public class ProductsDAO {
                 }
                 status= tonnage;
             }
-        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        }catch(SQLException e){e.printStackTrace();}
         return status;
     }
 
@@ -341,55 +349,59 @@ public class ProductsDAO {
             String Query1 = "SELECT weight FROM mydbtest.products WHERE name=?;";
             double oldWeight=0;
             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+               // Class.forName("com.mysql.cj.jdbc.Driver");
+                //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+                Connection con = ManagerDB.getInstance().getConnection();
                 PreparedStatement pstmt = con.prepareStatement(Query1);
                 pstmt.setString(1, name);
                 ResultSet rs = pstmt.executeQuery();
                 while (rs.next()){
                     oldWeight=rs.getDouble("weight");
                 }
-            } catch (SQLException | ClassNotFoundException throwables) {
+            } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
             double newWeight=oldWeight-weight;
 
             String Query2 = "UPDATE mydbtest.products SET weight=? WHERE name =?;";
             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+             //   Class.forName("com.mysql.cj.jdbc.Driver");
+               // Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+                Connection con = ManagerDB.getInstance().getConnection();
                 PreparedStatement pstmt = con.prepareStatement(Query2);
                 pstmt.setString(1, String.valueOf(newWeight));
                 pstmt.setString(2, name);
                 pstmt.executeUpdate();
-            } catch (SQLException | ClassNotFoundException throwables) {
+            } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
         } else{
             String Query3 = "SELECT quantity FROM mydbtest.products WHERE name=?;";
             int oldQuantity=0;
             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+               // Class.forName("com.mysql.cj.jdbc.Driver");
+                //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+                Connection con = ManagerDB.getInstance().getConnection();
                 PreparedStatement pstmt = con.prepareStatement(Query3);
                 pstmt.setString(1, name);
                 ResultSet rs = pstmt.executeQuery();
                 while (rs.next()){
                     oldQuantity=rs.getInt("quantity");
                 }
-            } catch (SQLException | ClassNotFoundException throwables) {
+            } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
             double newQuantity=oldQuantity-quantity;
             String Query4 = "UPDATE mydbtest.products SET quantity=? WHERE name =?;";
             try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+               // Class.forName("com.mysql.cj.jdbc.Driver");
+                //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+                Connection con = ManagerDB.getInstance().getConnection();
                 PreparedStatement pstmt = con.prepareStatement(Query4);
                 pstmt.setString(1, String.valueOf(newQuantity));
                 pstmt.setString(2, name);
                 pstmt.executeUpdate();
-            } catch (SQLException | ClassNotFoundException throwables) {
+            } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
         }

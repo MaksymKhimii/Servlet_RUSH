@@ -1,6 +1,6 @@
 package db;
 
-import db.entity.Goodsarchive;
+import db.entity.GoodsArchive;
 import db.entity.Receipt;
 
 import java.sql.*;
@@ -17,16 +17,17 @@ import java.util.GregorianCalendar;
  *      which stores checks and information about them
  */
 public class ReceiptsDAO {
-    private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+    static int Date, Month, Year, Hour, Minute, Second;
+   /* private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String USERNAME = "Maks_Khimii";
     private static final String PASSWORD = "makskhimiy24112003";
     static int Date, Month, Year, Hour, Minute, Second;
 
 
-    /** RU: метод для создания соединения между базой данных и программой
+    *//** RU: метод для создания соединения между базой данных и программой
      *  ENG: method to create connection between database and program
      * @return Connection
-     */
+     *//*
     public Connection getConnection() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -39,7 +40,7 @@ public class ReceiptsDAO {
         con.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
         return con;
     }
-
+*/
 
     /** RU: проверка, есть ли чек с указаным idreceipt в базе данных
      * ENG: checking if there is a check with the specified idreceipt in the database
@@ -52,14 +53,15 @@ public class ReceiptsDAO {
         try{
             String GETUSER="select * from mydbtest.receipts where idreceipt=?";
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+           // Class.forName("com.mysql.cj.jdbc.Driver");
+          // Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1, String.valueOf(idreceipt));
             try (ResultSet rs=ps.executeQuery()){
                 status=rs.next();
             }
-        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        }catch(SQLException e){e.printStackTrace();}
         return status;
     }
 
@@ -74,14 +76,15 @@ public class ReceiptsDAO {
         try{
             String GETUSER="select * from mydbtest.goodsarchive where idreceipt=?";
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            //Class.forName("com.mysql.cj.jdbc.Driver");
+           // Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1, String.valueOf(idreceipt));
             try (ResultSet rs=ps.executeQuery()){
                 status=rs.next();
             }
-        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        }catch(SQLException e){e.printStackTrace();}
         return status;
     }
 
@@ -96,14 +99,15 @@ public class ReceiptsDAO {
         try{
             String GETUSER="SELECT * FROM mydbtest.receipts WHERE cashier_name=?;";
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+           // Class.forName("com.mysql.cj.jdbc.Driver");
+           // Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1,cashier_name);
             try (ResultSet rs=ps.executeQuery()){
                 status=rs.next();
             }
-        }catch(SQLException | ClassNotFoundException e){e.printStackTrace();}
+        }catch(SQLException e){e.printStackTrace();}
         return status;
     }
 
@@ -120,9 +124,9 @@ public class ReceiptsDAO {
         try {
             String ADD_Product = "INSERT INTO mydbtest.receipts(cashier_name, total_sum, closing_time) VALUES(?, ?, ?);";
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-
+         //   Class.forName("com.mysql.cj.jdbc.Driver");
+           // Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps = con.prepareStatement(ADD_Product);
             ps.setString(1, cashier_name);
             ps.setString(2, Integer.toString(0));
@@ -142,8 +146,9 @@ public class ReceiptsDAO {
         int idreceipt=0;
         try {
             String Get_ID = "SELECT idreceipt FROM mydbtest.receipts ORDER BY idreceipt DESC LIMIT 1;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+          //  Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps= con.prepareStatement(Get_ID);
             ResultSet res=ps.executeQuery();
             while (res.next()){
@@ -165,8 +170,9 @@ public class ReceiptsDAO {
         double total_sum=0;
         try {
             String Get_ID = "SELECT total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+           // Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps= con.prepareStatement(Get_ID);
             ps.setString(1, Integer.toString(idreceipt));
             ResultSet res=ps.executeQuery();
@@ -189,8 +195,9 @@ public class ReceiptsDAO {
         double newSum, totalSum=0;
         try {
             String Query1 = "SELECT total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+          //  Class.forName("com.mysql.cj.jdbc.Driver");
+           // Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps= con.prepareStatement(Query1);
             ps.setString(1, Integer.toString(idreceipt));
             ResultSet res=ps.executeQuery();
@@ -203,8 +210,9 @@ public class ReceiptsDAO {
         newSum=totalSum+addedSum;
         try {
             String Query2 = "UPDATE mydbtest.receipts SET total_sum=? WHERE idreceipt=?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+          //  Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps= con.prepareStatement(Query2);
             ps.setString(1, Double.toString(newSum));
             ps.setString(2,Integer.toString(idreceipt) );
@@ -224,8 +232,9 @@ public class ReceiptsDAO {
         double newSum, totalSum=0;
         try {
             String Query1 = "SELECT total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+         //   Class.forName("com.mysql.cj.jdbc.Driver");
+           // Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps= con.prepareStatement(Query1);
             ps.setString(1, Integer.toString(idreceipt));
             ResultSet res=ps.executeQuery();
@@ -238,8 +247,9 @@ public class ReceiptsDAO {
         newSum=totalSum-addedSum;
         try {
             String Query2 = "UPDATE mydbtest.receipts SET total_sum=? WHERE idreceipt=?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+           // Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps= con.prepareStatement(Query2);
             ps.setString(1, Double.toString(newSum));
             ps.setString(2,Integer.toString(idreceipt) );
@@ -261,8 +271,9 @@ public class ReceiptsDAO {
         boolean status = false;
         try {
             String ADD_Product = "INSERT INTO mydbtest.receipts(total_sum) VALUES(?);";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+           // Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
 
             PreparedStatement ps = con.prepareStatement(ADD_Product);
             ps.setString(1, String.valueOf(total_sum));
@@ -284,8 +295,9 @@ public class ReceiptsDAO {
         ArrayList<Receipt> receipts= new ArrayList<>(){};
         String Query = "SELECT idreceipt, cashier_name, closing_time, total_sum FROM mydbtest.receipts;";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+          // Class.forName("com.mysql.cj.jdbc.Driver");
+           // Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(Query);
             ResultSet rs=pstmt.executeQuery();
             boolean found= false;
@@ -301,7 +313,7 @@ public class ReceiptsDAO {
             rs.close(); pstmt.close();
             if(found){return receipts;}
             else {return null;}
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();}
         return receipts;
     }
@@ -316,8 +328,9 @@ public class ReceiptsDAO {
         ArrayList<Receipt> receipts= new ArrayList<>(){};
         String Query = "SELECT idreceipt, cashier_name, closing_time, total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+         //   Class.forName("com.mysql.cj.jdbc.Driver");
+           // Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(Query);
             pstmt.setString(1, Integer.toString(idreceipt));
             ResultSet rs=pstmt.executeQuery();
@@ -334,7 +347,7 @@ public class ReceiptsDAO {
             rs.close(); pstmt.close();
             if(found){return receipts;}
             else {return null;}
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();}
         return receipts;
     }
@@ -345,18 +358,19 @@ public class ReceiptsDAO {
      * @param idreceipt receipt id
      * @return All information about the products of this check
      */
-    public static ArrayList<Goodsarchive> getReceiptsProdByID(int idreceipt){
-        ArrayList<Goodsarchive> goods= new ArrayList<>(){};
+    public static ArrayList<GoodsArchive> getReceiptsProdByID(int idreceipt){
+        ArrayList<GoodsArchive> goods= new ArrayList<>(){};
         String Query = "SELECT idreceipt, idproduct, name, quantity, weight, tonnage, price FROM mydbtest.goodsarchive WHERE idreceipt=?;";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+         //   Class.forName("com.mysql.cj.jdbc.Driver");
+           // Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(Query);
             pstmt.setString(1, Integer.toString(idreceipt));
             ResultSet rs=pstmt.executeQuery();
             boolean found= false;
             while (rs.next()){
-               Goodsarchive AllGoods= new Goodsarchive();
+               GoodsArchive AllGoods= new GoodsArchive();
                 AllGoods.setIdreceipt(rs.getInt("idreceipt"));
                 AllGoods.setIdproduct(rs.getInt("idproduct"));
                 AllGoods.setName(rs.getString("name"));
@@ -370,7 +384,7 @@ public class ReceiptsDAO {
             rs.close(); pstmt.close();
             if(found){return goods;}
             else {return null;}
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();}
         return goods;
     }
@@ -385,8 +399,9 @@ public class ReceiptsDAO {
         ArrayList<Receipt> receipts= new ArrayList<>(){};
         String Query = "SELECT idreceipt, cashier_name, closing_time, total_sum FROM mydbtest.receipts WHERE cashier_name=?;";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+          //  Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(Query);
             pstmt.setString(1, cashier_name);
             ResultSet rs=pstmt.executeQuery();
@@ -403,7 +418,7 @@ public class ReceiptsDAO {
             rs.close(); pstmt.close();
             if(found){return receipts;}
             else {return null;}
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();}
         return receipts;
     }
@@ -418,8 +433,9 @@ public class ReceiptsDAO {
         ArrayList<Receipt> receipts= new ArrayList<>(){};
         String Query = "SELECT idreceipt, cashier_name, total_sum FROM mydbtest.receipts WHERE total_sum=?;";
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+          //  Class.forName("com.mysql.cj.jdbc.Driver");
+            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(Query);
             pstmt.setString(1, Double.toString(total_sum));
             ResultSet rs=pstmt.executeQuery();
@@ -435,7 +451,7 @@ public class ReceiptsDAO {
             rs.close(); pstmt.close();
             if(found){return receipts;}
             else {return null;}
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();}
         return receipts;
     }
@@ -471,8 +487,9 @@ public class ReceiptsDAO {
         boolean answer = false;
         try {
             String QUERY1="DELETE FROM mydbtest.receipts WHERE idreceipt =?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+         //   Class.forName("com.mysql.cj.jdbc.Driver");
+           // Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps1=con.prepareStatement(QUERY1);
             ps1.setString(1, String.valueOf(idreceipt));
             ps1.executeUpdate();
@@ -495,8 +512,9 @@ public class ReceiptsDAO {
         int lastIdReceipt = 0;
         ArrayList X = new ArrayList();
         String Query1 = "SELECT idreceipt, closing_time, total_sum FROM mydbtest.receipts;";
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+     //   Class.forName("com.mysql.cj.jdbc.Driver");
+      //  Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        Connection con = ManagerDB.getInstance().getConnection();
         PreparedStatement ps = con.prepareStatement(Query1);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {

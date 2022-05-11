@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * ENG: processing the display of information about
  *      an open receipt and a basket of products of this receipt
  */
-public class duringReceipt implements Command {
+public class DuringReceipt implements Command {
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         request.setAttribute("rec", ReceiptsDAO.getLastReceiptId());
