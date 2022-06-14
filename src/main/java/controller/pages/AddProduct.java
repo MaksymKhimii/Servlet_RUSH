@@ -1,7 +1,6 @@
 package controller.pages;
 
 import controller.command.Command;
-import controller.command.Login;
 import db.ProductsDAO;
 import org.apache.log4j.Logger;
 

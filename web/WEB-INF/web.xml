@@ -22,7 +22,7 @@
     </servlet-mapping>
     <filter>
         <filter-name>NoCacheFilter</filter-name>
-        <filter-class>controller.filters.NoCacheFilter</filter-class>
+        <filter-class>db.filters.NoCacheFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>NoCacheFilter</filter-name>

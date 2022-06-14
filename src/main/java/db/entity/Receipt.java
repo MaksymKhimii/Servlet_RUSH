@@ -18,9 +18,7 @@ public class Receipt {
         this.idreceipt = idreceipt;
     }
 
-    public String getCashier_name() {
-        return cashier_name;
-    }
+    public String getCashier_name() {return cashier_name;}
 
     public void setCashier_name(String cashier_name) {
         this.cashier_name = cashier_name;

@@ -7,38 +7,15 @@ import java.sql.*;
  * ENG: a DAO layer for the interaction of the program with the GoodsArchive table in the melon database,
  *  * which stores product data from all checks*/
 public class GoodsArchiveDAO {
-   /* private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-    private static final String USERNAME = "Maks_Khimii";
-    private static final String PASSWORD = "makskhimiy24112003";
 
-
-    *//** RU: метод для создания соединения между базой данных и программой
-     * ENG: method to create connection between database and program
-     * @return Connection
-     *//*
-    public Connection getConnection() throws SQLException {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        Connection con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/epam?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true", "root", "1234567h");
-        con.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
-        // con.setAutoCommit(true);
-        return con;
-    }
-*/
     /** RU: переносит данные чека из basket в goodsarchive для сохранения
      * ENG: transfers receipt data from basket to goodsarchive for saving
      * @param idreceipt receipt id
      */
-    public static void saveBacket(int idreceipt) throws SQLException, ClassNotFoundException {
+    public static void saveBacket(int idreceipt) throws ClassNotFoundException {
         double total_sum= ReceiptsDAO.getReceiptSum(idreceipt);
         try {
 
-           // Class.forName("com.mysql.cj.jdbc.Driver");
-            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
 
             String QUERY1 = "INSERT INTO mydbtest.goodsarchive(idreceipt, idproduct, name, quantity, weight, tonnage, price)" +
@@ -63,11 +40,9 @@ public class GoodsArchiveDAO {
      * ENG: delete check products by its idreceipt
      * @param idreceipt receipt id
      */
-    public static void deleteReceiptFromArchive(int idreceipt) throws SQLException, ClassNotFoundException {
+    public static void deleteReceiptFromArchive(int idreceipt) throws SQLException {
         try {
             String QUERY="DELETE FROM mydbtest.goodsarchive WHERE idreceipt =?;";
-           // Class.forName("com.mysql.cj.jdbc.Driver");
-            //Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
 
             PreparedStatement ps=con.prepareStatement(QUERY);
@@ -84,13 +59,10 @@ public class GoodsArchiveDAO {
      * @param idproduct product id
      * @param idreceipt receipt id
      */
-    public static void deleteProdFromReceipt(int idproduct, int idreceipt) throws ClassNotFoundException {
+    public static void deleteProdFromReceipt(int idproduct, int idreceipt) {
         try {
             String QUERY="DELETE FROM mydbtest.goodsarchive WHERE idproduct=? AND idreceipt=?;";
-           //Class.forName("com.mysql.cj.jdbc.Driver");
-            //Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
-
             PreparedStatement ps=con.prepareStatement(QUERY);
             ps.setString(1, String.valueOf(idproduct));
             ps.setString(2, String.valueOf(idreceipt));
@@ -110,9 +82,6 @@ public class GoodsArchiveDAO {
         boolean status=false;
         try{
             String GETUSER="SELECT * FROM mydbtest.goodsarchive WHERE idreceipt=?;";
-
-           // Class.forName("com.mysql.cj.jdbc.Driver");
-            //Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1, String.valueOf(idreceipt));
@@ -130,13 +99,9 @@ public class GoodsArchiveDAO {
      * @return boolean
      */
     public static boolean validateProdInReceipt(int idproduct, int idreceipt) {
-
         boolean status=false;
         try{
             String GETUSER="SELECT * FROM mydbtest.goodsarchive WHERE idproduct=? AND idreceipt=?;";
-
-         //   Class.forName("com.mysql.cj.jdbc.Driver");
-           // Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1, String.valueOf(idproduct));
@@ -162,9 +127,6 @@ public class GoodsArchiveDAO {
         double price =0;
         try{
             String GETUSER="SELECT quantity, weight, tonnage, price FROM mydbtest.goodsarchive WHERE idreceipt=? AND idproduct=?;";
-
-          //  Class.forName("com.mysql.cj.jdbc.Driver");
-           // Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1, String.valueOf(idreceipt));
@@ -196,8 +158,6 @@ public class GoodsArchiveDAO {
         double totalSum=0;
         try {
             String Query1 = "SELECT total_sum FROM mydbtest.receipts WHERE idreceipt=?;";
-        //    Class.forName("com.mysql.cj.jdbc.Driver");
-          //  Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps= con.prepareStatement(Query1);
             ps.setString(1, Integer.toString(idreceipt));
@@ -207,8 +167,6 @@ public class GoodsArchiveDAO {
             }
 
             String Query2 = "UPDATE mydbtest.goodsarchive SET total_sum=? WHERE idreceipt=?;";
-           // Class.forName("com.mysql.cj.jdbc.Driver");
-            //Connection con2 = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con2 = ManagerDB.getInstance().getConnection();
             PreparedStatement ps2= con2.prepareStatement(Query2);
             ps2.setString(1, Double.toString(totalSum));

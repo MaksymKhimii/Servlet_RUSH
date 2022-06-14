@@ -16,7 +16,7 @@ public class Login implements Command {
     private static final Logger log = Logger.getLogger(Login.class.getName());
     @Override
     public String execute(HttpServletRequest request) throws SQLException {
-        String errorMessage = null;
+        String errorMessage;
         HttpSession session = request.getSession();
         String name = request.getParameter("username");
         session.setAttribute("username", name);

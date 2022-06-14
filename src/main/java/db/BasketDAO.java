@@ -32,9 +32,6 @@ public class BasketDAO {
         try {
             String GETUSER = "SELECT * FROM mydbtest.basket where idproduct=? AND name=? AND" +
                     " quantity=? AND weight=? AND tonnage=? AND price=?;";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-           // Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps = con.prepareStatement(GETUSER);
 
@@ -48,7 +45,7 @@ public class BasketDAO {
             try (ResultSet rs = ps.executeQuery()) {
                 answer = rs.next();
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return answer;
@@ -62,9 +59,6 @@ public class BasketDAO {
         boolean answer = false;
         try {
             String QUERY = "SELECT * FROM mydbtest.basket;";
-
-           // Class.forName("com.mysql.cj.jdbc.Driver");
-           // Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps = con.prepareStatement(QUERY);
             try (ResultSet rs = ps.executeQuery()) {
@@ -87,7 +81,7 @@ public class BasketDAO {
      * @return boolean
      */
     public static boolean addProdToBasket(int idproduct, String name, int quantity, double weight,
-                                          boolean tonnage, double price) throws SQLException, ClassNotFoundException {
+                                          boolean tonnage, double price) throws ClassNotFoundException {
         boolean status = false;
         int idreceipt = ReceiptsDAO.getLastReceiptId();
         int tonnageInt = Product.boolToInt(tonnage);
@@ -98,8 +92,6 @@ public class BasketDAO {
 
                     String ADD_Product = "INSERT INTO mydbtest.basket (idreceipt, idproduct, name, quantity,weight,tonnage, price)" +
                             " VALUES(?,?,?,?,?,?,?);";
-                    //Class.forName("com.mysql.cj.jdbc.Driver");
-                   // Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
                     Connection con = ManagerDB.getInstance().getConnection();
 
                     PreparedStatement ps = con.prepareStatement(ADD_Product);
@@ -123,12 +115,10 @@ public class BasketDAO {
             if(ProductsDAO.validateQuantity(name, quantity)){
                 try {
 
-                    String ADD_Product = "INSERT INTO mydbtest.basket (idreceipt, idproduct, name, quantity,weight,tonnage, price)" +
+                    String ADD_Product = "INSERT INTO mydbtest.basket (idreceipt, idproduct," +
+                            " name, quantity,weight,tonnage, price)" +
                             " VALUES(?,?,?,?,?,?,?);";
-                   // Class.forName("com.mysql.cj.jdbc.Driver");
-                   // Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
                     Connection con = ManagerDB.getInstance().getConnection();
-
                     PreparedStatement ps = con.prepareStatement(ADD_Product);
                     ps.setString(1, String.valueOf(idreceipt));
                     ps.setString(2, String.valueOf(idproduct));
@@ -157,10 +147,7 @@ public class BasketDAO {
     public static void deleteBasket(int idreceipt) throws SQLException {
         try {
             String GETUSER = "DELETE FROM mydbtest.basket WHERE idreceipt=?;";
-           // Class.forName("com.mysql.cj.jdbc.Driver");
-            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
-
             PreparedStatement ps = con.prepareStatement(GETUSER);
             ps.setString(1, String.valueOf(idreceipt));
             ps.executeUpdate();
@@ -201,12 +188,10 @@ public class BasketDAO {
     public static ArrayList<Basket> getAllBasket(){
         ArrayList<Basket> basket= new ArrayList<>() {
         };
-        String Query = "SELECT idreceipt, idproduct, name, quantity, weight, tonnage, price FROM mydbtest.basket;";
+        String Query = "SELECT idreceipt, idproduct, name, quantity, weight, tonnage, price " +
+                "FROM mydbtest.basket;";
         try {
-           // Class.forName("com.mysql.cj.jdbc.Driver");
-           // Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
-
             PreparedStatement pstmt = con.prepareStatement(Query);
             ResultSet rs=pstmt.executeQuery();
             boolean found= false;

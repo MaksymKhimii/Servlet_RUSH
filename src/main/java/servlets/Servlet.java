@@ -80,7 +80,6 @@ public class Servlet extends HttpServlet {
      */
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
-    //    log.info("Controller starts");
         String path=request.getRequestURI();
         path=path.replaceAll(".*/", "");
         Command command = commands.getOrDefault(path,

@@ -1,6 +1,5 @@
-package controller.filters;
+package db.filters;
 
-import org.apache.log4j.Logger;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -16,12 +15,10 @@ import java.util.ResourceBundle;
 */
 @WebFilter(filterName = "LocaleFilter", urlPatterns = {"/*"})
 public class LocaleFilter implements Filter {
-    //private static final Logger log = Logger.getLogger(LocaleFilter.class.getName());
     @Override
     public void init(FilterConfig filterConfig) {
         //log.debug("Filter initialization starts");
     }
-
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
        // log.debug("Filter starts");
@@ -37,8 +34,7 @@ public class LocaleFilter implements Filter {
             ResourceBundle resourceBundle = ResourceBundle.getBundle("messages",
                     new Locale((String) session.getAttribute("lang")));
             session.setAttribute("resourceBundle", resourceBundle);
-        } else {
-            // Set default resource bundle EN
+        } else {// Set default resource bundle EN
             ResourceBundle defaultResourceBundle = ResourceBundle.getBundle("messages");
             session.setAttribute("resourceBundle", defaultResourceBundle);
         }

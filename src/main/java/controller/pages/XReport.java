@@ -15,7 +15,7 @@ public class XReport implements Command {
 
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
-        String answer = null;
+        String answer;
         try {
             //get current date
           String Current_Date=

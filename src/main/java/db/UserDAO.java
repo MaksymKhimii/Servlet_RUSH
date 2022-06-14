@@ -12,26 +12,6 @@ import java.util.ArrayList;
  *      which stores information about all users
  */
 public class UserDAO {
-   /* private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-    private static final String USERNAME = "Maks_Khimii";
-    private static final String PASSWORD = "makskhimiy24112003";
-
-
-    *//** RU: метод для создания соединения между базой данных и программой
-     * ENG: method to create connection between database and program
-     * @return Connection
-     *//*
-    public Connection getConnection() throws SQLException {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        Connection con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/epam?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true", "root", "1234567h");
-        con.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
-        return con;
-    }*/
 
     /** RU: метод для валидации юзера при входе в систему
      * ENG: method for validating a user at login
@@ -42,10 +22,7 @@ public class UserDAO {
     public static boolean validate(String name,String pass) {
         boolean status=false;
         try{
-            String GETUSER="select * from user where username=? and password=?";
-
-           // Class.forName("com.mysql.cj.jdbc.Driver");
-           // Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            String GETUSER="SELECT * FROM user WHERE username=? AND password=?";
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1,name);
@@ -67,8 +44,6 @@ public class UserDAO {
         String RoleQuery = "SELECT role FROM user WHERE username=? AND password = ?;";
         String role = null;
         try {
-          //  Class.forName("com.mysql.cj.jdbc.Driver");
-            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(RoleQuery);
             pstmt.setString(1, username);
@@ -92,9 +67,7 @@ public class UserDAO {
      */
     public static Boolean addUser(String username, String password, String role) throws SQLException, ClassNotFoundException {
         boolean status= false;
-        String ADDUSER="insert into user(username,password,role) values(?,?,?)";
-       // Class.forName("com.mysql.cj.jdbc.Driver");
-        //Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        String ADDUSER="INSERT INTO user(username,password,role) VALUES (?,?,?)";
         Connection con = ManagerDB.getInstance().getConnection();
         PreparedStatement ps=con.prepareStatement(ADDUSER);
         ps.setString(1,username);
@@ -115,8 +88,6 @@ public class UserDAO {
         ArrayList<User> users= new ArrayList<>(){};
         String RoleQuery = "SELECT id, username, password, role FROM user;";
         try {
-          //  Class.forName("com.mysql.cj.jdbc.Driver");
-            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(RoleQuery);
                 ResultSet rs=pstmt.executeQuery();

@@ -10,29 +10,6 @@ import java.util.ArrayList;
  * ENG: DAO layer for program interaction with the basket table in the database,
  *      which stores products during the creation of a receipt*/
 public class ProductsDAO {
-   /* private static final String URL = "jdbc:mysql://localhost:3306/mydbtest?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-    private static final String USERNAME = "Maks_Khimii";
-    private static final String PASSWORD = "makskhimiy24112003";
-
-
-    *//**RU: метод для создания соединения между базой данных и программой
-     * ENG: method to create connection between database and program
-     * @return Connection
-     *//*
-    public Connection getConnection() throws SQLException {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        Connection con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/epam?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true", "root", "1234567h");
-        con.setTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
-        return con;
-    }
-*/
-
     /** RU: метод для проверки, есть ли в базе товар с таким названием
      * (используется при добавлении нового продукта для избежания дубликатов)
      * ENG: method for checking if there is a product with the same name in the database
@@ -44,8 +21,6 @@ public class ProductsDAO {
         boolean status=false;
         try{
             String GETUSER="SELECT * FROM mydbtest.products WHERE name=?;";
-            //Class.forName("com.mysql.cj.jdbc.Driver");
-           // Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1,name);
@@ -73,8 +48,6 @@ public class ProductsDAO {
         try{
             String GETUSER="SELECT * FROM mydbtest.products WHERE name=? AND quantity=? AND weight=? AND tonnage=? AND price=?;";
             int tonnageInt=Product.boolToInt(tonnage);
-           // Class.forName("com.mysql.cj.jdbc.Driver");
-            //Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1,name);
@@ -99,13 +72,11 @@ public class ProductsDAO {
      * @param price price of this product
      * @return adding status
      */
-    public static boolean addProduct(String name, int quantity, double weight, boolean tonnage, double price) throws ClassNotFoundException {
+    public static boolean addProduct(String name, int quantity, double weight, boolean tonnage, double price) {
         boolean status= false;
         int tonnageInt=Product.boolToInt(tonnage);
         try {
             String ADD_Product="INSERT INTO mydbtest.products(name,quantity,weight,tonnage, price) VALUES(?,?,?,?,?);";
-           // Class.forName("com.mysql.cj.jdbc.Driver");
-            //Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(ADD_Product);
             ps.setString(1,name);
@@ -136,8 +107,6 @@ public class ProductsDAO {
         String Query = "UPDATE mydbtest.products SET quantity=?, weight=?, tonnage=?, price=? WHERE name =?;";
         int tonnageInt=Product.boolToInt(tonnage);
           try {
-            //Class.forName("com.mysql.cj.jdbc.Driver");
-            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
               Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(Query);
             pstmt.setString(1, String.valueOf(quantity));
@@ -157,12 +126,10 @@ public class ProductsDAO {
      * @param name name of product
      * @return deletion status
      */
-    public static boolean deleteProduct(String name) throws SQLException, ClassNotFoundException {
+    public static boolean deleteProduct(String name) throws SQLException {
         boolean answer = false;
         try {
             String DeleteProduct="DELETE FROM mydbtest.products WHERE name =?;";
-          //  Class.forName("com.mysql.cj.jdbc.Driver");
-            //Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(DeleteProduct);
             ps.setString(1,name);
@@ -185,8 +152,6 @@ public class ProductsDAO {
         ArrayList<Product> products= new ArrayList<>(){};
         String Query = "SELECT idproducts, name, quantity, weight, tonnage, price FROM mydbtest.products;";
         try {
-         //   Class.forName("com.mysql.cj.jdbc.Driver");
-           // Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(Query);
             ResultSet rs=pstmt.executeQuery();
@@ -220,8 +185,6 @@ public class ProductsDAO {
         ArrayList<Product> products= new ArrayList<Product>(){};
         String Query = "SELECT idproducts, name, quantity, weight, tonnage, price FROM mydbtest.products WHERE name=?;";
         try {
-          //  Class.forName("com.mysql.cj.jdbc.Driver");
-            //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(Query);
             pstmt.setString(1, name);
@@ -259,13 +222,11 @@ public class ProductsDAO {
         boolean status=false;
         try{
             String GETUSER="SELECT quantity FROM mydbtest.products WHERE name=?;";
-           // Class.forName("com.mysql.cj.jdbc.Driver");
-            //Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1,name);
             try (ResultSet rs=ps.executeQuery()) {
-                int actualQuantity = 0; //колличество товара из таблицы
+                int actualQuantity = 0;
                 while (rs.next()) {
                     actualQuantity = rs.getInt("quantity");
                 }
@@ -288,13 +249,11 @@ public class ProductsDAO {
         boolean status=false;
         try{
             String GETUSER="SELECT weight FROM mydbtest.products WHERE name=?;";
-            //Class.forName("com.mysql.cj.jdbc.Driver");
-           // Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1,name);
             try (ResultSet rs=ps.executeQuery()) {
-                double actualWeight = 0; //вес товара из таблицы
+                double actualWeight = 0;
                 while (rs.next()) {
                     actualWeight = rs.getDouble("weight");
                 }
@@ -314,8 +273,6 @@ public class ProductsDAO {
         boolean status=false;
         try{
             String GETUSER="SELECT tonnage FROM mydbtest.products WHERE name=?;";
-            //Class.forName("com.mysql.cj.jdbc.Driver");
-           // Connection con= DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps=con.prepareStatement(GETUSER);
             ps.setString(1,name);
@@ -349,8 +306,6 @@ public class ProductsDAO {
             String Query1 = "SELECT weight FROM mydbtest.products WHERE name=?;";
             double oldWeight=0;
             try {
-               // Class.forName("com.mysql.cj.jdbc.Driver");
-                //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
                 Connection con = ManagerDB.getInstance().getConnection();
                 PreparedStatement pstmt = con.prepareStatement(Query1);
                 pstmt.setString(1, name);
@@ -365,8 +320,6 @@ public class ProductsDAO {
 
             String Query2 = "UPDATE mydbtest.products SET weight=? WHERE name =?;";
             try {
-             //   Class.forName("com.mysql.cj.jdbc.Driver");
-               // Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
                 Connection con = ManagerDB.getInstance().getConnection();
                 PreparedStatement pstmt = con.prepareStatement(Query2);
                 pstmt.setString(1, String.valueOf(newWeight));
@@ -379,8 +332,6 @@ public class ProductsDAO {
             String Query3 = "SELECT quantity FROM mydbtest.products WHERE name=?;";
             int oldQuantity=0;
             try {
-               // Class.forName("com.mysql.cj.jdbc.Driver");
-                //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
                 Connection con = ManagerDB.getInstance().getConnection();
                 PreparedStatement pstmt = con.prepareStatement(Query3);
                 pstmt.setString(1, name);
@@ -394,8 +345,6 @@ public class ProductsDAO {
             double newQuantity=oldQuantity-quantity;
             String Query4 = "UPDATE mydbtest.products SET quantity=? WHERE name =?;";
             try {
-               // Class.forName("com.mysql.cj.jdbc.Driver");
-                //Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
                 Connection con = ManagerDB.getInstance().getConnection();
                 PreparedStatement pstmt = con.prepareStatement(Query4);
                 pstmt.setString(1, String.valueOf(newQuantity));

@@ -3,7 +3,6 @@ package controller.command;
 import db.UserDAO;
 import org.apache.log4j.Logger;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,9 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+
 
 /** RU: в этом сервлете обработка процесса регистрации нового пользователя
  * ENG: processing the new user registration process in this servlet
