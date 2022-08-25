@@ -7,26 +7,28 @@ import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
-/** RU: обработка поиска продукта по наименованию в базе данных
+/**
+ * RU: обработка поиска продукта по наименованию в базе данных
  * ENG: processing the search for a product by name in the database
  */
 public class SearchProduct implements Command {
     private static final Logger log = Logger.getLogger(SearchProduct.class.getName());
+
     @Override
     public String execute(HttpServletRequest request) throws SQLException, ClassNotFoundException {
         String answer = null;
         try {
             String name = request.getParameter("name");
-            if(ProductsDAO.validateProduct(name)){
+            if (ProductsDAO.validateProduct(name)) {
                 ProductsDAO.getOneProduct(name);
-                log.debug("Product "+name+" was found");
+                log.debug("Product " + name + " was found");
                 request.setAttribute("products", ProductsDAO.getOneProduct(name));
-                answer ="/WEB-INF/admin-basic/change_product.jsp";
+                answer = "/WEB-INF/admin-basic/change_product.jsp";
             } else {
-                log.debug("Product "+name+" wasn't found");
-                answer ="/WEB-INF/admin-basic/merchandiser_error.jsp";
+                log.debug("Product " + name + " wasn't found");
+                answer = "/WEB-INF/admin-basic/merchandiser_error.jsp";
             }
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             e.printStackTrace();
         }
         return answer;

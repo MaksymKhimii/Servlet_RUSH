@@ -18,10 +18,12 @@
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
         }
+
         .topnav {
             overflow: hidden;
             background-color: #333;
         }
+
         .topnav a {
             float: left;
             color: #f2f2f2;
@@ -30,14 +32,17 @@
             text-decoration: none;
             font-size: 20px;
         }
+
         .topnav a:hover {
             background-color: #ddd;
             color: black;
         }
+
         .topnav a.active {
             background-color: #4CAF50;
             color: white;
         }
+
         .topnav-right {
             float: right;
         }
@@ -57,7 +62,7 @@
     </div>
 </div>
 <div style="text-align: center;">
-    <h2><fmt:message key="st_cashier_navbar_jsp.label.Cash_register_at_your_service"/> </h2>
+    <h2><fmt:message key="st_cashier_navbar_jsp.label.Cash_register_at_your_service"/></h2>
 </div>
 <script>
 

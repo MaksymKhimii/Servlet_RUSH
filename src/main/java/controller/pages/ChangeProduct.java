@@ -7,7 +7,8 @@ import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
-/** RU: обработка изменения продукта в базе данных
+/**
+ * RU: обработка изменения продукта в базе данных
  * ENG: processing product change in database
  */
 public class ChangeProduct implements Command {
@@ -20,19 +21,19 @@ public class ChangeProduct implements Command {
             String name = request.getParameter("name");
             int quantity = Integer.parseInt(request.getParameter("quantity"));
             double weight = Double.parseDouble(request.getParameter("weight"));
-            boolean tonnage=Boolean.parseBoolean(request.getParameter("tonnage"));
+            boolean tonnage = Boolean.parseBoolean(request.getParameter("tonnage"));
             double price = Double.parseDouble(request.getParameter("price"));
 
             ProductsDAO.changeProduct(name, quantity, weight, tonnage, price);
-            if(ProductsDAO.validateProduct(name, quantity, weight, tonnage, price)){
-                log.debug("Product "+name+" has been changed successfully");
-                answer="/WEB-INF/admin-basic/successfully_changed.jsp";
-            } else{
+            if (ProductsDAO.validateProduct(name, quantity, weight, tonnage, price)) {
+                log.debug("Product " + name + " has been changed successfully");
+                answer = "/WEB-INF/admin-basic/successfully_changed.jsp";
+            } else {
                 log.error("Product hasn't been changed");
-                answer="/WEB-INF/admin-basic/danger_not_changed.jsp";
+                answer = "/WEB-INF/admin-basic/danger_not_changed.jsp";
             }
             request.setAttribute("products", ProductsDAO.getAllProducts());
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             e.printStackTrace();
         }
         return answer;

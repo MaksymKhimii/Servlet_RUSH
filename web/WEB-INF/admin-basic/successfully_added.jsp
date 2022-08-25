@@ -21,7 +21,9 @@
         margin-bottom: 15px;
     }
 
-    .alert.success {background-color: #4CAF50;}
+    .alert.success {
+        background-color: #4CAF50;
+    }
 
     .closebtn {
         margin-left: 15px;
@@ -37,6 +39,7 @@
     .closebtn:hover {
         color: black;
     }
+
     .button-37 {
         background-color: #13aa52;
         border: 1px solid #13aa52;
@@ -81,10 +84,12 @@
     var i;
 
     for (i = 0; i < close.length; i++) {
-        close[i].onclick = function(){
+        close[i].onclick = function () {
             var div = this.parentElement;
             div.style.opacity = "0";
-            setTimeout(function(){ div.style.display = "none"; }, 600);
+            setTimeout(function () {
+                div.style.display = "none";
+            }, 600);
         }
     }
 </script>

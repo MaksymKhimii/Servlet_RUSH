@@ -13,7 +13,8 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 
 
-/** RU: в этом сервлете обработка процесса регистрации нового пользователя
+/**
+ * RU: в этом сервлете обработка процесса регистрации нового пользователя
  * ENG: processing the new user registration process in this servlet
  */
 @WebServlet("/SignUp")
@@ -22,7 +23,7 @@ public class SignUp extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/common/sign-up.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/common/sign-up.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -33,16 +34,14 @@ public class SignUp extends HttpServlet {
         try {
             if (UserDAO.validate(username, password)) {
                 log.error("Such user already exists");
-            //    request.getRequestDispatcher("/WEB-INF/common/sign-up.jsp").forward(request, response);
                 response.sendRedirect("/SignUp");
             } else {
-                if (UserDAO.addUser(username, password, role)){
+                if (UserDAO.addUser(username, password, role)) {
                     log.info("New user has been registered");
-                  //  request.getRequestDispatcher("/Login").forward(request, response);
                     response.sendRedirect("/Login");
                 }
             }
-        } catch (SQLException | ClassNotFoundException e){
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         out.close();

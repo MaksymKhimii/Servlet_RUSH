@@ -8,10 +8,11 @@ import db.ReceiptsDAO;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
-/** RU: обработка отображения информации
- *      об открытом чеке и корзине  продуктами этого чека
+/**
+ * RU: обработка отображения информации
+ * об открытом чеке и корзине  продуктами этого чека
  * ENG: processing the display of information about
- *      an open receipt and a basket of products of this receipt
+ * an open receipt and a basket of products of this receipt
  */
 public class DuringReceipt implements Command {
     @Override

@@ -1,6 +1,7 @@
 package db.entity;
 
-/** RU: сущность представляет информацию об отчетах
+/**
+ * RU: сущность представляет информацию об отчетах
  * ENG: entity represents information about reports
  */
 public class Report {
@@ -11,23 +12,43 @@ public class Report {
     private String time;
     private double totalSum;
 
-    public int getIdreport() {return idreport;}
+    public int getIdreport() {
+        return idreport;
+    }
 
-    public void setIdreport(int idreport) {this.idreport = idreport;}
+    public void setIdreport(int idreport) {
+        this.idreport = idreport;
+    }
 
-    public int getQuantityOfReceipts() {return quantityOfReceipts;}
+    public int getQuantityOfReceipts() {
+        return quantityOfReceipts;
+    }
 
-    public void setQuantityOfReceipts(int quantityOfReceipts) {this.quantityOfReceipts = quantityOfReceipts;}
+    public void setQuantityOfReceipts(int quantityOfReceipts) {
+        this.quantityOfReceipts = quantityOfReceipts;
+    }
 
-    public int getLastReceiptId() {return lastReceiptId;}
+    public int getLastReceiptId() {
+        return lastReceiptId;
+    }
 
-    public void setLastReceiptId(int lastReceiptId) {this.lastReceiptId = lastReceiptId;}
+    public void setLastReceiptId(int lastReceiptId) {
+        this.lastReceiptId = lastReceiptId;
+    }
 
-    public String getTime() {return time;}
+    public String getTime() {
+        return time;
+    }
 
-    public void setTime(String time) {this.time = time;}
+    public void setTime(String time) {
+        this.time = time;
+    }
 
-    public double getTotalSum() {return totalSum;}
+    public double getTotalSum() {
+        return totalSum;
+    }
 
-    public void setTotalSum(double totalSum) {this.totalSum = totalSum;}
+    public void setTotalSum(double totalSum) {
+        this.totalSum = totalSum;
+    }
 }

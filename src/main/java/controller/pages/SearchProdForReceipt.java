@@ -9,7 +9,8 @@ import org.apache.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
-/** RU: обработка поиска продукта для дальнейшего добавления его в корзину
+/**
+ * RU: обработка поиска продукта для дальнейшего добавления его в корзину
  * ENG: processing the search for a product to further add it to the cart
  */
 public class SearchProdForReceipt implements Command {
@@ -20,22 +21,22 @@ public class SearchProdForReceipt implements Command {
         String answer = null;
         try {
             String name = request.getParameter("name");
-            if(ProductsDAO.validateProduct(name)){
+            if (ProductsDAO.validateProduct(name)) {
                 ProductsDAO.getOneProduct(name);
                 request.setAttribute("rec", ReceiptsDAO.getLastReceiptId());
                 request.setAttribute("totalSum", ReceiptsDAO.getReceiptSum(ReceiptsDAO.getLastReceiptId()));
                 request.setAttribute("basket", BasketDAO.getAllBasket());
-                request.setAttribute("products",  ProductsDAO.getOneProduct(name));
-                if(BasketDAO.checkBasket()){
-                    answer ="/WEB-INF/user-basic/addToReceipt.jsp";
-                }else{
-                    answer="/WEB-INF/user-basic/firstAddProduct.jsp";
+                request.setAttribute("products", ProductsDAO.getOneProduct(name));
+                if (BasketDAO.checkBasket()) {
+                    answer = "/WEB-INF/user-basic/addToReceipt.jsp";
+                } else {
+                    answer = "/WEB-INF/user-basic/firstAddProduct.jsp";
                 }
             } else {
-                log.error("Product "+name+" hasn't been found");
+                log.error("Product " + name + " hasn't been found");
                 answer = "/WEB-INF/user-basic/cashier_error.jsp";
             }
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             e.printStackTrace();
         }
         return answer;

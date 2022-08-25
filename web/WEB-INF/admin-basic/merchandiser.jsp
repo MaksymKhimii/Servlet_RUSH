@@ -11,14 +11,16 @@
 <fmt:setLocale value="${sessionScope.lang}"/>
 <fmt:setBundle basename="messages"/>
 <html>
-<style>.table_blur{
+<style>.table_blur {
     margin: auto;
 }
+
 .table_blur {
     background: #f5ffff;
     border-collapse: collapse;
     text-align: left;
 }
+
 .table_blur th {
     border-top: 1px solid #777777;
     border-bottom: 1px solid #777777;
@@ -28,6 +30,7 @@
     padding: 10px 15px;
     position: relative;
 }
+
 .table_blur th:after {
     content: "";
     display: block;
@@ -36,31 +39,37 @@
     top: 25%;
     height: 25%;
     width: 100%;
-    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255,255,255,.08));
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .08));
 }
+
 .table_blur tr:nth-child(odd) {
     background: #ebf3f9;
 }
+
 .table_blur th:first-child {
     border-left: 1px solid #777777;
-    border-bottom:  1px solid #777777;
+    border-bottom: 1px solid #777777;
     box-shadow: inset 1px 1px 0 #999999, inset 0 -1px 0 #999999;
 }
+
 .table_blur th:last-child {
     border-right: 1px solid #777777;
-    border-bottom:  1px solid #777777;
+    border-bottom: 1px solid #777777;
     box-shadow: inset -1px 1px 0 #999999, inset 0 -1px 0 #999999;
 }
+
 .table_blur td {
     border: 1px solid #e3eef7;
     padding: 10px 15px;
     position: relative;
     transition: all 0.5s ease;
 }
+
 .table_blur tbody:hover td {
     color: transparent;
     text-shadow: 0 0 3px #a09f9d;
 }
+
 .table_blur tbody:hover tr:hover td {
     color: #444444;
     text-shadow: none;
@@ -118,21 +127,22 @@
 <jsp:include page="/WEB-INF/parts/merchandiser_navbar.jsp"/>
 
 <p>
-<div style="text-align: center;"><fmt:message key="merchandiser_jsp.label_merchandiser_successfully_logged_in"/> </div>
+<div style="text-align: center;"><fmt:message key="merchandiser_jsp.label_merchandiser_successfully_logged_in"/></div>
 <br>
 <form class="example" action="searchProduct" style="margin:auto;max-width:300px">
-    <input type="text" placeholder=<fmt:message key="st_cashier_jsp.placeholder.Search_product_by_name.." /> name="name">
+    <input type="text" placeholder=
+    <fmt:message key="st_cashier_jsp.placeholder.Search_product_by_name.."/> name="name">
     <button type="submit"><i class="fa fa-search"></i></button>
 </form>
 <table class="table_blur">
     <thead>
     <tr>
-        <th><fmt:message key="merchandiser_jsp.table.idproducts"/> </th>
-        <th><fmt:message key="merchandiser_jsp.table.name"/> </th>
-        <th><fmt:message key="merchandiser_jsp.table.quantity"/> </th>
-        <th><fmt:message key="merchandiser_jsp.table.weight"/> </th>
-        <th><fmt:message key="merchandiser_jsp.table.tonnage"/> </th>
-        <th><fmt:message key="merchandiser_jsp.table.price"/> </th>
+        <th><fmt:message key="merchandiser_jsp.table.idproducts"/></th>
+        <th><fmt:message key="merchandiser_jsp.table.name"/></th>
+        <th><fmt:message key="merchandiser_jsp.table.quantity"/></th>
+        <th><fmt:message key="merchandiser_jsp.table.weight"/></th>
+        <th><fmt:message key="merchandiser_jsp.table.tonnage"/></th>
+        <th><fmt:message key="merchandiser_jsp.table.price"/></th>
     </tr>
     </thead>
     <tbody>

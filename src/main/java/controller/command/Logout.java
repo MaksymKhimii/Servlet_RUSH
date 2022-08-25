@@ -5,7 +5,8 @@ import db.enums.UserRole;
 import javax.servlet.http.*;
 
 
-/** RU: обработка выхода пользователя и завершение текущего сеанса
+/**
+ * RU: обработка выхода пользователя и завершение текущего сеанса
  * ENG: processing user logout and end current session
  */
 public class Logout implements Command {

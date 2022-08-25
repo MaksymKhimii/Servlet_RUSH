@@ -18,10 +18,12 @@
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
         }
+
         .topnav {
             overflow: hidden;
             background-color: #333;
         }
+
         .topnav a {
             float: left;
             color: #f2f2f2;
@@ -30,14 +32,17 @@
             text-decoration: none;
             font-size: 20px;
         }
+
         .topnav a:hover {
             background-color: #ddd;
             color: black;
         }
+
         .topnav a.active {
             background-color: #4CAF50;
             color: white;
         }
+
         .topnav-right {
             float: right;
         }
@@ -49,7 +54,7 @@
     <a href="/SignUp"><fmt:message key="navbar_jsp.href.Sign_Up"/></a>
     <a href="/add_new_product"><fmt:message key="merchandiser_navbar_jsp.href.Add_new_Product"/></a>
     <div class="topnav-right">
-      <%--  <a href="/info"><fmt:message key="navbar_jsp.href.Info"/></a>--%>
+        <%--  <a href="/info"><fmt:message key="navbar_jsp.href.Info"/></a>--%>
         <a href="?lang=en">Eng</a>
         <a href="?lang=ru">Ru</a>
     </div>

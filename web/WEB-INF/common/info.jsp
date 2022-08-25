@@ -58,40 +58,40 @@
     <br>
 </div>
 <div style="text-indent: 575px">
-    <fmt:message key="Info.text"/> </div>
-    <br>
+    <fmt:message key="Info.text"/></div>
+<br>
 <div style="text-indent: 575px">
-    <fmt:message key="Info.text0"/> </div>
-    <br>
+    <fmt:message key="Info.text0"/></div>
+<br>
 <div style="text-indent: 575px">
-    <fmt:message key="Info.text1"/> </div>
-    <br>
+    <fmt:message key="Info.text1"/></div>
+<br>
 <div style="text-indent: 575px">
-    <fmt:message key="Info.text2"/> </div>
-    <br>
+    <fmt:message key="Info.text2"/></div>
+<br>
 <div style="text-indent: 575px">
-    <fmt:message key="Info.text3"/> </div>
-    <br>
+    <fmt:message key="Info.text3"/></div>
+<br>
 <div style="text-indent: 575px">
-    <fmt:message key="Info.text4"/> </div>
-    <br>
+    <fmt:message key="Info.text4"/></div>
+<br>
 <div style="text-indent: 575px">
-    <fmt:message key="Info.text5"/> </div>
-    <br>
+    <fmt:message key="Info.text5"/></div>
+<br>
 <div style="text-indent: 575px">
-    <fmt:message key="Info.text6"/> </div>
-    <br>
+    <fmt:message key="Info.text6"/></div>
+<br>
 <div style="text-indent: 575px">
-    <fmt:message key="Info.text7"/> </div>
-    <br>
+    <fmt:message key="Info.text7"/></div>
+<br>
 <div style="text-indent: 575px">
-    <fmt:message key="Info.text8"/> </div>
-    <br>
+    <fmt:message key="Info.text8"/></div>
+<br>
 <div style="text-indent: 575px">
-    <fmt:message key="Info.text9"/> </div>
-    <br>
+    <fmt:message key="Info.text9"/></div>
+<br>
 <div style="text-indent: 570px">
-    <h2> <fmt:message key="Info.author"/></h2> </div>
+    <h2><fmt:message key="Info.author"/></h2></div>
 
 <form name="returnInfo" method="post" action="login">
     <div style="text-align: center;">

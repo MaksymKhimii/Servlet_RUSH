@@ -6,14 +6,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <html>
-<style>.table_blur{
+<style>.table_blur {
     margin: auto;
 }
+
 .table_blur {
     background: #f5ffff;
     border-collapse: collapse;
     text-align: left;
 }
+
 .table_blur th {
     border-top: 1px solid #777777;
     border-bottom: 1px solid #777777;
@@ -23,6 +25,7 @@
     padding: 10px 15px;
     position: relative;
 }
+
 .table_blur th:after {
     content: "";
     display: block;
@@ -31,31 +34,37 @@
     top: 25%;
     height: 25%;
     width: 100%;
-    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255,255,255,.08));
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .08));
 }
+
 .table_blur tr:nth-child(odd) {
     background: #ebf3f9;
 }
+
 .table_blur th:first-child {
     border-left: 1px solid #777777;
-    border-bottom:  1px solid #777777;
+    border-bottom: 1px solid #777777;
     box-shadow: inset 1px 1px 0 #999999, inset 0 -1px 0 #999999;
 }
+
 .table_blur th:last-child {
     border-right: 1px solid #777777;
-    border-bottom:  1px solid #777777;
+    border-bottom: 1px solid #777777;
     box-shadow: inset -1px 1px 0 #999999, inset 0 -1px 0 #999999;
 }
+
 .table_blur td {
     border: 1px solid #e3eef7;
     padding: 10px 15px;
     position: relative;
     transition: all 0.5s ease;
 }
+
 .table_blur tbody:hover td {
     color: transparent;
     text-shadow: 0 0 3px #a09f9d;
 }
+
 .table_blur tbody:hover tr:hover td {
     color: #444444;
     text-shadow: none;
@@ -145,17 +154,17 @@
 <jsp:include page="/WEB-INF/parts/st_cashier_navbar.jsp"/>
 <p>
 <div style="text-align: center;">
-    <h2><fmt:message key="AllReports_jsp.label_All_Reports"/> </h2>
+    <h2><fmt:message key="AllReports_jsp.label_All_Reports"/></h2>
 </div>
 <br> <%-- специальный отступ для нормального вида поисковика, не убирать!!!--%>
 <table class="table_blur">
     <thead>
     <tr>
-        <th><fmt:message key="AllReports_jsp.table.Id_Report"/> </th>
-        <th><fmt:message key="AllReports_jsp.table.Quantity_of_receipts"/> </th>
-        <th><fmt:message key="AllReports_jsp.table.Last_receipt_id"/> </th>
-        <th><fmt:message key="AllReports_jsp.table.Time"/> </th>
-        <th><fmt:message key="AllReports_jsp.table.Total_sum"/> </th>
+        <th><fmt:message key="AllReports_jsp.table.Id_Report"/></th>
+        <th><fmt:message key="AllReports_jsp.table.Quantity_of_receipts"/></th>
+        <th><fmt:message key="AllReports_jsp.table.Last_receipt_id"/></th>
+        <th><fmt:message key="AllReports_jsp.table.Time"/></th>
+        <th><fmt:message key="AllReports_jsp.table.Total_sum"/></th>
     </tr>
     </thead>
     <tbody>
@@ -174,7 +183,7 @@
 <br>
 <form name="returnSt_Cashier" method="post" action="st_cashier">
     <div style="text-align: center;">
-        <button class="button-37" role="button"><fmt:message key="button_Return"/> </button>
+        <button class="button-37" role="button"><fmt:message key="button_Return"/></button>
     </div>
 </form>
 </html>

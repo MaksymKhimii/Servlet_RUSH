@@ -6,7 +6,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-/** RU: класс для определения атрибутов пользователя
+/**
+ * RU: класс для определения атрибутов пользователя
  * ENG: class to define user attributes
  */
 public class CommandUtility {

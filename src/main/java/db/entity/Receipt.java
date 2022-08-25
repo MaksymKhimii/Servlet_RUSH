@@ -1,6 +1,7 @@
 package db.entity;
 
-/** RU: сущность представляет информацию о чеках
+/**
+ * RU: сущность представляет информацию о чеках
  * ENG: entity represents information about checks
  */
 public class Receipt {
@@ -18,7 +19,9 @@ public class Receipt {
         this.idreceipt = idreceipt;
     }
 
-    public String getCashier_name() {return cashier_name;}
+    public String getCashier_name() {
+        return cashier_name;
+    }
 
     public void setCashier_name(String cashier_name) {
         this.cashier_name = cashier_name;
@@ -32,7 +35,11 @@ public class Receipt {
         this.total_sum = total_sum;
     }
 
-    public String getClosing_time() {return closing_time;}
+    public String getClosing_time() {
+        return closing_time;
+    }
 
-    public void setClosing_time(String closing_time) {this.closing_time = closing_time;}
+    public void setClosing_time(String closing_time) {
+        this.closing_time = closing_time;
+    }
 }

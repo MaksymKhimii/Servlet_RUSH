@@ -1,45 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: meizo
-  Date: 18.03.2022
-  Time: 18:31
-  To change this template use File | Settings | File Templates.
---%><html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        .alert {
-            padding: 20px;
-            background-color: #f44336;
-            color: white;
-        }
-
-        .closebtn {
-            margin-left: 15px;
-            color: white;
-            font-weight: bold;
-            float: right;
-            font-size: 22px;
-            line-height: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .closebtn:hover {
-            color: black;
-        }
-    </style>
-</head>
-</html>
 <html>
-<style>.table_blur{
+<style>.table_blur {
     margin: auto;
 }
+
 .table_blur {
     background: #f5ffff;
     border-collapse: collapse;
     text-align: left;
 }
+
 .table_blur th {
     border-top: 1px solid #777777;
     border-bottom: 1px solid #777777;
@@ -49,6 +18,7 @@
     padding: 10px 15px;
     position: relative;
 }
+
 .table_blur th:after {
     content: "";
     display: block;
@@ -57,31 +27,37 @@
     top: 25%;
     height: 25%;
     width: 100%;
-    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255,255,255,.08));
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .08));
 }
+
 .table_blur tr:nth-child(odd) {
     background: #ebf3f9;
 }
+
 .table_blur th:first-child {
     border-left: 1px solid #777777;
-    border-bottom:  1px solid #777777;
+    border-bottom: 1px solid #777777;
     box-shadow: inset 1px 1px 0 #999999, inset 0 -1px 0 #999999;
 }
+
 .table_blur th:last-child {
     border-right: 1px solid #777777;
-    border-bottom:  1px solid #777777;
+    border-bottom: 1px solid #777777;
     box-shadow: inset -1px 1px 0 #999999, inset 0 -1px 0 #999999;
 }
+
 .table_blur td {
     border: 1px solid #e3eef7;
     padding: 10px 15px;
     position: relative;
     transition: all 0.5s ease;
 }
+
 .table_blur tbody:hover td {
     color: transparent;
     text-shadow: 0 0 3px #a09f9d;
 }
+
 .table_blur tbody:hover tr:hover td {
     color: #444444;
     text-shadow: none;
@@ -136,39 +112,41 @@
 
 <p>
 <form name="addProduct" method="post" action="addProduct">
-<table class="table_blur">
-    <thead>
-    <tr>
-        <th><fmt:message key="merchandiser_jsp.table.name"/> </th>
-        <th><fmt:message key="merchandiser_jsp.table.quantity"/> </th>
-        <th><fmt:message key="merchandiser_jsp.table.weight"/> </th>
-        <th><fmt:message key="merchandiser_jsp.table.tonnage"/> </th>
-        <th><fmt:message key="merchandiser_jsp.table.price"/> </th>
-    </tr>
-    </thead>
-    <tbody>
-    <%-- тут что то не так с атрибутом products, надо изменить чтобы можно было добавить новый продукт--%>
-    <c:forEach items="new_product" var="prod">
+    <table class="table_blur">
+        <thead>
         <tr>
-            <th><input type="text" value="" name="name" required></th>
-            <th><input type="number" value="" name="quantity" required></th>
-            <th><input type="number" step="0.1"value="" name="weight" required></th>
-            <th><input type="text" list="tonnage" name="tonnage" id="tonnages" required>
-            <datalist id="tonnage">
-                <option value="TRUE">
-                <option value="FALSE">
-            </datalist></th>
-            <th><input type="number" step="0.01" value="" name="price" required></th>
-            <th><input type="submit" value=<fmt:message key="button_Add"/>  onclick=""></th>
+            <th><fmt:message key="merchandiser_jsp.table.name"/></th>
+            <th><fmt:message key="merchandiser_jsp.table.quantity"/></th>
+            <th><fmt:message key="merchandiser_jsp.table.weight"/></th>
+            <th><fmt:message key="merchandiser_jsp.table.tonnage"/></th>
+            <th><fmt:message key="merchandiser_jsp.table.price"/></th>
         </tr>
-    </c:forEach>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <%-- тут что то не так с атрибутом products, надо изменить чтобы можно было добавить новый продукт--%>
+        <c:forEach items="new_product" var="prod">
+            <tr>
+                <th><input type="text" value="" name="name" required></th>
+                <th><input type="number" value="" name="quantity" required></th>
+                <th><input type="number" step="0.1" value="" name="weight" required></th>
+                <th><input type="text" list="tonnage" name="tonnage" id="tonnages" required>
+                    <datalist id="tonnage">
+                        <option value="TRUE">
+                        <option value="FALSE">
+                    </datalist>
+                </th>
+                <th><input type="number" step="0.01" value="" name="price" required></th>
+                <th><input type="submit" value=
+                    <fmt:message key="button_Add"/>  onclick=""></th>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
 
 </form>
 <form name="returnAdmin" method="post" action="merchandiser">
     <div style="text-align: center;">
-        <button class="button-37" role="button"><fmt:message key="button_Return"/> </button>
+        <button class="button-37" role="button"><fmt:message key="button_Return"/></button>
     </div>
 </form>
 </p>

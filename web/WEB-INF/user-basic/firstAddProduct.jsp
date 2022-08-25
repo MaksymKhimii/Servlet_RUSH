@@ -13,14 +13,16 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>.table_blur{
+    <style>.table_blur {
         margin: auto;
     }
+
     .table_blur {
         background: #f5ffff;
         border-collapse: collapse;
         text-align: left;
     }
+
     .table_blur th {
         border-top: 1px solid #777777;
         border-bottom: 1px solid #777777;
@@ -30,6 +32,7 @@
         padding: 10px 15px;
         position: relative;
     }
+
     .table_blur th:after {
         content: "";
         display: block;
@@ -38,31 +41,37 @@
         top: 25%;
         height: 25%;
         width: 100%;
-        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255,255,255,.08));
+        background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, .08));
     }
+
     .table_blur tr:nth-child(odd) {
         background: #ebf3f9;
     }
+
     .table_blur th:first-child {
         border-left: 1px solid #777777;
-        border-bottom:  1px solid #777777;
+        border-bottom: 1px solid #777777;
         box-shadow: inset 1px 1px 0 #999999, inset 0 -1px 0 #999999;
     }
+
     .table_blur th:last-child {
         border-right: 1px solid #777777;
-        border-bottom:  1px solid #777777;
+        border-bottom: 1px solid #777777;
         box-shadow: inset -1px 1px 0 #999999, inset 0 -1px 0 #999999;
     }
+
     .table_blur td {
         border: 1px solid #e3eef7;
         padding: 10px 15px;
         position: relative;
         transition: all 0.5s ease;
     }
+
     .table_blur tbody:hover td {
         color: transparent;
         text-shadow: 0 0 3px #a09f9d;
     }
+
     .table_blur tbody:hover tr:hover td {
         color: #444444;
         text-shadow: none;
@@ -141,6 +150,7 @@
             clear: both;
             display: table;
         }
+
         .button-37 {
             background-color: #13aa52;
             border: 1px solid #13aa52;
@@ -187,8 +197,8 @@
     <div class="centered">
         <p>
         <div style="text-align: center;">
-        <fmt:message key="cashier.label.cashier_successfully_logged_in"/>
-    </div>
+            <fmt:message key="cashier.label.cashier_successfully_logged_in"/>
+        </div>
         </p>
         <h2><fmt:message key="st_cashier_jsp.label.Receipt_Id"/> : ${rec}</h2>
         <h2><fmt:message key="report.label.Total_Sum"/> ${totalSum}</h2>
@@ -204,54 +214,56 @@
     <div class="centered">
         <h2><fmt:message key="navbar_jsp.label.Cash_register_at_your_service"/></h2>
         <form class="example" action="searchProductForReceipt" style="margin:auto;max-width:300px">
-            <input type="text" placeholder=<fmt:message key="st_cashier_jsp.placeholder.Search_product_by_name.."/> name="name">
+            <input type="text" placeholder=
+            <fmt:message key="st_cashier_jsp.placeholder.Search_product_by_name.."/> name="name">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
         <p>
-        <form name="AddToBasket"  action="AddToBasket">
-        <table class="table_blur">
-            <thead>
-            <tr>
-                <th><fmt:message key="merchandiser_jsp.table.idproducts"/> </th>
-                <th><fmt:message key="merchandiser_jsp.table.name"/> </th>
-                <th><fmt:message key="merchandiser_jsp.table.quantity"/> </th>
-            </tr>
-            </thead>
-            <tbody>
-            <jsp:useBean id="products" scope="request" type="java.util.List"/>
-            <c:forEach items="${products}" var="prod">
+        <form name="AddToBasket" action="AddToBasket">
+            <table class="table_blur">
+                <thead>
                 <tr>
-                    <th><input type="number" value="${prod.idproducts}" name="idproducts" required></th>
-                    <th><input type="text" value="${prod.name}" name="name" required></th>
-                    <th><input type="number" value="${prod.quantity}" name="quantity" required></th>
+                    <th><fmt:message key="merchandiser_jsp.table.idproducts"/></th>
+                    <th><fmt:message key="merchandiser_jsp.table.name"/></th>
+                    <th><fmt:message key="merchandiser_jsp.table.quantity"/></th>
                 </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-        <table class="table_blur">
-            <thead>
-            <tr>
-                <th><fmt:message key="merchandiser_jsp.table.weight"/> </th>
-                <th><fmt:message key="merchandiser_jsp.table.tonnage"/> </th>
-                <th><fmt:message key="merchandiser_jsp.table.price"/> </th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach items="${products}" var="prod">
+                </thead>
+                <tbody>
+                <jsp:useBean id="products" scope="request" type="java.util.List"/>
+                <c:forEach items="${products}" var="prod">
+                    <tr>
+                        <th><input type="number" value="${prod.idproducts}" name="idproducts" required></th>
+                        <th><input type="text" value="${prod.name}" name="name" required></th>
+                        <th><input type="number" value="${prod.quantity}" name="quantity" required></th>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+            <table class="table_blur">
+                <thead>
                 <tr>
-                    <th><input type="number" step="0.01" value="${prod.weight}" name="weight" required></th>
-                    <th><input list="tonnage" name="tonnage" value="${prod.tonnage}" id="tonnages" required>
-                        <datalist id="tonnage">
-                            <option value="TRUE">
-                            <option value="FALSE">
-                        </datalist></th>
-                    <th><input type="number" step="0.01" value="${prod.price}" name="price" required></th>
+                    <th><fmt:message key="merchandiser_jsp.table.weight"/></th>
+                    <th><fmt:message key="merchandiser_jsp.table.tonnage"/></th>
+                    <th><fmt:message key="merchandiser_jsp.table.price"/></th>
                 </tr>
-            </c:forEach>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                <c:forEach items="${products}" var="prod">
+                    <tr>
+                        <th><input type="number" step="0.01" value="${prod.weight}" name="weight" required></th>
+                        <th><input list="tonnage" name="tonnage" value="${prod.tonnage}" id="tonnages" required>
+                            <datalist id="tonnage">
+                                <option value="TRUE">
+                                <option value="FALSE">
+                            </datalist>
+                        </th>
+                        <th><input type="number" step="0.01" value="${prod.price}" name="price" required></th>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
 
-        <input type="submit" value=<fmt:message key="button_Add_To_Receipt"/>>
+            <input type="submit" value=<fmt:message key="button_Add_To_Receipt"/>>
         </form>
     </div>
 </div>

@@ -6,27 +6,28 @@ import db.entity.Product;
 import java.sql.*;
 import java.util.ArrayList;
 
-/** RU: слой ДАО для взаимодействия программы с таблицей basket в базе дынных,
- *      которая хранит продукты во время создания ного чека
+/**
+ * RU: слой ДАО для взаимодействия программы с таблицей basket в базе дынных,
+ * которая хранит продукты во время создания ного чека
  * ENG: DAO layer for program interaction with the basket table in the database,
- *      which stores products during the creation of a receipt*/
+ * which stores products during the creation of a receipt
+ */
 
 public class BasketDAO {
-
-
     /**
      * RU: метод проверяет добавлен ли продукт с определенными параметрами
      * ENG: the method checks if a product has been added with certain parameters
+     *
      * @param idproduct product id
-     * @param name product name
-     * @param quantity quantity of product type
-     * @param weight product weight
-     * @param tonnage whether the item is by weight
-     * @param price price
+     * @param name      product name
+     * @param quantity  quantity of product type
+     * @param weight    product weight
+     * @param tonnage   whether the item is by weight
+     * @param price     price
      * @return boolean
      */
-    public static boolean validateBasket( int idproduct, String name, int quantity, double weight,
-                                          boolean tonnage, double price) throws SQLException {
+    public static boolean validateBasket(int idproduct, String name, int quantity, double weight,
+                                         boolean tonnage, double price) throws SQLException {
         boolean answer = false;
         int tonnageInt = Product.boolToInt(tonnage);
         try {
@@ -34,8 +35,6 @@ public class BasketDAO {
                     " quantity=? AND weight=? AND tonnage=? AND price=?;";
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement ps = con.prepareStatement(GETUSER);
-
-
             ps.setString(1, String.valueOf(idproduct));
             ps.setString(2, String.valueOf(name));
             ps.setString(3, String.valueOf(quantity));
@@ -51,8 +50,10 @@ public class BasketDAO {
         return answer;
     }
 
-    /** RU: проверка корзины на налачие хотя бы одного продукта
+    /**
+     * RU: проверка корзины на налачие хотя бы одного продукта
      * ENG: checking the basket for at least one product
+     *
      * @return boolean
      */
     public static boolean checkBasket() {
@@ -70,14 +71,16 @@ public class BasketDAO {
         return answer;
     }
 
-    /** RU: метод для добавления в корзину последнего созданного чека
+    /**
+     * RU: метод для добавления в корзину последнего созданного чека
      * ENG: method for adding the last created receipt to the basket
+     *
      * @param idproduct product id
-     * @param name product name
-     * @param quantity quantity of product type
-     * @param weight product weight
-     * @param tonnage whether the item is by weight
-     * @param price price
+     * @param name      product name
+     * @param quantity  quantity of product type
+     * @param weight    product weight
+     * @param tonnage   whether the item is by weight
+     * @param price     price
      * @return boolean
      */
     public static boolean addProdToBasket(int idproduct, String name, int quantity, double weight,
@@ -86,14 +89,12 @@ public class BasketDAO {
         int idreceipt = ReceiptsDAO.getLastReceiptId();
         int tonnageInt = Product.boolToInt(tonnage);
         ProductsDAO.updateCountProduct(name, quantity, weight, tonnage);
-        if(tonnage){
-            if(ProductsDAO.validateWeight(name, weight)){
+        if (tonnage) {
+            if (ProductsDAO.validateWeight(name, weight)) {
                 try {
-
                     String ADD_Product = "INSERT INTO mydbtest.basket (idreceipt, idproduct, name, quantity,weight,tonnage, price)" +
                             " VALUES(?,?,?,?,?,?,?);";
                     Connection con = ManagerDB.getInstance().getConnection();
-
                     PreparedStatement ps = con.prepareStatement(ADD_Product);
                     ps.setString(1, String.valueOf(idreceipt));
                     ps.setString(2, String.valueOf(idproduct));
@@ -112,9 +113,8 @@ public class BasketDAO {
                 }
             }
         } else {
-            if(ProductsDAO.validateQuantity(name, quantity)){
+            if (ProductsDAO.validateQuantity(name, quantity)) {
                 try {
-
                     String ADD_Product = "INSERT INTO mydbtest.basket (idreceipt, idproduct," +
                             " name, quantity,weight,tonnage, price)" +
                             " VALUES(?,?,?,?,?,?,?);";
@@ -140,8 +140,10 @@ public class BasketDAO {
         return status;
     }
 
-    /** RU: удаляет все продукты из basket которые пренадлежат к открытому чеку
+    /**
+     * RU: удаляет все продукты из basket которые пренадлежат к открытому чеку
      * ENG: removes all products from the basket that belong to the open receipt
+     *
      * @param idreceipt product id
      */
     public static void deleteBasket(int idreceipt) throws SQLException {
@@ -156,46 +158,50 @@ public class BasketDAO {
         }
     }
 
-    /** RU: метод получает суму за один продукт
-     *       (метод будет использоваться при добавлении продукта в корзину
-     *       для следующего изменения отображаеого значения общей суммы )
+    /**
+     * RU: метод получает суму за один продукт
+     * (метод будет использоваться при добавлении продукта в корзину
+     * для следующего изменения отображаеого значения общей суммы )
      * ENG: the method receives the amount for one product
-     *       (the method will be used when adding the product to the cart
-     *       for the next change in the displayed value of the total amount)
+     * (the method will be used when adding the product to the cart
+     * for the next change in the displayed value of the total amount)
+     *
      * @param idproduct product id
-     * @param name product name
-     * @param quantity quantity of product type
-     * @param weight product weight
-     * @param tonnage whether the item is by weight
-     * @param price price
+     * @param name      product name
+     * @param quantity  quantity of product type
+     * @param weight    product weight
+     * @param tonnage   whether the item is by weight
+     * @param price     price
      * @return double
      */
-    public static double countSumOneProduct( int idproduct, String name, int quantity, double weight,
-                                          boolean tonnage, double price) {
-       double SumOneProd;
-        if(tonnage){
-            SumOneProd=weight*price;
+    public static double countSumOneProduct(int idproduct, String name, int quantity, double weight,
+                                            boolean tonnage, double price) {
+        double SumOneProd;
+        if (tonnage) {
+            SumOneProd = weight * price;
         } else {
-            SumOneProd=quantity*price;
+            SumOneProd = quantity * price;
         }
         return SumOneProd;
     }
 
-    /** RU: метод для получения данных всех продуктов чека
+    /**
+     * RU: метод для получения данных всех продуктов чека
      * ENG: method for obtaining data of all receipt products
+     *
      * @return ArrayList<Basket>
      */
-    public static ArrayList<Basket> getAllBasket(){
-        ArrayList<Basket> basket= new ArrayList<>() {
+    public static ArrayList<Basket> getAllBasket() {
+        ArrayList<Basket> basket = new ArrayList<>() {
         };
         String Query = "SELECT idreceipt, idproduct, name, quantity, weight, tonnage, price " +
                 "FROM mydbtest.basket;";
         try {
             Connection con = ManagerDB.getInstance().getConnection();
             PreparedStatement pstmt = con.prepareStatement(Query);
-            ResultSet rs=pstmt.executeQuery();
-            boolean found= false;
-            while (rs.next()){
+            ResultSet rs = pstmt.executeQuery();
+            boolean found = false;
+            while (rs.next()) {
                 Basket AllBasket = new Basket();
                 AllBasket.setIdreceipt(rs.getInt("idreceipt"));
                 AllBasket.setIdproduct(rs.getInt("idproduct"));
@@ -205,13 +211,18 @@ public class BasketDAO {
                 AllBasket.setTonnage(rs.getBoolean("tonnage"));
                 AllBasket.setPrice(rs.getDouble("price"));
                 basket.add(AllBasket);
-                found= true;
+                found = true;
             }
-            rs.close(); pstmt.close();
-            if(found){return basket;}
-            else {return null;}
+            rs.close();
+            pstmt.close();
+            if (found) {
+                return basket;
+            } else {
+                return null;
+            }
         } catch (SQLException e) {
-            e.printStackTrace();}
+            e.printStackTrace();
+        }
         return basket;
     }
 }

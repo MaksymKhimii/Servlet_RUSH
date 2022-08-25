@@ -1,9 +1,10 @@
 package db.entity;
 
-/** RU: сущность предствляет буфер для продуктов,
- *      которые добавляют в новый чек и хранятся там до момента закрытия чека
+/**
+ * RU: сущность предствляет буфер для продуктов,
+ * которые добавляют в новый чек и хранятся там до момента закрытия чека
  * ENG: entity represents a buffer for products,
- *      which are added to a new check and stored there until the check is closed
+ * which are added to a new check and stored there until the check is closed
  */
 public class Basket {
 
@@ -15,31 +16,59 @@ public class Basket {
     private boolean tonnage;
     private double price;
 
-    public int getIdreceipt() {return idreceipt;}
+    public int getIdreceipt() {
+        return idreceipt;
+    }
 
-    public void setIdreceipt(int idreceipt) {this.idreceipt = idreceipt;}
+    public void setIdreceipt(int idreceipt) {
+        this.idreceipt = idreceipt;
+    }
 
-    public int getIdproduct() {return idproduct;}
+    public int getIdproduct() {
+        return idproduct;
+    }
 
-    public void setIdproduct(int idproduct) {this.idproduct = idproduct;}
+    public void setIdproduct(int idproduct) {
+        this.idproduct = idproduct;
+    }
 
-    public String getName() {return name;}
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) {this.name = name;}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public int getQuantity() {return quantity;}
+    public int getQuantity() {
+        return quantity;
+    }
 
-    public void setQuantity(int quantity) {this.quantity = quantity;}
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
-    public double getWeight() {return weight;}
+    public double getWeight() {
+        return weight;
+    }
 
-    public void setWeight(double weight) {this.weight = weight;}
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
 
-    public boolean isTonnage() {return tonnage;}
+    public boolean isTonnage() {
+        return tonnage;
+    }
 
-    public void setTonnage(boolean tonnage) {this.tonnage = tonnage;}
+    public void setTonnage(boolean tonnage) {
+        this.tonnage = tonnage;
+    }
 
-    public double getPrice() {return price;}
+    public double getPrice() {
+        return price;
+    }
 
-    public void setPrice(double price) {this.price = price;}
+    public void setPrice(double price) {
+        this.price = price;
+    }
 }

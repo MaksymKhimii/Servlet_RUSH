@@ -6,6 +6,7 @@ import controller.pages.Merchandiser;
 import controller.pages.Cashier;
 
 import org.apache.log4j.Logger;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,23 +18,22 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 
-/** RU: Главный сервлет для обработки запросов, действий и отображении страниц
+/**
+ * RU: Главный сервлет для обработки запросов, действий и отображении страниц
  * ENG: The main servlet for processing requests, actions and displaying pages
  */
 public class Servlet extends HttpServlet {
-
     private static final Logger log = Logger.getLogger(Servlet.class);
-
     private final Map<String, Command> commands = new HashMap<>();
-
-    /** Holder for all commands */
-    public void init(ServletConfig servletConfig){
-
+    /**
+     * Holder for all commands
+     */
+    public void init(ServletConfig servletConfig) {
         servletConfig.getServletContext()
                 .setAttribute("loggedUsers", new HashSet<String>());
         commands.put("logout", new Logout());
         commands.put("login", new Login());
-        commands.put("exception" , new ExceptionCommand());
+        commands.put("exception", new ExceptionCommand());
         commands.put("merchandiser", new Merchandiser());
         commands.put("cashier", new Cashier());
         commands.put("st_cashier", new ElderCashier());
@@ -50,7 +50,7 @@ public class Servlet extends HttpServlet {
         commands.put("closeReceipt", new CloseReceipt());
         commands.put("searchReceipt", new SearchReceipt());
         commands.put("deleteReceipt", new DeleteReceipt());
-        commands.put("SeeMoreReceipt", new  SeeMoreReceipt());
+        commands.put("SeeMoreReceipt", new SeeMoreReceipt());
         commands.put("deleteProductFromReceipt", new DeleteProdFromReceipt());
         commands.put("Xreport", new XReport());
         commands.put("report", new Report());
@@ -67,6 +67,7 @@ public class Servlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         try {
@@ -75,20 +76,22 @@ public class Servlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-    /** RU: Основной метод этого сервлета, который обрабатывает запрос и возвращает страницу
+
+    /**
+     * RU: Основной метод этого сервлета, который обрабатывает запрос и возвращает страницу
      * ENG:Main method of this servlet, which process request and return page
      */
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException, ClassNotFoundException {
-        String path=request.getRequestURI();
-        path=path.replaceAll(".*/", "");
+        String path = request.getRequestURI();
+        path = path.replaceAll(".*/", "");
         Command command = commands.getOrDefault(path,
-                (r)->"/index.jsp");
-        log.debug("Command: "+command.toString());
+                (r) -> "/index.jsp");
+        log.debug("Command: " + command.toString());
         String page = command.execute(request);
-        if(page.contains("redirect:") || page.contains("logout")){
+        if (page.contains("redirect:") || page.contains("logout")) {
             response.sendRedirect(page.replace("redirect:", ""));
-        }else {
+        } else {
             request.getRequestDispatcher(page).forward(request, response);
         }
     }

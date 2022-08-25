@@ -35,6 +35,7 @@
     .closebtn:hover {
         color: black;
     }
+
     .button-37 {
         background-color: #13aa52;
         border: 1px solid #13aa52;
@@ -72,17 +73,19 @@
 <jsp:include page="/WEB-INF/parts/st_cashier_navbar.jsp"/>
 <div class="alert" style="text-align: center;">
     <span class="closebtn">×</span>
-    <p><strong><fmt:message key="Error!"/> </strong> <fmt:message key="Message.Oops1"/> </p>
+    <p><strong><fmt:message key="Error!"/> </strong> <fmt:message key="Message.Oops1"/></p>
 </div>
 <script>
     var close = document.getElementsByClassName("closebtn");
     var i;
 
     for (i = 0; i < close.length; i++) {
-        close[i].onclick = function(){
+        close[i].onclick = function () {
             var div = this.parentElement;
             div.style.opacity = "0";
-            setTimeout(function(){ div.style.display = "none"; }, 600);
+            setTimeout(function () {
+                div.style.display = "none";
+            }, 600);
         }
     }
 </script>

@@ -5,7 +5,8 @@ import controller.command.Command;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 
-/** RU: обработка отображения страницы с сообщением об ошибке
+/**
+ * RU: обработка отображения страницы с сообщением об ошибке
  * ENG: handle page display with error message
  */
 public class MerchandiserError implements Command {
